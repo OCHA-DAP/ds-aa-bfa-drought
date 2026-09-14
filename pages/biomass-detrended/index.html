@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burkina Faso drought — would Trigger 2 activate without the greening trend?</title>
+<meta name="description" content="The biomass indicator behind the Burkina Faso drought framework's ASAP trigger has a strong upward trend in the four framework provinces. This page removes the trend from ASAP's cumulative-FPAR anomaly and re-runs the trigger rule for 2001–2026 to see which years would have activated.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: light;
+    --b5:#269777; --b6:#1e795f; --b7:#18614c; --b05:#e9f5f1; --b1:#d4eae4;
+    --n9:#1f2324; --n8:#3f4748; --n7:#5e6a6b; --n6:#7e8e8f; --n15:#e2e8e8; --n1:#ebeff0; --n05:#f5f7f7;
+    --w05:#fbf4ea; --w5:#d48f2a; --w7:#7f5619; --e05:#f9eceb; --e6:#9d372b; --e7:#762920; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--n05); color: var(--n9); font: 400 15px/1.55 'Roboto', system-ui, sans-serif; }
+  .home-link { display: inline-block; margin: 10px 12px; padding: 6px 12px; font: 500 13px/1 'Roboto', system-ui, sans-serif;
+    color: var(--b6); background: var(--b05); border: 1px solid var(--b1); border-radius: 4px; text-decoration: none; }
+  .home-link:hover { background: var(--b1); }
+  .wrap { max-width: 940px; margin: 0 auto; padding: 0 16px 56px; }
+  h1 { font-family: 'Merriweather', Georgia, serif; font-size: 26px; font-weight: 700; line-height: 1.25; margin: 8px 0 6px; text-wrap: balance; }
+  h2 { font-size: 19px; font-weight: 700; margin: 36px 0 8px; color: var(--b7); border-bottom: 2px solid var(--b1); padding-bottom: 5px; }
+  h3 { font-size: 15.5px; font-weight: 700; margin: 20px 0 6px; }
+  .sub { color: var(--n7); margin: 2px 0 18px; max-width: 80ch; }
+  p, li { max-width: 82ch; }
+  a { color: var(--b6); }
+  .callout { background: #fff; border: 1px solid var(--n15); border-left: 4px solid var(--b6); border-radius: 4px; padding: 12px 16px; margin: 16px 0; }
+  .callout.warn { border-left-color: var(--w5); }
+  .callout p { margin: 6px 0; }
+  .callout p:first-child { margin-top: 2px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0 6px; background: #fff; border: 1px solid var(--n15); font-size: 13.5px; }
+  th, td { padding: 7px 10px; border-bottom: 1px solid var(--n1); text-align: left; vertical-align: top; }
+  th { background: var(--n05); font-weight: 500; color: var(--n8); }
+  tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tblwrap { overflow-x: auto; }
+  .tag { display: inline-block; font-size: 11.5px; font-weight: 500; padding: 1px 7px; border-radius: 9px; white-space: nowrap; }
+  .tag.sig { background: var(--e05); color: var(--e7); }
+  .tag.ns { background: var(--n1); color: var(--n7); }
+  figure { margin: 18px 0; background: #fff; border: 1px solid var(--n15); border-radius: 6px; padding: 14px 12px 8px; }
+  figure svg { display: block; margin: 0 auto; }
+  figcaption { color: var(--n7); font-size: 13px; padding: 10px 6px 2px; max-width: 100ch; }
+  .meta { color: var(--n7); font-size: 13px; border-top: 1px solid var(--n15); padding-top: 14px; margin-top: 40px; }
+  code { background: var(--n1); padding: 1px 5px; border-radius: 3px; font-size: 12.5px; }
+  h2, h3 { scroll-margin-top: 16px; }
+  .anchor { opacity: 0; text-decoration: none; font-weight: 400; margin-left: 2px; }
+  h2:hover .anchor, h3:hover .anchor, .anchor:focus { opacity: 0.75; }
+  @media (max-width: 640px) { h1 { font-size: 22px; } th, td { padding: 6px 7px; } }
+</style>
+</head>
+<body>
+<!-- back to the site landing page — first element inside body -->
+<a class="home-link" href="../">← Burkina Faso drought AA</a>
+
+<div class="wrap">
+  <h1>Would Trigger 2 activate without the greening trend?</h1>
+  <p class="sub">Trigger 2 of the Burkina Faso drought framework activates on a JRC ASAP level-3
+     alert in at least two of Loroum, Oudalan, Séno and Yagha. The biomass side of that alert is
+     ASAP's cumulative-FPAR anomaly, a z-score against the full 2001-to-present record. Biomass in
+     these provinces has risen strongly over that record, so a fixed z-score threshold gets harder
+     to reach every year. This page removes the trend and re-runs the trigger rule for 2001 to
+     2026 to see what changes.</p>
+
+  <div class="callout">
+    <p><strong>Bottom line.</strong> The trend is real and it is concentrated in the framework
+       provinces: Séno and Loroum have the two steepest biomass trends of Burkina Faso's 45
+       provinces, and all four are in the top third. But removing it does <strong>not</strong>
+       unlock any recent activation. In detrended space the years that meet the level-3 rule are
+       2002, 2009 and 2011, against 2002, 2004, 2009 and 2011 as published. No year after 2011
+       reaches the threshold either way, and 2026 stays well above it. The trend has shifted
+       recent seasons by roughly 0.3 to 0.8 standard deviations, while the recent seasons sit 1 to
+       2 standard deviations above the level a warning needs. The gap is larger than the trend.</p>
+  </div>
+
+  <h2 id="trend">1 · How strong is the trend, and where <a class="anchor" href="#trend" aria-label="Link to this section">#</a></h2>
+
+  <p>ASAP publishes, for every province, the dekadal mean of each indicator it thresholds. For
+     the cumulative-FPAR anomaly (zFPARc) on cropland and on rangeland, the seasonal mean
+     (dekads 19 to 30, July to October) was computed for each province and year, and a Theil-Sen
+     slope with a Mann-Kendall test fitted over 2001 to 2025. Figure 1 shows every province.</p>
+
+  <figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 691" width="100%" style="max-width:760px" font-family="Roboto,system-ui,sans-serif" role="img" aria-labelledby="fa"><title id="fa">Theil-Sen trend in seasonal-mean zFPARc per province, 2001–2025, z per decade</title>
+<line x1="110.0" y1="38" x2="110.0" y2="639" stroke="#e2e8e8" stroke-width="1"/>
+<text x="110.0" y="32" text-anchor="middle" font-size="10.5" fill="#5e6a6b">-1.0</text>
+<line x1="250.0" y1="38" x2="250.0" y2="639" stroke="#e2e8e8" stroke-width="1"/>
+<text x="250.0" y="32" text-anchor="middle" font-size="10.5" fill="#5e6a6b">-0.5</text>
+<line x1="390.0" y1="38" x2="390.0" y2="639" stroke="#9db1b3" stroke-width="1.4"/>
+<text x="390.0" y="32" text-anchor="middle" font-size="10.5" fill="#5e6a6b">+0.0</text>
+<line x1="530.0" y1="38" x2="530.0" y2="639" stroke="#e2e8e8" stroke-width="1"/>
+<text x="530.0" y="32" text-anchor="middle" font-size="10.5" fill="#5e6a6b">+0.5</text>
+<line x1="670.0" y1="38" x2="670.0" y2="639" stroke="#e2e8e8" stroke-width="1"/>
+<text x="670.0" y="32" text-anchor="middle" font-size="10.5" fill="#5e6a6b">+1.0</text>
+<text x="390.0" y="655" text-anchor="middle" font-size="11" fill="#5e6a6b">Trend in seasonal-mean zFPARc (z-score units per decade)</text>
+<text x="102" y="54.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Sissili</text>
+<line x1="142.8" y1="50.5" x2="246.4" y2="50.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="142.8" cy="50.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Sissili — crop: -0.88 z/decade (Mann-Kendall p=0.000)</title></circle>
+<rect x="243.2" y="47.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Sissili — range: -0.51 z/decade (Mann-Kendall p=0.006)</title></rect>
+<text x="102" y="67.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Ziro</text>
+<line x1="167.7" y1="63.5" x2="278.0" y2="63.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="167.7" cy="63.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Ziro — crop: -0.79 z/decade (Mann-Kendall p=0.000)</title></circle>
+<rect x="274.8" y="60.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Ziro — range: -0.40 z/decade (Mann-Kendall p=0.010)</title></rect>
+<text x="102" y="80.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Tapoa</text>
+<line x1="190.4" y1="76.5" x2="278.6" y2="76.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="190.4" cy="76.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Tapoa — crop: -0.71 z/decade (Mann-Kendall p=0.000)</title></circle>
+<rect x="275.4" y="73.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Tapoa — range: -0.40 z/decade (Mann-Kendall p=0.037)</title></rect>
+<text x="102" y="93.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Bale</text>
+<line x1="201.8" y1="89.5" x2="291.7" y2="89.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="201.8" cy="89.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Bale — crop: -0.67 z/decade (Mann-Kendall p=0.000)</title></circle>
+<rect x="288.5" y="86.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Bale — range: -0.35 z/decade (Mann-Kendall p=0.041)</title></rect>
+<text x="102" y="106.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Kouritenga</text>
+<line x1="304.0" y1="102.5" x2="305.2" y2="102.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="304.0" cy="102.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Kouritenga — crop: -0.31 z/decade (Mann-Kendall p=0.185)</title></circle>
+<rect x="302.0" y="99.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Kouritenga — range: -0.30 z/decade (Mann-Kendall p=0.185)</title></rect>
+<text x="102" y="119.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Gourma</text>
+<line x1="263.4" y1="115.5" x2="316.4" y2="115.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="263.4" cy="115.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Gourma — crop: -0.45 z/decade (Mann-Kendall p=0.033)</title></circle>
+<rect x="313.2" y="112.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Gourma — range: -0.26 z/decade (Mann-Kendall p=0.108)</title></rect>
+<text x="102" y="132.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Ganzourgou</text>
+<line x1="314.1" y1="128.5" x2="332.3" y2="128.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="314.1" cy="128.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Ganzourgou — crop: -0.27 z/decade (Mann-Kendall p=0.297)</title></circle>
+<rect x="329.1" y="125.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Ganzourgou — range: -0.21 z/decade (Mann-Kendall p=0.218)</title></rect>
+<text x="102" y="145.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Komonjdjari</text>
+<line x1="280.5" y1="141.5" x2="341.3" y2="141.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="280.5" cy="141.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Komonjdjari — crop: -0.39 z/decade (Mann-Kendall p=0.142)</title></circle>
+<rect x="338.1" y="138.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Komonjdjari — range: -0.17 z/decade (Mann-Kendall p=0.502)</title></rect>
+<text x="102" y="158.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Mouhoun</text>
+<line x1="311.0" y1="154.5" x2="350.2" y2="154.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="311.0" cy="154.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Mouhoun — crop: -0.28 z/decade (Mann-Kendall p=0.052)</title></circle>
+<rect x="347.0" y="151.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Mouhoun — range: -0.14 z/decade (Mann-Kendall p=0.319)</title></rect>
+<text x="102" y="171.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Kompienga</text>
+<line x1="331.5" y1="167.5" x2="351.4" y2="167.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="331.5" cy="167.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Kompienga — crop: -0.21 z/decade (Mann-Kendall p=0.366)</title></circle>
+<rect x="348.2" y="164.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Kompienga — range: -0.14 z/decade (Mann-Kendall p=0.502)</title></rect>
+<text x="102" y="184.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Leraba</text>
+<line x1="249.4" y1="180.5" x2="358.9" y2="180.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="249.4" cy="180.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Leraba — crop: -0.50 z/decade (Mann-Kendall p=0.000)</title></circle>
+<rect x="355.7" y="177.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Leraba — range: -0.11 z/decade (Mann-Kendall p=0.445)</title></rect>
+<text x="102" y="197.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Boulgou</text>
+<line x1="310.5" y1="193.5" x2="360.3" y2="193.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="310.5" cy="193.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Boulgou — crop: -0.28 z/decade (Mann-Kendall p=0.046)</title></circle>
+<rect x="357.1" y="190.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Boulgou — range: -0.11 z/decade (Mann-Kendall p=0.660)</title></rect>
+<text x="102" y="210.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Comoe</text>
+<line x1="297.6" y1="206.5" x2="368.2" y2="206.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="297.6" cy="206.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Comoe — crop: -0.33 z/decade (Mann-Kendall p=0.052)</title></circle>
+<rect x="365.0" y="203.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Comoe — range: -0.08 z/decade (Mann-Kendall p=0.694)</title></rect>
+<text x="102" y="223.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Tuy</text>
+<line x1="255.0" y1="219.5" x2="374.3" y2="219.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="255.0" cy="219.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Tuy — crop: -0.48 z/decade (Mann-Kendall p=0.001)</title></circle>
+<rect x="371.1" y="216.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Tuy — range: -0.06 z/decade (Mann-Kendall p=0.764)</title></rect>
+<text x="102" y="236.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Ioba</text>
+<line x1="302.6" y1="232.5" x2="379.1" y2="232.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="302.6" cy="232.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Ioba — crop: -0.31 z/decade (Mann-Kendall p=0.108)</title></circle>
+<rect x="375.9" y="229.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Ioba — range: -0.04 z/decade (Mann-Kendall p=0.835)</title></rect>
+<text x="102" y="249.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Banwa</text>
+<line x1="340.7" y1="245.5" x2="385.8" y2="245.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="340.7" cy="245.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Banwa — crop: -0.18 z/decade (Mann-Kendall p=0.170)</title></circle>
+<rect x="382.6" y="242.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Banwa — range: -0.01 z/decade (Mann-Kendall p=0.872)</title></rect>
+<text x="102" y="262.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Gnagna</text>
+<line x1="389.2" y1="258.5" x2="395.3" y2="258.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="395.3" cy="258.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Gnagna — crop: +0.02 z/decade (Mann-Kendall p=0.945)</title></circle>
+<rect x="386.0" y="255.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Gnagna — range: -0.00 z/decade (Mann-Kendall p=0.982)</title></rect>
+<text x="102" y="275.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Zoundweogo</text>
+<line x1="356.7" y1="271.5" x2="397.3" y2="271.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="356.7" cy="271.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Zoundweogo — crop: -0.12 z/decade (Mann-Kendall p=0.627)</title></circle>
+<rect x="394.1" y="268.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Zoundweogo — range: +0.03 z/decade (Mann-Kendall p=0.872)</title></rect>
+<text x="102" y="288.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Nahouri</text>
+<line x1="269.9" y1="284.5" x2="405.4" y2="284.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="269.9" cy="284.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Nahouri — crop: -0.43 z/decade (Mann-Kendall p=0.011)</title></circle>
+<rect x="402.2" y="281.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Nahouri — range: +0.06 z/decade (Mann-Kendall p=0.835)</title></rect>
+<text x="102" y="301.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Kossi</text>
+<line x1="355.3" y1="297.5" x2="411.3" y2="297.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="355.3" cy="297.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Kossi — crop: -0.12 z/decade (Mann-Kendall p=0.627)</title></circle>
+<rect x="408.1" y="294.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Kossi — range: +0.08 z/decade (Mann-Kendall p=0.694)</title></rect>
+<text x="102" y="314.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Kenedougou</text>
+<line x1="277.2" y1="310.5" x2="418.6" y2="310.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="277.2" cy="310.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Kenedougou — crop: -0.40 z/decade (Mann-Kendall p=0.025)</title></circle>
+<rect x="415.4" y="307.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Kenedougou — range: +0.10 z/decade (Mann-Kendall p=0.694)</title></rect>
+<text x="102" y="327.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Koulpelogo</text>
+<line x1="334.6" y1="323.5" x2="420.8" y2="323.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="334.6" cy="323.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Koulpelogo — crop: -0.20 z/decade (Mann-Kendall p=0.366)</title></circle>
+<rect x="417.6" y="320.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Koulpelogo — range: +0.11 z/decade (Mann-Kendall p=0.660)</title></rect>
+<text x="102" y="340.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Noumbiel</text>
+<line x1="419.7" y1="336.5" x2="424.4" y2="336.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="419.7" cy="336.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Noumbiel — crop: +0.11 z/decade (Mann-Kendall p=0.627)</title></circle>
+<rect x="421.2" y="333.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Noumbiel — range: +0.12 z/decade (Mann-Kendall p=0.391)</title></rect>
+<text x="102" y="353.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Zondoma</text>
+<line x1="427.5" y1="349.5" x2="434.5" y2="349.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="434.5" cy="349.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Zondoma — crop: +0.16 z/decade (Mann-Kendall p=0.275)</title></circle>
+<rect x="424.3" y="346.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Zondoma — range: +0.13 z/decade (Mann-Kendall p=0.366)</title></rect>
+<text x="102" y="366.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Oubritenga</text>
+<line x1="420.0" y1="362.5" x2="429.8" y2="362.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="420.0" cy="362.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Oubritenga — crop: +0.11 z/decade (Mann-Kendall p=0.595)</title></circle>
+<rect x="426.6" y="359.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Oubritenga — range: +0.14 z/decade (Mann-Kendall p=0.627)</title></rect>
+<text x="102" y="379.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Sanguie</text>
+<line x1="390.3" y1="375.5" x2="431.7" y2="375.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="390.3" cy="375.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Sanguie — crop: +0.00 z/decade (Mann-Kendall p=1.000)</title></circle>
+<rect x="428.5" y="372.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Sanguie — range: +0.15 z/decade (Mann-Kendall p=0.156)</title></rect>
+<text x="102" y="392.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Passore</text>
+<line x1="419.4" y1="388.5" x2="432.8" y2="388.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="419.4" cy="388.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Passore — crop: +0.10 z/decade (Mann-Kendall p=0.473)</title></circle>
+<rect x="429.6" y="385.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Passore — range: +0.15 z/decade (Mann-Kendall p=0.445)</title></rect>
+<text x="102" y="405.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Bougouriba</text>
+<line x1="344.4" y1="401.5" x2="437.6" y2="401.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="344.4" cy="401.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Bougouriba — crop: -0.16 z/decade (Mann-Kendall p=0.297)</title></circle>
+<rect x="434.4" y="398.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Bougouriba — range: +0.17 z/decade (Mann-Kendall p=0.445)</title></rect>
+<text x="102" y="418.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Nayala</text>
+<line x1="413.2" y1="414.5" x2="440.4" y2="414.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="413.2" cy="414.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Nayala — crop: +0.08 z/decade (Mann-Kendall p=0.595)</title></circle>
+<rect x="437.2" y="411.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Nayala — range: +0.18 z/decade (Mann-Kendall p=0.418)</title></rect>
+<text x="102" y="431.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Poni</text>
+<line x1="385.5" y1="427.5" x2="446.3" y2="427.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="385.5" cy="427.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Poni — crop: -0.02 z/decade (Mann-Kendall p=0.982)</title></circle>
+<rect x="443.1" y="424.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Poni — range: +0.20 z/decade (Mann-Kendall p=0.319)</title></rect>
+<text x="102" y="444.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Houet</text>
+<line x1="343.0" y1="440.5" x2="447.1" y2="440.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="343.0" cy="440.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Houet — crop: -0.17 z/decade (Mann-Kendall p=0.297)</title></circle>
+<rect x="443.9" y="437.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Houet — range: +0.20 z/decade (Mann-Kendall p=0.319)</title></rect>
+<text x="102" y="457.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Bazega</text>
+<line x1="404.0" y1="453.5" x2="466.2" y2="453.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="404.0" cy="453.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Bazega — crop: +0.05 z/decade (Mann-Kendall p=0.729)</title></circle>
+<rect x="463.0" y="450.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Bazega — range: +0.27 z/decade (Mann-Kendall p=0.130)</title></rect>
+<text x="102" y="470.0" text-anchor="end" font-size="11" font-weight="500" fill="#1f2324">Oudalan</text>
+<line x1="446.3" y1="466.5" x2="467.8" y2="466.5" stroke="#bee0d6" stroke-width="2"/>
+<circle cx="446.3" cy="466.5" r="4.5" fill="#1e795f" stroke="#fff" stroke-width="1"><title>Oudalan — crop: +0.20 z/decade (Mann-Kendall p=0.236)</title></circle>
+<rect x="463.3" y="462.0" width="9" height="9" fill="#9d372b" stroke="#fff" stroke-width="1"><title>Oudalan — range: +0.28 z/decade (Mann-Kendall p=0.391)</title></rect>
+<text x="102" y="483.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Kadiogo</text>
+<line x1="460.3" y1="479.5" x2="470.1" y2="479.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="460.3" cy="479.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Kadiogo — crop: +0.25 z/decade (Mann-Kendall p=0.275)</title></circle>
+<rect x="466.9" y="476.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Kadiogo — range: +0.29 z/decade (Mann-Kendall p=0.275)</title></rect>
+<text x="102" y="496.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Boulkiemde</text>
+<line x1="467.0" y1="492.5" x2="471.5" y2="492.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="467.0" cy="492.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Boulkiemde — crop: +0.28 z/decade (Mann-Kendall p=0.108)</title></circle>
+<rect x="468.3" y="489.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Boulkiemde — range: +0.29 z/decade (Mann-Kendall p=0.047)</title></rect>
+<text x="102" y="509.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Bam</text>
+<line x1="479.6" y1="505.5" x2="485.5" y2="505.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="485.5" cy="505.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Bam — crop: +0.34 z/decade (Mann-Kendall p=0.130)</title></circle>
+<rect x="476.4" y="502.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Bam — range: +0.32 z/decade (Mann-Kendall p=0.275)</title></rect>
+<text x="102" y="522.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Namentenga</text>
+<line x1="488.6" y1="518.5" x2="501.2" y2="518.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="488.6" cy="518.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Namentenga — crop: +0.35 z/decade (Mann-Kendall p=0.088)</title></circle>
+<rect x="498.0" y="515.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Namentenga — range: +0.40 z/decade (Mann-Kendall p=0.142)</title></rect>
+<text x="102" y="535.0" text-anchor="end" font-size="11" font-weight="500" fill="#1f2324">Yagha</text>
+<line x1="472.6" y1="531.5" x2="503.4" y2="531.5" stroke="#bee0d6" stroke-width="2"/>
+<circle cx="472.6" cy="531.5" r="4.5" fill="#1e795f" stroke="#fff" stroke-width="1"><title>Yagha — crop: +0.29 z/decade (Mann-Kendall p=0.142)</title></circle>
+<rect x="498.9" y="527.0" width="9" height="9" fill="#9d372b" stroke="#fff" stroke-width="1"><title>Yagha — range: +0.41 z/decade (Mann-Kendall p=0.015)</title></rect>
+<text x="102" y="548.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Yatenga</text>
+<line x1="473.2" y1="544.5" x2="504.2" y2="544.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="473.2" cy="544.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Yatenga — crop: +0.30 z/decade (Mann-Kendall p=0.218)</title></circle>
+<rect x="501.0" y="541.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Yatenga — range: +0.41 z/decade (Mann-Kendall p=0.072)</title></rect>
+<text x="102" y="561.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Sanmatenga</text>
+<line x1="479.3" y1="557.5" x2="506.5" y2="557.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="479.3" cy="557.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Sanmatenga — crop: +0.32 z/decade (Mann-Kendall p=0.108)</title></circle>
+<rect x="503.3" y="554.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Sanmatenga — range: +0.42 z/decade (Mann-Kendall p=0.080)</title></rect>
+<text x="102" y="574.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Soum</text>
+<line x1="502.3" y1="570.5" x2="507.9" y2="570.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="502.3" cy="570.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Soum — crop: +0.40 z/decade (Mann-Kendall p=0.118)</title></circle>
+<rect x="504.7" y="567.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Soum — range: +0.42 z/decade (Mann-Kendall p=0.108)</title></rect>
+<text x="102" y="587.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Kourweogo</text>
+<line x1="519.6" y1="583.5" x2="521.0" y2="583.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="519.6" cy="583.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Kourweogo — crop: +0.46 z/decade (Mann-Kendall p=0.072)</title></circle>
+<rect x="517.8" y="580.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Kourweogo — range: +0.47 z/decade (Mann-Kendall p=0.072)</title></rect>
+<text x="102" y="600.0" text-anchor="end" font-size="11" font-weight="500" fill="#1f2324">Loroum</text>
+<line x1="503.7" y1="596.5" x2="552.7" y2="596.5" stroke="#bee0d6" stroke-width="2"/>
+<circle cx="503.7" cy="596.5" r="4.5" fill="#1e795f" stroke="#fff" stroke-width="1"><title>Loroum — crop: +0.41 z/decade (Mann-Kendall p=0.108)</title></circle>
+<rect x="548.2" y="592.0" width="9" height="9" fill="#9d372b" stroke="#fff" stroke-width="1"><title>Loroum — range: +0.58 z/decade (Mann-Kendall p=0.022)</title></rect>
+<text x="102" y="613.0" text-anchor="end" font-size="9.5" font-weight="400" fill="#7e8e8f">Sourou</text>
+<line x1="525.2" y1="609.5" x2="563.6" y2="609.5" stroke="#e2e8e8" stroke-width="2"/>
+<circle cx="525.2" cy="609.5" r="3.2" fill="#b1c1c2" stroke="#fff" stroke-width="1"><title>Sourou — crop: +0.48 z/decade (Mann-Kendall p=0.022)</title></circle>
+<rect x="560.4" y="606.3" width="6.4" height="6.4" fill="#c4d0d1" stroke="#fff" stroke-width="1"><title>Sourou — range: +0.62 z/decade (Mann-Kendall p=0.002)</title></rect>
+<text x="102" y="626.0" text-anchor="end" font-size="11" font-weight="500" fill="#1f2324">Seno</text>
+<line x1="547.4" y1="622.5" x2="579.8" y2="622.5" stroke="#bee0d6" stroke-width="2"/>
+<circle cx="547.4" cy="622.5" r="4.5" fill="#1e795f" stroke="#fff" stroke-width="1"><title>Seno — crop: +0.56 z/decade (Mann-Kendall p=0.007)</title></circle>
+<rect x="575.3" y="618.0" width="9" height="9" fill="#9d372b" stroke="#fff" stroke-width="1"><title>Seno — range: +0.68 z/decade (Mann-Kendall p=0.001)</title></rect>
+<circle cx="110" cy="679" r="4.5" fill="#1e795f"/><text x="119" y="683" font-size="10.5" fill="#1f2324">Cropland</text>
+<rect x="180" y="674.5" width="9" height="9" fill="#9d372b"/><text x="194" y="683" font-size="10.5" fill="#1f2324">Rangeland</text>
+<text x="260" y="683" font-size="10.5" fill="#5e6a6b">Framework provinces in colour; others grey</text>
+</svg>
+    <figcaption><strong>Figure 1.</strong> Trend in seasonal-mean zFPARc per province, 2001 to 2025,
+       in z-score units per decade, sorted by the rangeland trend. Framework provinces in colour.
+       A line joins each province's cropland and rangeland values. Hover for the p-value.</figcaption>
+  </figure>
+
+  <div class="tblwrap"><table>
+    <tr><th>Province</th><th class="num">Cropland, z per decade</th><th>p</th><th class="num">Rangeland, z per decade</th><th>p</th><th class="num">Rangeland, 2001–05 mean</th><th class="num">Rangeland, 2021–25 mean</th></tr>
+    <tr><td>Séno</td><td class="num">+0.56</td><td><span class="tag sig">0.007</span></td><td class="num">+0.68</td><td><span class="tag sig">0.001</span></td><td class="num">−0.24</td><td class="num">+1.04</td></tr>
+    <tr><td>Loroum</td><td class="num">+0.41</td><td><span class="tag ns">0.11</span></td><td class="num">+0.58</td><td><span class="tag sig">0.022</span></td><td class="num">−0.25</td><td class="num">+1.44</td></tr>
+    <tr><td>Yagha</td><td class="num">+0.30</td><td><span class="tag ns">0.14</span></td><td class="num">+0.41</td><td><span class="tag sig">0.015</span></td><td class="num">+0.35</td><td class="num">+0.71</td></tr>
+    <tr><td>Oudalan</td><td class="num">+0.20</td><td><span class="tag ns">0.24</span></td><td class="num">+0.28</td><td><span class="tag ns">0.39</span></td><td class="num">−0.20</td><td class="num">+0.94</td></tr>
+    <tr><td><em>All 45 provinces, median</em></td><td class="num">−0.12</td><td></td><td class="num">+0.12</td><td></td><td></td><td></td></tr>
+  </table></div>
+
+  <p>Nationally the picture is mixed: the south and west are browning on cropland (Sissili
+     −0.88 z per decade, Tapoa, Ziro, Balé all below −0.6), while the Sahelian north is greening.
+     Séno ranks first in the country on both land covers, Loroum third and fourth, Yagha eighth
+     and tenth, Oudalan thirteenth. Only five provinces have a significant positive rangeland
+     trend and three of them are framework provinces. Whatever the cause, and ASAP's own
+     documentation warns that FPAR trends mix climate, land use and the MODIS-to-VIIRS sensor
+     splice, the operational effect is the same: a level-3 warning is set against a climatology
+     that these provinces have grown away from.</p>
+
+  <h2 id="method">2 · Detrending and the threshold proxy <a class="anchor" href="#method" aria-label="Link to this section">#</a></h2>
+
+  <h3>Detrending</h3>
+  <p>For each framework province, land cover and dekad of the year, a Theil-Sen slope was fitted
+     to zFPARc against year over 2001 to 2025 and subtracted, keeping the 2001 to 2025 mean of
+     that dekad unchanged. The same slope is extrapolated to 2026. This is the standard
+     "if there had never been a trend" construction: early years become greener and recent
+     years browner relative to the published values. Figure 2 shows the effect on the
+     Trigger 2 window.</p>
+
+  <figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 698 730" width="100%" style="max-width:698px" font-family="Roboto,system-ui,sans-serif" role="img" aria-labelledby="fb"><title id="fb">Window-mean zFPARc (dekads 21–26) per framework province, cropland and rangeland, 2001–2026: as published vs detrended</title>
+<text x="48" y="26" font-size="12" font-weight="500" fill="#1f2324">Loroum · cropland</text>
+<line x1="48" y1="158.6" x2="348" y2="158.6" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="162.1" text-anchor="end" font-size="9.5" fill="#7e8e8f">-2</text>
+<line x1="48" y1="131.5" x2="348" y2="131.5" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="135.0" text-anchor="end" font-size="9.5" fill="#7e8e8f">-1</text>
+<line x1="48" y1="104.4" x2="348" y2="104.4" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="107.9" text-anchor="end" font-size="9.5" fill="#7e8e8f">+0</text>
+<line x1="48" y1="77.3" x2="348" y2="77.3" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="80.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+1</text>
+<line x1="48" y1="50.3" x2="348" y2="50.3" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="53.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+2</text>
+<line x1="48" y1="120.7" x2="348" y2="120.7" stroke="#d48f2a" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="48" y1="131.5" x2="348" y2="131.5" stroke="#9d372b" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="99.4" y="176" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2005</text>
+<text x="157.4" y="176" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2010</text>
+<text x="215.4" y="176" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2015</text>
+<text x="273.4" y="176" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2020</text>
+<text x="331.4" y="176" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2025</text>
+<polyline points="53.0,85.6 64.6,142.8 76.2,88.0 87.8,119.4 99.4,87.3 111.0,126.2 122.6,91.1 134.2,95.3 145.8,104.8 157.4,116.6 169.0,112.1 180.6,84.5 192.2,106.6 203.8,118.3 215.4,110.0 227.0,116.6 238.6,90.6 250.2,109.8 261.8,116.2 273.4,105.5 285.0,101.6 296.6,78.0 308.2,62.4 319.8,69.1 331.4,60.2 343.0,50.1" fill="none" stroke="#9db1b3" stroke-width="2" stroke-linejoin="round" />
+<polyline points="53.0,72.7 64.6,131.0 76.2,77.2 87.8,109.8 99.4,78.7 111.0,118.7 122.6,84.7 134.2,89.9 145.8,100.5 157.4,113.4 169.0,109.9 180.6,83.5 192.2,106.6 203.8,119.4 215.4,112.1 227.0,119.9 238.6,94.9 250.2,115.1 261.8,122.7 273.4,113.1 285.0,110.2 296.6,87.7 308.2,73.2 319.8,80.9 331.4,73.1 343.0,63.7" fill="none" stroke="#1e795f" stroke-width="2" stroke-linejoin="round" />
+<circle cx="53.0" cy="85.6" r="2.6" fill="#9db1b3"><title>Loroum crop 2001: published +0.69, detrended +1.17</title></circle>
+<circle cx="53.0" cy="72.7" r="2.6" fill="#1e795f"><title>Loroum crop 2001: published +0.69, detrended +1.17</title></circle>
+<circle cx="64.6" cy="142.8" r="2.6" fill="#9db1b3"><title>Loroum crop 2002: published -1.42, detrended -0.98</title></circle>
+<circle cx="64.6" cy="131.0" r="2.6" fill="#1e795f"><title>Loroum crop 2002: published -1.42, detrended -0.98</title></circle>
+<circle cx="76.2" cy="88.0" r="2.6" fill="#9db1b3"><title>Loroum crop 2003: published +0.61, detrended +1.00</title></circle>
+<circle cx="76.2" cy="77.2" r="2.6" fill="#1e795f"><title>Loroum crop 2003: published +0.61, detrended +1.00</title></circle>
+<circle cx="87.8" cy="119.4" r="2.6" fill="#9db1b3"><title>Loroum crop 2004: published -0.56, detrended -0.20</title></circle>
+<circle cx="87.8" cy="109.8" r="2.6" fill="#1e795f"><title>Loroum crop 2004: published -0.56, detrended -0.20</title></circle>
+<circle cx="99.4" cy="87.3" r="2.6" fill="#9db1b3"><title>Loroum crop 2005: published +0.63, detrended +0.95</title></circle>
+<circle cx="99.4" cy="78.7" r="2.6" fill="#1e795f"><title>Loroum crop 2005: published +0.63, detrended +0.95</title></circle>
+<circle cx="111.0" cy="126.2" r="2.6" fill="#9db1b3"><title>Loroum crop 2006: published -0.81, detrended -0.53</title></circle>
+<circle cx="111.0" cy="118.7" r="2.6" fill="#1e795f"><title>Loroum crop 2006: published -0.81, detrended -0.53</title></circle>
+<circle cx="122.6" cy="91.1" r="2.6" fill="#9db1b3"><title>Loroum crop 2007: published +0.49, detrended +0.73</title></circle>
+<circle cx="122.6" cy="84.7" r="2.6" fill="#1e795f"><title>Loroum crop 2007: published +0.49, detrended +0.73</title></circle>
+<circle cx="134.2" cy="95.3" r="2.6" fill="#9db1b3"><title>Loroum crop 2008: published +0.34, detrended +0.54</title></circle>
+<circle cx="134.2" cy="89.9" r="2.6" fill="#1e795f"><title>Loroum crop 2008: published +0.34, detrended +0.54</title></circle>
+<circle cx="145.8" cy="104.8" r="2.6" fill="#9db1b3"><title>Loroum crop 2009: published -0.01, detrended +0.14</title></circle>
+<circle cx="145.8" cy="100.5" r="2.6" fill="#1e795f"><title>Loroum crop 2009: published -0.01, detrended +0.14</title></circle>
+<circle cx="157.4" cy="116.6" r="2.6" fill="#9db1b3"><title>Loroum crop 2010: published -0.45, detrended -0.33</title></circle>
+<circle cx="157.4" cy="113.4" r="2.6" fill="#1e795f"><title>Loroum crop 2010: published -0.45, detrended -0.33</title></circle>
+<circle cx="169.0" cy="112.1" r="2.6" fill="#9db1b3"><title>Loroum crop 2011: published -0.28, detrended -0.20</title></circle>
+<circle cx="169.0" cy="109.9" r="2.6" fill="#1e795f"><title>Loroum crop 2011: published -0.28, detrended -0.20</title></circle>
+<circle cx="180.6" cy="84.5" r="2.6" fill="#9db1b3"><title>Loroum crop 2012: published +0.73, detrended +0.77</title></circle>
+<circle cx="180.6" cy="83.5" r="2.6" fill="#1e795f"><title>Loroum crop 2012: published +0.73, detrended +0.77</title></circle>
+<circle cx="192.2" cy="106.6" r="2.6" fill="#9db1b3"><title>Loroum crop 2013: published -0.08, detrended -0.08</title></circle>
+<circle cx="192.2" cy="106.6" r="2.6" fill="#1e795f"><title>Loroum crop 2013: published -0.08, detrended -0.08</title></circle>
+<circle cx="203.8" cy="118.3" r="2.6" fill="#9db1b3"><title>Loroum crop 2014: published -0.51, detrended -0.55</title></circle>
+<circle cx="203.8" cy="119.4" r="2.6" fill="#1e795f"><title>Loroum crop 2014: published -0.51, detrended -0.55</title></circle>
+<circle cx="215.4" cy="110.0" r="2.6" fill="#9db1b3"><title>Loroum crop 2015: published -0.21, detrended -0.28</title></circle>
+<circle cx="215.4" cy="112.1" r="2.6" fill="#1e795f"><title>Loroum crop 2015: published -0.21, detrended -0.28</title></circle>
+<circle cx="227.0" cy="116.6" r="2.6" fill="#9db1b3"><title>Loroum crop 2016: published -0.45, detrended -0.57</title></circle>
+<circle cx="227.0" cy="119.9" r="2.6" fill="#1e795f"><title>Loroum crop 2016: published -0.45, detrended -0.57</title></circle>
+<circle cx="238.6" cy="90.6" r="2.6" fill="#9db1b3"><title>Loroum crop 2017: published +0.51, detrended +0.35</title></circle>
+<circle cx="238.6" cy="94.9" r="2.6" fill="#1e795f"><title>Loroum crop 2017: published +0.51, detrended +0.35</title></circle>
+<circle cx="250.2" cy="109.8" r="2.6" fill="#9db1b3"><title>Loroum crop 2018: published -0.20, detrended -0.40</title></circle>
+<circle cx="250.2" cy="115.1" r="2.6" fill="#1e795f"><title>Loroum crop 2018: published -0.20, detrended -0.40</title></circle>
+<circle cx="261.8" cy="116.2" r="2.6" fill="#9db1b3"><title>Loroum crop 2019: published -0.43, detrended -0.67</title></circle>
+<circle cx="261.8" cy="122.7" r="2.6" fill="#1e795f"><title>Loroum crop 2019: published -0.43, detrended -0.67</title></circle>
+<circle cx="273.4" cy="105.5" r="2.6" fill="#9db1b3"><title>Loroum crop 2020: published -0.04, detrended -0.32</title></circle>
+<circle cx="273.4" cy="113.1" r="2.6" fill="#1e795f"><title>Loroum crop 2020: published -0.04, detrended -0.32</title></circle>
+<circle cx="285.0" cy="101.6" r="2.6" fill="#9db1b3"><title>Loroum crop 2021: published +0.10, detrended -0.21</title></circle>
+<circle cx="285.0" cy="110.2" r="2.6" fill="#1e795f"><title>Loroum crop 2021: published +0.10, detrended -0.21</title></circle>
+<circle cx="296.6" cy="78.0" r="2.6" fill="#9db1b3"><title>Loroum crop 2022: published +0.97, detrended +0.62</title></circle>
+<circle cx="296.6" cy="87.7" r="2.6" fill="#1e795f"><title>Loroum crop 2022: published +0.97, detrended +0.62</title></circle>
+<circle cx="308.2" cy="62.4" r="2.6" fill="#9db1b3"><title>Loroum crop 2023: published +1.55, detrended +1.15</title></circle>
+<circle cx="308.2" cy="73.2" r="2.6" fill="#1e795f"><title>Loroum crop 2023: published +1.55, detrended +1.15</title></circle>
+<circle cx="319.8" cy="69.1" r="2.6" fill="#9db1b3"><title>Loroum crop 2024: published +1.30, detrended +0.87</title></circle>
+<circle cx="319.8" cy="80.9" r="2.6" fill="#1e795f"><title>Loroum crop 2024: published +1.30, detrended +0.87</title></circle>
+<circle cx="331.4" cy="60.2" r="2.6" fill="#9db1b3"><title>Loroum crop 2025: published +1.63, detrended +1.16</title></circle>
+<circle cx="331.4" cy="73.1" r="2.6" fill="#1e795f"><title>Loroum crop 2025: published +1.63, detrended +1.16</title></circle>
+<circle cx="343.0" cy="50.1" r="2.6" fill="#9db1b3"><title>Loroum crop 2026: published +2.00, detrended +1.50</title></circle>
+<circle cx="343.0" cy="63.7" r="2.6" fill="#1e795f"><title>Loroum crop 2026: published +2.00, detrended +1.50</title></circle>
+<text x="388" y="26" font-size="12" font-weight="500" fill="#1f2324">Loroum · rangeland</text>
+<line x1="388" y1="158.6" x2="688" y2="158.6" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="162.1" text-anchor="end" font-size="9.5" fill="#7e8e8f">-2</text>
+<line x1="388" y1="131.5" x2="688" y2="131.5" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="135.0" text-anchor="end" font-size="9.5" fill="#7e8e8f">-1</text>
+<line x1="388" y1="104.4" x2="688" y2="104.4" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="107.9" text-anchor="end" font-size="9.5" fill="#7e8e8f">+0</text>
+<line x1="388" y1="77.3" x2="688" y2="77.3" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="80.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+1</text>
+<line x1="388" y1="50.3" x2="688" y2="50.3" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="53.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+2</text>
+<line x1="388" y1="120.7" x2="688" y2="120.7" stroke="#d48f2a" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="388" y1="131.5" x2="688" y2="131.5" stroke="#9d372b" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="439.4" y="176" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2005</text>
+<text x="497.4" y="176" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2010</text>
+<text x="555.4" y="176" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2015</text>
+<text x="613.4" y="176" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2020</text>
+<text x="671.4" y="176" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2025</text>
+<polyline points="393.0,89.7 404.6,140.5 416.2,100.7 427.8,120.6 439.4,96.2 451.0,127.2 462.6,91.2 474.2,89.2 485.8,105.5 497.4,115.4 509.0,111.2 520.6,89.4 532.2,109.0 543.8,118.9 555.4,112.2 567.0,114.0 578.6,93.1 590.2,112.2 601.8,112.9 613.4,101.3 625.0,92.8 636.6,74.1 648.2,54.8 659.8,60.8 671.4,45.2 683.0,58.3" fill="none" stroke="#9db1b3" stroke-width="2" stroke-linejoin="round" />
+<polyline points="393.0,70.4 404.6,122.8 416.2,84.7 427.8,106.2 439.4,83.3 451.0,116.0 462.6,81.6 474.2,81.2 485.8,99.1 497.4,110.6 509.0,108.0 520.6,87.8 532.2,109.0 543.8,120.5 555.4,115.4 567.0,118.9 578.6,99.5 590.2,120.2 601.8,122.5 613.4,112.5 625.0,105.6 636.6,88.5 648.2,70.8 659.8,78.4 671.4,64.4 683.0,78.7" fill="none" stroke="#1e795f" stroke-width="2" stroke-linejoin="round" />
+<circle cx="393.0" cy="89.7" r="2.6" fill="#9db1b3"><title>Loroum range 2001: published +0.55, detrended +1.25</title></circle>
+<circle cx="393.0" cy="70.4" r="2.6" fill="#1e795f"><title>Loroum range 2001: published +0.55, detrended +1.25</title></circle>
+<circle cx="404.6" cy="140.5" r="2.6" fill="#9db1b3"><title>Loroum range 2002: published -1.33, detrended -0.68</title></circle>
+<circle cx="404.6" cy="122.8" r="2.6" fill="#1e795f"><title>Loroum range 2002: published -1.33, detrended -0.68</title></circle>
+<circle cx="416.2" cy="100.7" r="2.6" fill="#9db1b3"><title>Loroum range 2003: published +0.14, detrended +0.73</title></circle>
+<circle cx="416.2" cy="84.7" r="2.6" fill="#1e795f"><title>Loroum range 2003: published +0.14, detrended +0.73</title></circle>
+<circle cx="427.8" cy="120.6" r="2.6" fill="#9db1b3"><title>Loroum range 2004: published -0.60, detrended -0.07</title></circle>
+<circle cx="427.8" cy="106.2" r="2.6" fill="#1e795f"><title>Loroum range 2004: published -0.60, detrended -0.07</title></circle>
+<circle cx="439.4" cy="96.2" r="2.6" fill="#9db1b3"><title>Loroum range 2005: published +0.30, detrended +0.78</title></circle>
+<circle cx="439.4" cy="83.3" r="2.6" fill="#1e795f"><title>Loroum range 2005: published +0.30, detrended +0.78</title></circle>
+<circle cx="451.0" cy="127.2" r="2.6" fill="#9db1b3"><title>Loroum range 2006: published -0.84, detrended -0.43</title></circle>
+<circle cx="451.0" cy="116.0" r="2.6" fill="#1e795f"><title>Loroum range 2006: published -0.84, detrended -0.43</title></circle>
+<circle cx="462.6" cy="91.2" r="2.6" fill="#9db1b3"><title>Loroum range 2007: published +0.49, detrended +0.84</title></circle>
+<circle cx="462.6" cy="81.6" r="2.6" fill="#1e795f"><title>Loroum range 2007: published +0.49, detrended +0.84</title></circle>
+<circle cx="474.2" cy="89.2" r="2.6" fill="#9db1b3"><title>Loroum range 2008: published +0.56, detrended +0.86</title></circle>
+<circle cx="474.2" cy="81.2" r="2.6" fill="#1e795f"><title>Loroum range 2008: published +0.56, detrended +0.86</title></circle>
+<circle cx="485.8" cy="105.5" r="2.6" fill="#9db1b3"><title>Loroum range 2009: published -0.04, detrended +0.20</title></circle>
+<circle cx="485.8" cy="99.1" r="2.6" fill="#1e795f"><title>Loroum range 2009: published -0.04, detrended +0.20</title></circle>
+<circle cx="497.4" cy="115.4" r="2.6" fill="#9db1b3"><title>Loroum range 2010: published -0.41, detrended -0.23</title></circle>
+<circle cx="497.4" cy="110.6" r="2.6" fill="#1e795f"><title>Loroum range 2010: published -0.41, detrended -0.23</title></circle>
+<circle cx="509.0" cy="111.2" r="2.6" fill="#9db1b3"><title>Loroum range 2011: published -0.25, detrended -0.13</title></circle>
+<circle cx="509.0" cy="108.0" r="2.6" fill="#1e795f"><title>Loroum range 2011: published -0.25, detrended -0.13</title></circle>
+<circle cx="520.6" cy="89.4" r="2.6" fill="#9db1b3"><title>Loroum range 2012: published +0.56, detrended +0.61</title></circle>
+<circle cx="520.6" cy="87.8" r="2.6" fill="#1e795f"><title>Loroum range 2012: published +0.56, detrended +0.61</title></circle>
+<circle cx="532.2" cy="109.0" r="2.6" fill="#9db1b3"><title>Loroum range 2013: published -0.17, detrended -0.17</title></circle>
+<circle cx="532.2" cy="109.0" r="2.6" fill="#1e795f"><title>Loroum range 2013: published -0.17, detrended -0.17</title></circle>
+<circle cx="543.8" cy="118.9" r="2.6" fill="#9db1b3"><title>Loroum range 2014: published -0.54, detrended -0.59</title></circle>
+<circle cx="543.8" cy="120.5" r="2.6" fill="#1e795f"><title>Loroum range 2014: published -0.54, detrended -0.59</title></circle>
+<circle cx="555.4" cy="112.2" r="2.6" fill="#9db1b3"><title>Loroum range 2015: published -0.29, detrended -0.41</title></circle>
+<circle cx="555.4" cy="115.4" r="2.6" fill="#1e795f"><title>Loroum range 2015: published -0.29, detrended -0.41</title></circle>
+<circle cx="567.0" cy="114.0" r="2.6" fill="#9db1b3"><title>Loroum range 2016: published -0.35, detrended -0.53</title></circle>
+<circle cx="567.0" cy="118.9" r="2.6" fill="#1e795f"><title>Loroum range 2016: published -0.35, detrended -0.53</title></circle>
+<circle cx="578.6" cy="93.1" r="2.6" fill="#9db1b3"><title>Loroum range 2017: published +0.42, detrended +0.18</title></circle>
+<circle cx="578.6" cy="99.5" r="2.6" fill="#1e795f"><title>Loroum range 2017: published +0.42, detrended +0.18</title></circle>
+<circle cx="590.2" cy="112.2" r="2.6" fill="#9db1b3"><title>Loroum range 2018: published -0.29, detrended -0.58</title></circle>
+<circle cx="590.2" cy="120.2" r="2.6" fill="#1e795f"><title>Loroum range 2018: published -0.29, detrended -0.58</title></circle>
+<circle cx="601.8" cy="112.9" r="2.6" fill="#9db1b3"><title>Loroum range 2019: published -0.31, detrended -0.67</title></circle>
+<circle cx="601.8" cy="122.5" r="2.6" fill="#1e795f"><title>Loroum range 2019: published -0.31, detrended -0.67</title></circle>
+<circle cx="613.4" cy="101.3" r="2.6" fill="#9db1b3"><title>Loroum range 2020: published +0.12, detrended -0.30</title></circle>
+<circle cx="613.4" cy="112.5" r="2.6" fill="#1e795f"><title>Loroum range 2020: published +0.12, detrended -0.30</title></circle>
+<circle cx="625.0" cy="92.8" r="2.6" fill="#9db1b3"><title>Loroum range 2021: published +0.43, detrended -0.04</title></circle>
+<circle cx="625.0" cy="105.6" r="2.6" fill="#1e795f"><title>Loroum range 2021: published +0.43, detrended -0.04</title></circle>
+<circle cx="636.6" cy="74.1" r="2.6" fill="#9db1b3"><title>Loroum range 2022: published +1.12, detrended +0.59</title></circle>
+<circle cx="636.6" cy="88.5" r="2.6" fill="#1e795f"><title>Loroum range 2022: published +1.12, detrended +0.59</title></circle>
+<circle cx="648.2" cy="54.8" r="2.6" fill="#9db1b3"><title>Loroum range 2023: published +1.83, detrended +1.24</title></circle>
+<circle cx="648.2" cy="70.8" r="2.6" fill="#1e795f"><title>Loroum range 2023: published +1.83, detrended +1.24</title></circle>
+<circle cx="659.8" cy="60.8" r="2.6" fill="#9db1b3"><title>Loroum range 2024: published +1.61, detrended +0.96</title></circle>
+<circle cx="659.8" cy="78.4" r="2.6" fill="#1e795f"><title>Loroum range 2024: published +1.61, detrended +0.96</title></circle>
+<circle cx="671.4" cy="45.2" r="2.6" fill="#9db1b3"><title>Loroum range 2025: published +2.19, detrended +1.48</title></circle>
+<circle cx="671.4" cy="64.4" r="2.6" fill="#1e795f"><title>Loroum range 2025: published +2.19, detrended +1.48</title></circle>
+<circle cx="683.0" cy="58.3" r="2.6" fill="#9db1b3"><title>Loroum range 2026: published +1.70, detrended +0.95</title></circle>
+<circle cx="683.0" cy="78.7" r="2.6" fill="#1e795f"><title>Loroum range 2026: published +1.70, detrended +0.95</title></circle>
+<text x="48" y="200" font-size="12" font-weight="500" fill="#1f2324">Oudalan · cropland</text>
+<line x1="48" y1="332.6" x2="348" y2="332.6" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="336.1" text-anchor="end" font-size="9.5" fill="#7e8e8f">-2</text>
+<line x1="48" y1="305.5" x2="348" y2="305.5" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="309.0" text-anchor="end" font-size="9.5" fill="#7e8e8f">-1</text>
+<line x1="48" y1="278.4" x2="348" y2="278.4" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="281.9" text-anchor="end" font-size="9.5" fill="#7e8e8f">+0</text>
+<line x1="48" y1="251.3" x2="348" y2="251.3" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="254.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+1</text>
+<line x1="48" y1="224.2" x2="348" y2="224.2" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="227.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+2</text>
+<line x1="48" y1="294.7" x2="348" y2="294.7" stroke="#d48f2a" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="48" y1="305.5" x2="348" y2="305.5" stroke="#9d372b" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="99.4" y="350" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2005</text>
+<text x="157.4" y="350" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2010</text>
+<text x="215.4" y="350" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2015</text>
+<text x="273.4" y="350" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2020</text>
+<text x="331.4" y="350" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2025</text>
+<polyline points="53.0,273.7 64.6,304.5 76.2,264.5 87.8,319.8 99.4,232.4 111.0,284.7 122.6,266.4 134.2,261.2 145.8,271.2 157.4,285.5 169.0,279.5 180.6,272.8 192.2,264.8 203.8,304.7 215.4,286.7 227.0,293.5 238.6,272.4 250.2,262.6 261.8,299.4 273.4,286.8 285.0,266.8 296.6,275.6 308.2,274.6 319.8,254.8 331.4,226.9 343.0,258.6" fill="none" stroke="#9db1b3" stroke-width="2" stroke-linejoin="round" />
+<polyline points="53.0,268.2 64.6,299.4 76.2,259.8 87.8,315.7 99.4,228.7 111.0,281.5 122.6,263.6 134.2,258.9 145.8,269.3 157.4,284.1 169.0,278.6 180.6,272.3 192.2,264.8 203.8,305.1 215.4,287.6 227.0,294.9 238.6,274.2 250.2,264.9 261.8,302.2 273.4,290.0 285.0,270.5 296.6,279.7 308.2,279.2 319.8,259.8 331.4,232.4 343.0,264.1" fill="none" stroke="#1e795f" stroke-width="2" stroke-linejoin="round" />
+<circle cx="53.0" cy="273.7" r="2.6" fill="#9db1b3"><title>Oudalan crop 2001: published +0.17, detrended +0.38</title></circle>
+<circle cx="53.0" cy="268.2" r="2.6" fill="#1e795f"><title>Oudalan crop 2001: published +0.17, detrended +0.38</title></circle>
+<circle cx="64.6" cy="304.5" r="2.6" fill="#9db1b3"><title>Oudalan crop 2002: published -0.96, detrended -0.78</title></circle>
+<circle cx="64.6" cy="299.4" r="2.6" fill="#1e795f"><title>Oudalan crop 2002: published -0.96, detrended -0.78</title></circle>
+<circle cx="76.2" cy="264.5" r="2.6" fill="#9db1b3"><title>Oudalan crop 2003: published +0.52, detrended +0.69</title></circle>
+<circle cx="76.2" cy="259.8" r="2.6" fill="#1e795f"><title>Oudalan crop 2003: published +0.52, detrended +0.69</title></circle>
+<circle cx="87.8" cy="319.8" r="2.6" fill="#9db1b3"><title>Oudalan crop 2004: published -1.53, detrended -1.38</title></circle>
+<circle cx="87.8" cy="315.7" r="2.6" fill="#1e795f"><title>Oudalan crop 2004: published -1.53, detrended -1.38</title></circle>
+<circle cx="99.4" cy="232.4" r="2.6" fill="#9db1b3"><title>Oudalan crop 2005: published +1.70, detrended +1.83</title></circle>
+<circle cx="99.4" cy="228.7" r="2.6" fill="#1e795f"><title>Oudalan crop 2005: published +1.70, detrended +1.83</title></circle>
+<circle cx="111.0" cy="284.7" r="2.6" fill="#9db1b3"><title>Oudalan crop 2006: published -0.23, detrended -0.11</title></circle>
+<circle cx="111.0" cy="281.5" r="2.6" fill="#1e795f"><title>Oudalan crop 2006: published -0.23, detrended -0.11</title></circle>
+<circle cx="122.6" cy="266.4" r="2.6" fill="#9db1b3"><title>Oudalan crop 2007: published +0.44, detrended +0.55</title></circle>
+<circle cx="122.6" cy="263.6" r="2.6" fill="#1e795f"><title>Oudalan crop 2007: published +0.44, detrended +0.55</title></circle>
+<circle cx="134.2" cy="261.2" r="2.6" fill="#9db1b3"><title>Oudalan crop 2008: published +0.64, detrended +0.72</title></circle>
+<circle cx="134.2" cy="258.9" r="2.6" fill="#1e795f"><title>Oudalan crop 2008: published +0.64, detrended +0.72</title></circle>
+<circle cx="145.8" cy="271.2" r="2.6" fill="#9db1b3"><title>Oudalan crop 2009: published +0.27, detrended +0.34</title></circle>
+<circle cx="145.8" cy="269.3" r="2.6" fill="#1e795f"><title>Oudalan crop 2009: published +0.27, detrended +0.34</title></circle>
+<circle cx="157.4" cy="285.5" r="2.6" fill="#9db1b3"><title>Oudalan crop 2010: published -0.26, detrended -0.21</title></circle>
+<circle cx="157.4" cy="284.1" r="2.6" fill="#1e795f"><title>Oudalan crop 2010: published -0.26, detrended -0.21</title></circle>
+<circle cx="169.0" cy="279.5" r="2.6" fill="#9db1b3"><title>Oudalan crop 2011: published -0.04, detrended -0.01</title></circle>
+<circle cx="169.0" cy="278.6" r="2.6" fill="#1e795f"><title>Oudalan crop 2011: published -0.04, detrended -0.01</title></circle>
+<circle cx="180.6" cy="272.8" r="2.6" fill="#9db1b3"><title>Oudalan crop 2012: published +0.21, detrended +0.23</title></circle>
+<circle cx="180.6" cy="272.3" r="2.6" fill="#1e795f"><title>Oudalan crop 2012: published +0.21, detrended +0.23</title></circle>
+<circle cx="192.2" cy="264.8" r="2.6" fill="#9db1b3"><title>Oudalan crop 2013: published +0.50, detrended +0.50</title></circle>
+<circle cx="192.2" cy="264.8" r="2.6" fill="#1e795f"><title>Oudalan crop 2013: published +0.50, detrended +0.50</title></circle>
+<circle cx="203.8" cy="304.7" r="2.6" fill="#9db1b3"><title>Oudalan crop 2014: published -0.97, detrended -0.99</title></circle>
+<circle cx="203.8" cy="305.1" r="2.6" fill="#1e795f"><title>Oudalan crop 2014: published -0.97, detrended -0.99</title></circle>
+<circle cx="215.4" cy="286.7" r="2.6" fill="#9db1b3"><title>Oudalan crop 2015: published -0.31, detrended -0.34</title></circle>
+<circle cx="215.4" cy="287.6" r="2.6" fill="#1e795f"><title>Oudalan crop 2015: published -0.31, detrended -0.34</title></circle>
+<circle cx="227.0" cy="293.5" r="2.6" fill="#9db1b3"><title>Oudalan crop 2016: published -0.56, detrended -0.61</title></circle>
+<circle cx="227.0" cy="294.9" r="2.6" fill="#1e795f"><title>Oudalan crop 2016: published -0.56, detrended -0.61</title></circle>
+<circle cx="238.6" cy="272.4" r="2.6" fill="#9db1b3"><title>Oudalan crop 2017: published +0.22, detrended +0.15</title></circle>
+<circle cx="238.6" cy="274.2" r="2.6" fill="#1e795f"><title>Oudalan crop 2017: published +0.22, detrended +0.15</title></circle>
+<circle cx="250.2" cy="262.6" r="2.6" fill="#9db1b3"><title>Oudalan crop 2018: published +0.58, detrended +0.50</title></circle>
+<circle cx="250.2" cy="264.9" r="2.6" fill="#1e795f"><title>Oudalan crop 2018: published +0.58, detrended +0.50</title></circle>
+<circle cx="261.8" cy="299.4" r="2.6" fill="#9db1b3"><title>Oudalan crop 2019: published -0.78, detrended -0.88</title></circle>
+<circle cx="261.8" cy="302.2" r="2.6" fill="#1e795f"><title>Oudalan crop 2019: published -0.78, detrended -0.88</title></circle>
+<circle cx="273.4" cy="286.8" r="2.6" fill="#9db1b3"><title>Oudalan crop 2020: published -0.31, detrended -0.43</title></circle>
+<circle cx="273.4" cy="290.0" r="2.6" fill="#1e795f"><title>Oudalan crop 2020: published -0.31, detrended -0.43</title></circle>
+<circle cx="285.0" cy="266.8" r="2.6" fill="#9db1b3"><title>Oudalan crop 2021: published +0.43, detrended +0.29</title></circle>
+<circle cx="285.0" cy="270.5" r="2.6" fill="#1e795f"><title>Oudalan crop 2021: published +0.43, detrended +0.29</title></circle>
+<circle cx="296.6" cy="275.6" r="2.6" fill="#9db1b3"><title>Oudalan crop 2022: published +0.10, detrended -0.05</title></circle>
+<circle cx="296.6" cy="279.7" r="2.6" fill="#1e795f"><title>Oudalan crop 2022: published +0.10, detrended -0.05</title></circle>
+<circle cx="308.2" cy="274.6" r="2.6" fill="#9db1b3"><title>Oudalan crop 2023: published +0.14, detrended -0.03</title></circle>
+<circle cx="308.2" cy="279.2" r="2.6" fill="#1e795f"><title>Oudalan crop 2023: published +0.14, detrended -0.03</title></circle>
+<circle cx="319.8" cy="254.8" r="2.6" fill="#9db1b3"><title>Oudalan crop 2024: published +0.87, detrended +0.69</title></circle>
+<circle cx="319.8" cy="259.8" r="2.6" fill="#1e795f"><title>Oudalan crop 2024: published +0.87, detrended +0.69</title></circle>
+<circle cx="331.4" cy="226.9" r="2.6" fill="#9db1b3"><title>Oudalan crop 2025: published +1.90, detrended +1.70</title></circle>
+<circle cx="331.4" cy="232.4" r="2.6" fill="#1e795f"><title>Oudalan crop 2025: published +1.90, detrended +1.70</title></circle>
+<circle cx="343.0" cy="258.6" r="2.6" fill="#9db1b3"><title>Oudalan crop 2026: published +0.73, detrended +0.53</title></circle>
+<circle cx="343.0" cy="264.1" r="2.6" fill="#1e795f"><title>Oudalan crop 2026: published +0.73, detrended +0.53</title></circle>
+<text x="388" y="200" font-size="12" font-weight="500" fill="#1f2324">Oudalan · rangeland</text>
+<line x1="388" y1="332.6" x2="688" y2="332.6" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="336.1" text-anchor="end" font-size="9.5" fill="#7e8e8f">-2</text>
+<line x1="388" y1="305.5" x2="688" y2="305.5" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="309.0" text-anchor="end" font-size="9.5" fill="#7e8e8f">-1</text>
+<line x1="388" y1="278.4" x2="688" y2="278.4" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="281.9" text-anchor="end" font-size="9.5" fill="#7e8e8f">+0</text>
+<line x1="388" y1="251.3" x2="688" y2="251.3" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="254.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+1</text>
+<line x1="388" y1="224.2" x2="688" y2="224.2" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="227.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+2</text>
+<line x1="388" y1="294.7" x2="688" y2="294.7" stroke="#d48f2a" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="388" y1="305.5" x2="688" y2="305.5" stroke="#9d372b" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="439.4" y="350" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2005</text>
+<text x="497.4" y="350" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2010</text>
+<text x="555.4" y="350" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2015</text>
+<text x="613.4" y="350" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2020</text>
+<text x="671.4" y="350" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2025</text>
+<polyline points="393.0,256.0 404.6,318.2 416.2,266.0 427.8,316.1 439.4,256.8 451.0,283.3 462.6,257.0 474.2,269.4 485.8,289.8 497.4,268.9 509.0,272.0 520.6,257.3 532.2,262.4 543.8,292.6 555.4,282.3 567.0,296.5 578.6,289.3 590.2,278.9 601.8,284.6 613.4,281.3 625.0,269.2 636.6,268.0 648.2,273.5 659.8,241.4 671.4,214.4 683.0,265.5" fill="none" stroke="#9db1b3" stroke-width="2" stroke-linejoin="round" />
+<polyline points="393.0,248.7 404.6,311.5 416.2,259.9 427.8,310.6 439.4,251.9 451.0,279.0 462.6,253.3 474.2,266.3 485.8,287.4 497.4,267.1 509.0,270.7 520.6,256.6 532.2,262.4 543.8,293.2 555.4,283.5 567.0,298.3 578.6,291.8 590.2,282.0 601.8,288.3 613.4,285.6 625.0,274.1 636.6,273.5 648.2,279.7 659.8,248.1 671.4,221.7 683.0,272.2" fill="none" stroke="#1e795f" stroke-width="2" stroke-linejoin="round" />
+<circle cx="393.0" cy="256.0" r="2.6" fill="#9db1b3"><title>Oudalan range 2001: published +0.83, detrended +1.10</title></circle>
+<circle cx="393.0" cy="248.7" r="2.6" fill="#1e795f"><title>Oudalan range 2001: published +0.83, detrended +1.10</title></circle>
+<circle cx="404.6" cy="318.2" r="2.6" fill="#9db1b3"><title>Oudalan range 2002: published -1.47, detrended -1.22</title></circle>
+<circle cx="404.6" cy="311.5" r="2.6" fill="#1e795f"><title>Oudalan range 2002: published -1.47, detrended -1.22</title></circle>
+<circle cx="416.2" cy="266.0" r="2.6" fill="#9db1b3"><title>Oudalan range 2003: published +0.46, detrended +0.68</title></circle>
+<circle cx="416.2" cy="259.9" r="2.6" fill="#1e795f"><title>Oudalan range 2003: published +0.46, detrended +0.68</title></circle>
+<circle cx="427.8" cy="316.1" r="2.6" fill="#9db1b3"><title>Oudalan range 2004: published -1.39, detrended -1.19</title></circle>
+<circle cx="427.8" cy="310.6" r="2.6" fill="#1e795f"><title>Oudalan range 2004: published -1.39, detrended -1.19</title></circle>
+<circle cx="439.4" cy="256.8" r="2.6" fill="#9db1b3"><title>Oudalan range 2005: published +0.80, detrended +0.98</title></circle>
+<circle cx="439.4" cy="251.9" r="2.6" fill="#1e795f"><title>Oudalan range 2005: published +0.80, detrended +0.98</title></circle>
+<circle cx="451.0" cy="283.3" r="2.6" fill="#9db1b3"><title>Oudalan range 2006: published -0.18, detrended -0.02</title></circle>
+<circle cx="451.0" cy="279.0" r="2.6" fill="#1e795f"><title>Oudalan range 2006: published -0.18, detrended -0.02</title></circle>
+<circle cx="462.6" cy="257.0" r="2.6" fill="#9db1b3"><title>Oudalan range 2007: published +0.79, detrended +0.93</title></circle>
+<circle cx="462.6" cy="253.3" r="2.6" fill="#1e795f"><title>Oudalan range 2007: published +0.79, detrended +0.93</title></circle>
+<circle cx="474.2" cy="269.4" r="2.6" fill="#9db1b3"><title>Oudalan range 2008: published +0.33, detrended +0.45</title></circle>
+<circle cx="474.2" cy="266.3" r="2.6" fill="#1e795f"><title>Oudalan range 2008: published +0.33, detrended +0.45</title></circle>
+<circle cx="485.8" cy="289.8" r="2.6" fill="#9db1b3"><title>Oudalan range 2009: published -0.42, detrended -0.33</title></circle>
+<circle cx="485.8" cy="287.4" r="2.6" fill="#1e795f"><title>Oudalan range 2009: published -0.42, detrended -0.33</title></circle>
+<circle cx="497.4" cy="268.9" r="2.6" fill="#9db1b3"><title>Oudalan range 2010: published +0.35, detrended +0.42</title></circle>
+<circle cx="497.4" cy="267.1" r="2.6" fill="#1e795f"><title>Oudalan range 2010: published +0.35, detrended +0.42</title></circle>
+<circle cx="509.0" cy="272.0" r="2.6" fill="#9db1b3"><title>Oudalan range 2011: published +0.24, detrended +0.28</title></circle>
+<circle cx="509.0" cy="270.7" r="2.6" fill="#1e795f"><title>Oudalan range 2011: published +0.24, detrended +0.28</title></circle>
+<circle cx="520.6" cy="257.3" r="2.6" fill="#9db1b3"><title>Oudalan range 2012: published +0.78, detrended +0.80</title></circle>
+<circle cx="520.6" cy="256.6" r="2.6" fill="#1e795f"><title>Oudalan range 2012: published +0.78, detrended +0.80</title></circle>
+<circle cx="532.2" cy="262.4" r="2.6" fill="#9db1b3"><title>Oudalan range 2013: published +0.59, detrended +0.59</title></circle>
+<circle cx="532.2" cy="262.4" r="2.6" fill="#1e795f"><title>Oudalan range 2013: published +0.59, detrended +0.59</title></circle>
+<circle cx="543.8" cy="292.6" r="2.6" fill="#9db1b3"><title>Oudalan range 2014: published -0.52, detrended -0.55</title></circle>
+<circle cx="543.8" cy="293.2" r="2.6" fill="#1e795f"><title>Oudalan range 2014: published -0.52, detrended -0.55</title></circle>
+<circle cx="555.4" cy="282.3" r="2.6" fill="#9db1b3"><title>Oudalan range 2015: published -0.14, detrended -0.19</title></circle>
+<circle cx="555.4" cy="283.5" r="2.6" fill="#1e795f"><title>Oudalan range 2015: published -0.14, detrended -0.19</title></circle>
+<circle cx="567.0" cy="296.5" r="2.6" fill="#9db1b3"><title>Oudalan range 2016: published -0.67, detrended -0.73</title></circle>
+<circle cx="567.0" cy="298.3" r="2.6" fill="#1e795f"><title>Oudalan range 2016: published -0.67, detrended -0.73</title></circle>
+<circle cx="578.6" cy="289.3" r="2.6" fill="#9db1b3"><title>Oudalan range 2017: published -0.40, detrended -0.49</title></circle>
+<circle cx="578.6" cy="291.8" r="2.6" fill="#1e795f"><title>Oudalan range 2017: published -0.40, detrended -0.49</title></circle>
+<circle cx="590.2" cy="278.9" r="2.6" fill="#9db1b3"><title>Oudalan range 2018: published -0.02, detrended -0.13</title></circle>
+<circle cx="590.2" cy="282.0" r="2.6" fill="#1e795f"><title>Oudalan range 2018: published -0.02, detrended -0.13</title></circle>
+<circle cx="601.8" cy="284.6" r="2.6" fill="#9db1b3"><title>Oudalan range 2019: published -0.23, detrended -0.36</title></circle>
+<circle cx="601.8" cy="288.3" r="2.6" fill="#1e795f"><title>Oudalan range 2019: published -0.23, detrended -0.36</title></circle>
+<circle cx="613.4" cy="281.3" r="2.6" fill="#9db1b3"><title>Oudalan range 2020: published -0.11, detrended -0.26</title></circle>
+<circle cx="613.4" cy="285.6" r="2.6" fill="#1e795f"><title>Oudalan range 2020: published -0.11, detrended -0.26</title></circle>
+<circle cx="625.0" cy="269.2" r="2.6" fill="#9db1b3"><title>Oudalan range 2021: published +0.34, detrended +0.16</title></circle>
+<circle cx="625.0" cy="274.1" r="2.6" fill="#1e795f"><title>Oudalan range 2021: published +0.34, detrended +0.16</title></circle>
+<circle cx="636.6" cy="268.0" r="2.6" fill="#9db1b3"><title>Oudalan range 2022: published +0.39, detrended +0.18</title></circle>
+<circle cx="636.6" cy="273.5" r="2.6" fill="#1e795f"><title>Oudalan range 2022: published +0.39, detrended +0.18</title></circle>
+<circle cx="648.2" cy="273.5" r="2.6" fill="#9db1b3"><title>Oudalan range 2023: published +0.18, detrended -0.05</title></circle>
+<circle cx="648.2" cy="279.7" r="2.6" fill="#1e795f"><title>Oudalan range 2023: published +0.18, detrended -0.05</title></circle>
+<circle cx="659.8" cy="241.4" r="2.6" fill="#9db1b3"><title>Oudalan range 2024: published +1.37, detrended +1.12</title></circle>
+<circle cx="659.8" cy="248.1" r="2.6" fill="#1e795f"><title>Oudalan range 2024: published +1.37, detrended +1.12</title></circle>
+<circle cx="671.4" cy="214.4" r="2.6" fill="#9db1b3"><title>Oudalan range 2025: published +2.36, detrended +2.09</title></circle>
+<circle cx="671.4" cy="221.7" r="2.6" fill="#1e795f"><title>Oudalan range 2025: published +2.36, detrended +2.09</title></circle>
+<circle cx="683.0" cy="265.5" r="2.6" fill="#9db1b3"><title>Oudalan range 2026: published +0.48, detrended +0.23</title></circle>
+<circle cx="683.0" cy="272.2" r="2.6" fill="#1e795f"><title>Oudalan range 2026: published +0.48, detrended +0.23</title></circle>
+<text x="48" y="374" font-size="12" font-weight="500" fill="#1f2324">Séno · cropland</text>
+<line x1="48" y1="506.6" x2="348" y2="506.6" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="510.1" text-anchor="end" font-size="9.5" fill="#7e8e8f">-2</text>
+<line x1="48" y1="479.5" x2="348" y2="479.5" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="483.0" text-anchor="end" font-size="9.5" fill="#7e8e8f">-1</text>
+<line x1="48" y1="452.4" x2="348" y2="452.4" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="455.9" text-anchor="end" font-size="9.5" fill="#7e8e8f">+0</text>
+<line x1="48" y1="425.3" x2="348" y2="425.3" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="428.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+1</text>
+<line x1="48" y1="398.2" x2="348" y2="398.2" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="401.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+2</text>
+<line x1="48" y1="468.7" x2="348" y2="468.7" stroke="#d48f2a" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="48" y1="479.5" x2="348" y2="479.5" stroke="#9d372b" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="99.4" y="524" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2005</text>
+<text x="157.4" y="524" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2010</text>
+<text x="215.4" y="524" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2015</text>
+<text x="273.4" y="524" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2020</text>
+<text x="331.4" y="524" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2025</text>
+<polyline points="53.0,465.3 64.6,479.4 76.2,445.2 87.8,456.3 99.4,422.5 111.0,471.7 122.6,446.3 134.2,427.4 145.8,480.2 157.4,476.7 169.0,474.3 180.6,449.2 192.2,446.4 203.8,460.2 215.4,448.9 227.0,457.0 238.6,434.4 250.2,440.3 261.8,468.0 273.4,447.5 285.0,423.5 296.6,463.2 308.2,433.7 319.8,415.2 331.4,420.8 343.0,437.8" fill="none" stroke="#9db1b3" stroke-width="2" stroke-linejoin="round" />
+<polyline points="53.0,448.8 64.6,464.3 76.2,431.5 87.8,443.9 99.4,411.5 111.0,462.1 122.6,438.1 134.2,420.6 145.8,474.7 157.4,472.5 169.0,471.6 180.6,447.8 192.2,446.4 203.8,461.6 215.4,451.7 227.0,461.2 238.6,439.9 250.2,447.1 261.8,476.3 273.4,457.2 285.0,434.5 296.6,475.6 308.2,447.4 319.8,430.3 331.4,437.3 343.0,454.6" fill="none" stroke="#1e795f" stroke-width="2" stroke-linejoin="round" />
+<circle cx="53.0" cy="465.3" r="2.6" fill="#9db1b3"><title>Séno crop 2001: published -0.48, detrended +0.13</title></circle>
+<circle cx="53.0" cy="448.8" r="2.6" fill="#1e795f"><title>Séno crop 2001: published -0.48, detrended +0.13</title></circle>
+<circle cx="64.6" cy="479.4" r="2.6" fill="#9db1b3"><title>Séno crop 2002: published -0.99, detrended -0.44</title></circle>
+<circle cx="64.6" cy="464.3" r="2.6" fill="#1e795f"><title>Séno crop 2002: published -0.99, detrended -0.44</title></circle>
+<circle cx="76.2" cy="445.2" r="2.6" fill="#9db1b3"><title>Séno crop 2003: published +0.27, detrended +0.77</title></circle>
+<circle cx="76.2" cy="431.5" r="2.6" fill="#1e795f"><title>Séno crop 2003: published +0.27, detrended +0.77</title></circle>
+<circle cx="87.8" cy="456.3" r="2.6" fill="#9db1b3"><title>Séno crop 2004: published -0.14, detrended +0.32</title></circle>
+<circle cx="87.8" cy="443.9" r="2.6" fill="#1e795f"><title>Séno crop 2004: published -0.14, detrended +0.32</title></circle>
+<circle cx="99.4" cy="422.5" r="2.6" fill="#9db1b3"><title>Séno crop 2005: published +1.11, detrended +1.51</title></circle>
+<circle cx="99.4" cy="411.5" r="2.6" fill="#1e795f"><title>Séno crop 2005: published +1.11, detrended +1.51</title></circle>
+<circle cx="111.0" cy="471.7" r="2.6" fill="#9db1b3"><title>Séno crop 2006: published -0.71, detrended -0.36</title></circle>
+<circle cx="111.0" cy="462.1" r="2.6" fill="#1e795f"><title>Séno crop 2006: published -0.71, detrended -0.36</title></circle>
+<circle cx="122.6" cy="446.3" r="2.6" fill="#9db1b3"><title>Séno crop 2007: published +0.23, detrended +0.53</title></circle>
+<circle cx="122.6" cy="438.1" r="2.6" fill="#1e795f"><title>Séno crop 2007: published +0.23, detrended +0.53</title></circle>
+<circle cx="134.2" cy="427.4" r="2.6" fill="#9db1b3"><title>Séno crop 2008: published +0.92, detrended +1.18</title></circle>
+<circle cx="134.2" cy="420.6" r="2.6" fill="#1e795f"><title>Séno crop 2008: published +0.92, detrended +1.18</title></circle>
+<circle cx="145.8" cy="480.2" r="2.6" fill="#9db1b3"><title>Séno crop 2009: published -1.03, detrended -0.82</title></circle>
+<circle cx="145.8" cy="474.7" r="2.6" fill="#1e795f"><title>Séno crop 2009: published -1.03, detrended -0.82</title></circle>
+<circle cx="157.4" cy="476.7" r="2.6" fill="#9db1b3"><title>Séno crop 2010: published -0.90, detrended -0.74</title></circle>
+<circle cx="157.4" cy="472.5" r="2.6" fill="#1e795f"><title>Séno crop 2010: published -0.90, detrended -0.74</title></circle>
+<circle cx="169.0" cy="474.3" r="2.6" fill="#9db1b3"><title>Séno crop 2011: published -0.81, detrended -0.71</title></circle>
+<circle cx="169.0" cy="471.6" r="2.6" fill="#1e795f"><title>Séno crop 2011: published -0.81, detrended -0.71</title></circle>
+<circle cx="180.6" cy="449.2" r="2.6" fill="#9db1b3"><title>Séno crop 2012: published +0.12, detrended +0.17</title></circle>
+<circle cx="180.6" cy="447.8" r="2.6" fill="#1e795f"><title>Séno crop 2012: published +0.12, detrended +0.17</title></circle>
+<circle cx="192.2" cy="446.4" r="2.6" fill="#9db1b3"><title>Séno crop 2013: published +0.22, detrended +0.22</title></circle>
+<circle cx="192.2" cy="446.4" r="2.6" fill="#1e795f"><title>Séno crop 2013: published +0.22, detrended +0.22</title></circle>
+<circle cx="203.8" cy="460.2" r="2.6" fill="#9db1b3"><title>Séno crop 2014: published -0.29, detrended -0.34</title></circle>
+<circle cx="203.8" cy="461.6" r="2.6" fill="#1e795f"><title>Séno crop 2014: published -0.29, detrended -0.34</title></circle>
+<circle cx="215.4" cy="448.9" r="2.6" fill="#9db1b3"><title>Séno crop 2015: published +0.13, detrended +0.03</title></circle>
+<circle cx="215.4" cy="451.7" r="2.6" fill="#1e795f"><title>Séno crop 2015: published +0.13, detrended +0.03</title></circle>
+<circle cx="227.0" cy="457.0" r="2.6" fill="#9db1b3"><title>Séno crop 2016: published -0.17, detrended -0.32</title></circle>
+<circle cx="227.0" cy="461.2" r="2.6" fill="#1e795f"><title>Séno crop 2016: published -0.17, detrended -0.32</title></circle>
+<circle cx="238.6" cy="434.4" r="2.6" fill="#9db1b3"><title>Séno crop 2017: published +0.66, detrended +0.46</title></circle>
+<circle cx="238.6" cy="439.9" r="2.6" fill="#1e795f"><title>Séno crop 2017: published +0.66, detrended +0.46</title></circle>
+<circle cx="250.2" cy="440.3" r="2.6" fill="#9db1b3"><title>Séno crop 2018: published +0.45, detrended +0.20</title></circle>
+<circle cx="250.2" cy="447.1" r="2.6" fill="#1e795f"><title>Séno crop 2018: published +0.45, detrended +0.20</title></circle>
+<circle cx="261.8" cy="468.0" r="2.6" fill="#9db1b3"><title>Séno crop 2019: published -0.58, detrended -0.88</title></circle>
+<circle cx="261.8" cy="476.3" r="2.6" fill="#1e795f"><title>Séno crop 2019: published -0.58, detrended -0.88</title></circle>
+<circle cx="273.4" cy="447.5" r="2.6" fill="#9db1b3"><title>Séno crop 2020: published +0.18, detrended -0.17</title></circle>
+<circle cx="273.4" cy="457.2" r="2.6" fill="#1e795f"><title>Séno crop 2020: published +0.18, detrended -0.17</title></circle>
+<circle cx="285.0" cy="423.5" r="2.6" fill="#9db1b3"><title>Séno crop 2021: published +1.07, detrended +0.66</title></circle>
+<circle cx="285.0" cy="434.5" r="2.6" fill="#1e795f"><title>Séno crop 2021: published +1.07, detrended +0.66</title></circle>
+<circle cx="296.6" cy="463.2" r="2.6" fill="#9db1b3"><title>Séno crop 2022: published -0.40, detrended -0.86</title></circle>
+<circle cx="296.6" cy="475.6" r="2.6" fill="#1e795f"><title>Séno crop 2022: published -0.40, detrended -0.86</title></circle>
+<circle cx="308.2" cy="433.7" r="2.6" fill="#9db1b3"><title>Séno crop 2023: published +0.69, detrended +0.18</title></circle>
+<circle cx="308.2" cy="447.4" r="2.6" fill="#1e795f"><title>Séno crop 2023: published +0.69, detrended +0.18</title></circle>
+<circle cx="319.8" cy="415.2" r="2.6" fill="#9db1b3"><title>Séno crop 2024: published +1.37, detrended +0.82</title></circle>
+<circle cx="319.8" cy="430.3" r="2.6" fill="#1e795f"><title>Séno crop 2024: published +1.37, detrended +0.82</title></circle>
+<circle cx="331.4" cy="420.8" r="2.6" fill="#9db1b3"><title>Séno crop 2025: published +1.17, detrended +0.56</title></circle>
+<circle cx="331.4" cy="437.3" r="2.6" fill="#1e795f"><title>Séno crop 2025: published +1.17, detrended +0.56</title></circle>
+<circle cx="343.0" cy="437.8" r="2.6" fill="#9db1b3"><title>Séno crop 2026: published +0.54, detrended -0.08</title></circle>
+<circle cx="343.0" cy="454.6" r="2.6" fill="#1e795f"><title>Séno crop 2026: published +0.54, detrended -0.08</title></circle>
+<text x="388" y="374" font-size="12" font-weight="500" fill="#1f2324">Séno · rangeland</text>
+<line x1="388" y1="506.6" x2="688" y2="506.6" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="510.1" text-anchor="end" font-size="9.5" fill="#7e8e8f">-2</text>
+<line x1="388" y1="479.5" x2="688" y2="479.5" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="483.0" text-anchor="end" font-size="9.5" fill="#7e8e8f">-1</text>
+<line x1="388" y1="452.4" x2="688" y2="452.4" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="455.9" text-anchor="end" font-size="9.5" fill="#7e8e8f">+0</text>
+<line x1="388" y1="425.3" x2="688" y2="425.3" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="428.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+1</text>
+<line x1="388" y1="398.2" x2="688" y2="398.2" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="401.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+2</text>
+<line x1="388" y1="468.7" x2="688" y2="468.7" stroke="#d48f2a" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="388" y1="479.5" x2="688" y2="479.5" stroke="#9d372b" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="439.4" y="524" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2005</text>
+<text x="497.4" y="524" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2010</text>
+<text x="555.4" y="524" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2015</text>
+<text x="613.4" y="524" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2020</text>
+<text x="671.4" y="524" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2025</text>
+<polyline points="393.0,466.1 404.6,484.3 416.2,445.5 427.8,459.9 439.4,433.1 451.0,470.0 462.6,451.0 474.2,432.3 485.8,481.2 497.4,476.3 509.0,477.1 520.6,455.3 532.2,445.9 543.8,460.5 555.4,449.2 567.0,453.3 578.6,431.5 590.2,442.4 601.8,460.5 613.4,444.3 625.0,414.2 636.6,455.6 648.2,426.7 659.8,415.9 671.4,411.9 683.0,425.8" fill="none" stroke="#9db1b3" stroke-width="2" stroke-linejoin="round" />
+<polyline points="393.0,444.9 404.6,464.8 416.2,427.7 427.8,443.9 439.4,418.9 451.0,457.6 462.6,440.3 474.2,423.4 485.8,474.1 497.4,471.0 509.0,473.5 520.6,453.5 532.2,445.9 543.8,462.3 555.4,452.7 567.0,458.6 578.6,438.6 590.2,451.2 601.8,471.2 613.4,456.7 625.0,428.4 636.6,471.5 648.2,444.5 659.8,435.5 671.4,433.2 683.0,447.9" fill="none" stroke="#1e795f" stroke-width="2" stroke-linejoin="round" />
+<circle cx="393.0" cy="466.1" r="2.6" fill="#9db1b3"><title>Séno range 2001: published -0.51, detrended +0.28</title></circle>
+<circle cx="393.0" cy="444.9" r="2.6" fill="#1e795f"><title>Séno range 2001: published -0.51, detrended +0.28</title></circle>
+<circle cx="404.6" cy="484.3" r="2.6" fill="#9db1b3"><title>Séno range 2002: published -1.18, detrended -0.46</title></circle>
+<circle cx="404.6" cy="464.8" r="2.6" fill="#1e795f"><title>Séno range 2002: published -1.18, detrended -0.46</title></circle>
+<circle cx="416.2" cy="445.5" r="2.6" fill="#9db1b3"><title>Séno range 2003: published +0.26, detrended +0.91</title></circle>
+<circle cx="416.2" cy="427.7" r="2.6" fill="#1e795f"><title>Séno range 2003: published +0.26, detrended +0.91</title></circle>
+<circle cx="427.8" cy="459.9" r="2.6" fill="#9db1b3"><title>Séno range 2004: published -0.28, detrended +0.31</title></circle>
+<circle cx="427.8" cy="443.9" r="2.6" fill="#1e795f"><title>Séno range 2004: published -0.28, detrended +0.31</title></circle>
+<circle cx="439.4" cy="433.1" r="2.6" fill="#9db1b3"><title>Séno range 2005: published +0.71, detrended +1.24</title></circle>
+<circle cx="439.4" cy="418.9" r="2.6" fill="#1e795f"><title>Séno range 2005: published +0.71, detrended +1.24</title></circle>
+<circle cx="451.0" cy="470.0" r="2.6" fill="#9db1b3"><title>Séno range 2006: published -0.65, detrended -0.19</title></circle>
+<circle cx="451.0" cy="457.6" r="2.6" fill="#1e795f"><title>Séno range 2006: published -0.65, detrended -0.19</title></circle>
+<circle cx="462.6" cy="451.0" r="2.6" fill="#9db1b3"><title>Séno range 2007: published +0.05, detrended +0.45</title></circle>
+<circle cx="462.6" cy="440.3" r="2.6" fill="#1e795f"><title>Séno range 2007: published +0.05, detrended +0.45</title></circle>
+<circle cx="474.2" cy="432.3" r="2.6" fill="#9db1b3"><title>Séno range 2008: published +0.74, detrended +1.07</title></circle>
+<circle cx="474.2" cy="423.4" r="2.6" fill="#1e795f"><title>Séno range 2008: published +0.74, detrended +1.07</title></circle>
+<circle cx="485.8" cy="481.2" r="2.6" fill="#9db1b3"><title>Séno range 2009: published -1.06, detrended -0.80</title></circle>
+<circle cx="485.8" cy="474.1" r="2.6" fill="#1e795f"><title>Séno range 2009: published -1.06, detrended -0.80</title></circle>
+<circle cx="497.4" cy="476.3" r="2.6" fill="#9db1b3"><title>Séno range 2010: published -0.88, detrended -0.69</title></circle>
+<circle cx="497.4" cy="471.0" r="2.6" fill="#1e795f"><title>Séno range 2010: published -0.88, detrended -0.69</title></circle>
+<circle cx="509.0" cy="477.1" r="2.6" fill="#9db1b3"><title>Séno range 2011: published -0.91, detrended -0.78</title></circle>
+<circle cx="509.0" cy="473.5" r="2.6" fill="#1e795f"><title>Séno range 2011: published -0.91, detrended -0.78</title></circle>
+<circle cx="520.6" cy="455.3" r="2.6" fill="#9db1b3"><title>Séno range 2012: published -0.11, detrended -0.04</title></circle>
+<circle cx="520.6" cy="453.5" r="2.6" fill="#1e795f"><title>Séno range 2012: published -0.11, detrended -0.04</title></circle>
+<circle cx="532.2" cy="445.9" r="2.6" fill="#9db1b3"><title>Séno range 2013: published +0.24, detrended +0.24</title></circle>
+<circle cx="532.2" cy="445.9" r="2.6" fill="#1e795f"><title>Séno range 2013: published +0.24, detrended +0.24</title></circle>
+<circle cx="543.8" cy="460.5" r="2.6" fill="#9db1b3"><title>Séno range 2014: published -0.30, detrended -0.36</title></circle>
+<circle cx="543.8" cy="462.3" r="2.6" fill="#1e795f"><title>Séno range 2014: published -0.30, detrended -0.36</title></circle>
+<circle cx="555.4" cy="449.2" r="2.6" fill="#9db1b3"><title>Séno range 2015: published +0.12, detrended -0.01</title></circle>
+<circle cx="555.4" cy="452.7" r="2.6" fill="#1e795f"><title>Séno range 2015: published +0.12, detrended -0.01</title></circle>
+<circle cx="567.0" cy="453.3" r="2.6" fill="#9db1b3"><title>Séno range 2016: published -0.03, detrended -0.23</title></circle>
+<circle cx="567.0" cy="458.6" r="2.6" fill="#1e795f"><title>Séno range 2016: published -0.03, detrended -0.23</title></circle>
+<circle cx="578.6" cy="431.5" r="2.6" fill="#9db1b3"><title>Séno range 2017: published +0.77, detrended +0.51</title></circle>
+<circle cx="578.6" cy="438.6" r="2.6" fill="#1e795f"><title>Séno range 2017: published +0.77, detrended +0.51</title></circle>
+<circle cx="590.2" cy="442.4" r="2.6" fill="#9db1b3"><title>Séno range 2018: published +0.37, detrended +0.04</title></circle>
+<circle cx="590.2" cy="451.2" r="2.6" fill="#1e795f"><title>Séno range 2018: published +0.37, detrended +0.04</title></circle>
+<circle cx="601.8" cy="460.5" r="2.6" fill="#9db1b3"><title>Séno range 2019: published -0.30, detrended -0.69</title></circle>
+<circle cx="601.8" cy="471.2" r="2.6" fill="#1e795f"><title>Séno range 2019: published -0.30, detrended -0.69</title></circle>
+<circle cx="613.4" cy="444.3" r="2.6" fill="#9db1b3"><title>Séno range 2020: published +0.30, detrended -0.16</title></circle>
+<circle cx="613.4" cy="456.7" r="2.6" fill="#1e795f"><title>Séno range 2020: published +0.30, detrended -0.16</title></circle>
+<circle cx="625.0" cy="414.2" r="2.6" fill="#9db1b3"><title>Séno range 2021: published +1.41, detrended +0.89</title></circle>
+<circle cx="625.0" cy="428.4" r="2.6" fill="#1e795f"><title>Séno range 2021: published +1.41, detrended +0.89</title></circle>
+<circle cx="636.6" cy="455.6" r="2.6" fill="#9db1b3"><title>Séno range 2022: published -0.12, detrended -0.71</title></circle>
+<circle cx="636.6" cy="471.5" r="2.6" fill="#1e795f"><title>Séno range 2022: published -0.12, detrended -0.71</title></circle>
+<circle cx="648.2" cy="426.7" r="2.6" fill="#9db1b3"><title>Séno range 2023: published +0.95, detrended +0.29</title></circle>
+<circle cx="648.2" cy="444.5" r="2.6" fill="#1e795f"><title>Séno range 2023: published +0.95, detrended +0.29</title></circle>
+<circle cx="659.8" cy="415.9" r="2.6" fill="#9db1b3"><title>Séno range 2024: published +1.35, detrended +0.63</title></circle>
+<circle cx="659.8" cy="435.5" r="2.6" fill="#1e795f"><title>Séno range 2024: published +1.35, detrended +0.63</title></circle>
+<circle cx="671.4" cy="411.9" r="2.6" fill="#9db1b3"><title>Séno range 2025: published +1.50, detrended +0.71</title></circle>
+<circle cx="671.4" cy="433.2" r="2.6" fill="#1e795f"><title>Séno range 2025: published +1.50, detrended +0.71</title></circle>
+<circle cx="683.0" cy="425.8" r="2.6" fill="#9db1b3"><title>Séno range 2026: published +0.98, detrended +0.17</title></circle>
+<circle cx="683.0" cy="447.9" r="2.6" fill="#1e795f"><title>Séno range 2026: published +0.98, detrended +0.17</title></circle>
+<text x="48" y="548" font-size="12" font-weight="500" fill="#1f2324">Yagha · cropland</text>
+<line x1="48" y1="680.6" x2="348" y2="680.6" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="684.1" text-anchor="end" font-size="9.5" fill="#7e8e8f">-2</text>
+<line x1="48" y1="653.5" x2="348" y2="653.5" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="657.0" text-anchor="end" font-size="9.5" fill="#7e8e8f">-1</text>
+<line x1="48" y1="626.4" x2="348" y2="626.4" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="629.9" text-anchor="end" font-size="9.5" fill="#7e8e8f">+0</text>
+<line x1="48" y1="599.3" x2="348" y2="599.3" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="602.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+1</text>
+<line x1="48" y1="572.2" x2="348" y2="572.2" stroke="#e2e8e8" stroke-width="1"/>
+<text x="42" y="575.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+2</text>
+<line x1="48" y1="642.7" x2="348" y2="642.7" stroke="#d48f2a" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="48" y1="653.5" x2="348" y2="653.5" stroke="#9d372b" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="99.4" y="698" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2005</text>
+<text x="157.4" y="698" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2010</text>
+<text x="215.4" y="698" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2015</text>
+<text x="273.4" y="698" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2020</text>
+<text x="331.4" y="698" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2025</text>
+<polyline points="53.0,645.4 64.6,648.1 76.2,595.1 87.8,614.9 99.4,584.9 111.0,642.2 122.6,627.1 134.2,624.5 145.8,656.5 157.4,649.2 169.0,653.6 180.6,623.3 192.2,629.3 203.8,620.8 215.4,642.6 227.0,616.7 238.6,604.6 250.2,622.4 261.8,633.9 273.4,636.0 285.0,606.9 296.6,630.9 308.2,602.3 319.8,622.2 331.4,623.1 343.0,597.1" fill="none" stroke="#9db1b3" stroke-width="2" stroke-linejoin="round" />
+<polyline points="53.0,637.3 64.6,640.6 76.2,588.3 87.8,608.8 99.4,579.5 111.0,637.4 122.6,623.0 134.2,621.2 145.8,653.8 157.4,647.2 169.0,652.3 180.6,622.6 192.2,629.3 203.8,621.5 215.4,644.0 227.0,618.8 238.6,607.3 250.2,625.8 261.8,637.9 273.4,640.8 285.0,612.3 296.6,637.0 308.2,609.1 319.8,629.6 331.4,631.2 343.0,604.8" fill="none" stroke="#1e795f" stroke-width="2" stroke-linejoin="round" />
+<circle cx="53.0" cy="645.4" r="2.6" fill="#9db1b3"><title>Yagha crop 2001: published -0.70, detrended -0.40</title></circle>
+<circle cx="53.0" cy="637.3" r="2.6" fill="#1e795f"><title>Yagha crop 2001: published -0.70, detrended -0.40</title></circle>
+<circle cx="64.6" cy="648.1" r="2.6" fill="#9db1b3"><title>Yagha crop 2002: published -0.80, detrended -0.52</title></circle>
+<circle cx="64.6" cy="640.6" r="2.6" fill="#1e795f"><title>Yagha crop 2002: published -0.80, detrended -0.52</title></circle>
+<circle cx="76.2" cy="595.1" r="2.6" fill="#9db1b3"><title>Yagha crop 2003: published +1.16, detrended +1.41</title></circle>
+<circle cx="76.2" cy="588.3" r="2.6" fill="#1e795f"><title>Yagha crop 2003: published +1.16, detrended +1.41</title></circle>
+<circle cx="87.8" cy="614.9" r="2.6" fill="#9db1b3"><title>Yagha crop 2004: published +0.42, detrended +0.65</title></circle>
+<circle cx="87.8" cy="608.8" r="2.6" fill="#1e795f"><title>Yagha crop 2004: published +0.42, detrended +0.65</title></circle>
+<circle cx="99.4" cy="584.9" r="2.6" fill="#9db1b3"><title>Yagha crop 2005: published +1.53, detrended +1.73</title></circle>
+<circle cx="99.4" cy="579.5" r="2.6" fill="#1e795f"><title>Yagha crop 2005: published +1.53, detrended +1.73</title></circle>
+<circle cx="111.0" cy="642.2" r="2.6" fill="#9db1b3"><title>Yagha crop 2006: published -0.58, detrended -0.41</title></circle>
+<circle cx="111.0" cy="637.4" r="2.6" fill="#1e795f"><title>Yagha crop 2006: published -0.58, detrended -0.41</title></circle>
+<circle cx="122.6" cy="627.1" r="2.6" fill="#9db1b3"><title>Yagha crop 2007: published -0.02, detrended +0.13</title></circle>
+<circle cx="122.6" cy="623.0" r="2.6" fill="#1e795f"><title>Yagha crop 2007: published -0.02, detrended +0.13</title></circle>
+<circle cx="134.2" cy="624.5" r="2.6" fill="#9db1b3"><title>Yagha crop 2008: published +0.07, detrended +0.19</title></circle>
+<circle cx="134.2" cy="621.2" r="2.6" fill="#1e795f"><title>Yagha crop 2008: published +0.07, detrended +0.19</title></circle>
+<circle cx="145.8" cy="656.5" r="2.6" fill="#9db1b3"><title>Yagha crop 2009: published -1.11, detrended -1.01</title></circle>
+<circle cx="145.8" cy="653.8" r="2.6" fill="#1e795f"><title>Yagha crop 2009: published -1.11, detrended -1.01</title></circle>
+<circle cx="157.4" cy="649.2" r="2.6" fill="#9db1b3"><title>Yagha crop 2010: published -0.84, detrended -0.77</title></circle>
+<circle cx="157.4" cy="647.2" r="2.6" fill="#1e795f"><title>Yagha crop 2010: published -0.84, detrended -0.77</title></circle>
+<circle cx="169.0" cy="653.6" r="2.6" fill="#9db1b3"><title>Yagha crop 2011: published -1.00, detrended -0.95</title></circle>
+<circle cx="169.0" cy="652.3" r="2.6" fill="#1e795f"><title>Yagha crop 2011: published -1.00, detrended -0.95</title></circle>
+<circle cx="180.6" cy="623.3" r="2.6" fill="#9db1b3"><title>Yagha crop 2012: published +0.12, detrended +0.14</title></circle>
+<circle cx="180.6" cy="622.6" r="2.6" fill="#1e795f"><title>Yagha crop 2012: published +0.12, detrended +0.14</title></circle>
+<circle cx="192.2" cy="629.3" r="2.6" fill="#9db1b3"><title>Yagha crop 2013: published -0.10, detrended -0.10</title></circle>
+<circle cx="192.2" cy="629.3" r="2.6" fill="#1e795f"><title>Yagha crop 2013: published -0.10, detrended -0.10</title></circle>
+<circle cx="203.8" cy="620.8" r="2.6" fill="#9db1b3"><title>Yagha crop 2014: published +0.21, detrended +0.18</title></circle>
+<circle cx="203.8" cy="621.5" r="2.6" fill="#1e795f"><title>Yagha crop 2014: published +0.21, detrended +0.18</title></circle>
+<circle cx="215.4" cy="642.6" r="2.6" fill="#9db1b3"><title>Yagha crop 2015: published -0.60, detrended -0.65</title></circle>
+<circle cx="215.4" cy="644.0" r="2.6" fill="#1e795f"><title>Yagha crop 2015: published -0.60, detrended -0.65</title></circle>
+<circle cx="227.0" cy="616.7" r="2.6" fill="#9db1b3"><title>Yagha crop 2016: published +0.36, detrended +0.28</title></circle>
+<circle cx="227.0" cy="618.8" r="2.6" fill="#1e795f"><title>Yagha crop 2016: published +0.36, detrended +0.28</title></circle>
+<circle cx="238.6" cy="604.6" r="2.6" fill="#9db1b3"><title>Yagha crop 2017: published +0.81, detrended +0.71</title></circle>
+<circle cx="238.6" cy="607.3" r="2.6" fill="#1e795f"><title>Yagha crop 2017: published +0.81, detrended +0.71</title></circle>
+<circle cx="250.2" cy="622.4" r="2.6" fill="#9db1b3"><title>Yagha crop 2018: published +0.15, detrended +0.02</title></circle>
+<circle cx="250.2" cy="625.8" r="2.6" fill="#1e795f"><title>Yagha crop 2018: published +0.15, detrended +0.02</title></circle>
+<circle cx="261.8" cy="633.9" r="2.6" fill="#9db1b3"><title>Yagha crop 2019: published -0.28, detrended -0.42</title></circle>
+<circle cx="261.8" cy="637.9" r="2.6" fill="#1e795f"><title>Yagha crop 2019: published -0.28, detrended -0.42</title></circle>
+<circle cx="273.4" cy="636.0" r="2.6" fill="#9db1b3"><title>Yagha crop 2020: published -0.35, detrended -0.53</title></circle>
+<circle cx="273.4" cy="640.8" r="2.6" fill="#1e795f"><title>Yagha crop 2020: published -0.35, detrended -0.53</title></circle>
+<circle cx="285.0" cy="606.9" r="2.6" fill="#9db1b3"><title>Yagha crop 2021: published +0.72, detrended +0.52</title></circle>
+<circle cx="285.0" cy="612.3" r="2.6" fill="#1e795f"><title>Yagha crop 2021: published +0.72, detrended +0.52</title></circle>
+<circle cx="296.6" cy="630.9" r="2.6" fill="#9db1b3"><title>Yagha crop 2022: published -0.17, detrended -0.39</title></circle>
+<circle cx="296.6" cy="637.0" r="2.6" fill="#1e795f"><title>Yagha crop 2022: published -0.17, detrended -0.39</title></circle>
+<circle cx="308.2" cy="602.3" r="2.6" fill="#9db1b3"><title>Yagha crop 2023: published +0.89, detrended +0.64</title></circle>
+<circle cx="308.2" cy="609.1" r="2.6" fill="#1e795f"><title>Yagha crop 2023: published +0.89, detrended +0.64</title></circle>
+<circle cx="319.8" cy="622.2" r="2.6" fill="#9db1b3"><title>Yagha crop 2024: published +0.16, detrended -0.12</title></circle>
+<circle cx="319.8" cy="629.6" r="2.6" fill="#1e795f"><title>Yagha crop 2024: published +0.16, detrended -0.12</title></circle>
+<circle cx="331.4" cy="623.1" r="2.6" fill="#9db1b3"><title>Yagha crop 2025: published +0.12, detrended -0.18</title></circle>
+<circle cx="331.4" cy="631.2" r="2.6" fill="#1e795f"><title>Yagha crop 2025: published +0.12, detrended -0.18</title></circle>
+<circle cx="343.0" cy="597.1" r="2.6" fill="#9db1b3"><title>Yagha crop 2026: published +1.08, detrended +0.80</title></circle>
+<circle cx="343.0" cy="604.8" r="2.6" fill="#1e795f"><title>Yagha crop 2026: published +1.08, detrended +0.80</title></circle>
+<text x="388" y="548" font-size="12" font-weight="500" fill="#1f2324">Yagha · rangeland</text>
+<line x1="388" y1="680.6" x2="688" y2="680.6" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="684.1" text-anchor="end" font-size="9.5" fill="#7e8e8f">-2</text>
+<line x1="388" y1="653.5" x2="688" y2="653.5" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="657.0" text-anchor="end" font-size="9.5" fill="#7e8e8f">-1</text>
+<line x1="388" y1="626.4" x2="688" y2="626.4" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="629.9" text-anchor="end" font-size="9.5" fill="#7e8e8f">+0</text>
+<line x1="388" y1="599.3" x2="688" y2="599.3" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="602.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+1</text>
+<line x1="388" y1="572.2" x2="688" y2="572.2" stroke="#e2e8e8" stroke-width="1"/>
+<text x="382" y="575.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+2</text>
+<line x1="388" y1="642.7" x2="688" y2="642.7" stroke="#d48f2a" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="388" y1="653.5" x2="688" y2="653.5" stroke="#9d372b" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text x="439.4" y="698" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2005</text>
+<text x="497.4" y="698" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2010</text>
+<text x="555.4" y="698" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2015</text>
+<text x="613.4" y="698" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2020</text>
+<text x="671.4" y="698" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2025</text>
+<polyline points="393.0,639.1 404.6,640.8 416.2,600.9 427.8,611.8 439.4,590.7 451.0,637.4 462.6,628.2 474.2,627.0 485.8,665.8 497.4,652.2 509.0,659.4 520.6,633.8 532.2,632.2 543.8,625.2 555.4,640.1 567.0,621.2 578.6,607.5 590.2,618.9 601.8,626.9 613.4,630.1 625.0,595.9 636.6,620.7 648.2,596.7 659.8,615.9 671.4,614.7 683.0,591.3" fill="none" stroke="#9db1b3" stroke-width="2" stroke-linejoin="round" />
+<polyline points="393.0,627.1 404.6,629.8 416.2,590.8 427.8,602.8 439.4,582.6 451.0,630.3 462.6,622.2 474.2,622.0 485.8,661.8 497.4,649.2 509.0,657.3 520.6,632.8 532.2,632.2 543.8,626.2 555.4,642.1 567.0,624.2 578.6,611.5 590.2,624.0 601.8,632.9 613.4,637.1 625.0,603.9 636.6,629.7 648.2,606.8 659.8,627.0 671.4,626.7 683.0,603.1" fill="none" stroke="#1e795f" stroke-width="2" stroke-linejoin="round" />
+<circle cx="393.0" cy="639.1" r="2.6" fill="#9db1b3"><title>Yagha range 2001: published -0.47, detrended -0.03</title></circle>
+<circle cx="393.0" cy="627.1" r="2.6" fill="#1e795f"><title>Yagha range 2001: published -0.47, detrended -0.03</title></circle>
+<circle cx="404.6" cy="640.8" r="2.6" fill="#9db1b3"><title>Yagha range 2002: published -0.53, detrended -0.12</title></circle>
+<circle cx="404.6" cy="629.8" r="2.6" fill="#1e795f"><title>Yagha range 2002: published -0.53, detrended -0.12</title></circle>
+<circle cx="416.2" cy="600.9" r="2.6" fill="#9db1b3"><title>Yagha range 2003: published +0.94, detrended +1.31</title></circle>
+<circle cx="416.2" cy="590.8" r="2.6" fill="#1e795f"><title>Yagha range 2003: published +0.94, detrended +1.31</title></circle>
+<circle cx="427.8" cy="611.8" r="2.6" fill="#9db1b3"><title>Yagha range 2004: published +0.54, detrended +0.87</title></circle>
+<circle cx="427.8" cy="602.8" r="2.6" fill="#1e795f"><title>Yagha range 2004: published +0.54, detrended +0.87</title></circle>
+<circle cx="439.4" cy="590.7" r="2.6" fill="#9db1b3"><title>Yagha range 2005: published +1.32, detrended +1.62</title></circle>
+<circle cx="439.4" cy="582.6" r="2.6" fill="#1e795f"><title>Yagha range 2005: published +1.32, detrended +1.62</title></circle>
+<circle cx="451.0" cy="637.4" r="2.6" fill="#9db1b3"><title>Yagha range 2006: published -0.41, detrended -0.14</title></circle>
+<circle cx="451.0" cy="630.3" r="2.6" fill="#1e795f"><title>Yagha range 2006: published -0.41, detrended -0.14</title></circle>
+<circle cx="462.6" cy="628.2" r="2.6" fill="#9db1b3"><title>Yagha range 2007: published -0.07, detrended +0.15</title></circle>
+<circle cx="462.6" cy="622.2" r="2.6" fill="#1e795f"><title>Yagha range 2007: published -0.07, detrended +0.15</title></circle>
+<circle cx="474.2" cy="627.0" r="2.6" fill="#9db1b3"><title>Yagha range 2008: published -0.02, detrended +0.16</title></circle>
+<circle cx="474.2" cy="622.0" r="2.6" fill="#1e795f"><title>Yagha range 2008: published -0.02, detrended +0.16</title></circle>
+<circle cx="485.8" cy="665.8" r="2.6" fill="#9db1b3"><title>Yagha range 2009: published -1.46, detrended -1.31</title></circle>
+<circle cx="485.8" cy="661.8" r="2.6" fill="#1e795f"><title>Yagha range 2009: published -1.46, detrended -1.31</title></circle>
+<circle cx="497.4" cy="652.2" r="2.6" fill="#9db1b3"><title>Yagha range 2010: published -0.95, detrended -0.84</title></circle>
+<circle cx="497.4" cy="649.2" r="2.6" fill="#1e795f"><title>Yagha range 2010: published -0.95, detrended -0.84</title></circle>
+<circle cx="509.0" cy="659.4" r="2.6" fill="#9db1b3"><title>Yagha range 2011: published -1.22, detrended -1.14</title></circle>
+<circle cx="509.0" cy="657.3" r="2.6" fill="#1e795f"><title>Yagha range 2011: published -1.22, detrended -1.14</title></circle>
+<circle cx="520.6" cy="633.8" r="2.6" fill="#9db1b3"><title>Yagha range 2012: published -0.27, detrended -0.23</title></circle>
+<circle cx="520.6" cy="632.8" r="2.6" fill="#1e795f"><title>Yagha range 2012: published -0.27, detrended -0.23</title></circle>
+<circle cx="532.2" cy="632.2" r="2.6" fill="#9db1b3"><title>Yagha range 2013: published -0.21, detrended -0.21</title></circle>
+<circle cx="532.2" cy="632.2" r="2.6" fill="#1e795f"><title>Yagha range 2013: published -0.21, detrended -0.21</title></circle>
+<circle cx="543.8" cy="625.2" r="2.6" fill="#9db1b3"><title>Yagha range 2014: published +0.04, detrended +0.01</title></circle>
+<circle cx="543.8" cy="626.2" r="2.6" fill="#1e795f"><title>Yagha range 2014: published +0.04, detrended +0.01</title></circle>
+<circle cx="555.4" cy="640.1" r="2.6" fill="#9db1b3"><title>Yagha range 2015: published -0.51, detrended -0.58</title></circle>
+<circle cx="555.4" cy="642.1" r="2.6" fill="#1e795f"><title>Yagha range 2015: published -0.51, detrended -0.58</title></circle>
+<circle cx="567.0" cy="621.2" r="2.6" fill="#9db1b3"><title>Yagha range 2016: published +0.19, detrended +0.08</title></circle>
+<circle cx="567.0" cy="624.2" r="2.6" fill="#1e795f"><title>Yagha range 2016: published +0.19, detrended +0.08</title></circle>
+<circle cx="578.6" cy="607.5" r="2.6" fill="#9db1b3"><title>Yagha range 2017: published +0.70, detrended +0.55</title></circle>
+<circle cx="578.6" cy="611.5" r="2.6" fill="#1e795f"><title>Yagha range 2017: published +0.70, detrended +0.55</title></circle>
+<circle cx="590.2" cy="618.9" r="2.6" fill="#9db1b3"><title>Yagha range 2018: published +0.28, detrended +0.09</title></circle>
+<circle cx="590.2" cy="624.0" r="2.6" fill="#1e795f"><title>Yagha range 2018: published +0.28, detrended +0.09</title></circle>
+<circle cx="601.8" cy="626.9" r="2.6" fill="#9db1b3"><title>Yagha range 2019: published -0.02, detrended -0.24</title></circle>
+<circle cx="601.8" cy="632.9" r="2.6" fill="#1e795f"><title>Yagha range 2019: published -0.02, detrended -0.24</title></circle>
+<circle cx="613.4" cy="630.1" r="2.6" fill="#9db1b3"><title>Yagha range 2020: published -0.14, detrended -0.40</title></circle>
+<circle cx="613.4" cy="637.1" r="2.6" fill="#1e795f"><title>Yagha range 2020: published -0.14, detrended -0.40</title></circle>
+<circle cx="625.0" cy="595.9" r="2.6" fill="#9db1b3"><title>Yagha range 2021: published +1.13, detrended +0.83</title></circle>
+<circle cx="625.0" cy="603.9" r="2.6" fill="#1e795f"><title>Yagha range 2021: published +1.13, detrended +0.83</title></circle>
+<circle cx="636.6" cy="620.7" r="2.6" fill="#9db1b3"><title>Yagha range 2022: published +0.21, detrended -0.12</title></circle>
+<circle cx="636.6" cy="629.7" r="2.6" fill="#1e795f"><title>Yagha range 2022: published +0.21, detrended -0.12</title></circle>
+<circle cx="648.2" cy="596.7" r="2.6" fill="#9db1b3"><title>Yagha range 2023: published +1.10, detrended +0.73</title></circle>
+<circle cx="648.2" cy="606.8" r="2.6" fill="#1e795f"><title>Yagha range 2023: published +1.10, detrended +0.73</title></circle>
+<circle cx="659.8" cy="615.9" r="2.6" fill="#9db1b3"><title>Yagha range 2024: published +0.39, detrended -0.02</title></circle>
+<circle cx="659.8" cy="627.0" r="2.6" fill="#1e795f"><title>Yagha range 2024: published +0.39, detrended -0.02</title></circle>
+<circle cx="671.4" cy="614.7" r="2.6" fill="#9db1b3"><title>Yagha range 2025: published +0.43, detrended -0.01</title></circle>
+<circle cx="671.4" cy="626.7" r="2.6" fill="#1e795f"><title>Yagha range 2025: published +0.43, detrended -0.01</title></circle>
+<circle cx="683.0" cy="591.3" r="2.6" fill="#9db1b3"><title>Yagha range 2026: published +1.30, detrended +0.86</title></circle>
+<circle cx="683.0" cy="603.1" r="2.6" fill="#1e795f"><title>Yagha range 2026: published +1.30, detrended +0.86</title></circle>
+<line x1="48" y1="720" x2="70" y2="720" stroke="#9db1b3" stroke-width="2.5"/><text x="76" y="724" font-size="10.5" fill="#1f2324">As published by ASAP</text>
+<line x1="198" y1="720" x2="220" y2="720" stroke="#1e795f" stroke-width="2.5"/><text x="226" y="724" font-size="10.5" fill="#1f2324">Detrended (re-centred on 2001–2025 mean)</text>
+<line x1="448" y1="720" x2="470" y2="720" stroke="#d48f2a" stroke-width="1.5" stroke-dasharray="4 3"/><text x="476" y="724" font-size="10.5" fill="#1f2324">Calibrated cut-off -0.6</text>
+<line x1="593" y1="720" x2="615" y2="720" stroke="#9d372b" stroke-width="1.5" stroke-dasharray="4 3"/><text x="621" y="724" font-size="10.5" fill="#1f2324">ASAP −1</text>
+</svg>
+    <figcaption><strong>Figure 2.</strong> Mean zFPARc over the Trigger 2 window (dekads 21 to 26)
+       for each framework province and land cover, 2001 to 2026, as published by ASAP (grey) and
+       detrended (green). Dashed lines mark the two thresholds used below. 2026 covers dekads 21
+       to 25 only.</figcaption>
+  </figure>
+
+  <h3>From province means to "would the threshold have been met"</h3>
+  <p>ASAP issues a biomass warning when at least 25 percent of a province's active area has
+     zFPARc below −1. A province mean cannot reproduce that spatial rule exactly, so two
+     mappings are used, as agreed:</p>
+  <ul>
+    <li><strong>Calibrated cut-off.</strong> Over every in-season province-dekad from 2001 to
+        2025 for which both the province mean and the issued warning are known (515 warned
+        dekads in 1,525), the cut-off on the province mean that best reproduces ASAP's biomass
+        warnings is <strong>−0.6</strong>. It recovers 464 of the 515 warned dekads with 31 false
+        positives (F1 0.92).</li>
+    <li><strong>ASAP's own −1</strong> applied to the province mean, as a sensitivity. It
+        recovers only 188 of 515 warned dekads (F1 0.54), because a province mean of −1 implies
+        a much larger affected area than 25 percent.</li>
+  </ul>
+  <p>A level-3 alert also needs a meteorological deficit (water balance or SPI-3) in the same
+     dekad. That side is not detrended: the observed meteorological component of ASAP's issued
+     warning is used as-is, so the simulation isolates the biomass question. "Level 3" below
+     therefore means: province-mean zFPARc below the cut-off, cropland or rangeland, in a dekad
+     where ASAP also flagged a meteorological deficit for that land cover. The framework rule is
+     then applied: at least two provinces in the same dekad, dekads 21 to 26.</p>
+
+  <h2 id="results">3 · Results <a class="anchor" href="#results" aria-label="Link to this section">#</a></h2>
+
+  <figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 556" width="100%" style="max-width:760px" font-family="Roboto,system-ui,sans-serif" role="img" aria-labelledby="fc"><title id="fc">Maximum number of framework provinces meeting the criterion in any dekad 21–26, by year and method</title>
+<text x="92.0" y="28" text-anchor="middle" font-size="9.5" fill="#1f2324" font-weight="500">Observed ASAP warnings</text>
+<text x="184.0" y="28" text-anchor="middle" font-size="9.5" fill="#1f2324" font-weight="500">Proxy</text>
+<text x="184.0" y="40" text-anchor="middle" font-size="9.5" fill="#5e6a6b" font-weight="400">as published</text>
+<text x="184.0" y="52" text-anchor="middle" font-size="9.5" fill="#5e6a6b" font-weight="400">cut-off -0.6</text>
+<text x="276.0" y="28" text-anchor="middle" font-size="9.5" fill="#1f2324" font-weight="500">Proxy</text>
+<text x="276.0" y="40" text-anchor="middle" font-size="9.5" fill="#5e6a6b" font-weight="400">detrended</text>
+<text x="276.0" y="52" text-anchor="middle" font-size="9.5" fill="#5e6a6b" font-weight="400">cut-off -0.6</text>
+<text x="368.0" y="28" text-anchor="middle" font-size="9.5" fill="#1f2324" font-weight="500">Proxy</text>
+<text x="368.0" y="40" text-anchor="middle" font-size="9.5" fill="#5e6a6b" font-weight="400">as published</text>
+<text x="368.0" y="52" text-anchor="middle" font-size="9.5" fill="#5e6a6b" font-weight="400">−1</text>
+<text x="460.0" y="28" text-anchor="middle" font-size="9.5" fill="#1f2324" font-weight="500">Proxy</text>
+<text x="460.0" y="40" text-anchor="middle" font-size="9.5" fill="#5e6a6b" font-weight="400">detrended</text>
+<text x="460.0" y="52" text-anchor="middle" font-size="9.5" fill="#5e6a6b" font-weight="400">−1</text>
+<text x="552.0" y="28" text-anchor="middle" font-size="9.5" fill="#1f2324" font-weight="500">Biomass only</text>
+<text x="552.0" y="40" text-anchor="middle" font-size="9.5" fill="#5e6a6b" font-weight="400">as published</text>
+<text x="552.0" y="52" text-anchor="middle" font-size="9.5" fill="#5e6a6b" font-weight="400">cut-off -0.6</text>
+<text x="644.0" y="28" text-anchor="middle" font-size="9.5" fill="#1f2324" font-weight="500">Biomass only</text>
+<text x="644.0" y="40" text-anchor="middle" font-size="9.5" fill="#5e6a6b" font-weight="400">detrended</text>
+<text x="644.0" y="52" text-anchor="middle" font-size="9.5" fill="#5e6a6b" font-weight="400">cut-off -0.6</text>
+<text x="40" y="86.5" text-anchor="end" font-size="11" fill="#1f2324">2001</text>
+<rect x="47" y="75" width="90" height="15" rx="3" fill="#ebeff0"><title>2001 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="75" width="90" height="15" rx="3" fill="#ebeff0"><title>2001 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="75" width="90" height="15" rx="3" fill="#ebeff0"><title>2001 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="75" width="90" height="15" rx="3" fill="#ebeff0"><title>2001 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="75" width="90" height="15" rx="3" fill="#ebeff0"><title>2001 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="75" width="90" height="15" rx="3" fill="#d06a5e"><title>2001 · Biomass only, as published, cut-off -0.6: 2 province(s)</title></rect>
+<text x="552.0" y="86.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="507" y="75" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="599" y="75" width="90" height="15" rx="3" fill="#ebeff0"><title>2001 · Biomass only, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<text x="40" y="103.5" text-anchor="end" font-size="11" fill="#1f2324">2002</text>
+<rect x="47" y="92" width="90" height="15" rx="3" fill="#4e1c16"><title>2002 · Observed ASAP warnings: 4 province(s)</title></rect>
+<text x="92.0" y="103.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">4</text>
+<rect x="47" y="92" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="139" y="92" width="90" height="15" rx="3" fill="#4e1c16"><title>2002 · Proxy, as published, cut-off -0.6: 4 province(s)</title></rect>
+<text x="184.0" y="103.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">4</text>
+<rect x="139" y="92" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="231" y="92" width="90" height="15" rx="3" fill="#d06a5e"><title>2002 · Proxy, detrended, cut-off -0.6: 2 province(s)</title></rect>
+<text x="276.0" y="103.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="231" y="92" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="323" y="92" width="90" height="15" rx="3" fill="#9d372b"><title>2002 · Proxy, as published, −1: 3 province(s)</title></rect>
+<text x="368.0" y="103.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">3</text>
+<rect x="323" y="92" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="415" y="92" width="90" height="15" rx="3" fill="#d06a5e"><title>2002 · Proxy, detrended, −1: 2 province(s)</title></rect>
+<text x="460.0" y="103.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="415" y="92" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="507" y="92" width="90" height="15" rx="3" fill="#4e1c16"><title>2002 · Biomass only, as published, cut-off -0.6: 4 province(s)</title></rect>
+<text x="552.0" y="103.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">4</text>
+<rect x="507" y="92" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="599" y="92" width="90" height="15" rx="3" fill="#9d372b"><title>2002 · Biomass only, detrended, cut-off -0.6: 3 province(s)</title></rect>
+<text x="644.0" y="103.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">3</text>
+<rect x="599" y="92" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<text x="40" y="120.5" text-anchor="end" font-size="11" fill="#1f2324">2003</text>
+<rect x="47" y="109" width="90" height="15" rx="3" fill="#ebeff0"><title>2003 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="109" width="90" height="15" rx="3" fill="#ebeff0"><title>2003 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="109" width="90" height="15" rx="3" fill="#ebeff0"><title>2003 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="109" width="90" height="15" rx="3" fill="#ebeff0"><title>2003 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="109" width="90" height="15" rx="3" fill="#ebeff0"><title>2003 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="109" width="90" height="15" rx="3" fill="#ebeff0"><title>2003 · Biomass only, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="599" y="109" width="90" height="15" rx="3" fill="#ebeff0"><title>2003 · Biomass only, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<text x="40" y="137.5" text-anchor="end" font-size="11" fill="#1f2324">2004</text>
+<rect x="47" y="126" width="90" height="15" rx="3" fill="#9d372b"><title>2004 · Observed ASAP warnings: 3 province(s)</title></rect>
+<text x="92.0" y="137.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">3</text>
+<rect x="47" y="126" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="139" y="126" width="90" height="15" rx="3" fill="#d06a5e"><title>2004 · Proxy, as published, cut-off -0.6: 2 province(s)</title></rect>
+<text x="184.0" y="137.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="139" y="126" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="231" y="126" width="90" height="15" rx="3" fill="#e7b5af"><title>2004 · Proxy, detrended, cut-off -0.6: 1 province(s)</title></rect>
+<text x="276.0" y="137.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="323" y="126" width="90" height="15" rx="3" fill="#e7b5af"><title>2004 · Proxy, as published, −1: 1 province(s)</title></rect>
+<text x="368.0" y="137.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="415" y="126" width="90" height="15" rx="3" fill="#e7b5af"><title>2004 · Proxy, detrended, −1: 1 province(s)</title></rect>
+<text x="460.0" y="137.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="507" y="126" width="90" height="15" rx="3" fill="#d06a5e"><title>2004 · Biomass only, as published, cut-off -0.6: 2 province(s)</title></rect>
+<text x="552.0" y="137.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="507" y="126" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="599" y="126" width="90" height="15" rx="3" fill="#e7b5af"><title>2004 · Biomass only, detrended, cut-off -0.6: 1 province(s)</title></rect>
+<text x="644.0" y="137.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<text x="40" y="154.5" text-anchor="end" font-size="11" fill="#1f2324">2005</text>
+<rect x="47" y="143" width="90" height="15" rx="3" fill="#ebeff0"><title>2005 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="143" width="90" height="15" rx="3" fill="#ebeff0"><title>2005 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="143" width="90" height="15" rx="3" fill="#ebeff0"><title>2005 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="143" width="90" height="15" rx="3" fill="#ebeff0"><title>2005 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="143" width="90" height="15" rx="3" fill="#ebeff0"><title>2005 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="143" width="90" height="15" rx="3" fill="#ebeff0"><title>2005 · Biomass only, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="599" y="143" width="90" height="15" rx="3" fill="#ebeff0"><title>2005 · Biomass only, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<text x="40" y="171.5" text-anchor="end" font-size="11" fill="#1f2324">2006</text>
+<rect x="47" y="160" width="90" height="15" rx="3" fill="#d06a5e"><title>2006 · Observed ASAP warnings: 2 province(s)</title></rect>
+<text x="92.0" y="171.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="47" y="160" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="139" y="160" width="90" height="15" rx="3" fill="#e7b5af"><title>2006 · Proxy, as published, cut-off -0.6: 1 province(s)</title></rect>
+<text x="184.0" y="171.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="231" y="160" width="90" height="15" rx="3" fill="#ebeff0"><title>2006 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="160" width="90" height="15" rx="3" fill="#ebeff0"><title>2006 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="160" width="90" height="15" rx="3" fill="#ebeff0"><title>2006 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="160" width="90" height="15" rx="3" fill="#9d372b"><title>2006 · Biomass only, as published, cut-off -0.6: 3 province(s)</title></rect>
+<text x="552.0" y="171.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">3</text>
+<rect x="507" y="160" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="599" y="160" width="90" height="15" rx="3" fill="#d06a5e"><title>2006 · Biomass only, detrended, cut-off -0.6: 2 province(s)</title></rect>
+<text x="644.0" y="171.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="599" y="160" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<text x="40" y="188.5" text-anchor="end" font-size="11" fill="#1f2324">2007</text>
+<rect x="47" y="177" width="90" height="15" rx="3" fill="#ebeff0"><title>2007 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="177" width="90" height="15" rx="3" fill="#ebeff0"><title>2007 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="177" width="90" height="15" rx="3" fill="#ebeff0"><title>2007 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="177" width="90" height="15" rx="3" fill="#ebeff0"><title>2007 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="177" width="90" height="15" rx="3" fill="#ebeff0"><title>2007 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="177" width="90" height="15" rx="3" fill="#ebeff0"><title>2007 · Biomass only, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="599" y="177" width="90" height="15" rx="3" fill="#ebeff0"><title>2007 · Biomass only, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<text x="40" y="205.5" text-anchor="end" font-size="11" fill="#1f2324">2008</text>
+<rect x="47" y="194" width="90" height="15" rx="3" fill="#ebeff0"><title>2008 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="194" width="90" height="15" rx="3" fill="#ebeff0"><title>2008 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="194" width="90" height="15" rx="3" fill="#ebeff0"><title>2008 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="194" width="90" height="15" rx="3" fill="#ebeff0"><title>2008 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="194" width="90" height="15" rx="3" fill="#ebeff0"><title>2008 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="194" width="90" height="15" rx="3" fill="#ebeff0"><title>2008 · Biomass only, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="599" y="194" width="90" height="15" rx="3" fill="#ebeff0"><title>2008 · Biomass only, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<text x="40" y="222.5" text-anchor="end" font-size="11" fill="#1f2324">2009</text>
+<rect x="47" y="211" width="90" height="15" rx="3" fill="#d06a5e"><title>2009 · Observed ASAP warnings: 2 province(s)</title></rect>
+<text x="92.0" y="222.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="47" y="211" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="139" y="211" width="90" height="15" rx="3" fill="#d06a5e"><title>2009 · Proxy, as published, cut-off -0.6: 2 province(s)</title></rect>
+<text x="184.0" y="222.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="139" y="211" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="231" y="211" width="90" height="15" rx="3" fill="#d06a5e"><title>2009 · Proxy, detrended, cut-off -0.6: 2 province(s)</title></rect>
+<text x="276.0" y="222.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="231" y="211" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="323" y="211" width="90" height="15" rx="3" fill="#e7b5af"><title>2009 · Proxy, as published, −1: 1 province(s)</title></rect>
+<text x="368.0" y="222.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="415" y="211" width="90" height="15" rx="3" fill="#e7b5af"><title>2009 · Proxy, detrended, −1: 1 province(s)</title></rect>
+<text x="460.0" y="222.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="507" y="211" width="90" height="15" rx="3" fill="#d06a5e"><title>2009 · Biomass only, as published, cut-off -0.6: 2 province(s)</title></rect>
+<text x="552.0" y="222.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="507" y="211" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="599" y="211" width="90" height="15" rx="3" fill="#d06a5e"><title>2009 · Biomass only, detrended, cut-off -0.6: 2 province(s)</title></rect>
+<text x="644.0" y="222.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="599" y="211" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<text x="40" y="239.5" text-anchor="end" font-size="11" fill="#1f2324">2010</text>
+<rect x="47" y="228" width="90" height="15" rx="3" fill="#e7b5af"><title>2010 · Observed ASAP warnings: 1 province(s)</title></rect>
+<text x="92.0" y="239.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="139" y="228" width="90" height="15" rx="3" fill="#e7b5af"><title>2010 · Proxy, as published, cut-off -0.6: 1 province(s)</title></rect>
+<text x="184.0" y="239.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="231" y="228" width="90" height="15" rx="3" fill="#ebeff0"><title>2010 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="228" width="90" height="15" rx="3" fill="#ebeff0"><title>2010 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="228" width="90" height="15" rx="3" fill="#ebeff0"><title>2010 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="228" width="90" height="15" rx="3" fill="#9d372b"><title>2010 · Biomass only, as published, cut-off -0.6: 3 province(s)</title></rect>
+<text x="552.0" y="239.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">3</text>
+<rect x="507" y="228" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="599" y="228" width="90" height="15" rx="3" fill="#d06a5e"><title>2010 · Biomass only, detrended, cut-off -0.6: 2 province(s)</title></rect>
+<text x="644.0" y="239.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="599" y="228" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<text x="40" y="256.5" text-anchor="end" font-size="11" fill="#1f2324">2011</text>
+<rect x="47" y="245" width="90" height="15" rx="3" fill="#d06a5e"><title>2011 · Observed ASAP warnings: 2 province(s)</title></rect>
+<text x="92.0" y="256.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="47" y="245" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="139" y="245" width="90" height="15" rx="3" fill="#d06a5e"><title>2011 · Proxy, as published, cut-off -0.6: 2 province(s)</title></rect>
+<text x="184.0" y="256.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="139" y="245" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="231" y="245" width="90" height="15" rx="3" fill="#d06a5e"><title>2011 · Proxy, detrended, cut-off -0.6: 2 province(s)</title></rect>
+<text x="276.0" y="256.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="231" y="245" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="323" y="245" width="90" height="15" rx="3" fill="#e7b5af"><title>2011 · Proxy, as published, −1: 1 province(s)</title></rect>
+<text x="368.0" y="256.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="415" y="245" width="90" height="15" rx="3" fill="#e7b5af"><title>2011 · Proxy, detrended, −1: 1 province(s)</title></rect>
+<text x="460.0" y="256.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="507" y="245" width="90" height="15" rx="3" fill="#d06a5e"><title>2011 · Biomass only, as published, cut-off -0.6: 2 province(s)</title></rect>
+<text x="552.0" y="256.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="507" y="245" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="599" y="245" width="90" height="15" rx="3" fill="#d06a5e"><title>2011 · Biomass only, detrended, cut-off -0.6: 2 province(s)</title></rect>
+<text x="644.0" y="256.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="599" y="245" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<text x="40" y="273.5" text-anchor="end" font-size="11" fill="#1f2324">2012</text>
+<rect x="47" y="262" width="90" height="15" rx="3" fill="#ebeff0"><title>2012 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="262" width="90" height="15" rx="3" fill="#ebeff0"><title>2012 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="262" width="90" height="15" rx="3" fill="#ebeff0"><title>2012 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="262" width="90" height="15" rx="3" fill="#ebeff0"><title>2012 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="262" width="90" height="15" rx="3" fill="#ebeff0"><title>2012 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="262" width="90" height="15" rx="3" fill="#ebeff0"><title>2012 · Biomass only, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="599" y="262" width="90" height="15" rx="3" fill="#ebeff0"><title>2012 · Biomass only, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<text x="40" y="290.5" text-anchor="end" font-size="11" fill="#1f2324">2013</text>
+<rect x="47" y="279" width="90" height="15" rx="3" fill="#ebeff0"><title>2013 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="279" width="90" height="15" rx="3" fill="#ebeff0"><title>2013 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="279" width="90" height="15" rx="3" fill="#ebeff0"><title>2013 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="279" width="90" height="15" rx="3" fill="#ebeff0"><title>2013 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="279" width="90" height="15" rx="3" fill="#ebeff0"><title>2013 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="279" width="90" height="15" rx="3" fill="#ebeff0"><title>2013 · Biomass only, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="599" y="279" width="90" height="15" rx="3" fill="#ebeff0"><title>2013 · Biomass only, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<text x="40" y="307.5" text-anchor="end" font-size="11" fill="#1f2324">2014</text>
+<rect x="47" y="296" width="90" height="15" rx="3" fill="#ebeff0"><title>2014 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="296" width="90" height="15" rx="3" fill="#ebeff0"><title>2014 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="296" width="90" height="15" rx="3" fill="#ebeff0"><title>2014 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="296" width="90" height="15" rx="3" fill="#ebeff0"><title>2014 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="296" width="90" height="15" rx="3" fill="#ebeff0"><title>2014 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="296" width="90" height="15" rx="3" fill="#d06a5e"><title>2014 · Biomass only, as published, cut-off -0.6: 2 province(s)</title></rect>
+<text x="552.0" y="307.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="507" y="296" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="599" y="296" width="90" height="15" rx="3" fill="#d06a5e"><title>2014 · Biomass only, detrended, cut-off -0.6: 2 province(s)</title></rect>
+<text x="644.0" y="307.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="599" y="296" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<text x="40" y="324.5" text-anchor="end" font-size="11" fill="#1f2324">2015</text>
+<rect x="47" y="313" width="90" height="15" rx="3" fill="#ebeff0"><title>2015 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="313" width="90" height="15" rx="3" fill="#ebeff0"><title>2015 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="313" width="90" height="15" rx="3" fill="#ebeff0"><title>2015 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="313" width="90" height="15" rx="3" fill="#ebeff0"><title>2015 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="313" width="90" height="15" rx="3" fill="#ebeff0"><title>2015 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="313" width="90" height="15" rx="3" fill="#e7b5af"><title>2015 · Biomass only, as published, cut-off -0.6: 1 province(s)</title></rect>
+<text x="552.0" y="324.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="599" y="313" width="90" height="15" rx="3" fill="#e7b5af"><title>2015 · Biomass only, detrended, cut-off -0.6: 1 province(s)</title></rect>
+<text x="644.0" y="324.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<text x="40" y="341.5" text-anchor="end" font-size="11" fill="#1f2324">2016</text>
+<rect x="47" y="330" width="90" height="15" rx="3" fill="#e7b5af"><title>2016 · Observed ASAP warnings: 1 province(s)</title></rect>
+<text x="92.0" y="341.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="139" y="330" width="90" height="15" rx="3" fill="#e7b5af"><title>2016 · Proxy, as published, cut-off -0.6: 1 province(s)</title></rect>
+<text x="184.0" y="341.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="231" y="330" width="90" height="15" rx="3" fill="#e7b5af"><title>2016 · Proxy, detrended, cut-off -0.6: 1 province(s)</title></rect>
+<text x="276.0" y="341.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="323" y="330" width="90" height="15" rx="3" fill="#ebeff0"><title>2016 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="330" width="90" height="15" rx="3" fill="#ebeff0"><title>2016 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="330" width="90" height="15" rx="3" fill="#e7b5af"><title>2016 · Biomass only, as published, cut-off -0.6: 1 province(s)</title></rect>
+<text x="552.0" y="341.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="599" y="330" width="90" height="15" rx="3" fill="#d06a5e"><title>2016 · Biomass only, detrended, cut-off -0.6: 2 province(s)</title></rect>
+<text x="644.0" y="341.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="599" y="330" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<text x="40" y="358.5" text-anchor="end" font-size="11" fill="#1f2324">2017</text>
+<rect x="47" y="347" width="90" height="15" rx="3" fill="#ebeff0"><title>2017 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="347" width="90" height="15" rx="3" fill="#ebeff0"><title>2017 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="347" width="90" height="15" rx="3" fill="#ebeff0"><title>2017 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="347" width="90" height="15" rx="3" fill="#ebeff0"><title>2017 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="347" width="90" height="15" rx="3" fill="#ebeff0"><title>2017 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="347" width="90" height="15" rx="3" fill="#ebeff0"><title>2017 · Biomass only, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="599" y="347" width="90" height="15" rx="3" fill="#e7b5af"><title>2017 · Biomass only, detrended, cut-off -0.6: 1 province(s)</title></rect>
+<text x="644.0" y="358.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<text x="40" y="375.5" text-anchor="end" font-size="11" fill="#1f2324">2018</text>
+<rect x="47" y="364" width="90" height="15" rx="3" fill="#ebeff0"><title>2018 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="364" width="90" height="15" rx="3" fill="#ebeff0"><title>2018 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="364" width="90" height="15" rx="3" fill="#ebeff0"><title>2018 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="364" width="90" height="15" rx="3" fill="#ebeff0"><title>2018 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="364" width="90" height="15" rx="3" fill="#ebeff0"><title>2018 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="364" width="90" height="15" rx="3" fill="#ebeff0"><title>2018 · Biomass only, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="599" y="364" width="90" height="15" rx="3" fill="#e7b5af"><title>2018 · Biomass only, detrended, cut-off -0.6: 1 province(s)</title></rect>
+<text x="644.0" y="375.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<text x="40" y="392.5" text-anchor="end" font-size="11" fill="#1f2324">2019</text>
+<rect x="47" y="381" width="90" height="15" rx="3" fill="#ebeff0"><title>2019 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="381" width="90" height="15" rx="3" fill="#ebeff0"><title>2019 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="381" width="90" height="15" rx="3" fill="#e7b5af"><title>2019 · Proxy, detrended, cut-off -0.6: 1 province(s)</title></rect>
+<text x="276.0" y="392.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="323" y="381" width="90" height="15" rx="3" fill="#ebeff0"><title>2019 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="381" width="90" height="15" rx="3" fill="#ebeff0"><title>2019 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="381" width="90" height="15" rx="3" fill="#d06a5e"><title>2019 · Biomass only, as published, cut-off -0.6: 2 province(s)</title></rect>
+<text x="552.0" y="392.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">2</text>
+<rect x="507" y="381" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<rect x="599" y="381" width="90" height="15" rx="3" fill="#9d372b"><title>2019 · Biomass only, detrended, cut-off -0.6: 3 province(s)</title></rect>
+<text x="644.0" y="392.5" text-anchor="middle" font-size="10" font-weight="500" fill="#fff">3</text>
+<rect x="599" y="381" width="90" height="15" rx="3" fill="none" stroke="#1f2324" stroke-width="1.2"/>
+<text x="40" y="409.5" text-anchor="end" font-size="11" fill="#1f2324">2020</text>
+<rect x="47" y="398" width="90" height="15" rx="3" fill="#e7b5af"><title>2020 · Observed ASAP warnings: 1 province(s)</title></rect>
+<text x="92.0" y="409.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="139" y="398" width="90" height="15" rx="3" fill="#e7b5af"><title>2020 · Proxy, as published, cut-off -0.6: 1 province(s)</title></rect>
+<text x="184.0" y="409.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="231" y="398" width="90" height="15" rx="3" fill="#e7b5af"><title>2020 · Proxy, detrended, cut-off -0.6: 1 province(s)</title></rect>
+<text x="276.0" y="409.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="323" y="398" width="90" height="15" rx="3" fill="#ebeff0"><title>2020 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="398" width="90" height="15" rx="3" fill="#ebeff0"><title>2020 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="398" width="90" height="15" rx="3" fill="#e7b5af"><title>2020 · Biomass only, as published, cut-off -0.6: 1 province(s)</title></rect>
+<text x="552.0" y="409.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<rect x="599" y="398" width="90" height="15" rx="3" fill="#e7b5af"><title>2020 · Biomass only, detrended, cut-off -0.6: 1 province(s)</title></rect>
+<text x="644.0" y="409.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<text x="40" y="426.5" text-anchor="end" font-size="11" fill="#1f2324">2021</text>
+<rect x="47" y="415" width="90" height="15" rx="3" fill="#ebeff0"><title>2021 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="415" width="90" height="15" rx="3" fill="#ebeff0"><title>2021 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="415" width="90" height="15" rx="3" fill="#ebeff0"><title>2021 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="415" width="90" height="15" rx="3" fill="#ebeff0"><title>2021 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="415" width="90" height="15" rx="3" fill="#ebeff0"><title>2021 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="415" width="90" height="15" rx="3" fill="#ebeff0"><title>2021 · Biomass only, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="599" y="415" width="90" height="15" rx="3" fill="#ebeff0"><title>2021 · Biomass only, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<text x="40" y="443.5" text-anchor="end" font-size="11" fill="#1f2324">2022</text>
+<rect x="47" y="432" width="90" height="15" rx="3" fill="#ebeff0"><title>2022 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="432" width="90" height="15" rx="3" fill="#ebeff0"><title>2022 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="432" width="90" height="15" rx="3" fill="#ebeff0"><title>2022 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="432" width="90" height="15" rx="3" fill="#ebeff0"><title>2022 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="432" width="90" height="15" rx="3" fill="#ebeff0"><title>2022 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="432" width="90" height="15" rx="3" fill="#ebeff0"><title>2022 · Biomass only, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="599" y="432" width="90" height="15" rx="3" fill="#e7b5af"><title>2022 · Biomass only, detrended, cut-off -0.6: 1 province(s)</title></rect>
+<text x="644.0" y="443.5" text-anchor="middle" font-size="10" font-weight="500" fill="#1f2324">1</text>
+<text x="40" y="460.5" text-anchor="end" font-size="11" fill="#1f2324">2023</text>
+<rect x="47" y="449" width="90" height="15" rx="3" fill="#ebeff0"><title>2023 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="449" width="90" height="15" rx="3" fill="#ebeff0"><title>2023 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="449" width="90" height="15" rx="3" fill="#ebeff0"><title>2023 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="449" width="90" height="15" rx="3" fill="#ebeff0"><title>2023 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="449" width="90" height="15" rx="3" fill="#ebeff0"><title>2023 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="449" width="90" height="15" rx="3" fill="#ebeff0"><title>2023 · Biomass only, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="599" y="449" width="90" height="15" rx="3" fill="#ebeff0"><title>2023 · Biomass only, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<text x="40" y="477.5" text-anchor="end" font-size="11" fill="#1f2324">2024</text>
+<rect x="47" y="466" width="90" height="15" rx="3" fill="#ebeff0"><title>2024 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="466" width="90" height="15" rx="3" fill="#ebeff0"><title>2024 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="466" width="90" height="15" rx="3" fill="#ebeff0"><title>2024 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="466" width="90" height="15" rx="3" fill="#ebeff0"><title>2024 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="466" width="90" height="15" rx="3" fill="#ebeff0"><title>2024 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="466" width="90" height="15" rx="3" fill="#ebeff0"><title>2024 · Biomass only, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="599" y="466" width="90" height="15" rx="3" fill="#ebeff0"><title>2024 · Biomass only, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<text x="40" y="494.5" text-anchor="end" font-size="11" fill="#1f2324">2025</text>
+<rect x="47" y="483" width="90" height="15" rx="3" fill="#ebeff0"><title>2025 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="483" width="90" height="15" rx="3" fill="#ebeff0"><title>2025 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="483" width="90" height="15" rx="3" fill="#ebeff0"><title>2025 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="483" width="90" height="15" rx="3" fill="#ebeff0"><title>2025 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="483" width="90" height="15" rx="3" fill="#ebeff0"><title>2025 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="483" width="90" height="15" rx="3" fill="#ebeff0"><title>2025 · Biomass only, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="599" y="483" width="90" height="15" rx="3" fill="#ebeff0"><title>2025 · Biomass only, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<text x="40" y="511.5" text-anchor="end" font-size="11" fill="#1f2324">2026</text>
+<rect x="47" y="500" width="90" height="15" rx="3" fill="#ebeff0"><title>2026 · Observed ASAP warnings: 0 province(s)</title></rect>
+<rect x="139" y="500" width="90" height="15" rx="3" fill="#ebeff0"><title>2026 · Proxy, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="231" y="500" width="90" height="15" rx="3" fill="#ebeff0"><title>2026 · Proxy, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="323" y="500" width="90" height="15" rx="3" fill="#ebeff0"><title>2026 · Proxy, as published, −1: 0 province(s)</title></rect>
+<rect x="415" y="500" width="90" height="15" rx="3" fill="#ebeff0"><title>2026 · Proxy, detrended, −1: 0 province(s)</title></rect>
+<rect x="507" y="500" width="90" height="15" rx="3" fill="#ebeff0"><title>2026 · Biomass only, as published, cut-off -0.6: 0 province(s)</title></rect>
+<rect x="599" y="500" width="90" height="15" rx="3" fill="#ebeff0"><title>2026 · Biomass only, detrended, cut-off -0.6: 0 province(s)</title></rect>
+<text x="694" y="511.5" font-size="9" fill="#7e8e8f">to dek 25</text>
+<text x="46" y="546" font-size="10.5" fill="#1f2324">Provinces meeting the criterion in the same dekad:</text>
+<rect x="336" y="537" width="14" height="11" rx="2" fill="#ebeff0"/><text x="354" y="546" font-size="10.5" fill="#1f2324">0</text>
+<rect x="374" y="537" width="14" height="11" rx="2" fill="#e7b5af"/><text x="392" y="546" font-size="10.5" fill="#1f2324">1</text>
+<rect x="412" y="537" width="14" height="11" rx="2" fill="#d06a5e"/><text x="430" y="546" font-size="10.5" fill="#1f2324">2</text>
+<rect x="450" y="537" width="14" height="11" rx="2" fill="#9d372b"/><text x="468" y="546" font-size="10.5" fill="#1f2324">3</text>
+<rect x="488" y="537" width="14" height="11" rx="2" fill="#4e1c16"/><text x="506" y="546" font-size="10.5" fill="#1f2324">4</text>
+<rect x="536" y="537" width="14" height="11" rx="2" fill="none" stroke="#1f2324" stroke-width="1.2"/><text x="554" y="546" font-size="10.5" fill="#1f2324">≥ 2 = would activate</text>
+</svg>
+    <figcaption><strong>Figure 3.</strong> For each year, the maximum number of framework provinces
+       meeting the criterion in any one dekad of the Trigger 2 window. First column: ASAP's issued
+       warnings. Next four: the proxy on the published and detrended series, with the calibrated
+       cut-off and with −1. Last two: the biomass condition alone, without the meteorological
+       co-occurrence. An outlined cell (2 or more) would activate Trigger 2. Hover for details.</figcaption>
+  </figure>
+
+  <div class="tblwrap"><table>
+    <tr><th>Method</th><th>Years meeting the level-3 rule</th><th class="num">Return period</th><th>Years meeting the biomass condition alone</th><th class="num">Return period</th></tr>
+    <tr><td>ASAP issued warnings</td><td>2002, 2004, 2006, 2009, 2011</td><td class="num">5.2 yr</td><td>—</td><td class="num">—</td></tr>
+    <tr><td>Proxy, as published, cut-off −0.6</td><td>2002, 2004, 2009, 2011</td><td class="num">6.5 yr</td><td>2001, 2002, 2004, 2006, 2009, 2010, 2011, 2014, 2019</td><td class="num">2.9 yr</td></tr>
+    <tr><td><strong>Proxy, detrended, cut-off −0.6</strong></td><td><strong>2002, 2009, 2011</strong></td><td class="num">8.7 yr</td><td>2002, 2006, 2009, 2010, 2011, 2014, 2016, 2019</td><td class="num">3.2 yr</td></tr>
+    <tr><td>Proxy, as published, −1</td><td>2002</td><td class="num">26 yr</td><td>2002, 2009</td><td class="num">13 yr</td></tr>
+    <tr><td>Proxy, detrended, −1</td><td>2002</td><td class="num">26 yr</td><td>2002</td><td class="num">26 yr</td></tr>
+  </table></div>
+  <p>Return periods are 26 years of record divided by the number of activating years, 2001 to 2025.</p>
+
+  <h3>Reading the result</h3>
+  <ul>
+    <li><strong>The proxy is faithful enough to trust the comparison.</strong> On the published
+        series it reproduces four of ASAP's five activation years. It misses 2006, when Séno and
+        Loroum each crossed the 25-percent-of-area rule with province means that stayed above
+        −0.6. That is the known limitation of using a mean for a spatial rule.</li>
+    <li><strong>Detrending removes an early activation and adds no late one.</strong> With the
+        record-mean baseline, 2004 drops out: Loroum's early-record values are lifted above the
+        cut-off. No year after 2011 comes in. The closest candidates are 2016 (Oudalan), 2019
+        (Loroum) and 2020 (Yagha), each with a single province meeting the rule. The detrended return period is
+        longer, not shorter.</li>
+    <li><strong>The biomass condition alone tells the same story.</strong> Without requiring a
+        meteorological deficit, detrending adds 2016 and lifts 2019 to three provinces, but
+        2001 and 2004 fall away, and nothing after 2019 appears. Even biomass-only, no year since
+        2019 has two provinces below the cut-off in the window.</li>
+    <li><strong>Why the trend does not flip the answer.</strong> Over the framework window the
+        detrending lowers a 2024 or 2025 value by about 0.3 z in Oudalan and 0.7 to 0.8 z in
+        Séno and Loroum rangeland. The published window means for 2021 to 2025 in those
+        provinces run from about +0.5 to +2. Subtracting the trend leaves them near or above
+        zero, still 0.6 to 1.5 z above the calibrated cut-off. The recent seasons have not had
+        biomass deficits of the 2002, 2009 or 2011 kind, with or without the trend.</li>
+  </ul>
+
+  <h3>2026 in detrended space</h3>
+  <figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 964 220" width="100%" style="max-width:964px" font-family="Roboto,system-ui,sans-serif" role="img" aria-labelledby="fd"><title id="fd">2026 season: zFPARc by dekad for each framework province, as published vs detrended</title>
+<text x="44" y="20" font-size="12" font-weight="500" fill="#1f2324">Loroum</text>
+<line x1="44" y1="138.0" x2="244" y2="138.0" stroke="#e2e8e8"/>
+<text x="38" y="141.5" text-anchor="end" font-size="9.5" fill="#7e8e8f">-1</text>
+<line x1="44" y1="108.0" x2="244" y2="108.0" stroke="#e2e8e8"/>
+<text x="38" y="111.5" text-anchor="end" font-size="9.5" fill="#7e8e8f">+0</text>
+<line x1="44" y1="78.0" x2="244" y2="78.0" stroke="#e2e8e8"/>
+<text x="38" y="81.5" text-anchor="end" font-size="9.5" fill="#7e8e8f">+1</text>
+<line x1="44" y1="48.0" x2="244" y2="48.0" stroke="#e2e8e8"/>
+<text x="38" y="51.5" text-anchor="end" font-size="9.5" fill="#7e8e8f">+2</text>
+<line x1="44" y1="126.0" x2="244" y2="126.0" stroke="#d48f2a" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="44" y1="138.0" x2="244" y2="138.0" stroke="#9d372b" stroke-width="1.2" stroke-dasharray="4 3"/>
+<rect x="109.3" y="30" width="130.7" height="120" fill="#1e795f" opacity="0.06"/>
+<text x="52.0" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">1 Jul</text>
+<text x="82.7" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">2 Jul</text>
+<text x="113.3" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">3 Jul</text>
+<text x="144.0" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">1 Aug</text>
+<text x="174.7" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">2 Aug</text>
+<text x="205.3" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">3 Aug</text>
+<text x="236.0" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">1 Sep</text>
+<polyline points="52.0,50.5 82.7,39.2 113.3,41.6 144.0,44.9 174.7,48.0 205.3,51.4 236.0,53.6" fill="none" stroke="#9db1b3" stroke-width="2" />
+<circle cx="52.0" cy="50.5" r="2.4" fill="#9db1b3"><title>Loroum crop 1 Jul: published +1.92, detrended +1.65</title></circle>
+<circle cx="82.7" cy="39.2" r="2.4" fill="#9db1b3"><title>Loroum crop 2 Jul: published +2.29, detrended +1.83</title></circle>
+<circle cx="113.3" cy="41.6" r="2.4" fill="#9db1b3"><title>Loroum crop 3 Jul: published +2.21, detrended +1.76</title></circle>
+<circle cx="144.0" cy="44.9" r="2.4" fill="#9db1b3"><title>Loroum crop 1 Aug: published +2.10, detrended +1.63</title></circle>
+<circle cx="174.7" cy="48.0" r="2.4" fill="#9db1b3"><title>Loroum crop 2 Aug: published +2.00, detrended +1.50</title></circle>
+<circle cx="205.3" cy="51.4" r="2.4" fill="#9db1b3"><title>Loroum crop 3 Aug: published +1.89, detrended +1.38</title></circle>
+<circle cx="236.0" cy="53.6" r="2.4" fill="#9db1b3"><title>Loroum crop 1 Sep: published +1.81, detrended +1.26</title></circle>
+<polyline points="52.0,58.4 82.7,53.2 113.3,55.3 144.0,59.1 174.7,63.1 205.3,66.7 236.0,70.0" fill="none" stroke="#1e795f" stroke-width="2" />
+<circle cx="52.0" cy="58.4" r="2.4" fill="#1e795f"><title>Loroum crop 1 Jul: published +1.92, detrended +1.65</title></circle>
+<circle cx="82.7" cy="53.2" r="2.4" fill="#1e795f"><title>Loroum crop 2 Jul: published +2.29, detrended +1.83</title></circle>
+<circle cx="113.3" cy="55.3" r="2.4" fill="#1e795f"><title>Loroum crop 3 Jul: published +2.21, detrended +1.76</title></circle>
+<circle cx="144.0" cy="59.1" r="2.4" fill="#1e795f"><title>Loroum crop 1 Aug: published +2.10, detrended +1.63</title></circle>
+<circle cx="174.7" cy="63.1" r="2.4" fill="#1e795f"><title>Loroum crop 2 Aug: published +2.00, detrended +1.50</title></circle>
+<circle cx="205.3" cy="66.7" r="2.4" fill="#1e795f"><title>Loroum crop 3 Aug: published +1.89, detrended +1.38</title></circle>
+<circle cx="236.0" cy="70.0" r="2.4" fill="#1e795f"><title>Loroum crop 1 Sep: published +1.81, detrended +1.26</title></circle>
+<polyline points="52.0,58.3 82.7,51.5 113.3,51.9 144.0,54.6 174.7,57.1 205.3,59.6 236.0,61.3" fill="none" stroke="#9db1b3" stroke-width="2" stroke-dasharray="5 3"/>
+<circle cx="52.0" cy="58.3" r="2.4" fill="#9db1b3"><title>Loroum range 1 Jul: published +1.66, detrended +1.01</title></circle>
+<circle cx="82.7" cy="51.5" r="2.4" fill="#9db1b3"><title>Loroum range 2 Jul: published +1.88, detrended +1.25</title></circle>
+<circle cx="113.3" cy="51.9" r="2.4" fill="#9db1b3"><title>Loroum range 3 Jul: published +1.87, detrended +1.16</title></circle>
+<circle cx="144.0" cy="54.6" r="2.4" fill="#9db1b3"><title>Loroum range 1 Aug: published +1.78, detrended +1.07</title></circle>
+<circle cx="174.7" cy="57.1" r="2.4" fill="#9db1b3"><title>Loroum range 2 Aug: published +1.70, detrended +0.93</title></circle>
+<circle cx="205.3" cy="59.6" r="2.4" fill="#9db1b3"><title>Loroum range 3 Aug: published +1.61, detrended +0.85</title></circle>
+<circle cx="236.0" cy="61.3" r="2.4" fill="#9db1b3"><title>Loroum range 1 Sep: published +1.56, detrended +0.76</title></circle>
+<polyline points="52.0,77.7 82.7,70.5 113.3,73.3 144.0,76.0 174.7,80.2 205.3,82.4 236.0,85.3" fill="none" stroke="#1e795f" stroke-width="2" stroke-dasharray="5 3"/>
+<circle cx="52.0" cy="77.7" r="2.4" fill="#1e795f"><title>Loroum range 1 Jul: published +1.66, detrended +1.01</title></circle>
+<circle cx="82.7" cy="70.5" r="2.4" fill="#1e795f"><title>Loroum range 2 Jul: published +1.88, detrended +1.25</title></circle>
+<circle cx="113.3" cy="73.3" r="2.4" fill="#1e795f"><title>Loroum range 3 Jul: published +1.87, detrended +1.16</title></circle>
+<circle cx="144.0" cy="76.0" r="2.4" fill="#1e795f"><title>Loroum range 1 Aug: published +1.78, detrended +1.07</title></circle>
+<circle cx="174.7" cy="80.2" r="2.4" fill="#1e795f"><title>Loroum range 2 Aug: published +1.70, detrended +0.93</title></circle>
+<circle cx="205.3" cy="82.4" r="2.4" fill="#1e795f"><title>Loroum range 3 Aug: published +1.61, detrended +0.85</title></circle>
+<circle cx="236.0" cy="85.3" r="2.4" fill="#1e795f"><title>Loroum range 1 Sep: published +1.56, detrended +0.76</title></circle>
+<text x="274" y="20" font-size="12" font-weight="500" fill="#1f2324">Oudalan</text>
+<line x1="274" y1="138.0" x2="474" y2="138.0" stroke="#e2e8e8"/>
+<line x1="274" y1="108.0" x2="474" y2="108.0" stroke="#e2e8e8"/>
+<line x1="274" y1="78.0" x2="474" y2="78.0" stroke="#e2e8e8"/>
+<line x1="274" y1="48.0" x2="474" y2="48.0" stroke="#e2e8e8"/>
+<line x1="274" y1="126.0" x2="474" y2="126.0" stroke="#d48f2a" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="274" y1="138.0" x2="474" y2="138.0" stroke="#9d372b" stroke-width="1.2" stroke-dasharray="4 3"/>
+<rect x="339.3" y="30" width="130.7" height="120" fill="#1e795f" opacity="0.06"/>
+<text x="282.0" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">1 Jul</text>
+<text x="312.7" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">2 Jul</text>
+<text x="343.3" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">3 Jul</text>
+<text x="374.0" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">1 Aug</text>
+<text x="404.7" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">2 Aug</text>
+<text x="435.3" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">3 Aug</text>
+<text x="466.0" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">1 Sep</text>
+<polyline points="282.0,73.7 312.7,80.4 343.3,81.8 374.0,84.0 404.7,86.4 435.3,88.5 466.0,89.6" fill="none" stroke="#9db1b3" stroke-width="2" />
+<circle cx="282.0" cy="73.7" r="2.4" fill="#9db1b3"><title>Oudalan crop 1 Jul: published +1.14, detrended +1.08</title></circle>
+<circle cx="312.7" cy="80.4" r="2.4" fill="#9db1b3"><title>Oudalan crop 2 Jul: published +0.92, detrended +0.82</title></circle>
+<circle cx="343.3" cy="81.8" r="2.4" fill="#9db1b3"><title>Oudalan crop 3 Jul: published +0.87, detrended +0.74</title></circle>
+<circle cx="374.0" cy="84.0" r="2.4" fill="#9db1b3"><title>Oudalan crop 1 Aug: published +0.80, detrended +0.63</title></circle>
+<circle cx="404.7" cy="86.4" r="2.4" fill="#9db1b3"><title>Oudalan crop 2 Aug: published +0.72, detrended +0.53</title></circle>
+<circle cx="435.3" cy="88.5" r="2.4" fill="#9db1b3"><title>Oudalan crop 3 Aug: published +0.65, detrended +0.41</title></circle>
+<circle cx="466.0" cy="89.6" r="2.4" fill="#9db1b3"><title>Oudalan crop 1 Sep: published +0.61, detrended +0.34</title></circle>
+<polyline points="282.0,75.6 312.7,83.4 343.3,85.9 374.0,89.0 404.7,92.2 435.3,95.8 466.0,97.7" fill="none" stroke="#1e795f" stroke-width="2" />
+<circle cx="282.0" cy="75.6" r="2.4" fill="#1e795f"><title>Oudalan crop 1 Jul: published +1.14, detrended +1.08</title></circle>
+<circle cx="312.7" cy="83.4" r="2.4" fill="#1e795f"><title>Oudalan crop 2 Jul: published +0.92, detrended +0.82</title></circle>
+<circle cx="343.3" cy="85.9" r="2.4" fill="#1e795f"><title>Oudalan crop 3 Jul: published +0.87, detrended +0.74</title></circle>
+<circle cx="374.0" cy="89.0" r="2.4" fill="#1e795f"><title>Oudalan crop 1 Aug: published +0.80, detrended +0.63</title></circle>
+<circle cx="404.7" cy="92.2" r="2.4" fill="#1e795f"><title>Oudalan crop 2 Aug: published +0.72, detrended +0.53</title></circle>
+<circle cx="435.3" cy="95.8" r="2.4" fill="#1e795f"><title>Oudalan crop 3 Aug: published +0.65, detrended +0.41</title></circle>
+<circle cx="466.0" cy="97.7" r="2.4" fill="#1e795f"><title>Oudalan crop 1 Sep: published +0.61, detrended +0.34</title></circle>
+<polyline points="282.0,83.9 312.7,85.1 343.3,87.9 374.0,91.3 404.7,94.4 435.3,96.9 466.0,97.9" fill="none" stroke="#9db1b3" stroke-width="2" stroke-dasharray="5 3"/>
+<circle cx="282.0" cy="83.9" r="2.4" fill="#9db1b3"><title>Oudalan range 1 Jul: published +0.80, detrended +0.64</title></circle>
+<circle cx="312.7" cy="85.1" r="2.4" fill="#9db1b3"><title>Oudalan range 2 Jul: published +0.76, detrended +0.51</title></circle>
+<circle cx="343.3" cy="87.9" r="2.4" fill="#9db1b3"><title>Oudalan range 3 Jul: published +0.67, detrended +0.55</title></circle>
+<circle cx="374.0" cy="91.3" r="2.4" fill="#9db1b3"><title>Oudalan range 1 Aug: published +0.56, detrended +0.43</title></circle>
+<circle cx="404.7" cy="94.4" r="2.4" fill="#9db1b3"><title>Oudalan range 2 Aug: published +0.45, detrended +0.21</title></circle>
+<circle cx="435.3" cy="96.9" r="2.4" fill="#9db1b3"><title>Oudalan range 3 Aug: published +0.37, detrended +0.04</title></circle>
+<circle cx="466.0" cy="97.9" r="2.4" fill="#9db1b3"><title>Oudalan range 1 Sep: published +0.34, detrended -0.09</title></circle>
+<polyline points="282.0,88.9 312.7,92.7 343.3,91.5 374.0,95.0 404.7,101.7 435.3,106.7 466.0,110.7" fill="none" stroke="#1e795f" stroke-width="2" stroke-dasharray="5 3"/>
+<circle cx="282.0" cy="88.9" r="2.4" fill="#1e795f"><title>Oudalan range 1 Jul: published +0.80, detrended +0.64</title></circle>
+<circle cx="312.7" cy="92.7" r="2.4" fill="#1e795f"><title>Oudalan range 2 Jul: published +0.76, detrended +0.51</title></circle>
+<circle cx="343.3" cy="91.5" r="2.4" fill="#1e795f"><title>Oudalan range 3 Jul: published +0.67, detrended +0.55</title></circle>
+<circle cx="374.0" cy="95.0" r="2.4" fill="#1e795f"><title>Oudalan range 1 Aug: published +0.56, detrended +0.43</title></circle>
+<circle cx="404.7" cy="101.7" r="2.4" fill="#1e795f"><title>Oudalan range 2 Aug: published +0.45, detrended +0.21</title></circle>
+<circle cx="435.3" cy="106.7" r="2.4" fill="#1e795f"><title>Oudalan range 3 Aug: published +0.37, detrended +0.04</title></circle>
+<circle cx="466.0" cy="110.7" r="2.4" fill="#1e795f"><title>Oudalan range 1 Sep: published +0.34, detrended -0.09</title></circle>
+<text x="504" y="20" font-size="12" font-weight="500" fill="#1f2324">Séno</text>
+<line x1="504" y1="138.0" x2="704" y2="138.0" stroke="#e2e8e8"/>
+<line x1="504" y1="108.0" x2="704" y2="108.0" stroke="#e2e8e8"/>
+<line x1="504" y1="78.0" x2="704" y2="78.0" stroke="#e2e8e8"/>
+<line x1="504" y1="48.0" x2="704" y2="48.0" stroke="#e2e8e8"/>
+<line x1="504" y1="126.0" x2="704" y2="126.0" stroke="#d48f2a" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="504" y1="138.0" x2="704" y2="138.0" stroke="#9d372b" stroke-width="1.2" stroke-dasharray="4 3"/>
+<rect x="569.3" y="30" width="130.7" height="120" fill="#1e795f" opacity="0.06"/>
+<text x="512.0" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">1 Jul</text>
+<text x="542.7" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">2 Jul</text>
+<text x="573.3" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">3 Jul</text>
+<text x="604.0" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">1 Aug</text>
+<text x="634.7" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">2 Aug</text>
+<text x="665.3" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">3 Aug</text>
+<text x="696.0" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">1 Sep</text>
+<polyline points="512.0,91.0 542.7,90.3 573.3,91.1 604.0,92.2 634.7,92.8 665.3,92.3 696.0,90.4" fill="none" stroke="#9db1b3" stroke-width="2" />
+<circle cx="512.0" cy="91.0" r="2.4" fill="#9db1b3"><title>Séno crop 1 Jul: published +0.57, detrended +0.26</title></circle>
+<circle cx="542.7" cy="90.3" r="2.4" fill="#9db1b3"><title>Séno crop 2 Jul: published +0.59, detrended +0.18</title></circle>
+<circle cx="573.3" cy="91.1" r="2.4" fill="#9db1b3"><title>Séno crop 3 Jul: published +0.56, detrended +0.09</title></circle>
+<circle cx="604.0" cy="92.2" r="2.4" fill="#9db1b3"><title>Séno crop 1 Aug: published +0.53, detrended -0.03</title></circle>
+<circle cx="634.7" cy="92.8" r="2.4" fill="#9db1b3"><title>Séno crop 2 Aug: published +0.51, detrended -0.13</title></circle>
+<circle cx="665.3" cy="92.3" r="2.4" fill="#9db1b3"><title>Séno crop 3 Aug: published +0.52, detrended -0.16</title></circle>
+<circle cx="696.0" cy="90.4" r="2.4" fill="#9db1b3"><title>Séno crop 1 Sep: published +0.59, detrended -0.17</title></circle>
+<polyline points="512.0,100.1 542.7,102.5 573.3,105.3 604.0,108.9 634.7,111.9 665.3,112.8 696.0,113.2" fill="none" stroke="#1e795f" stroke-width="2" />
+<circle cx="512.0" cy="100.1" r="2.4" fill="#1e795f"><title>Séno crop 1 Jul: published +0.57, detrended +0.26</title></circle>
+<circle cx="542.7" cy="102.5" r="2.4" fill="#1e795f"><title>Séno crop 2 Jul: published +0.59, detrended +0.18</title></circle>
+<circle cx="573.3" cy="105.3" r="2.4" fill="#1e795f"><title>Séno crop 3 Jul: published +0.56, detrended +0.09</title></circle>
+<circle cx="604.0" cy="108.9" r="2.4" fill="#1e795f"><title>Séno crop 1 Aug: published +0.53, detrended -0.03</title></circle>
+<circle cx="634.7" cy="111.9" r="2.4" fill="#1e795f"><title>Séno crop 2 Aug: published +0.51, detrended -0.13</title></circle>
+<circle cx="665.3" cy="112.8" r="2.4" fill="#1e795f"><title>Séno crop 3 Aug: published +0.52, detrended -0.16</title></circle>
+<circle cx="696.0" cy="113.2" r="2.4" fill="#1e795f"><title>Séno crop 1 Sep: published +0.59, detrended -0.17</title></circle>
+<polyline points="512.0,74.4 542.7,77.9 573.3,78.2 604.0,78.9 634.7,79.3 665.3,78.9 696.0,77.0" fill="none" stroke="#9db1b3" stroke-width="2" stroke-dasharray="5 3"/>
+<circle cx="512.0" cy="74.4" r="2.4" fill="#9db1b3"><title>Séno range 1 Jul: published +1.12, detrended +0.69</title></circle>
+<circle cx="542.7" cy="77.9" r="2.4" fill="#9db1b3"><title>Séno range 2 Jul: published +1.00, detrended +0.49</title></circle>
+<circle cx="573.3" cy="78.2" r="2.4" fill="#9db1b3"><title>Séno range 3 Jul: published +0.99, detrended +0.39</title></circle>
+<circle cx="604.0" cy="78.9" r="2.4" fill="#9db1b3"><title>Séno range 1 Aug: published +0.97, detrended +0.26</title></circle>
+<circle cx="634.7" cy="79.3" r="2.4" fill="#9db1b3"><title>Séno range 2 Aug: published +0.96, detrended +0.10</title></circle>
+<circle cx="665.3" cy="78.9" r="2.4" fill="#9db1b3"><title>Séno range 3 Aug: published +0.97, detrended +0.06</title></circle>
+<circle cx="696.0" cy="77.0" r="2.4" fill="#9db1b3"><title>Séno range 1 Sep: published +1.03, detrended +0.03</title></circle>
+<polyline points="512.0,87.3 542.7,93.2 573.3,96.2 604.0,100.4 634.7,105.1 665.3,106.3 696.0,107.0" fill="none" stroke="#1e795f" stroke-width="2" stroke-dasharray="5 3"/>
+<circle cx="512.0" cy="87.3" r="2.4" fill="#1e795f"><title>Séno range 1 Jul: published +1.12, detrended +0.69</title></circle>
+<circle cx="542.7" cy="93.2" r="2.4" fill="#1e795f"><title>Séno range 2 Jul: published +1.00, detrended +0.49</title></circle>
+<circle cx="573.3" cy="96.2" r="2.4" fill="#1e795f"><title>Séno range 3 Jul: published +0.99, detrended +0.39</title></circle>
+<circle cx="604.0" cy="100.4" r="2.4" fill="#1e795f"><title>Séno range 1 Aug: published +0.97, detrended +0.26</title></circle>
+<circle cx="634.7" cy="105.1" r="2.4" fill="#1e795f"><title>Séno range 2 Aug: published +0.96, detrended +0.10</title></circle>
+<circle cx="665.3" cy="106.3" r="2.4" fill="#1e795f"><title>Séno range 3 Aug: published +0.97, detrended +0.06</title></circle>
+<circle cx="696.0" cy="107.0" r="2.4" fill="#1e795f"><title>Séno range 1 Sep: published +1.03, detrended +0.03</title></circle>
+<text x="734" y="20" font-size="12" font-weight="500" fill="#1f2324">Yagha</text>
+<line x1="734" y1="138.0" x2="934" y2="138.0" stroke="#e2e8e8"/>
+<line x1="734" y1="108.0" x2="934" y2="108.0" stroke="#e2e8e8"/>
+<line x1="734" y1="78.0" x2="934" y2="78.0" stroke="#e2e8e8"/>
+<line x1="734" y1="48.0" x2="934" y2="48.0" stroke="#e2e8e8"/>
+<line x1="734" y1="126.0" x2="934" y2="126.0" stroke="#d48f2a" stroke-width="1.2" stroke-dasharray="4 3"/>
+<line x1="734" y1="138.0" x2="934" y2="138.0" stroke="#9d372b" stroke-width="1.2" stroke-dasharray="4 3"/>
+<rect x="799.3" y="30" width="130.7" height="120" fill="#1e795f" opacity="0.06"/>
+<text x="742.0" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">1 Jul</text>
+<text x="772.7" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">2 Jul</text>
+<text x="803.3" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">3 Jul</text>
+<text x="834.0" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">1 Aug</text>
+<text x="864.7" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">2 Aug</text>
+<text x="895.3" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">3 Aug</text>
+<text x="926.0" y="163" text-anchor="middle" font-size="9" fill="#7e8e8f">1 Sep</text>
+<polyline points="742.0,57.8 772.7,61.4 803.3,66.5 834.0,71.4 864.7,76.2 895.3,80.5 926.0,82.9" fill="none" stroke="#9db1b3" stroke-width="2" />
+<circle cx="742.0" cy="57.8" r="2.4" fill="#9db1b3"><title>Yagha crop 1 Jul: published +1.67, detrended +1.72</title></circle>
+<circle cx="772.7" cy="61.4" r="2.4" fill="#9db1b3"><title>Yagha crop 2 Jul: published +1.55, detrended +1.50</title></circle>
+<circle cx="803.3" cy="66.5" r="2.4" fill="#9db1b3"><title>Yagha crop 3 Jul: published +1.38, detrended +1.23</title></circle>
+<circle cx="834.0" cy="71.4" r="2.4" fill="#9db1b3"><title>Yagha crop 1 Aug: published +1.22, detrended +0.99</title></circle>
+<circle cx="864.7" cy="76.2" r="2.4" fill="#9db1b3"><title>Yagha crop 2 Aug: published +1.06, detrended +0.77</title></circle>
+<circle cx="895.3" cy="80.5" r="2.4" fill="#9db1b3"><title>Yagha crop 3 Aug: published +0.92, detrended +0.57</title></circle>
+<circle cx="926.0" cy="82.9" r="2.4" fill="#9db1b3"><title>Yagha crop 1 Sep: published +0.84, detrended +0.43</title></circle>
+<polyline points="742.0,56.4 772.7,62.9 803.3,71.0 834.0,78.3 864.7,84.8 895.3,90.8 926.0,95.0" fill="none" stroke="#1e795f" stroke-width="2" />
+<circle cx="742.0" cy="56.4" r="2.4" fill="#1e795f"><title>Yagha crop 1 Jul: published +1.67, detrended +1.72</title></circle>
+<circle cx="772.7" cy="62.9" r="2.4" fill="#1e795f"><title>Yagha crop 2 Jul: published +1.55, detrended +1.50</title></circle>
+<circle cx="803.3" cy="71.0" r="2.4" fill="#1e795f"><title>Yagha crop 3 Jul: published +1.38, detrended +1.23</title></circle>
+<circle cx="834.0" cy="78.3" r="2.4" fill="#1e795f"><title>Yagha crop 1 Aug: published +1.22, detrended +0.99</title></circle>
+<circle cx="864.7" cy="84.8" r="2.4" fill="#1e795f"><title>Yagha crop 2 Aug: published +1.06, detrended +0.77</title></circle>
+<circle cx="895.3" cy="90.8" r="2.4" fill="#1e795f"><title>Yagha crop 3 Aug: published +0.92, detrended +0.57</title></circle>
+<circle cx="926.0" cy="95.0" r="2.4" fill="#1e795f"><title>Yagha crop 1 Sep: published +0.84, detrended +0.43</title></circle>
+<polyline points="742.0,51.2 772.7,53.8 803.3,59.5 834.0,64.9 864.7,69.9 895.3,74.3 926.0,76.7" fill="none" stroke="#9db1b3" stroke-width="2" stroke-dasharray="5 3"/>
+<circle cx="742.0" cy="51.2" r="2.4" fill="#9db1b3"><title>Yagha range 1 Jul: published +1.89, detrended +1.88</title></circle>
+<circle cx="772.7" cy="53.8" r="2.4" fill="#9db1b3"><title>Yagha range 2 Jul: published +1.80, detrended +1.62</title></circle>
+<circle cx="803.3" cy="59.5" r="2.4" fill="#9db1b3"><title>Yagha range 3 Jul: published +1.62, detrended +1.32</title></circle>
+<circle cx="834.0" cy="64.9" r="2.4" fill="#9db1b3"><title>Yagha range 1 Aug: published +1.44, detrended +1.07</title></circle>
+<circle cx="864.7" cy="69.9" r="2.4" fill="#9db1b3"><title>Yagha range 2 Aug: published +1.27, detrended +0.86</title></circle>
+<circle cx="895.3" cy="74.3" r="2.4" fill="#9db1b3"><title>Yagha range 3 Aug: published +1.12, detrended +0.62</title></circle>
+<circle cx="926.0" cy="76.7" r="2.4" fill="#9db1b3"><title>Yagha range 1 Sep: published +1.04, detrended +0.44</title></circle>
+<polyline points="742.0,51.5 772.7,59.5 803.3,68.5 834.0,76.0 864.7,82.1 895.3,89.2 926.0,94.9" fill="none" stroke="#1e795f" stroke-width="2" stroke-dasharray="5 3"/>
+<circle cx="742.0" cy="51.5" r="2.4" fill="#1e795f"><title>Yagha range 1 Jul: published +1.89, detrended +1.88</title></circle>
+<circle cx="772.7" cy="59.5" r="2.4" fill="#1e795f"><title>Yagha range 2 Jul: published +1.80, detrended +1.62</title></circle>
+<circle cx="803.3" cy="68.5" r="2.4" fill="#1e795f"><title>Yagha range 3 Jul: published +1.62, detrended +1.32</title></circle>
+<circle cx="834.0" cy="76.0" r="2.4" fill="#1e795f"><title>Yagha range 1 Aug: published +1.44, detrended +1.07</title></circle>
+<circle cx="864.7" cy="82.1" r="2.4" fill="#1e795f"><title>Yagha range 2 Aug: published +1.27, detrended +0.86</title></circle>
+<circle cx="895.3" cy="89.2" r="2.4" fill="#1e795f"><title>Yagha range 3 Aug: published +1.12, detrended +0.62</title></circle>
+<circle cx="926.0" cy="94.9" r="2.4" fill="#1e795f"><title>Yagha range 1 Sep: published +1.04, detrended +0.44</title></circle>
+<line x1="44" y1="208" x2="66" y2="208" stroke="#9db1b3" stroke-width="2.5"/><text x="72" y="212" font-size="10.5" fill="#1f2324">As published</text>
+<line x1="154" y1="208" x2="176" y2="208" stroke="#1e795f" stroke-width="2.5"/><text x="182" y="212" font-size="10.5" fill="#1f2324">Detrended</text>
+<line x1="254" y1="208" x2="276" y2="208" stroke="#1f2324" stroke-width="2"/><text x="282" y="212" font-size="10.5" fill="#1f2324">solid = cropland</text>
+<line x1="384" y1="208" x2="406" y2="208" stroke="#1f2324" stroke-width="2" stroke-dasharray="5 3"/><text x="412" y="212" font-size="10.5" fill="#1f2324">dashed = rangeland</text>
+<text x="544" y="212" font-size="10.5" fill="#5e6a6b">Shaded = Trigger 2 window</text>
+</svg>
+    <figcaption><strong>Figure 4.</strong> The 2026 season dekad by dekad for each framework province,
+       as published and detrended, cropland solid and rangeland dashed. The shaded band is the
+       Trigger 2 window; dekad 26, the 2nd dekad of September, remains to be published.</figcaption>
+  </figure>
+  <p>Detrending moves 2026 down by 0.2 to 0.8 z depending on province and land cover. The lowest
+     detrended value in the window so far is Séno cropland at −0.17 in the 1st dekad of September,
+     still 0.4 z above the calibrated cut-off and 0.8 above ASAP's −1. Loroum and Yagha remain
+     above +0.4 detrended. Had the biomass record had no trend, 2026 would still not have met the
+     biomass condition in any province, let alone two, which matches the September
+     <a href="../external-sources-sep-2026/">comparison with the national bulletins</a>: a
+     rainfall-deficit season with vegetation at or above normal.</p>
+
+  <h2 id="implications">4 · What this means for the framework <a class="anchor" href="#implications" aria-label="Link to this section">#</a></h2>
+  <ul>
+    <li><strong>The stationarity concern is well founded but, on the biomass side, is not what
+        is holding Trigger 2 back.</strong> A fixed z-score threshold over a greening record does get harder to reach,
+        and by 2026 the drift is close to one standard deviation in Séno and Loroum. But the
+        absence of activations since 2011 reflects seasons that were genuinely not biomass
+        droughts on ASAP's terms, not a threshold that has quietly moved out of reach.</li>
+    <li><strong>A detrended or rolling-baseline biomass indicator would have a longer return
+        period, not a shorter one</strong>, under the record-mean baseline agreed here. A
+        present-day baseline (re-centring on the fitted 2025 level) would instead keep recent
+        years where they are and lift early years, which lengthens the return period further.
+        Neither variant produces a recent activation.</li>
+    <li><strong>If the working group wants Trigger 2 to be reachable in seasons like 2026</strong>,
+        the lever is the level, not the trend: the biomass condition alone (ASAP level 2 or
+        above) in two provinces has a return period near 3 years, which is more frequent than
+        the framework's target. A middle option, biomass level 2 in two provinces plus a
+        rainfall deficit somewhere in the AOI, was not tested here and would need its own
+        backtest against the target years.</li>
+    <li><strong>Worth a conversation with JRC.</strong> ASAP's classification document
+        acknowledges the sensor splice and land-use component of FPAR trends. Whether JRC intends
+        to move to a rolling or detrended climatology is a question that affects every framework
+        using ASAP, not only this one.</li>
+  </ul>
+
+  <div class="callout warn">
+    <p><strong>Caveats.</strong> The proxy uses province means for a rule ASAP applies to the
+       fraction of area, so absolute counts are approximate; the comparison between published
+       and detrended is like-for-like and is the point. The slope is fitted per dekad on 25
+       annual points, so individual dekad slopes are noisy; the window-mean series in Figure 2
+       average across six of them. The 2026 trend adjustment is an extrapolation. The
+       meteorological side of the level-3 rule is taken from ASAP's issued warnings and is
+       <em>not</em> detrended. That matters: a quick check of the same export shows the
+       rainfall indicators in these provinces also trend wetter, SPI-3 by +0.35 to +0.46 z per
+       decade (p 0.06 to 0.17) and the water-balance index by +0.1 to +0.4 (significant only for
+       Loroum cropland). So the co-occurrence condition has also drifted, and a simulation that
+       detrended both sides could recover more recent level-3 dekads than this one. That is the
+       natural next step; it needs its own threshold calibration for the meteorological proxy. Off-season dekads were excluded
+       using ASAP's own "off season" flag for the framework provinces; the national trend
+       figure uses a fixed July-to-October window for all provinces.</p>
+  </div>
+
+  <div class="meta">
+    <p><strong>Sources and method.</strong> JRC ASAP indicator statistics export, Burkina Faso
+       (<code>country_id</code> 219), GAUL level 2, variables zFPARc cropland and rangeland
+       (<code>variable_id</code> 240, classes 1 and 2, growing-cycle set), dekads 2001-05-21 to
+       2026-09-01, downloaded 14 September 2026; endpoint as documented in the team's
+       <a href="https://github.com/OCHA-DAP/ds-asap-trends">ASAP indicator trends</a> repo
+       (South Sudan analysis, same question). Issued warnings from the ASAP
+       <code>warnings_l2_ts</code> archive dated 3 September 2026, units 3820, 3824, 3825, 3827.
+       Trend: Theil-Sen slope and Mann-Kendall test on seasonal means, 2001 to 2025. Detrending:
+       per province, land cover and dekad of year, Theil-Sen slope removed with the 2001 to 2025
+       mean preserved, extrapolated to 2026. Threshold calibration: cut-off on the province mean
+       maximising F1 against ASAP's issued biomass warnings (codes 5 to 9), 2001 to 2025.
+       Framework: <a href="https://reliefweb.int/report/burkina-faso/cadre-de-laction-anticipatoire-secheresse-en-burkina-faso-17-avril-2026">Cadre de l'action anticipatoire sécheresse au Burkina Faso, 17 avril 2026</a>.
+       Scripts: <code>scripts/detrend_biomass_analysis.py</code> and
+       <code>scripts/detrend_biomass_figs.py</code> in
+       <a href="https://github.com/OCHA-DAP/ds-aa-bfa-drought">OCHA-DAP/ds-aa-bfa-drought</a>.
+       Page written 14 September 2026 by the OCHA Centre for Humanitarian Data.</p>
+  </div>
+</div>
+</body>
+</html>
