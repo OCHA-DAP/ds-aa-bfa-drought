@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burkina Faso drought — heat and drought in the framework provinces</title>
+<meta name="description" content="How much has high temperature led to or worsened drought in Loroum, Oudalan, Séno and Yagha since 1989, what the 2026 season looks like so far, and what the SEAS5 temperature forecast says for the rest of it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: light;
+    --b5:#269777; --b6:#1e795f; --b7:#18614c; --b05:#e9f5f1; --b1:#d4eae4;
+    --n9:#1f2324; --n8:#3f4748; --n7:#5e6a6b; --n6:#7e8e8f; --n15:#e2e8e8; --n1:#ebeff0; --n05:#f5f7f7;
+    --w05:#fbf4ea; --w5:#d48f2a; --w7:#7f5619; --e05:#f9eceb; --e6:#9d372b; --e7:#762920; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--n05); color: var(--n9); font: 400 15px/1.55 'Roboto', system-ui, sans-serif; }
+  .home-link { display: inline-block; margin: 10px 12px; padding: 6px 12px; font: 500 13px/1 'Roboto', system-ui, sans-serif;
+    color: var(--b6); background: var(--b05); border: 1px solid var(--b1); border-radius: 4px; text-decoration: none; }
+  .home-link:hover { background: var(--b1); }
+  .wrap { max-width: 940px; margin: 0 auto; padding: 0 16px 56px; }
+  h1 { font-family: 'Merriweather', Georgia, serif; font-size: 26px; font-weight: 700; line-height: 1.25; margin: 8px 0 6px; text-wrap: balance; }
+  h2 { font-size: 19px; font-weight: 700; margin: 36px 0 8px; color: var(--b7); border-bottom: 2px solid var(--b1); padding-bottom: 5px; }
+  h3 { font-size: 15.5px; font-weight: 700; margin: 20px 0 6px; }
+  .sub { color: var(--n7); margin: 2px 0 18px; max-width: 80ch; }
+  p, li { max-width: 82ch; }
+  a { color: var(--b6); }
+  .callout { background: #fff; border: 1px solid var(--n15); border-left: 4px solid var(--b6); border-radius: 4px; padding: 12px 16px; margin: 16px 0; }
+  .callout.warn { border-left-color: var(--w5); }
+  .callout p { margin: 6px 0; }
+  .callout p:first-child { margin-top: 2px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0 6px; background: #fff; border: 1px solid var(--n15); font-size: 13.5px; }
+  th, td { padding: 7px 10px; border-bottom: 1px solid var(--n1); text-align: left; vertical-align: top; }
+  th { background: var(--n05); font-weight: 500; color: var(--n8); }
+  tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tblwrap { overflow-x: auto; }
+  .tag { display: inline-block; font-size: 11.5px; font-weight: 500; padding: 1px 7px; border-radius: 9px; white-space: nowrap; }
+  .tag.sig { background: var(--e05); color: var(--e7); }
+  .tag.ns { background: var(--n1); color: var(--n7); }
+  figure { margin: 18px 0; background: #fff; border: 1px solid var(--n15); border-radius: 6px; padding: 14px 12px 8px; }
+  figure svg { display: block; margin: 0 auto; }
+  figcaption { color: var(--n7); font-size: 13px; padding: 10px 6px 2px; max-width: 100ch; }
+  .meta { color: var(--n7); font-size: 13px; border-top: 1px solid var(--n15); padding-top: 14px; margin-top: 40px; }
+  code { background: var(--n1); padding: 1px 5px; border-radius: 3px; font-size: 12.5px; }
+  h2, h3 { scroll-margin-top: 16px; }
+  .anchor { opacity: 0; text-decoration: none; font-weight: 400; margin-left: 2px; }
+  h2:hover .anchor, h3:hover .anchor, .anchor:focus { opacity: 0.75; }
+  @media (max-width: 640px) { h1 { font-size: 22px; } th, td { padding: 6px 7px; } }
+</style>
+</head>
+<body>
+<!-- back to the site landing page — first element inside body -->
+<a class="home-link" href="../">← Burkina Faso drought AA</a>
+
+<div class="wrap">
+  <h1>Heat and drought in the framework provinces</h1>
+  <p class="sub">A colleague asked whether high temperatures have led to or worsened drought in
+     Burkina Faso, and what the current temperature outlook implies. This page looks at the
+     four framework provinces (Loroum, Oudalan, Séno, Yagha) using the same per-province
+     indicator series behind the ASAP trigger: temperature, rainfall, water balance and
+     cumulative-FPAR biomass, 1989 to the 1st dekad of September 2026, plus the September 2026
+     temperature forecasts of three North American Multi-Model Ensemble (NMME) models.</p>
+
+  <div class="callout">
+    <p><strong>Bottom line.</strong> Heat in the growing season is tightly bound to drought
+       here, but as a companion and amplifier rather than a cause that arrives first. Every year
+       Trigger 2 would have activated was a hot July to September (on average 0.4 °C above the
+       trend line, against zero for other years), and a hot season with normal rain still tends
+       to end with less biomass. But heat anomalies coincide with rainfall deficits within the
+       same ten-day period and do not precede them, and hot pre-season months (April to June) say
+       almost nothing about the season to come. The "always going up" concern applies to the
+       pre-season, which has warmed 0.3 °C per decade; the growing season itself has warmed
+       only 0.07 °C per decade and not significantly. 2026 is the exception that tests all of
+       this: July to early September has been the hottest in the 38-year record, 1.4 °C above
+       normal, yet biomass is above normal. On the historical relationship that much heat should
+       have come with a biomass deficit near the warning cut-off. The forecasts say the heat
+       continues: all three NMME models put September to November 2026 in the warm tercile with
+       high confidence, 0.6 to 2 °C above their own hindcast climatologies, which points to a hot
+       end of season for late-sown crops and pasture after the Trigger 2 window closes.</p>
+  </div>
+
+  <h2 id="trend">1 · Is temperature "always going up" here? <a class="anchor" href="#trend" aria-label="Link to this section">#</a></h2>
+
+  <p>It depends on the season. Figure 1 shows the framework-province mean temperature for the
+     hot pre-season months and for the growing season, from ASAP's ECMWF-based series.</p>
+
+  <figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 474" width="100%" style="max-width:760px" font-family="Roboto,system-ui,sans-serif" role="img" aria-labelledby="f1"><title id="f1">Framework-province mean temperature by season, 1989–2026, with Theil-Sen trend</title>
+<text x="54" y="21" font-size="12.5" font-weight="500" fill="#1f2324">April–June (pre-season)</text>
+<line x1="54" y1="178.8" x2="734" y2="178.8" stroke="#e2e8e8"/><text x="48" y="182.2" text-anchor="end" font-size="9.5" fill="#7e8e8f">31°</text>
+<line x1="54" y1="136.2" x2="734" y2="136.2" stroke="#e2e8e8"/><text x="48" y="139.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">32°</text>
+<line x1="54" y1="93.8" x2="734" y2="93.8" stroke="#e2e8e8"/><text x="48" y="97.2" text-anchor="end" font-size="9.5" fill="#7e8e8f">33°</text>
+<line x1="54" y1="51.2" x2="734" y2="51.2" stroke="#e2e8e8"/><text x="48" y="54.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">34°</text>
+<text x="77.1" y="213" text-anchor="middle" font-size="9.5" fill="#7e8e8f">1990</text>
+<text x="167.6" y="213" text-anchor="middle" font-size="9.5" fill="#7e8e8f">1995</text>
+<text x="258.2" y="213" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2000</text>
+<text x="348.7" y="213" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2005</text>
+<text x="439.3" y="213" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2010</text>
+<text x="529.8" y="213" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2015</text>
+<text x="620.4" y="213" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2020</text>
+<text x="710.9" y="213" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2025</text>
+<line x1="59.0" y1="145.8" x2="710.9" y2="104.3" stroke="#d48f2a" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="59.0,134.3 77.1,131.5 95.2,171.1 113.3,159.1 131.4,125.6 149.5,152.1 167.6,125.0 185.8,142.8 203.9,167.9 222.0,112.9 240.1,115.8 258.2,120.1 276.3,137.1 294.4,111.1 312.5,156.9 330.6,127.5 348.7,136.4 366.8,111.3 384.9,107.5 403.1,145.8 421.2,127.5 439.3,103.1 457.4,123.5 475.5,137.9 493.6,110.7 511.7,110.6 529.8,107.9 547.9,124.4 566.0,146.5 584.1,123.7 602.2,93.0 620.4,91.8 638.5,117.5 656.6,140.9 674.7,118.1 692.8,67.7 710.9,89.9" fill="none" stroke="#d48f2a" stroke-width="2"/>
+<circle cx="59.0" cy="134.3" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>1989: 32.05 °C</title></circle>
+<circle cx="77.1" cy="131.5" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>1990: 32.11 °C</title></circle>
+<circle cx="95.2" cy="171.1" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>1991: 31.18 °C</title></circle>
+<circle cx="113.3" cy="159.1" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>1992: 31.46 °C</title></circle>
+<circle cx="131.4" cy="125.6" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>1993: 32.25 °C</title></circle>
+<circle cx="149.5" cy="152.1" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>1994: 31.63 °C</title></circle>
+<circle cx="167.6" cy="125.0" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>1995: 32.26 °C</title></circle>
+<circle cx="185.8" cy="142.8" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>1996: 31.85 °C</title></circle>
+<circle cx="203.9" cy="167.9" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>1997: 31.25 °C</title></circle>
+<circle cx="222.0" cy="112.9" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>1998: 32.55 °C</title></circle>
+<circle cx="240.1" cy="115.8" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>1999: 32.48 °C</title></circle>
+<circle cx="258.2" cy="120.1" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2000: 32.38 °C</title></circle>
+<circle cx="276.3" cy="137.1" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2001: 31.98 °C</title></circle>
+<circle cx="294.4" cy="111.1" r="4" fill="#9d372b" stroke="#fff" stroke-width="1"><title>2002: 32.59 °C</title></circle>
+<circle cx="312.5" cy="156.9" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2003: 31.51 °C</title></circle>
+<circle cx="330.6" cy="127.5" r="4" fill="#9d372b" stroke="#fff" stroke-width="1"><title>2004: 32.21 °C</title></circle>
+<circle cx="348.7" cy="136.4" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2005: 32.00 °C</title></circle>
+<circle cx="366.8" cy="111.3" r="4" fill="#9d372b" stroke="#fff" stroke-width="1"><title>2006: 32.59 °C</title></circle>
+<circle cx="384.9" cy="107.5" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2007: 32.68 °C</title></circle>
+<circle cx="403.1" cy="145.8" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2008: 31.77 °C</title></circle>
+<circle cx="421.2" cy="127.5" r="4" fill="#9d372b" stroke="#fff" stroke-width="1"><title>2009: 32.21 °C</title></circle>
+<circle cx="439.3" cy="103.1" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2010: 32.78 °C</title></circle>
+<circle cx="457.4" cy="123.5" r="4" fill="#9d372b" stroke="#fff" stroke-width="1"><title>2011: 32.30 °C</title></circle>
+<circle cx="475.5" cy="137.9" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2012: 31.96 °C</title></circle>
+<circle cx="493.6" cy="110.7" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2013: 32.60 °C</title></circle>
+<circle cx="511.7" cy="110.6" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2014: 32.60 °C</title></circle>
+<circle cx="529.8" cy="107.9" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2015: 32.67 °C</title></circle>
+<circle cx="547.9" cy="124.4" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2016: 32.28 °C</title></circle>
+<circle cx="566.0" cy="146.5" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2017: 31.76 °C</title></circle>
+<circle cx="584.1" cy="123.7" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2018: 32.30 °C</title></circle>
+<circle cx="602.2" cy="93.0" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2019: 33.02 °C</title></circle>
+<circle cx="620.4" cy="91.8" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2020: 33.05 °C</title></circle>
+<circle cx="638.5" cy="117.5" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2021: 32.44 °C</title></circle>
+<circle cx="656.6" cy="140.9" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2022: 31.89 °C</title></circle>
+<circle cx="674.7" cy="118.1" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2023: 32.43 °C</title></circle>
+<circle cx="692.8" cy="67.7" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2024: 33.61 °C</title></circle>
+<circle cx="710.9" cy="89.9" r="2.6" fill="#d48f2a" stroke="#fff" stroke-width="0"><title>2025: 33.09 °C</title></circle>
+<circle cx="729.0" cy="121.4" r="5" fill="#fff" stroke="#9d372b" stroke-width="2"><title>2026 (partial): 32.35 °C</title></circle><text x="721.0" y="113.4" text-anchor="end" font-size="10" font-weight="500" fill="#9d372b">2026</text>
+<text x="734" y="21" text-anchor="end" font-size="11" fill="#5e6a6b">trend +0.27 °C per decade, p = 0.00</text>
+<text x="54" y="239" font-size="12.5" font-weight="500" fill="#1f2324">July–September (growing season)</text>
+<line x1="54" y1="407.4" x2="734" y2="407.4" stroke="#e2e8e8"/><text x="48" y="410.9" text-anchor="end" font-size="9.5" fill="#7e8e8f">27°</text>
+<line x1="54" y1="354.2" x2="734" y2="354.2" stroke="#e2e8e8"/><text x="48" y="357.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">28°</text>
+<line x1="54" y1="301.1" x2="734" y2="301.1" stroke="#e2e8e8"/><text x="48" y="304.6" text-anchor="end" font-size="9.5" fill="#7e8e8f">29°</text>
+<line x1="54" y1="248.0" x2="734" y2="248.0" stroke="#e2e8e8"/><text x="48" y="251.5" text-anchor="end" font-size="9.5" fill="#7e8e8f">30°</text>
+<text x="77.1" y="431" text-anchor="middle" font-size="9.5" fill="#7e8e8f">1990</text>
+<text x="167.6" y="431" text-anchor="middle" font-size="9.5" fill="#7e8e8f">1995</text>
+<text x="258.2" y="431" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2000</text>
+<text x="348.7" y="431" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2005</text>
+<text x="439.3" y="431" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2010</text>
+<text x="529.8" y="431" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2015</text>
+<text x="620.4" y="431" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2020</text>
+<text x="710.9" y="431" text-anchor="middle" font-size="9.5" fill="#7e8e8f">2025</text>
+<line x1="59.0" y1="343.0" x2="710.9" y2="329.2" stroke="#1e795f" stroke-width="1.5" stroke-dasharray="5 4"/>
+<polyline points="59.0,365.5 77.1,321.5 95.2,337.4 113.3,360.9 131.4,330.6 149.5,386.4 167.6,337.7 185.8,332.1 203.9,309.8 222.0,348.6 240.1,400.3 258.2,327.0 276.3,334.7 294.4,300.8 312.5,365.1 330.6,319.3 348.7,337.3 366.8,330.8 384.9,346.5 403.1,335.4 421.2,310.4 439.3,341.5 457.4,306.8 475.5,366.2 493.6,335.1 511.7,315.8 529.8,341.1 547.9,328.4 566.0,327.1 584.1,337.4 602.2,309.1 620.4,341.4 638.5,305.6 656.6,339.6 674.7,297.2 692.8,348.4 710.9,357.0" fill="none" stroke="#1e795f" stroke-width="2"/>
+<circle cx="59.0" cy="365.5" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>1989: 27.79 °C</title></circle>
+<circle cx="77.1" cy="321.5" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>1990: 28.62 °C</title></circle>
+<circle cx="95.2" cy="337.4" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>1991: 28.32 °C</title></circle>
+<circle cx="113.3" cy="360.9" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>1992: 27.87 °C</title></circle>
+<circle cx="131.4" cy="330.6" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>1993: 28.45 °C</title></circle>
+<circle cx="149.5" cy="386.4" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>1994: 27.40 °C</title></circle>
+<circle cx="167.6" cy="337.7" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>1995: 28.31 °C</title></circle>
+<circle cx="185.8" cy="332.1" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>1996: 28.42 °C</title></circle>
+<circle cx="203.9" cy="309.8" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>1997: 28.84 °C</title></circle>
+<circle cx="222.0" cy="348.6" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>1998: 28.11 °C</title></circle>
+<circle cx="240.1" cy="400.3" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>1999: 27.13 °C</title></circle>
+<circle cx="258.2" cy="327.0" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2000: 28.51 °C</title></circle>
+<circle cx="276.3" cy="334.7" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2001: 28.37 °C</title></circle>
+<circle cx="294.4" cy="300.8" r="4" fill="#9d372b" stroke="#fff" stroke-width="1"><title>2002: 29.01 °C</title></circle>
+<circle cx="312.5" cy="365.1" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2003: 27.79 °C</title></circle>
+<circle cx="330.6" cy="319.3" r="4" fill="#9d372b" stroke="#fff" stroke-width="1"><title>2004: 28.66 °C</title></circle>
+<circle cx="348.7" cy="337.3" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2005: 28.32 °C</title></circle>
+<circle cx="366.8" cy="330.8" r="4" fill="#9d372b" stroke="#fff" stroke-width="1"><title>2006: 28.44 °C</title></circle>
+<circle cx="384.9" cy="346.5" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2007: 28.15 °C</title></circle>
+<circle cx="403.1" cy="335.4" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2008: 28.35 °C</title></circle>
+<circle cx="421.2" cy="310.4" r="4" fill="#9d372b" stroke="#fff" stroke-width="1"><title>2009: 28.83 °C</title></circle>
+<circle cx="439.3" cy="341.5" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2010: 28.24 °C</title></circle>
+<circle cx="457.4" cy="306.8" r="4" fill="#9d372b" stroke="#fff" stroke-width="1"><title>2011: 28.89 °C</title></circle>
+<circle cx="475.5" cy="366.2" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2012: 27.78 °C</title></circle>
+<circle cx="493.6" cy="335.1" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2013: 28.36 °C</title></circle>
+<circle cx="511.7" cy="315.8" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2014: 28.72 °C</title></circle>
+<circle cx="529.8" cy="341.1" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2015: 28.25 °C</title></circle>
+<circle cx="547.9" cy="328.4" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2016: 28.49 °C</title></circle>
+<circle cx="566.0" cy="327.1" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2017: 28.51 °C</title></circle>
+<circle cx="584.1" cy="337.4" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2018: 28.32 °C</title></circle>
+<circle cx="602.2" cy="309.1" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2019: 28.85 °C</title></circle>
+<circle cx="620.4" cy="341.4" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2020: 28.24 °C</title></circle>
+<circle cx="638.5" cy="305.6" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2021: 28.92 °C</title></circle>
+<circle cx="656.6" cy="339.6" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2022: 28.28 °C</title></circle>
+<circle cx="674.7" cy="297.2" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2023: 29.07 °C</title></circle>
+<circle cx="692.8" cy="348.4" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2024: 28.11 °C</title></circle>
+<circle cx="710.9" cy="357.0" r="2.6" fill="#1e795f" stroke="#fff" stroke-width="0"><title>2025: 27.95 °C</title></circle>
+<circle cx="729.0" cy="271.8" r="5" fill="#fff" stroke="#9d372b" stroke-width="2"><title>2026 (partial): 29.55 °C</title></circle><text x="721.0" y="263.8" text-anchor="end" font-size="10" font-weight="500" fill="#9d372b">2026</text>
+<text x="734" y="239" text-anchor="end" font-size="11" fill="#5e6a6b">trend +0.07 °C per decade, p = 0.31</text>
+<circle cx="60" cy="466" r="4" fill="#9d372b"/><text x="68" y="470" font-size="10.5" fill="#1f2324">Years Trigger 2 would have activated (ASAP level 3 in ≥ 2 provinces)</text>
+<circle cx="454" cy="466" r="5" fill="#fff" stroke="#9d372b" stroke-width="2"/><text x="464" y="470" font-size="10.5" fill="#1f2324">2026 so far (through the 1st dekad of September)</text>
+</svg>
+    <figcaption><strong>Figure 1.</strong> Mean temperature over the four framework provinces
+       (cropland areas) for April to June and for July to September, 1989 to 2026, with Theil-Sen
+       trend lines fitted on 1989 to 2025. Red dots are the years Trigger 2 would have activated.
+       The 2026 value covers dekads through the 1st of September.</figcaption>
+  </figure>
+
+  <div class="tblwrap"><table>
+    <tr><th>Season</th><th>Province</th><th class="num">Trend, °C per decade</th><th>p</th><th class="num">Mean 1989 to 1998</th><th class="num">Mean 2016 to 2025</th></tr>
+    <tr><td rowspan="4">April to June</td><td>Séno</td><td class="num">+0.35</td><td><span class="tag sig">&lt;0.001</span></td><td class="num">32.3</td><td class="num">33.3</td></tr>
+    <tr><td>Yagha</td><td class="num">+0.30</td><td><span class="tag sig">&lt;0.001</span></td><td class="num">32.0</td><td class="num">33.0</td></tr>
+    <tr><td>Oudalan</td><td class="num">+0.28</td><td><span class="tag sig">0.001</span></td><td class="num">32.8</td><td class="num">33.6</td></tr>
+    <tr><td>Loroum</td><td class="num">+0.11</td><td><span class="tag ns">0.42</span></td><td class="num">30.3</td><td class="num">30.4</td></tr>
+    <tr><td rowspan="4">July to September</td><td>Loroum</td><td class="num">+0.10</td><td><span class="tag ns">0.27</span></td><td class="num">27.5</td><td class="num">27.8</td></tr>
+    <tr><td>Oudalan</td><td class="num">+0.08</td><td><span class="tag ns">0.36</span></td><td class="num">29.0</td><td class="num">29.3</td></tr>
+    <tr><td>Séno</td><td class="num">+0.07</td><td><span class="tag ns">0.39</span></td><td class="num">28.4</td><td class="num">28.7</td></tr>
+    <tr><td>Yagha</td><td class="num">+0.07</td><td><span class="tag ns">0.28</span></td><td class="num">27.9</td><td class="num">28.1</td></tr>
+  </table></div>
+
+  <p>The pre-season has warmed by about a degree since the early 1990s, three of the four
+     provinces significantly. The growing season has warmed by a quarter of a degree, and the
+     year-to-year swings (a full degree between a wet and a dry season) dwarf it. For the
+     question that matters to the trigger, growing-season heat, the trend is small enough that
+     anomalies can be read against the long-term mean almost directly. The analysis below
+     removes it anyway, so that the "heat" being tested is heat relative to what the year
+     would have been expected to bring.</p>
+
+  <h2 id="link">2 · How heat and drought relate, 2001 to 2025 <a class="anchor" href="#link" aria-label="Link to this section">#</a></h2>
+
+  <figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 426" width="100%" style="max-width:760px" font-family="Roboto,system-ui,sans-serif" role="img" aria-labelledby="f2"><title id="f2">Growing-season temperature anomaly vs biomass anomaly, framework provinces, 2001–2025</title>
+<line x1="56" y1="328.5" x2="716" y2="328.5" stroke="#e2e8e8"/><text x="50" y="332.0" text-anchor="end" font-size="9.5" fill="#7e8e8f">-2</text>
+<line x1="56" y1="259.8" x2="716" y2="259.8" stroke="#e2e8e8"/><text x="50" y="263.2" text-anchor="end" font-size="9.5" fill="#7e8e8f">-1</text>
+<line x1="56" y1="191.0" x2="716" y2="191.0" stroke="#9db1b3"/><text x="50" y="194.5" text-anchor="end" font-size="9.5" fill="#7e8e8f">+0</text>
+<line x1="56" y1="122.2" x2="716" y2="122.2" stroke="#e2e8e8"/><text x="50" y="125.8" text-anchor="end" font-size="9.5" fill="#7e8e8f">+1</text>
+<line x1="56" y1="53.5" x2="716" y2="53.5" stroke="#e2e8e8"/><text x="50" y="57.0" text-anchor="end" font-size="9.5" fill="#7e8e8f">+2</text>
+<line x1="56.0" y1="26" x2="56.0" y2="356" stroke="#e2e8e8"/><text x="56.0" y="370" text-anchor="middle" font-size="9.5" fill="#7e8e8f">-1.0 °C</text>
+<line x1="178.2" y1="26" x2="178.2" y2="356" stroke="#e2e8e8"/><text x="178.2" y="370" text-anchor="middle" font-size="9.5" fill="#7e8e8f">-0.5 °C</text>
+<line x1="300.4" y1="26" x2="300.4" y2="356" stroke="#9db1b3"/><text x="300.4" y="370" text-anchor="middle" font-size="9.5" fill="#7e8e8f">+0.0 °C</text>
+<line x1="422.7" y1="26" x2="422.7" y2="356" stroke="#e2e8e8"/><text x="422.7" y="370" text-anchor="middle" font-size="9.5" fill="#7e8e8f">+0.5 °C</text>
+<line x1="544.9" y1="26" x2="544.9" y2="356" stroke="#e2e8e8"/><text x="544.9" y="370" text-anchor="middle" font-size="9.5" fill="#7e8e8f">+1.0 °C</text>
+<line x1="667.1" y1="26" x2="667.1" y2="356" stroke="#e2e8e8"/><text x="667.1" y="370" text-anchor="middle" font-size="9.5" fill="#7e8e8f">+1.5 °C</text>
+<text x="324.9" y="386" text-anchor="middle" font-size="11" fill="#5e6a6b">July–September temperature, anomaly from the province's own trend line (°C)</text>
+<text transform="translate(14,191) rotate(-90)" text-anchor="middle" font-size="11" fill="#5e6a6b">Cumulative-FPAR anomaly, Trigger 2 window, detrended (z)</text>
+<line x1="56" y1="232.2" x2="716" y2="232.2" stroke="#9d372b" stroke-width="1.2" stroke-dasharray="4 3"/><text x="712" y="243.2" text-anchor="end" font-size="9.5" fill="#9d372b">biomass-warning cut-off (−0.6)</text>
+<line x1="80.4" y1="134.6" x2="569.3" y2="240.6" stroke="#1f2324" stroke-width="1.2" opacity="0.6"/>
+<text x="68.2" y="39.8" font-size="10.5" fill="#1f2324">Pooled fit 2001–2025: -0.77 z per °C, r = -0.42</text>
+<circle cx="293.4" cy="111.2" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2001: temp -0.03 °C, biomass +1.16 z, rain 41 mm/dekad (dry tercile)</title></circle>
+<circle cx="501.8" cy="259.0" r="5" fill="#d48f2a" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Loroum 2002: temp +0.82 °C, biomass -0.99 z, rain 38 mm/dekad (dry tercile)</title></circle>
+<circle cx="180.1" cy="122.5" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2003: temp -0.49 °C, biomass +1.00 z, rain 48 mm/dekad (mid tercile)</title></circle>
+<circle cx="350.9" cy="205.1" r="5" fill="#d48f2a" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Loroum 2004: temp +0.21 °C, biomass -0.21 z, rain 40 mm/dekad (dry tercile)</title></circle>
+<circle cx="270.5" cy="126.2" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2005: temp -0.12 °C, biomass +0.94 z, rain 44 mm/dekad (mid tercile)</title></circle>
+<circle cx="347.6" cy="227.7" r="5" fill="#9db1b3" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Loroum 2006: temp +0.19 °C, biomass -0.53 z, rain 46 mm/dekad (mid tercile)</title></circle>
+<circle cx="253.4" cy="141.3" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2007: temp -0.19 °C, biomass +0.72 z, rain 54 mm/dekad (wet tercile)</title></circle>
+<circle cx="318.0" cy="154.5" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2008: temp +0.07 °C, biomass +0.53 z, rain 48 mm/dekad (mid tercile)</title></circle>
+<circle cx="369.0" cy="181.4" r="5" fill="#1862d8" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Loroum 2009: temp +0.28 °C, biomass +0.14 z, rain 59 mm/dekad (wet tercile)</title></circle>
+<circle cx="260.5" cy="213.9" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2010: temp -0.16 °C, biomass -0.33 z, rain 50 mm/dekad (wet tercile)</title></circle>
+<circle cx="416.0" cy="205.1" r="5" fill="#9db1b3" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Loroum 2011: temp +0.47 °C, biomass -0.21 z, rain 47 mm/dekad (mid tercile)</title></circle>
+<circle cx="128.4" cy="137.9" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2012: temp -0.70 °C, biomass +0.77 z, rain 65 mm/dekad (wet tercile)</title></circle>
+<circle cx="299.5" cy="196.7" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2013: temp -0.00 °C, biomass -0.08 z, rain 44 mm/dekad (mid tercile)</title></circle>
+<circle cx="374.6" cy="229.0" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2014: temp +0.30 °C, biomass -0.55 z, rain 50 mm/dekad (mid tercile)</title></circle>
+<circle cx="233.3" cy="210.5" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2015: temp -0.27 °C, biomass -0.28 z, rain 58 mm/dekad (wet tercile)</title></circle>
+<circle cx="336.7" cy="230.0" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2016: temp +0.15 °C, biomass -0.57 z, rain 57 mm/dekad (wet tercile)</title></circle>
+<circle cx="365.5" cy="166.5" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2017: temp +0.27 °C, biomass +0.36 z, rain 48 mm/dekad (mid tercile)</title></circle>
+<circle cx="310.7" cy="217.9" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2018: temp +0.04 °C, biomass -0.39 z, rain 61 mm/dekad (wet tercile)</title></circle>
+<circle cx="410.6" cy="237.0" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2019: temp +0.45 °C, biomass -0.67 z, rain 46 mm/dekad (mid tercile)</title></circle>
+<circle cx="216.0" cy="212.5" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2020: temp -0.35 °C, biomass -0.31 z, rain 55 mm/dekad (wet tercile)</title></circle>
+<circle cx="432.5" cy="205.3" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2021: temp +0.54 °C, biomass -0.21 z, rain 40 mm/dekad (dry tercile)</title></circle>
+<circle cx="236.0" cy="148.0" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2022: temp -0.26 °C, biomass +0.63 z, rain 54 mm/dekad (wet tercile)</title></circle>
+<circle cx="441.1" cy="111.1" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2023: temp +0.58 °C, biomass +1.16 z, rain 52 mm/dekad (wet tercile)</title></circle>
+<circle cx="198.9" cy="130.7" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2024: temp -0.42 °C, biomass +0.88 z, rain 50 mm/dekad (mid tercile)</title></circle>
+<circle cx="120.1" cy="110.8" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Loroum 2025: temp -0.74 °C, biomass +1.17 z, rain 55 mm/dekad (wet tercile)</title></circle>
+<circle cx="310.6" cy="166.3" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2001: temp +0.04 °C, biomass +0.36 z, rain 36 mm/dekad (dry tercile)</title></circle>
+<circle cx="496.6" cy="245.4" r="5" fill="#d48f2a" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Oudalan 2002: temp +0.80 °C, biomass -0.79 z, rain 29 mm/dekad (dry tercile)</title></circle>
+<circle cx="156.6" cy="144.9" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2003: temp -0.59 °C, biomass +0.67 z, rain 49 mm/dekad (mid tercile)</title></circle>
+<circle cx="425.3" cy="286.5" r="5" fill="#d48f2a" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Oudalan 2004: temp +0.51 °C, biomass -1.39 z, rain 25 mm/dekad (dry tercile)</title></circle>
+<circle cx="269.5" cy="65.7" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2005: temp -0.13 °C, biomass +1.82 z, rain 38 mm/dekad (dry tercile)</title></circle>
+<circle cx="344.4" cy="199.5" r="5" fill="#d48f2a" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Oudalan 2006: temp +0.18 °C, biomass -0.12 z, rain 32 mm/dekad (dry tercile)</title></circle>
+<circle cx="228.4" cy="154.1" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2007: temp -0.29 °C, biomass +0.54 z, rain 36 mm/dekad (dry tercile)</title></circle>
+<circle cx="321.6" cy="142.0" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2008: temp +0.09 °C, biomass +0.71 z, rain 25 mm/dekad (dry tercile)</title></circle>
+<circle cx="429.5" cy="168.4" r="5" fill="#d48f2a" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Oudalan 2009: temp +0.53 °C, biomass +0.33 z, rain 32 mm/dekad (dry tercile)</title></circle>
+<circle cx="257.1" cy="205.7" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2010: temp -0.18 °C, biomass -0.21 z, rain 36 mm/dekad (dry tercile)</title></circle>
+<circle cx="405.4" cy="191.5" r="5" fill="#9db1b3" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Oudalan 2011: temp +0.43 °C, biomass -0.01 z, rain 42 mm/dekad (mid tercile)</title></circle>
+<circle cx="127.8" cy="175.6" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2012: temp -0.71 °C, biomass +0.22 z, rain 50 mm/dekad (wet tercile)</title></circle>
+<circle cx="306.5" cy="156.5" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2013: temp +0.02 °C, biomass +0.50 z, rain 34 mm/dekad (dry tercile)</title></circle>
+<circle cx="383.2" cy="258.8" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2014: temp +0.34 °C, biomass -0.99 z, rain 35 mm/dekad (dry tercile)</title></circle>
+<circle cx="220.8" cy="214.2" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2015: temp -0.33 °C, biomass -0.34 z, rain 44 mm/dekad (mid tercile)</title></circle>
+<circle cx="341.8" cy="232.5" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2016: temp +0.17 °C, biomass -0.60 z, rain 38 mm/dekad (dry tercile)</title></circle>
+<circle cx="315.8" cy="180.0" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2017: temp +0.06 °C, biomass +0.16 z, rain 37 mm/dekad (dry tercile)</title></circle>
+<circle cx="265.4" cy="156.3" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2018: temp -0.14 °C, biomass +0.51 z, rain 43 mm/dekad (mid tercile)</title></circle>
+<circle cx="395.6" cy="250.7" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2019: temp +0.39 °C, biomass -0.87 z, rain 39 mm/dekad (dry tercile)</title></circle>
+<circle cx="246.4" cy="219.7" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2020: temp -0.22 °C, biomass -0.42 z, rain 50 mm/dekad (wet tercile)</title></circle>
+<circle cx="436.7" cy="170.1" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2021: temp +0.56 °C, biomass +0.30 z, rain 33 mm/dekad (dry tercile)</title></circle>
+<circle cx="261.5" cy="193.4" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2022: temp -0.16 °C, biomass -0.04 z, rain 38 mm/dekad (dry tercile)</title></circle>
+<circle cx="466.2" cy="192.1" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2023: temp +0.68 °C, biomass -0.02 z, rain 34 mm/dekad (dry tercile)</title></circle>
+<circle cx="179.8" cy="142.7" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2024: temp -0.49 °C, biomass +0.70 z, rain 46 mm/dekad (mid tercile)</title></circle>
+<circle cx="193.4" cy="72.9" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Oudalan 2025: temp -0.44 °C, biomass +1.72 z, rain 45 mm/dekad (mid tercile)</title></circle>
+<circle cx="321.5" cy="180.1" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2001: temp +0.09 °C, biomass +0.16 z, rain 37 mm/dekad (dry tercile)</title></circle>
+<circle cx="450.6" cy="219.4" r="5" fill="#d48f2a" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Séno 2002: temp +0.61 °C, biomass -0.41 z, rain 34 mm/dekad (dry tercile)</title></circle>
+<circle cx="155.1" cy="136.4" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2003: temp -0.59 °C, biomass +0.79 z, rain 57 mm/dekad (wet tercile)</title></circle>
+<circle cx="398.8" cy="168.0" r="5" fill="#d48f2a" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Séno 2004: temp +0.40 °C, biomass +0.33 z, rain 31 mm/dekad (dry tercile)</title></circle>
+<circle cx="307.1" cy="85.8" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2005: temp +0.03 °C, biomass +1.53 z, rain 42 mm/dekad (dry tercile)</title></circle>
+<circle cx="326.9" cy="214.5" r="5" fill="#d48f2a" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Séno 2006: temp +0.11 °C, biomass -0.34 z, rain 34 mm/dekad (dry tercile)</title></circle>
+<circle cx="242.4" cy="153.6" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2007: temp -0.24 °C, biomass +0.54 z, rain 43 mm/dekad (mid tercile)</title></circle>
+<circle cx="296.2" cy="109.4" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2008: temp -0.02 °C, biomass +1.19 z, rain 35 mm/dekad (dry tercile)</title></circle>
+<circle cx="422.7" cy="247.1" r="5" fill="#d48f2a" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Séno 2009: temp +0.50 °C, biomass -0.82 z, rain 36 mm/dekad (dry tercile)</title></circle>
+<circle cx="282.2" cy="241.6" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2010: temp -0.07 °C, biomass -0.74 z, rain 40 mm/dekad (dry tercile)</title></circle>
+<circle cx="426.6" cy="239.4" r="5" fill="#9db1b3" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Séno 2011: temp +0.52 °C, biomass -0.70 z, rain 44 mm/dekad (mid tercile)</title></circle>
+<circle cx="142.3" cy="179.3" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2012: temp -0.65 °C, biomass +0.17 z, rain 53 mm/dekad (wet tercile)</title></circle>
+<circle cx="280.5" cy="175.7" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2013: temp -0.08 °C, biomass +0.22 z, rain 42 mm/dekad (mid tercile)</title></circle>
+<circle cx="374.3" cy="214.4" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2014: temp +0.30 °C, biomass -0.34 z, rain 42 mm/dekad (dry tercile)</title></circle>
+<circle cx="274.7" cy="189.4" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2015: temp -0.11 °C, biomass +0.02 z, rain 52 mm/dekad (wet tercile)</title></circle>
+<circle cx="310.8" cy="213.7" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2016: temp +0.04 °C, biomass -0.33 z, rain 44 mm/dekad (mid tercile)</title></circle>
+<circle cx="308.3" cy="159.9" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2017: temp +0.03 °C, biomass +0.45 z, rain 39 mm/dekad (dry tercile)</title></circle>
+<circle cx="256.6" cy="178.3" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2018: temp -0.18 °C, biomass +0.18 z, rain 47 mm/dekad (mid tercile)</title></circle>
+<circle cx="412.9" cy="252.5" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2019: temp +0.46 °C, biomass -0.89 z, rain 48 mm/dekad (mid tercile)</title></circle>
+<circle cx="251.2" cy="204.1" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2020: temp -0.20 °C, biomass -0.19 z, rain 64 mm/dekad (wet tercile)</title></circle>
+<circle cx="408.0" cy="146.8" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2021: temp +0.44 °C, biomass +0.64 z, rain 44 mm/dekad (mid tercile)</title></circle>
+<circle cx="295.4" cy="251.3" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2022: temp -0.02 °C, biomass -0.88 z, rain 44 mm/dekad (mid tercile)</title></circle>
+<circle cx="460.0" cy="179.9" r="4" fill="#d48f2a" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2023: temp +0.65 °C, biomass +0.16 z, rain 39 mm/dekad (dry tercile)</title></circle>
+<circle cx="234.8" cy="136.5" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2024: temp -0.27 °C, biomass +0.79 z, rain 53 mm/dekad (wet tercile)</title></circle>
+<circle cx="198.3" cy="154.4" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Séno 2025: temp -0.42 °C, biomass +0.53 z, rain 52 mm/dekad (wet tercile)</title></circle>
+<circle cx="349.1" cy="219.0" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2001: temp +0.20 °C, biomass -0.41 z, rain 45 mm/dekad (mid tercile)</title></circle>
+<circle cx="441.2" cy="227.3" r="5" fill="#9db1b3" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Yagha 2002: temp +0.58 °C, biomass -0.53 z, rain 45 mm/dekad (mid tercile)</title></circle>
+<circle cx="206.7" cy="94.5" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2003: temp -0.38 °C, biomass +1.40 z, rain 63 mm/dekad (wet tercile)</title></circle>
+<circle cx="359.1" cy="146.6" r="5" fill="#9db1b3" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Yagha 2004: temp +0.24 °C, biomass +0.65 z, rain 43 mm/dekad (mid tercile)</title></circle>
+<circle cx="348.9" cy="72.0" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2005: temp +0.20 °C, biomass +1.73 z, rain 52 mm/dekad (wet tercile)</title></circle>
+<circle cx="288.6" cy="219.1" r="5" fill="#d48f2a" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Yagha 2006: temp -0.05 °C, biomass -0.41 z, rain 42 mm/dekad (dry tercile)</title></circle>
+<circle cx="286.4" cy="182.5" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2007: temp -0.06 °C, biomass +0.12 z, rain 52 mm/dekad (wet tercile)</title></circle>
+<circle cx="270.8" cy="177.8" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2008: temp -0.12 °C, biomass +0.19 z, rain 48 mm/dekad (mid tercile)</title></circle>
+<circle cx="438.2" cy="260.7" r="5" fill="#9db1b3" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Yagha 2009: temp +0.56 °C, biomass -1.01 z, rain 46 mm/dekad (mid tercile)</title></circle>
+<circle cx="278.7" cy="243.9" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2010: temp -0.09 °C, biomass -0.77 z, rain 52 mm/dekad (wet tercile)</title></circle>
+<circle cx="462.8" cy="256.7" r="5" fill="#9db1b3" stroke="#9d372b" stroke-width="1.8" opacity="0.9"><title>Yagha 2011: temp +0.66 °C, biomass -0.96 z, rain 47 mm/dekad (mid tercile)</title></circle>
+<circle cx="210.8" cy="181.4" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2012: temp -0.37 °C, biomass +0.14 z, rain 59 mm/dekad (wet tercile)</title></circle>
+<circle cx="286.8" cy="198.2" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2013: temp -0.06 °C, biomass -0.10 z, rain 52 mm/dekad (wet tercile)</title></circle>
+<circle cx="388.5" cy="178.5" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2014: temp +0.36 °C, biomass +0.18 z, rain 48 mm/dekad (mid tercile)</title></circle>
+<circle cx="319.1" cy="235.5" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2015: temp +0.08 °C, biomass -0.65 z, rain 62 mm/dekad (wet tercile)</title></circle>
+<circle cx="284.4" cy="171.4" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2016: temp -0.07 °C, biomass +0.28 z, rain 51 mm/dekad (wet tercile)</title></circle>
+<circle cx="299.7" cy="142.3" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2017: temp -0.00 °C, biomass +0.71 z, rain 43 mm/dekad (mid tercile)</title></circle>
+<circle cx="258.4" cy="189.3" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2018: temp -0.17 °C, biomass +0.02 z, rain 49 mm/dekad (mid tercile)</title></circle>
+<circle cx="386.2" cy="220.1" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2019: temp +0.35 °C, biomass -0.42 z, rain 53 mm/dekad (wet tercile)</title></circle>
+<circle cx="289.2" cy="227.2" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2020: temp -0.05 °C, biomass -0.53 z, rain 76 mm/dekad (wet tercile)</title></circle>
+<circle cx="376.3" cy="155.0" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2021: temp +0.31 °C, biomass +0.52 z, rain 53 mm/dekad (wet tercile)</title></circle>
+<circle cx="226.8" cy="217.6" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2022: temp -0.30 °C, biomass -0.39 z, rain 61 mm/dekad (wet tercile)</title></circle>
+<circle cx="425.1" cy="146.6" r="4" fill="#9db1b3" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2023: temp +0.51 °C, biomass +0.65 z, rain 46 mm/dekad (mid tercile)</title></circle>
+<circle cx="228.3" cy="198.9" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2024: temp -0.30 °C, biomass -0.11 z, rain 65 mm/dekad (wet tercile)</title></circle>
+<circle cx="165.3" cy="202.8" r="4" fill="#1862d8" stroke="#fff" stroke-width="0.8" opacity="0.9"><title>Yagha 2025: temp -0.55 °C, biomass -0.17 z, rain 66 mm/dekad (wet tercile)</title></circle>
+<circle cx="612.9" cy="88.0" r="6" fill="#fff" stroke="#9d372b" stroke-width="2.2"><title>Loroum 2026 so far: temp +1.28 °C, biomass +1.50 z</title></circle>
+<text x="612.9" y="79.0" text-anchor="middle" font-size="9.5" font-weight="500" fill="#9d372b">Loroum 2026</text>
+<circle cx="575.7" cy="154.6" r="6" fill="#fff" stroke="#9d372b" stroke-width="2.2"><title>Oudalan 2026 so far: temp +1.13 °C, biomass +0.53 z</title></circle>
+<text x="575.7" y="145.6" text-anchor="middle" font-size="9.5" font-weight="500" fill="#9d372b">Oudalan 2026</text>
+<circle cx="545.4" cy="201.1" r="6" fill="#fff" stroke="#9d372b" stroke-width="2.2"><title>Séno 2026 so far: temp +1.00 °C, biomass -0.15 z</title></circle>
+<text x="545.4" y="192.1" text-anchor="middle" font-size="9.5" font-weight="500" fill="#9d372b">Séno 2026</text>
+<circle cx="503.2" cy="138.5" r="6" fill="#fff" stroke="#9d372b" stroke-width="2.2"><title>Yagha 2026 so far: temp +0.83 °C, biomass +0.76 z</title></circle>
+<text x="503.2" y="129.5" text-anchor="middle" font-size="9.5" font-weight="500" fill="#9d372b">Yagha 2026</text>
+<circle cx="61" cy="416" r="4.5" fill="#d48f2a"/><text x="69" y="420" font-size="10.5" fill="#1f2324">Driest third of seasons (rain)</text>
+<circle cx="280.0" cy="416" r="4.5" fill="#9db1b3"/><text x="288.0" y="420" font-size="10.5" fill="#1f2324">Middle third</text>
+<circle cx="385.6" cy="416" r="4.5" fill="#1862d8"/><text x="393.6" y="420" font-size="10.5" fill="#1f2324">Wettest third</text>
+<circle cx="497.5" cy="416" r="5" fill="#fff" stroke="#9d372b" stroke-width="1.8"/><text x="505.5" y="420" font-size="10.5" fill="#1f2324">Trigger 2 activation year</text>
+</svg>
+    <figcaption><strong>Figure 2.</strong> Each dot is one province-year, 2001 to 2025: the
+       July to September temperature anomaly from the province's own trend line, against the
+       detrended cumulative-FPAR anomaly over the Trigger 2 window (dekads 21 to 26). Colour is
+       the season's rainfall tercile. Red-ringed dots are the Trigger 2 activation years. Open red
+       circles are 2026 so far.</figcaption>
+  </figure>
+
+  <h3>Hot seasons are drought seasons</h3>
+  <ul>
+    <li><strong>Correlations.</strong> Detrended July to September temperature correlates −0.48
+        with seasonal rainfall, −0.61 with SPI-3, −0.44 with the water satisfaction index and
+        −0.42 with detrended biomass, all pooled over the four provinces and highly significant.
+        Seasonal rainfall total, by contrast, correlates only +0.07 with biomass in these
+        provinces: the total hides the timing and dry spells that matter, whereas temperature
+        integrates them (a dry spell is also a cloudless, hot spell).</li>
+    <li><strong>Activation years were hot.</strong> The five years Trigger 2 would have activated
+        averaged +0.43 °C above trend in July to September, against −0.05 °C for the other years
+        (p &lt; 0.001). 2002, 2011 and 2009 are the first, third and fourth hottest growing
+        seasons of 2001 to 2025 once the trend is removed. The framework's target bad years
+        (2011, 2014, 2017, 2019, 2022) averaged +0.23 °C.</li>
+    <li><strong>But hot is not sufficient.</strong> 2023 and 2021 were the second and fifth
+        hottest growing seasons and ended with detrended biomass 0.3 to 0.5 z <em>above</em>
+        normal. Rain was near normal and the vegetation did not suffer. Heat without a rainfall deficit did
+        not produce a drought.</li>
+  </ul>
+
+  <h3>How much does heat add, beyond rainfall?</h3>
+  <p>A regression of detrended window biomass on seasonal rainfall and detrended temperature,
+     both standardised, separates the two:</p>
+
+  <div class="tblwrap"><table>
+    <tr><th>Province</th><th class="num">Rainfall effect, z per sd</th><th>p</th><th class="num">Temperature effect, z per sd</th><th>p</th><th class="num">Temperature effect, z per °C</th><th class="num">R² rain only</th><th class="num">R² rain + temperature</th></tr>
+    <tr><td>Loroum</td><td class="num">−0.12</td><td><span class="tag ns">0.40</span></td><td class="num">−0.42</td><td><span class="tag sig">0.006</span></td><td class="num">−1.06</td><td class="num">0.02</td><td class="num">0.31</td></tr>
+    <tr><td>Oudalan</td><td class="num">−0.14</td><td><span class="tag ns">0.50</span></td><td class="num">−0.48</td><td><span class="tag sig">0.026</span></td><td class="num">−1.16</td><td class="num">0.07</td><td class="num">0.26</td></tr>
+    <tr><td>Séno</td><td class="num">−0.16</td><td><span class="tag ns">0.32</span></td><td class="num">−0.36</td><td><span class="tag sig">0.034</span></td><td class="num">−1.00</td><td class="num">0.01</td><td class="num">0.20</td></tr>
+    <tr><td>Yagha</td><td class="num">−0.16</td><td><span class="tag ns">0.36</span></td><td class="num">−0.22</td><td><span class="tag ns">0.21</span></td><td class="num">−0.68</td><td class="num">0.00</td><td class="num">0.07</td></tr>
+    <tr><td><strong>Pooled, cropland</strong></td><td class="num">−0.11</td><td><span class="tag ns">0.11</span></td><td class="num">−0.34</td><td><span class="tag sig">&lt;0.001</span></td><td class="num">−0.92</td><td class="num">0.01</td><td class="num">0.20</td></tr>
+    <tr><td>Pooled, rangeland</td><td class="num">−0.12</td><td><span class="tag ns">0.09</span></td><td class="num">−0.35</td><td><span class="tag sig">&lt;0.001</span></td><td class="num">—</td><td class="num">0.01</td><td class="num">0.21</td></tr>
+  </table></div>
+
+  <p>Read the middle columns: a growing season one degree hotter than expected goes with
+     biomass about one standard deviation lower, once seasonal rainfall is held fixed. That is
+     roughly the distance from a normal season to the biomass-warning cut-off. Temperature
+     explains about a fifth of the year-to-year biomass variance in these provinces; seasonal
+     rainfall total, on its own, explains almost none. The water satisfaction index, ASAP's
+     water-balance indicator, behaves differently: rainfall explains 44 percent of it and
+     temperature adds only two points (p 0.06), which is expected for a rainfall-driven bucket
+     model with a modest evaporative-demand term.</p>
+
+  <p>Two readings are consistent with this. Heat may worsen drought directly, by raising
+     evaporative demand and crop water stress during the grain-filling weeks. Or heat may be the
+     better <em>measurement</em> of a bad season, since the same clear skies that dry the soil
+     also heat the air, so that temperature carries the information about dry-spell timing that
+     the seasonal total loses. The data here cannot separate the two, and for a trigger it does
+     not need to: either way, a hot growing season is a strong sign of a poor biomass season.</p>
+
+  <h3>Does heat come first?</h3>
+  <ul>
+    <li><strong>Within the season, no.</strong> At the ten-day scale (dekads 16 to 30, 1991 to
+        2025), the temperature anomaly correlates −0.36 with the rainfall anomaly of the
+        <em>same</em> dekad, −0.19 with the previous dekad's rain, and +0.04 with the next
+        dekad's. A hot dekad is a dry dekad, not a warning of one. When a dekad is more than one
+        standard deviation hot, the chance that it is also dry (rain below −0.5 sd) is 56 percent
+        against a base rate of 35 percent.</li>
+    <li><strong>Before the season, weakly.</strong> April to June temperature, detrended, has no
+        relationship with the coming season's rainfall (r = +0.04) and only a modest one with
+        biomass (r = −0.32, p = 0.001; −0.22 z per sd in the regression). Pre-season and
+        growing-season heat are themselves uncorrelated (r = 0.05). A hot April to June is not a
+        useful early signal of drought in these provinces, though it may leave soils and
+        pastures with less to start from.</li>
+  </ul>
+
+  <figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 976 190" width="100%" style="max-width:976px" font-family="Roboto,system-ui,sans-serif" role="img" aria-labelledby="f3"><title id="f3">Framework-province means by year, 2001–2026: temperature anomaly, rainfall, biomass and water balance</title>
+<text x="303.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 303.0 28)">2001</text>
+<text x="329.0" y="28" text-anchor="middle" font-size="9.5" font-weight="700" fill="#9d372b" transform="rotate(-60 329.0 28)">2002</text>
+<text x="355.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 355.0 28)">2003</text>
+<text x="381.0" y="28" text-anchor="middle" font-size="9.5" font-weight="700" fill="#9d372b" transform="rotate(-60 381.0 28)">2004</text>
+<text x="407.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 407.0 28)">2005</text>
+<text x="433.0" y="28" text-anchor="middle" font-size="9.5" font-weight="700" fill="#9d372b" transform="rotate(-60 433.0 28)">2006</text>
+<text x="459.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 459.0 28)">2007</text>
+<text x="485.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 485.0 28)">2008</text>
+<text x="511.0" y="28" text-anchor="middle" font-size="9.5" font-weight="700" fill="#9d372b" transform="rotate(-60 511.0 28)">2009</text>
+<text x="537.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 537.0 28)">2010</text>
+<text x="563.0" y="28" text-anchor="middle" font-size="9.5" font-weight="700" fill="#9d372b" transform="rotate(-60 563.0 28)">2011</text>
+<text x="589.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 589.0 28)">2012</text>
+<text x="615.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 615.0 28)">2013</text>
+<text x="641.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 641.0 28)">2014</text>
+<text x="667.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 667.0 28)">2015</text>
+<text x="693.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 693.0 28)">2016</text>
+<text x="719.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 719.0 28)">2017</text>
+<text x="745.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 745.0 28)">2018</text>
+<text x="771.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 771.0 28)">2019</text>
+<text x="797.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 797.0 28)">2020</text>
+<text x="823.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 823.0 28)">2021</text>
+<text x="849.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 849.0 28)">2022</text>
+<text x="875.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 875.0 28)">2023</text>
+<text x="901.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 901.0 28)">2024</text>
+<text x="927.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 927.0 28)">2025</text>
+<text x="953.0" y="28" text-anchor="middle" font-size="9.5" font-weight="400" fill="#5e6a6b" transform="rotate(-60 953.0 28)">2026</text>
+<text x="282" y="55.0" text-anchor="end" font-size="11" fill="#1f2324">Temperature, Jul–Sep, anomaly from trend (°C)</text>
+<rect x="291" y="37" width="24" height="28" rx="3" fill="#f5ebe9"><title>2001 — Temperature, Jul–Sep, anomaly from trend (°C): 0.07</title></rect>
+<text x="303.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.1</text>
+<rect x="317" y="37" width="24" height="28" rx="3" fill="#9d372b"><title>2002 — Temperature, Jul–Sep, anomaly from trend (°C): 0.70</title></rect>
+<text x="329.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.7</text>
+<rect x="343" y="37" width="24" height="28" rx="3" fill="#568ce2"><title>2003 — Temperature, Jul–Sep, anomaly from trend (°C): -0.51</title></rect>
+<text x="355.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.5</text>
+<rect x="369" y="37" width="24" height="28" rx="3" fill="#cf9d98"><title>2004 — Temperature, Jul–Sep, anomaly from trend (°C): 0.34</title></rect>
+<text x="381.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.3</text>
+<rect x="395" y="37" width="24" height="28" rx="3" fill="#fbfcfe"><title>2005 — Temperature, Jul–Sep, anomaly from trend (°C): -0.01</title></rect>
+<text x="407.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.0</text>
+<rect x="421" y="37" width="24" height="28" rx="3" fill="#efdfdd"><title>2006 — Temperature, Jul–Sep, anomaly from trend (°C): 0.11</title></rect>
+<text x="433.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.1</text>
+<rect x="447" y="37" width="24" height="28" rx="3" fill="#bdd2f3"><title>2007 — Temperature, Jul–Sep, anomaly from trend (°C): -0.20</title></rect>
+<text x="459.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.2</text>
+<rect x="473" y="37" width="24" height="28" rx="3" fill="#ffffff"><title>2008 — Temperature, Jul–Sep, anomaly from trend (°C): 0.00</title></rect>
+<text x="485.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.0</text>
+<rect x="499" y="37" width="24" height="28" rx="3" fill="#bd7870"><title>2009 — Temperature, Jul–Sep, anomaly from trend (°C): 0.47</title></rect>
+<text x="511.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.5</text>
+<rect x="525" y="37" width="24" height="28" rx="3" fill="#d4e1f7"><title>2010 — Temperature, Jul–Sep, anomaly from trend (°C): -0.13</title></rect>
+<text x="537.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.1</text>
+<rect x="551" y="37" width="24" height="28" rx="3" fill="#b66a61"><title>2011 — Temperature, Jul–Sep, anomaly from trend (°C): 0.52</title></rect>
+<text x="563.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.5</text>
+<rect x="577" y="37" width="24" height="28" rx="3" fill="#3576dd"><title>2012 — Temperature, Jul–Sep, anomaly from trend (°C): -0.61</title></rect>
+<text x="589.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.6</text>
+<rect x="603" y="37" width="24" height="28" rx="3" fill="#f5f8fd"><title>2013 — Temperature, Jul–Sep, anomaly from trend (°C): -0.03</title></rect>
+<text x="615.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.0</text>
+<rect x="629" y="37" width="24" height="28" rx="3" fill="#d0a09b"><title>2014 — Temperature, Jul–Sep, anomaly from trend (°C): 0.33</title></rect>
+<text x="641.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.3</text>
+<rect x="655" y="37" width="24" height="28" rx="3" fill="#cadbf6"><title>2015 — Temperature, Jul–Sep, anomaly from trend (°C): -0.16</title></rect>
+<text x="667.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.2</text>
+<rect x="681" y="37" width="24" height="28" rx="3" fill="#f5ebe9"><title>2016 — Temperature, Jul–Sep, anomaly from trend (°C): 0.07</title></rect>
+<text x="693.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.1</text>
+<rect x="707" y="37" width="24" height="28" rx="3" fill="#f2e5e3"><title>2017 — Temperature, Jul–Sep, anomaly from trend (°C): 0.09</title></rect>
+<text x="719.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.1</text>
+<rect x="733" y="37" width="24" height="28" rx="3" fill="#dae6f8"><title>2018 — Temperature, Jul–Sep, anomaly from trend (°C): -0.11</title></rect>
+<text x="745.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.1</text>
+<rect x="759" y="37" width="24" height="28" rx="3" fill="#c58982"><title>2019 — Temperature, Jul–Sep, anomaly from trend (°C): 0.41</title></rect>
+<text x="771.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.4</text>
+<rect x="785" y="37" width="24" height="28" rx="3" fill="#bdd2f3"><title>2020 — Temperature, Jul–Sep, anomaly from trend (°C): -0.20</title></rect>
+<text x="797.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.2</text>
+<rect x="811" y="37" width="24" height="28" rx="3" fill="#be7b73"><title>2021 — Temperature, Jul–Sep, anomaly from trend (°C): 0.46</title></rect>
+<text x="823.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.5</text>
+<rect x="837" y="37" width="24" height="28" rx="3" fill="#c0d4f4"><title>2022 — Temperature, Jul–Sep, anomaly from trend (°C): -0.19</title></rect>
+<text x="849.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.2</text>
+<rect x="863" y="37" width="24" height="28" rx="3" fill="#ab5349"><title>2023 — Temperature, Jul–Sep, anomaly from trend (°C): 0.60</title></rect>
+<text x="875.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.6</text>
+<rect x="889" y="37" width="24" height="28" rx="3" fill="#84acea"><title>2024 — Temperature, Jul–Sep, anomaly from trend (°C): -0.37</title></rect>
+<text x="901.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.4</text>
+<rect x="915" y="37" width="24" height="28" rx="3" fill="#4c85e0"><title>2025 — Temperature, Jul–Sep, anomaly from trend (°C): -0.54</title></rect>
+<text x="927.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.5</text>
+<rect x="941" y="37" width="24" height="28" rx="3" fill="#9d372b"><title>2026 — Temperature, Jul–Sep, anomaly from trend (°C): 1.06</title></rect>
+<text x="953.0" y="54.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+1.1</text>
+<text x="282" y="85.0" text-anchor="end" font-size="11" fill="#1f2324">Rainfall, Jul–Sep (mm per dekad)</text>
+<rect x="291" y="67" width="24" height="28" rx="3" fill="#cfd1d4"><title>2001 — Rainfall, Jul–Sep (mm per dekad): 39.72</title></rect>
+<text x="303.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">40</text>
+<rect x="317" y="67" width="24" height="28" rx="3" fill="#eae1d4"><title>2002 — Rainfall, Jul–Sep (mm per dekad): 36.42</title></rect>
+<text x="329.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">36</text>
+<rect x="343" y="67" width="24" height="28" rx="3" fill="#5788d6"><title>2003 — Rainfall, Jul–Sep (mm per dekad): 54.24</title></rect>
+<text x="355.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">54</text>
+<rect x="369" y="67" width="24" height="28" rx="3" fill="#f6e9d4"><title>2004 — Rainfall, Jul–Sep (mm per dekad): 34.85</title></rect>
+<text x="381.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">35</text>
+<rect x="395" y="67" width="24" height="28" rx="3" fill="#adbdd5"><title>2005 — Rainfall, Jul–Sep (mm per dekad): 43.77</title></rect>
+<text x="407.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">44</text>
+<rect x="421" y="67" width="24" height="28" rx="3" fill="#dbd8d4"><title>2006 — Rainfall, Jul–Sep (mm per dekad): 38.22</title></rect>
+<text x="433.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">38</text>
+<rect x="447" y="67" width="24" height="28" rx="3" fill="#99b0d5"><title>2007 — Rainfall, Jul–Sep (mm per dekad): 46.26</title></rect>
+<text x="459.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">46</text>
+<rect x="473" y="67" width="24" height="28" rx="3" fill="#d5d5d4"><title>2008 — Rainfall, Jul–Sep (mm per dekad): 38.98</title></rect>
+<text x="485.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">39</text>
+<rect x="499" y="67" width="24" height="28" rx="3" fill="#b2c0d5"><title>2009 — Rainfall, Jul–Sep (mm per dekad): 43.18</title></rect>
+<text x="511.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">43</text>
+<rect x="525" y="67" width="24" height="28" rx="3" fill="#a8b9d5"><title>2010 — Rainfall, Jul–Sep (mm per dekad): 44.44</title></rect>
+<text x="537.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">44</text>
+<rect x="551" y="67" width="24" height="28" rx="3" fill="#a2b6d5"><title>2011 — Rainfall, Jul–Sep (mm per dekad): 45.10</title></rect>
+<text x="563.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">45</text>
+<rect x="577" y="67" width="24" height="28" rx="3" fill="#417bd7"><title>2012 — Rainfall, Jul–Sep (mm per dekad): 56.96</title></rect>
+<text x="589.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">57</text>
+<rect x="603" y="67" width="24" height="28" rx="3" fill="#b5c1d5"><title>2013 — Rainfall, Jul–Sep (mm per dekad): 42.84</title></rect>
+<text x="615.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">43</text>
+<rect x="629" y="67" width="24" height="28" rx="3" fill="#adbcd5"><title>2014 — Rainfall, Jul–Sep (mm per dekad): 43.81</title></rect>
+<text x="641.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">44</text>
+<rect x="655" y="67" width="24" height="28" rx="3" fill="#5788d6"><title>2015 — Rainfall, Jul–Sep (mm per dekad): 54.23</title></rect>
+<text x="667.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">54</text>
+<rect x="681" y="67" width="24" height="28" rx="3" fill="#90abd5"><title>2016 — Rainfall, Jul–Sep (mm per dekad): 47.30</title></rect>
+<text x="693.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">47</text>
+<rect x="707" y="67" width="24" height="28" rx="3" fill="#bec7d4"><title>2017 — Rainfall, Jul–Sep (mm per dekad): 41.70</title></rect>
+<text x="719.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">42</text>
+<rect x="733" y="67" width="24" height="28" rx="3" fill="#789cd6"><title>2018 — Rainfall, Jul–Sep (mm per dekad): 50.27</title></rect>
+<text x="745.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">50</text>
+<rect x="759" y="67" width="24" height="28" rx="3" fill="#99b1d5"><title>2019 — Rainfall, Jul–Sep (mm per dekad): 46.20</title></rect>
+<text x="771.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">46</text>
+<rect x="785" y="67" width="24" height="28" rx="3" fill="#1c64d7"><title>2020 — Rainfall, Jul–Sep (mm per dekad): 61.41</title></rect>
+<text x="797.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">61</text>
+<rect x="811" y="67" width="24" height="28" rx="3" fill="#b6c2d5"><title>2021 — Rainfall, Jul–Sep (mm per dekad): 42.71</title></rect>
+<text x="823.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">43</text>
+<rect x="837" y="67" width="24" height="28" rx="3" fill="#81a1d6"><title>2022 — Rainfall, Jul–Sep (mm per dekad): 49.22</title></rect>
+<text x="849.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">49</text>
+<rect x="863" y="67" width="24" height="28" rx="3" fill="#b3c0d5"><title>2023 — Rainfall, Jul–Sep (mm per dekad): 43.07</title></rect>
+<text x="875.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">43</text>
+<rect x="889" y="67" width="24" height="28" rx="3" fill="#5c8bd6"><title>2024 — Rainfall, Jul–Sep (mm per dekad): 53.63</title></rect>
+<text x="901.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">54</text>
+<rect x="915" y="67" width="24" height="28" rx="3" fill="#5687d6"><title>2025 — Rainfall, Jul–Sep (mm per dekad): 54.42</title></rect>
+<text x="927.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">54</text>
+<rect x="941" y="67" width="24" height="28" rx="3" fill="#d3d3d4"><title>2026 — Rainfall, Jul–Sep (mm per dekad): 39.25</title></rect>
+<text x="953.0" y="84.5" text-anchor="middle" font-size="8.5" fill="#1f2324">39</text>
+<text x="282" y="115.0" text-anchor="end" font-size="11" fill="#1f2324">Biomass (zFPARc), window, detrended</text>
+<rect x="291" y="97" width="24" height="28" rx="3" fill="#b7d4cb"><title>2001 — Biomass (zFPARc), window, detrended: 0.32</title></rect>
+<text x="303.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.3</text>
+<rect x="317" y="97" width="24" height="28" rx="3" fill="#bc776e"><title>2002 — Biomass (zFPARc), window, detrended: -0.68</title></rect>
+<text x="329.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.7</text>
+<rect x="343" y="97" width="24" height="28" rx="3" fill="#247d63"><title>2003 — Biomass (zFPARc), window, detrended: 0.97</title></rect>
+<text x="355.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+1.0</text>
+<rect x="369" y="97" width="24" height="28" rx="3" fill="#f0e1df"><title>2004 — Biomass (zFPARc), window, detrended: -0.15</title></rect>
+<text x="381.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.1</text>
+<rect x="395" y="97" width="24" height="28" rx="3" fill="#1e795f"><title>2005 — Biomass (zFPARc), window, detrended: 1.51</title></rect>
+<text x="407.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+1.5</text>
+<rect x="421" y="97" width="24" height="28" rx="3" fill="#dcb9b4"><title>2006 — Biomass (zFPARc), window, detrended: -0.35</title></rect>
+<text x="433.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.3</text>
+<rect x="447" y="97" width="24" height="28" rx="3" fill="#93beb2"><title>2007 — Biomass (zFPARc), window, detrended: 0.48</title></rect>
+<text x="459.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.5</text>
+<rect x="473" y="97" width="24" height="28" rx="3" fill="#6aa695"><title>2008 — Biomass (zFPARc), window, detrended: 0.66</title></rect>
+<text x="485.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.7</text>
+<rect x="499" y="97" width="24" height="28" rx="3" fill="#ddbbb6"><title>2009 — Biomass (zFPARc), window, detrended: -0.34</title></rect>
+<text x="511.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.3</text>
+<rect x="525" y="97" width="24" height="28" rx="3" fill="#cd9992"><title>2010 — Biomass (zFPARc), window, detrended: -0.51</title></rect>
+<text x="537.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.5</text>
+<rect x="551" y="97" width="24" height="28" rx="3" fill="#d0a19b"><title>2011 — Biomass (zFPARc), window, detrended: -0.47</title></rect>
+<text x="563.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.5</text>
+<rect x="577" y="97" width="24" height="28" rx="3" fill="#b4d2ca"><title>2012 — Biomass (zFPARc), window, detrended: 0.33</title></rect>
+<text x="589.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.3</text>
+<rect x="603" y="97" width="24" height="28" rx="3" fill="#e1edea"><title>2013 — Biomass (zFPARc), window, detrended: 0.13</title></rect>
+<text x="615.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.1</text>
+<rect x="629" y="97" width="24" height="28" rx="3" fill="#d5aba5"><title>2014 — Biomass (zFPARc), window, detrended: -0.42</title></rect>
+<text x="641.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.4</text>
+<rect x="655" y="97" width="24" height="28" rx="3" fill="#e0c1bd"><title>2015 — Biomass (zFPARc), window, detrended: -0.31</title></rect>
+<text x="667.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.3</text>
+<rect x="681" y="97" width="24" height="28" rx="3" fill="#e1c3bf"><title>2016 — Biomass (zFPARc), window, detrended: -0.30</title></rect>
+<text x="693.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.3</text>
+<rect x="707" y="97" width="24" height="28" rx="3" fill="#a0c6bb"><title>2017 — Biomass (zFPARc), window, detrended: 0.42</title></rect>
+<text x="719.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.4</text>
+<rect x="733" y="97" width="24" height="28" rx="3" fill="#edf4f2"><title>2018 — Biomass (zFPARc), window, detrended: 0.08</title></rect>
+<text x="745.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.1</text>
+<rect x="759" y="97" width="24" height="28" rx="3" fill="#b97168"><title>2019 — Biomass (zFPARc), window, detrended: -0.71</title></rect>
+<text x="771.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.7</text>
+<rect x="785" y="97" width="24" height="28" rx="3" fill="#dbb7b2"><title>2020 — Biomass (zFPARc), window, detrended: -0.36</title></rect>
+<text x="797.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.4</text>
+<rect x="811" y="97" width="24" height="28" rx="3" fill="#b7d4cb"><title>2021 — Biomass (zFPARc), window, detrended: 0.32</title></rect>
+<text x="823.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.3</text>
+<rect x="837" y="97" width="24" height="28" rx="3" fill="#eeddda"><title>2022 — Biomass (zFPARc), window, detrended: -0.17</title></rect>
+<text x="849.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">-0.2</text>
+<rect x="863" y="97" width="24" height="28" rx="3" fill="#90bdb0"><title>2023 — Biomass (zFPARc), window, detrended: 0.49</title></rect>
+<text x="875.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.5</text>
+<rect x="889" y="97" width="24" height="28" rx="3" fill="#81b3a5"><title>2024 — Biomass (zFPARc), window, detrended: 0.56</title></rect>
+<text x="901.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.6</text>
+<rect x="915" y="97" width="24" height="28" rx="3" fill="#48927d"><title>2025 — Biomass (zFPARc), window, detrended: 0.81</title></rect>
+<text x="927.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.8</text>
+<rect x="941" y="97" width="24" height="28" rx="3" fill="#6aa695"><title>2026 — Biomass (zFPARc), window, detrended: 0.66</title></rect>
+<text x="953.0" y="114.5" text-anchor="middle" font-size="8.5" fill="#1f2324">+0.7</text>
+<text x="282" y="145.0" text-anchor="end" font-size="11" fill="#1f2324">Water satisfaction index, window (%)</text>
+<rect x="291" y="127" width="24" height="28" rx="3" fill="#f9efee"><title>2001 — Water satisfaction index, window (%): 97.47</title></rect>
+<text x="303.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">97</text>
+<rect x="317" y="127" width="24" height="28" rx="3" fill="#e9bdb8"><title>2002 — Water satisfaction index, window (%): 89.36</title></rect>
+<text x="329.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">89</text>
+<rect x="343" y="127" width="24" height="28" rx="3" fill="#fefefd"><title>2003 — Water satisfaction index, window (%): 99.85</title></rect>
+<text x="355.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">100</text>
+<rect x="369" y="127" width="24" height="28" rx="3" fill="#e9bcb6"><title>2004 — Water satisfaction index, window (%): 89.19</title></rect>
+<text x="381.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">89</text>
+<rect x="395" y="127" width="24" height="28" rx="3" fill="#fcf6f5"><title>2005 — Water satisfaction index, window (%): 98.56</title></rect>
+<text x="407.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">99</text>
+<rect x="421" y="127" width="24" height="28" rx="3" fill="#efd0cc"><title>2006 — Water satisfaction index, window (%): 92.45</title></rect>
+<text x="433.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">92</text>
+<rect x="447" y="127" width="24" height="28" rx="3" fill="#f9edec"><title>2007 — Water satisfaction index, window (%): 97.16</title></rect>
+<text x="459.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">97</text>
+<rect x="473" y="127" width="24" height="28" rx="3" fill="#f1d5d1"><title>2008 — Water satisfaction index, window (%): 93.23</title></rect>
+<text x="485.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">93</text>
+<rect x="499" y="127" width="24" height="28" rx="3" fill="#e8b9b3"><title>2009 — Water satisfaction index, window (%): 88.65</title></rect>
+<text x="511.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">89</text>
+<rect x="525" y="127" width="24" height="28" rx="3" fill="#f7e8e7"><title>2010 — Water satisfaction index, window (%): 96.42</title></rect>
+<text x="537.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">96</text>
+<rect x="551" y="127" width="24" height="28" rx="3" fill="#f8e9e8"><title>2011 — Water satisfaction index, window (%): 96.57</title></rect>
+<text x="563.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">97</text>
+<rect x="577" y="127" width="24" height="28" rx="3" fill="#fefdfd"><title>2012 — Water satisfaction index, window (%): 99.78</title></rect>
+<text x="589.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">100</text>
+<rect x="603" y="127" width="24" height="28" rx="3" fill="#f9edec"><title>2013 — Water satisfaction index, window (%): 97.18</title></rect>
+<text x="615.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">97</text>
+<rect x="629" y="127" width="24" height="28" rx="3" fill="#f2d9d6"><title>2014 — Water satisfaction index, window (%): 93.91</title></rect>
+<text x="641.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">94</text>
+<rect x="655" y="127" width="24" height="28" rx="3" fill="#fcf8f8"><title>2015 — Water satisfaction index, window (%): 98.98</title></rect>
+<text x="667.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">99</text>
+<rect x="681" y="127" width="24" height="28" rx="3" fill="#f5e3e0"><title>2016 — Water satisfaction index, window (%): 95.48</title></rect>
+<text x="693.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">95</text>
+<rect x="707" y="127" width="24" height="28" rx="3" fill="#fcf6f6"><title>2017 — Water satisfaction index, window (%): 98.70</title></rect>
+<text x="719.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">99</text>
+<rect x="733" y="127" width="24" height="28" rx="3" fill="#fdfafa"><title>2018 — Water satisfaction index, window (%): 99.30</title></rect>
+<text x="745.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">99</text>
+<rect x="759" y="127" width="24" height="28" rx="3" fill="#f8ecea"><title>2019 — Water satisfaction index, window (%): 96.92</title></rect>
+<text x="771.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">97</text>
+<rect x="785" y="127" width="24" height="28" rx="3" fill="#f8ecea"><title>2020 — Water satisfaction index, window (%): 96.98</title></rect>
+<text x="797.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">97</text>
+<rect x="811" y="127" width="24" height="28" rx="3" fill="#f5e2e0"><title>2021 — Water satisfaction index, window (%): 95.36</title></rect>
+<text x="823.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">95</text>
+<rect x="837" y="127" width="24" height="28" rx="3" fill="#f8eae8"><title>2022 — Water satisfaction index, window (%): 96.60</title></rect>
+<text x="849.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">97</text>
+<rect x="863" y="127" width="24" height="28" rx="3" fill="#f4dfdc"><title>2023 — Water satisfaction index, window (%): 94.83</title></rect>
+<text x="875.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">95</text>
+<rect x="889" y="127" width="24" height="28" rx="3" fill="#faf2f1"><title>2024 — Water satisfaction index, window (%): 97.90</title></rect>
+<text x="901.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">98</text>
+<rect x="915" y="127" width="24" height="28" rx="3" fill="#fdf9f8"><title>2025 — Water satisfaction index, window (%): 99.03</title></rect>
+<text x="927.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">99</text>
+<rect x="941" y="127" width="24" height="28" rx="3" fill="#e7b5af"><title>2026 — Water satisfaction index, window (%): 87.09</title></rect>
+<text x="953.0" y="144.5" text-anchor="middle" font-size="8.5" fill="#1f2324">87</text>
+<rect x="317" y="37" width="24" height="118" rx="3" fill="none" stroke="#9d372b" stroke-width="1.5"/>
+<rect x="369" y="37" width="24" height="118" rx="3" fill="none" stroke="#9d372b" stroke-width="1.5"/>
+<rect x="421" y="37" width="24" height="118" rx="3" fill="none" stroke="#9d372b" stroke-width="1.5"/>
+<rect x="499" y="37" width="24" height="118" rx="3" fill="none" stroke="#9d372b" stroke-width="1.5"/>
+<rect x="551" y="37" width="24" height="118" rx="3" fill="none" stroke="#9d372b" stroke-width="1.5"/>
+<text x="290" y="182" font-size="10.5" fill="#5e6a6b">Outlined: Trigger 2 activation years. 2026 partial (to 1 Sep). Red = hot, low biomass, low water balance; blue = wet, cool.</text>
+</svg>
+    <figcaption><strong>Figure 3.</strong> Framework-province means by year: July to September
+       temperature anomaly from trend, July to September rainfall, detrended window biomass and
+       the window water satisfaction index. Outlined years are Trigger 2 activations. 2026 is
+       partial.</figcaption>
+  </figure>
+
+  <h2 id="now">3 · 2026: the hottest growing season on record, so far <a class="anchor" href="#now" aria-label="Link to this section">#</a></h2>
+
+  <p>The pre-season was unremarkable: April to June 2026 ranked 14th of 38 years, +0.3 °C
+     above the 1991 to 2020 normal, with Séno and Yagha half a degree warm and Oudalan slightly
+     cool. The growing season is another matter. From the 1st dekad of July to the 1st dekad of
+     September, the framework-province mean is <strong>1.4 °C above normal</strong>, 3.6
+     standard deviations, and the hottest in the record by a wide margin: the previous highest,
+     2002, was +0.7 °C. Every one of the seven dekads is warm, from +0.6 to +2.2 °C, and the
+     anomaly is the same whether computed over the growing-cycle cropland mask or the full
+     cropland mask. Loroum leads at +1.6 °C, Yagha is lowest at +1.2 °C.</p>
+
+  <div class="tblwrap"><table>
+    <tr><th>Dekad, 2026</th><th class="num">1 Jul</th><th class="num">2 Jul</th><th class="num">3 Jul</th><th class="num">1 Aug</th><th class="num">2 Aug</th><th class="num">3 Aug</th><th class="num">1 Sep</th></tr>
+    <tr><td>Temperature anomaly vs 1991 to 2020, °C, framework-province mean</td><td class="num">+2.2</td><td class="num">+0.6</td><td class="num">+1.6</td><td class="num">+0.8</td><td class="num">+1.0</td><td class="num">+1.8</td><td class="num">+2.1</td></tr>
+  </table></div>
+
+  <p>Put 2026 on Figure 2 and it sits off the historical relationship. The four provinces are
+     +0.8 to +1.4 °C above their trend lines, where the 2001 to 2025 fit predicts biomass
+     between −0.6 and −1.1 z, at or below the warning cut-off. Instead biomass stands at
+     +0.0 to +1.5 z. Two things may be going on. The late onset concentrated the rain into a
+     shorter, later window, and where the crop and pasture did establish they grew well; the
+     national bulletins describe delayed but not failed vegetation. And the biomass series
+     carries the strong upward trend documented on the
+     <a href="../biomass-detrended/">companion page</a>, so that a season which would once have
+     registered as poor now registers as normal. Either way, the heat this season has not yet
+     translated into the biomass deficit that Trigger 2 needs, and the ASAP water-balance index
+     shows it: the framework-province mean over dekads 21 to 25 is 87 percent, the second
+     lowest in the 36-year record behind only 1996 and below 2002 and 2009, so the water stress
+     is real even while the vegetation index holds up.</p>
+
+  <div class="callout warn">
+    <p><strong>A note on the 2026 numbers.</strong> ASAP's temperature is an ECMWF product; the
+       long record is reanalysis, and recent dekads may come from near-real-time analyses that
+       can differ slightly from the final reanalysis. The 2026 anomaly is consistent across all
+       seven dekads and across both land masks, and annual means have run 0.7 to 1.0 °C warm in
+       four of the last five years, so a data artefact is unlikely to explain it. But the size of the anomaly
+       deserves a cross-check against ANAM's station temperatures before it is quoted as a
+       record.</p>
+  </div>
+
+  <h2 id="forecast">4 · The temperature forecast for the rest of the season <a class="anchor" href="#forecast" aria-label="Link to this section">#</a></h2>
+
+  <p>The intended source was ECMWF's SEAS5, but the Copernicus data store request sat in the
+     queue for more than a day. Three NMME models with a September 2026 issuance are available
+     openly through the IRI Data Library instead, and they agree closely enough that the
+     message does not depend on the choice.</p>
+
+  <figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 388" width="100%" style="max-width:760px" font-family="Roboto,system-ui,sans-serif" role="img" aria-labelledby="ff"><title id="ff">NMME 2 m temperature forecast for the framework provinces, September 2026 start</title>
+<text x="275.0" y="16" text-anchor="middle" font-size="11.5" font-weight="500" fill="#1f2324">Ensemble-mean anomaly vs the model's own hindcast (°C)</text>
+<text x="585.0" y="16" text-anchor="middle" font-size="11.5" font-weight="500" fill="#1f2324">Share of members in the warm tercile</text>
+<line x1="150.0" y1="34" x2="150.0" y2="338" stroke="#e2e8e8"/><text x="150.0" y="30" text-anchor="middle" font-size="9.5" fill="#7e8e8f">-1</text>
+<line x1="204.3" y1="34" x2="204.3" y2="338" stroke="#9db1b3"/><text x="204.3" y="30" text-anchor="middle" font-size="9.5" fill="#7e8e8f">+0</text>
+<line x1="258.7" y1="34" x2="258.7" y2="338" stroke="#e2e8e8"/><text x="258.7" y="30" text-anchor="middle" font-size="9.5" fill="#7e8e8f">+1</text>
+<line x1="313.0" y1="34" x2="313.0" y2="338" stroke="#e2e8e8"/><text x="313.0" y="30" text-anchor="middle" font-size="9.5" fill="#7e8e8f">+2</text>
+<line x1="367.4" y1="34" x2="367.4" y2="338" stroke="#e2e8e8"/><text x="367.4" y="30" text-anchor="middle" font-size="9.5" fill="#7e8e8f">+3</text>
+<line x1="460.0" y1="34" x2="460.0" y2="338" stroke="#e2e8e8" stroke-dasharray="2 3"/><text x="460.0" y="30" text-anchor="middle" font-size="9.5" fill="#7e8e8f">0%</text>
+<line x1="543.3" y1="34" x2="543.3" y2="338" stroke="#9db1b3" stroke-dasharray=""/><text x="543.3" y="30" text-anchor="middle" font-size="9.5" fill="#7e8e8f">33%</text>
+<line x1="585.0" y1="34" x2="585.0" y2="338" stroke="#e2e8e8" stroke-dasharray="2 3"/><text x="585.0" y="30" text-anchor="middle" font-size="9.5" fill="#7e8e8f">50%</text>
+<line x1="626.7" y1="34" x2="626.7" y2="338" stroke="#e2e8e8" stroke-dasharray="2 3"/><text x="626.7" y="30" text-anchor="middle" font-size="9.5" fill="#7e8e8f">67%</text>
+<line x1="710.0" y1="34" x2="710.0" y2="338" stroke="#e2e8e8" stroke-dasharray="2 3"/><text x="710.0" y="30" text-anchor="middle" font-size="9.5" fill="#7e8e8f">100%</text>
+<text x="543.3" y="350" text-anchor="middle" font-size="9.5" fill="#5e6a6b">33% = climatology</text>
+<text x="142" y="52" text-anchor="end" font-size="12" font-weight="700" fill="#1f2324">September</text>
+<text x="142" y="74" text-anchor="end" font-size="10.5" fill="#5e6a6b">CanSIPS-IC4 (Canada)</text>
+<rect x="204.3" y="63" width="65.6" height="12" fill="#9d372b" opacity="0.85"><title>CanSIPS-IC4 (Canada) September: ensemble mean 30.2 °C, climatology 29.0 °C, anomaly +1.21 °C = +2.9 sd of hindcast means; 40 members, rank 1 of 31</title></rect>
+<line x1="247.5" y1="69.0" x2="292.3" y2="69.0" stroke="#1f2324" stroke-width="1"/>
+<text x="297.3" y="73" font-size="10" fill="#1f2324">+1.2 °C</text>
+<rect x="460.0" y="63" width="212.5" height="12" fill="#9d372b" opacity="0.85"><title>CanSIPS-IC4 (Canada) September: 85% of members above the warm-tercile boundary, 8% below the cool one</title></rect>
+<text x="677.5" y="73" font-size="10" fill="#1f2324">85%</text>
+<text x="142" y="96" text-anchor="end" font-size="10.5" fill="#5e6a6b">NASA GEOS-S2S</text>
+<rect x="204.3" y="85" width="118.8" height="12" fill="#9d372b" opacity="0.85"><title>NASA GEOS-S2S September: ensemble mean 32.6 °C, climatology 30.4 °C, anomaly +2.19 °C = +4.1 sd of hindcast means; 10 members, rank 1 of 27</title></rect>
+<line x1="293.9" y1="91.0" x2="352.4" y2="91.0" stroke="#1f2324" stroke-width="1"/>
+<text x="357.4" y="95" font-size="10" fill="#1f2324">+2.2 °C</text>
+<rect x="460.0" y="85" width="250.0" height="12" fill="#9d372b" opacity="0.85"><title>NASA GEOS-S2S September: 100% of members above the warm-tercile boundary, 0% below the cool one</title></rect>
+<text x="715.0" y="95" font-size="10" fill="#1f2324">100%</text>
+<text x="142" y="118" text-anchor="end" font-size="10.5" fill="#5e6a6b">NCEP CFSv2</text>
+<rect x="204.3" y="107" width="177.3" height="12" fill="#9d372b" opacity="0.85"><title>NCEP CFSv2 September: ensemble mean 33.5 °C, climatology 30.3 °C, anomaly +3.26 °C = +5.8 sd of hindcast means; 10 members, rank 1 of 21</title></rect>
+<line x1="351.1" y1="113.0" x2="412.1" y2="113.0" stroke="#1f2324" stroke-width="1"/>
+<text x="417.1" y="117" font-size="10" fill="#1f2324">+3.3 °C</text>
+<rect x="460.0" y="107" width="250.0" height="12" fill="#9d372b" opacity="0.85"><title>NCEP CFSv2 September: 100% of members above the warm-tercile boundary, 0% below the cool one</title></rect>
+<text x="715.0" y="117" font-size="10" fill="#1f2324">100%</text>
+<text x="142" y="148" text-anchor="end" font-size="12" font-weight="700" fill="#1f2324">October</text>
+<text x="142" y="170" text-anchor="end" font-size="10.5" fill="#5e6a6b">CanSIPS-IC4 (Canada)</text>
+<rect x="204.3" y="159" width="34.7" height="12" fill="#9d372b" opacity="0.85"><title>CanSIPS-IC4 (Canada) October: ensemble mean 30.0 °C, climatology 29.4 °C, anomaly +0.64 °C = +1.8 sd of hindcast means; 40 members, rank 3 of 31</title></rect>
+<line x1="219.2" y1="165.0" x2="258.9" y2="165.0" stroke="#1f2324" stroke-width="1"/>
+<text x="263.9" y="169" font-size="10" fill="#1f2324">+0.6 °C</text>
+<rect x="460.0" y="159" width="143.8" height="12" fill="#9d372b" opacity="0.85"><title>CanSIPS-IC4 (Canada) October: 57% of members above the warm-tercile boundary, 20% below the cool one</title></rect>
+<text x="608.8" y="169" font-size="10" fill="#1f2324">57%</text>
+<text x="142" y="192" text-anchor="end" font-size="10.5" fill="#5e6a6b">NASA GEOS-S2S</text>
+<rect x="204.3" y="181" width="104.8" height="12" fill="#9d372b" opacity="0.85"><title>NASA GEOS-S2S October: ensemble mean 32.3 °C, climatology 30.3 °C, anomaly +1.93 °C = +3.2 sd of hindcast means; 10 members, rank 1 of 27</title></rect>
+<line x1="276.1" y1="187.0" x2="342.1" y2="187.0" stroke="#1f2324" stroke-width="1"/>
+<text x="347.1" y="191" font-size="10" fill="#1f2324">+1.9 °C</text>
+<rect x="460.0" y="181" width="250.0" height="12" fill="#9d372b" opacity="0.85"><title>NASA GEOS-S2S October: 100% of members above the warm-tercile boundary, 0% below the cool one</title></rect>
+<text x="715.0" y="191" font-size="10" fill="#1f2324">100%</text>
+<text x="142" y="214" text-anchor="end" font-size="10.5" fill="#5e6a6b">NCEP CFSv2</text>
+<rect x="204.3" y="203" width="99.2" height="12" fill="#9d372b" opacity="0.85"><title>NCEP CFSv2 October: ensemble mean 32.3 °C, climatology 30.5 °C, anomaly +1.83 °C = +4.8 sd of hindcast means; 10 members, rank 1 of 21</title></rect>
+<line x1="283.0" y1="209.0" x2="324.1" y2="209.0" stroke="#1f2324" stroke-width="1"/>
+<text x="329.1" y="213" font-size="10" fill="#1f2324">+1.8 °C</text>
+<rect x="460.0" y="203" width="225.0" height="12" fill="#9d372b" opacity="0.85"><title>NCEP CFSv2 October: 90% of members above the warm-tercile boundary, 0% below the cool one</title></rect>
+<text x="690.0" y="213" font-size="10" fill="#1f2324">90%</text>
+<text x="142" y="244" text-anchor="end" font-size="12" font-weight="700" fill="#1f2324">November</text>
+<text x="142" y="266" text-anchor="end" font-size="10.5" fill="#5e6a6b">CanSIPS-IC4 (Canada)</text>
+<rect x="204.3" y="255" width="41.3" height="12" fill="#9d372b" opacity="0.85"><title>CanSIPS-IC4 (Canada) November: ensemble mean 27.9 °C, climatology 27.2 °C, anomaly +0.76 °C = +1.6 sd of hindcast means; 40 members, rank 3 of 31</title></rect>
+<line x1="219.7" y1="261.0" x2="271.6" y2="261.0" stroke="#1f2324" stroke-width="1"/>
+<text x="276.6" y="265" font-size="10" fill="#1f2324">+0.8 °C</text>
+<rect x="460.0" y="255" width="143.8" height="12" fill="#9d372b" opacity="0.85"><title>CanSIPS-IC4 (Canada) November: 57% of members above the warm-tercile boundary, 18% below the cool one</title></rect>
+<text x="608.8" y="265" font-size="10" fill="#1f2324">57%</text>
+<text x="142" y="288" text-anchor="end" font-size="10.5" fill="#5e6a6b">NASA GEOS-S2S</text>
+<rect x="204.3" y="277" width="61.3" height="12" fill="#9d372b" opacity="0.85"><title>NASA GEOS-S2S November: ensemble mean 27.6 °C, climatology 26.4 °C, anomaly +1.13 °C = +1.7 sd of hindcast means; 10 members, rank 1 of 27</title></rect>
+<line x1="228.8" y1="283.0" x2="302.5" y2="283.0" stroke="#1f2324" stroke-width="1"/>
+<text x="307.5" y="287" font-size="10" fill="#1f2324">+1.1 °C</text>
+<rect x="460.0" y="277" width="200.0" height="12" fill="#9d372b" opacity="0.85"><title>NASA GEOS-S2S November: 80% of members above the warm-tercile boundary, 0% below the cool one</title></rect>
+<text x="665.0" y="287" font-size="10" fill="#1f2324">80%</text>
+<text x="142" y="310" text-anchor="end" font-size="10.5" fill="#5e6a6b">NCEP CFSv2</text>
+<rect x="204.3" y="299" width="96.1" height="12" fill="#9d372b" opacity="0.85"><title>NCEP CFSv2 November: ensemble mean 28.4 °C, climatology 26.6 °C, anomaly +1.77 °C = +3.3 sd of hindcast means; 10 members, rank 1 of 21</title></rect>
+<line x1="271.7" y1="305.0" x2="329.2" y2="305.0" stroke="#1f2324" stroke-width="1"/>
+<text x="334.2" y="309" font-size="10" fill="#1f2324">+1.8 °C</text>
+<rect x="460.0" y="299" width="250.0" height="12" fill="#9d372b" opacity="0.85"><title>NCEP CFSv2 November: 100% of members above the warm-tercile boundary, 0% below the cool one</title></rect>
+<text x="715.0" y="309" font-size="10" fill="#1f2324">100%</text>
+<text x="150" y="364" font-size="10" fill="#5e6a6b">Bars: ensemble-mean anomaly. Whisker: ± one standard deviation of the hindcast ensemble means.</text>
+<text x="150" y="378" font-size="10" fill="#5e6a6b">Box 13–16 °N, 3 °W–1 °E. Hindcasts 1991–2020 (CFSv2: 1991–2010).</text>
+</svg>
+    <figcaption><strong>Figure 4.</strong> NMME 2 m temperature forecasts for September, October
+       and November 2026 over the framework-province box, initialised 1 September 2026. Left:
+       anomaly of the ensemble mean against the model's own September-start hindcast
+       climatology, with a whisker for one standard deviation of the hindcast years. Right:
+       share of ensemble members above the hindcast's warm-tercile boundary; one third is
+       climatology. Hover for the underlying values.</figcaption>
+  </figure>
+
+  <div class="tblwrap"><table>
+    <tr><th>Model</th><th class="num">Members</th><th>Hindcast years</th><th class="num">Sep anomaly</th><th class="num">Sep warm tercile</th><th class="num">Oct anomaly</th><th class="num">Oct warm tercile</th><th class="num">Nov anomaly</th><th class="num">Nov warm tercile</th></tr>
+    <tr><td>CanSIPS-IC4</td><td class="num">40</td><td>1991 to 2020</td><td class="num">+1.2 °C</td><td class="num">85 %</td><td class="num">+0.6 °C</td><td class="num">57 %</td><td class="num">+0.8 °C</td><td class="num">57 %</td></tr>
+    <tr><td>NASA GEOS-S2S</td><td class="num">10</td><td>1991 to 2020</td><td class="num">+2.2 °C</td><td class="num">100 %</td><td class="num">+1.9 °C</td><td class="num">100 %</td><td class="num">+1.1 °C</td><td class="num">80 %</td></tr>
+    <tr><td>NCEP CFSv2</td><td class="num">24</td><td>1991 to 2010</td><td class="num">+3.3 °C</td><td class="num">100 %</td><td class="num">+1.8 °C</td><td class="num">90 %</td><td class="num">+1.8 °C</td><td class="num">100 %</td></tr>
+  </table></div>
+
+  <h3>Reading the forecast</h3>
+  <ul>
+    <li><strong>Direction and confidence are not in doubt.</strong> Every model puts every
+        month in the warm tercile with far more than a third of its members, and in every case
+        the 2026 ensemble mean ranks first or third among the 21 to 31 hindcast years. For
+        September, which is already one third observed, the forecast is consistent with the
+        +1.3 °C the framework provinces have recorded in the first dekad.</li>
+    <li><strong>Magnitude is uncertain and the largest numbers should be discounted.</strong>
+        CFSv2's +3.3 °C for September is 5.8 standard deviations of its hindcast; the model has
+        a documented warm drift in real-time forecasts relative to its 1991 to 2010 hindcast,
+        and that older baseline sits below the others by about the warming since. CanSIPS, the
+        largest ensemble with the full 1991 to 2020 baseline, gives the most conservative
+        picture: +1.2 °C in September easing to +0.6 to +0.8 °C in October and November, with
+        57 percent of members warm in those months. Observed October and November anomalies in
+        the framework provinces have reached +1.3 and +2.4 °C (both in 2023), so a +1 °C
+        October is well within recent experience, not a record.</li>
+    <li><strong>Part of the signal is the trend itself.</strong> Against a 1991 to 2020
+        baseline, any recent year starts roughly half a degree warm in these months. The
+        forecasts are warmer than that, so they carry a genuine seasonal signal on top, but the
+        excess over recent years is smaller than the raw anomaly suggests.</li>
+  </ul>
+
+  <h3>What it implies for the season</h3>
+  <ul>
+    <li><strong>For the last two Trigger 2 dekads.</strong> On the 2001 to 2025 relationship,
+        a growing season 1 °C hotter than expected goes with biomass about 0.9 z lower. The
+        season has already run 1.4 °C hot without the biomass deficit appearing, so the
+        historical rate cannot be applied mechanically. Still, a hot first half of September
+        with the rains withdrawing early is the combination most likely to pull the
+        cumulative-FPAR anomaly down late; the 2nd dekad of September ASAP update is the one to
+        watch.</li>
+    <li><strong>For the end of season.</strong> The forecast heat falls mostly after the
+        Trigger 2 window closes. It coincides with ANAM's outlook of long end-of-season dry
+        spells and a late end of season over Liptako and Yaadga, and with crops sown a month
+        late that will be filling grain in late September and October. Higher temperatures
+        raise crop water demand and shorten grain filling; for pasture they hasten drying of
+        the standing biomass that herds depend on through the dry season. That is an
+        end-of-season risk the framework, as designed, will not signal.</li>
+    <li><strong>For monitoring.</strong> Temperature is cheap to add to the verification
+        checklist: the ASAP province series updates every dekad with the warnings, and the
+        CanSIPS and GEOS forecasts are refreshed monthly on the IRI Data Library without an
+        account.</li>
+  </ul>
+
+
+  <h2 id="implications">5 · What this means for the framework <a class="anchor" href="#implications" aria-label="Link to this section">#</a></h2>
+  <ul>
+    <li><strong>Temperature is a good drought indicator here, and not a leading one.</strong> It
+        tracks the biomass outcome better than seasonal rainfall does, but it moves with the
+        dry spells rather than ahead of them. As a trigger it would sit in the same August to
+        September window as ASAP, not earlier.</li>
+    <li><strong>It could strengthen Trigger 2 rather than replace it.</strong> A quick test:
+        ASAP biomass warnings (level 2 or above) in two provinces <em>plus</em> a growing season
+        at least 0.2 °C above trend by the 2nd dekad of August selects 2002, 2006, 2009 and 2011,
+        four of the five level-3 activation years, and excludes the cool level-2 years 2001, 2010
+        and 2016. It misses 2004, which was only 0.13 °C warm by then. The heat condition does
+        the work the meteorological co-occurrence does in the level-3 rule, without depending on
+        ASAP's water-balance flag. That is a design idea for the 2027 revision, to be backtested
+        properly against impact data, not a change for this season.</li>
+    <li><strong>The trend question is manageable.</strong> Because growing-season warming is
+        slow, a temperature threshold expressed as an anomaly from a rolling or trend-adjusted
+        baseline stays meaningful for years; the pre-season is where the baseline shifts fast,
+        and the pre-season is not where the drought signal is.</li>
+    <li><strong>2026 is worth watching precisely because it breaks the pattern.</strong> Record
+        growing-season heat with normal-or-better vegetation has no precedent in this record.
+        If the late-sown crop meets the long end-of-season dry spells ANAM forecasts, the
+        vegetation index may fall late, after the Trigger 2 window closes.</li>
+  </ul>
+
+  <div class="meta">
+    <p><strong>Sources and method.</strong> JRC ASAP indicator statistics export, Burkina Faso
+       (<code>country_id</code> 219), GAUL level 2: temperature (variable 140, ECMWF, cropland
+       growing-cycle and full masks, 1989 to 1 September 2026), rainfall (10), water satisfaction
+       index (160), SPI-3 (40) and cumulative-FPAR anomaly (240) for cropland and rangeland,
+       downloaded 14 and 15 September 2026. Seasons: April to June = dekads 10 to 18, July to
+       September = dekads 19 to 27, Trigger 2 window = dekads 21 to 26. Temperature anomalies
+       "from trend" remove a per-province Theil-Sen slope fitted 1989 to 2025; biomass
+       detrending follows the <a href="../biomass-detrended/">companion page</a>. Regressions
+       are ordinary least squares on standardised predictors, 2001 to 2025, per province and
+       pooled. Activation years from the framework backtest (2002, 2004, 2006, 2009, 2011);
+       target bad years from the 2026 trigger analysis (2011, 2014, 2017, 2019, 2022). Forecast:
+       NMME 2-metre reference temperature, monthly means, September 2026 start, lead months
+       0.5 to 2.5 (September, October, November), for CanSIPS-IC4 (40 members), NASA GEOS-S2S
+       (10) and NCEP CFSv2 (24), with each model's September-start hindcasts (1991 to 2020;
+       CFSv2 1991 to 2010) for climatology and terciles, from the IRI Data Library, averaged
+       over the 1° grid box 13 to 16 °N, 3 °W to 1 °E. GFDL-SPEAR had no September issuance
+       yet. ECMWF SEAS5 was requested from the Copernicus Climate Data Store but the request
+       did not leave the queue within a day; the page can be updated when it does.
+       Scripts in <a href="https://github.com/OCHA-DAP/ds-aa-bfa-drought">OCHA-DAP/ds-aa-bfa-drought</a>
+       under <code>scripts/</code>. Page written 15 September 2026 by the OCHA Centre for
+       Humanitarian Data.</p>
+  </div>
+</div>
+</body>
+</html>

@@ -15,6 +15,7 @@ manual dispatch.
 | `/` | `pages/index.html` (landing, hand-edited cards) |
 | `/external-sources-sep-2026/` | `pages/external-sources-sep-2026/index.html` |
 | `/biomass-detrended/` | `pages/biomass-detrended/index.html` |
+| `/temperature/` | `pages/temperature/index.html` |
 
 ## Adding a page
 
@@ -44,6 +45,14 @@ per-province indicator-statistics export (GAUL level 2, `country_id=219`; endpoi
 `OCHA-DAP/ds-asap-trends`) for zFPARc cropland/rangeland, plus the ASAP `warnings_l2_ts` archive
 filtered to the four provinces (see above). Run the analysis script with the scratch directory
 holding `asap_bfa/*.csv` and `aoi.csv`, then the figure script, then paste the SVGs into the page.
+
+## The heat-and-drought analysis
+
+`pages/temperature/index.html` is hand-authored HTML with inline SVG figures from
+`scripts/temperature_analysis.py` (tables) and `scripts/temperature_figs.py` (figures). Inputs: the
+same ASAP province export as above plus temperature (variable 140), rainfall (10), WSI (160) and
+SPI-3 (40); the SEAS5 forecast comes from the Copernicus Climate Data Store via `scripts/cds_t2m.py`
+(needs a `~/.cdsapirc` with the CDS URL, not the EWDS one).
 
 ## Deploy notes
 
