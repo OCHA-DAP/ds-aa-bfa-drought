@@ -401,10 +401,33 @@
      biomass about one standard deviation lower, once seasonal rainfall is held fixed. That is
      roughly the distance from a normal season to the biomass-warning cut-off. Temperature
      explains about a fifth of the year-to-year biomass variance in these provinces; seasonal
-     rainfall total, on its own, explains almost none. The water satisfaction index, ASAP's
-     water-balance indicator, behaves differently: rainfall explains 44 percent of it and
-     temperature adds only two points (p 0.06), which is expected for a rainfall-driven bucket
-     model with a modest evaporative-demand term.</p>
+     rainfall total, on its own, explains almost none.</p>
+
+  <h3>Does the water balance already capture this?</h3>
+  <p>ASAP's water satisfaction index is a crop water-balance model driven by CHIRPS rainfall
+     and ECMWF reference evapotranspiration, so temperature enters it through crop water
+     demand. In these provinces, though, its year-to-year variation is almost entirely
+     rainfall: rainfall explains 44 percent of the window water balance and adding
+     temperature raises that to 46 (p 0.06). That is a statement about the water balance, not
+     about biomass. The question that matters is whether temperature still explains biomass
+     once the water balance, rather than raw rainfall, is the other predictor:</p>
+
+  <div class="tblwrap"><table>
+    <tr><th>Predictors of detrended window biomass, pooled 2001 to 2025</th><th class="num">R²</th><th class="num">Temperature coefficient, z per sd</th><th>p</th></tr>
+    <tr><td>Water balance only</td><td class="num">0.07</td><td class="num">—</td><td></td></tr>
+    <tr><td>Water balance + temperature</td><td class="num">0.18</td><td class="num">−0.25</td><td><span class="tag sig">&lt;0.001</span></td></tr>
+    <tr><td>SPI-3 only</td><td class="num">0.12</td><td class="num">—</td><td></td></tr>
+    <tr><td>SPI-3 + temperature</td><td class="num">0.19</td><td class="num">−0.22</td><td><span class="tag sig">0.006</span></td></tr>
+    <tr><td>Temperature only</td><td class="num">0.18</td><td class="num">−0.29</td><td><span class="tag sig">&lt;0.001</span></td></tr>
+    <tr><td>Water balance + rainfall + temperature</td><td class="num">0.24</td><td class="num">−0.31</td><td><span class="tag sig">&lt;0.001</span></td></tr>
+  </table></div>
+  <p>It does. The water balance on its own is a weak predictor of biomass here (r = 0.27), and
+     once temperature is added the water-balance coefficient loses significance while
+     temperature keeps its size. Temperature alone predicts biomass better than the water
+     balance alone. By province the effect is strongest in Loroum, present but weaker in
+     Oudalan and Séno, and absent in Yagha. So although temperature is an input to the water
+     balance, it carries biomass information the water balance does not, most likely because a
+     seasonal-total bucket model does not see the dry-spell timing that heat marks.</p>
 
   <p>Two readings are consistent with this. Heat may worsen drought directly, by raising
      evaporative demand and crop water stress during the grain-filling weeks. Or heat may be the

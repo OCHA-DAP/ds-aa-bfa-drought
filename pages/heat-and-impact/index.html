@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burkina Faso drought — does heat predict drought impact beyond the biomass proxy?</title>
+<meta name="description" content="Tests whether growing-season temperature, alone and combined with ASAP biomass, explains actual drought impact in Burkina Faso: national cereal production anomalies and the seasons that produced EM-DAT drought events and CERF allocations, 2001 to 2024.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: light;
+    --b5:#269777; --b6:#1e795f; --b7:#18614c; --b05:#e9f5f1; --b1:#d4eae4;
+    --n9:#1f2324; --n8:#3f4748; --n7:#5e6a6b; --n6:#7e8e8f; --n15:#e2e8e8; --n1:#ebeff0; --n05:#f5f7f7;
+    --w05:#fbf4ea; --w5:#d48f2a; --w7:#7f5619; --e05:#f9eceb; --e6:#9d372b; --e7:#762920; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--n05); color: var(--n9); font: 400 15px/1.55 'Roboto', system-ui, sans-serif; }
+  .home-link { display: inline-block; margin: 10px 12px; padding: 6px 12px; font: 500 13px/1 'Roboto', system-ui, sans-serif;
+    color: var(--b6); background: var(--b05); border: 1px solid var(--b1); border-radius: 4px; text-decoration: none; }
+  .home-link:hover { background: var(--b1); }
+  .wrap { max-width: 940px; margin: 0 auto; padding: 0 16px 56px; }
+  h1 { font-family: 'Merriweather', Georgia, serif; font-size: 26px; font-weight: 700; line-height: 1.25; margin: 8px 0 6px; text-wrap: balance; }
+  h2 { font-size: 19px; font-weight: 700; margin: 36px 0 8px; color: var(--b7); border-bottom: 2px solid var(--b1); padding-bottom: 5px; }
+  h3 { font-size: 15.5px; font-weight: 700; margin: 20px 0 6px; }
+  .sub { color: var(--n7); margin: 2px 0 18px; max-width: 80ch; }
+  p, li { max-width: 82ch; }
+  a { color: var(--b6); }
+  .callout { background: #fff; border: 1px solid var(--n15); border-left: 4px solid var(--b6); border-radius: 4px; padding: 12px 16px; margin: 16px 0; }
+  .callout.warn { border-left-color: var(--w5); }
+  .callout p { margin: 6px 0; }
+  .callout p:first-child { margin-top: 2px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0 6px; background: #fff; border: 1px solid var(--n15); font-size: 13.5px; }
+  th, td { padding: 7px 10px; border-bottom: 1px solid var(--n1); text-align: left; vertical-align: top; }
+  th { background: var(--n05); font-weight: 500; color: var(--n8); }
+  tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.best { font-weight: 700; }
+  .tblwrap { overflow-x: auto; }
+  .tag { display: inline-block; font-size: 11.5px; font-weight: 500; padding: 1px 7px; border-radius: 9px; white-space: nowrap; }
+  .tag.sig { background: var(--e05); color: var(--e7); }
+  .tag.ns { background: var(--n1); color: var(--n7); }
+  figure { margin: 18px 0; background: #fff; border: 1px solid var(--n15); border-radius: 6px; padding: 14px 12px 8px; }
+  figure svg { display: block; margin: 0 auto; }
+  figcaption { color: var(--n7); font-size: 13px; padding: 10px 6px 2px; max-width: 100ch; }
+  .meta { color: var(--n7); font-size: 13px; border-top: 1px solid var(--n15); padding-top: 14px; margin-top: 40px; }
+  code { background: var(--n1); padding: 1px 5px; border-radius: 3px; font-size: 12.5px; }
+  h2, h3 { scroll-margin-top: 16px; }
+  .anchor { opacity: 0; text-decoration: none; font-weight: 400; margin-left: 2px; }
+  h2:hover .anchor, h3:hover .anchor, .anchor:focus { opacity: 0.75; }
+  @media (max-width: 640px) { h1 { font-size: 22px; } th, td { padding: 6px 7px; } }
+</style>
+</head>
+<body>
+<!-- back to the site landing page — first element inside body -->
+<a class="home-link" href="../">← Burkina Faso drought AA</a>
+
+<div class="wrap">
+  <h1>Does heat predict drought impact, beyond the biomass proxy?</h1>
+  <p class="sub">The <a href="../temperature/">heat-and-drought page</a> showed that growing-season
+     temperature explains part of the ASAP biomass anomaly that Trigger 2 keys on. That still
+     uses biomass as the stand-in for drought. This page steps outside the proxy and asks
+     whether temperature, alone and combined with biomass, explains drought <em>impact</em>:
+     national cereal production shortfalls, and the seasons that produced EM-DAT drought events
+     and CERF allocations, 2001 to 2024.</p>
+
+  <div class="callout">
+    <p><strong>Bottom line.</strong> Against real impact, temperature does more than add to
+       biomass: it outperforms it. Growing-season heat in the framework provinces explains 27
+       percent of the year-to-year variation in national millet-and-sorghum production
+       (about −16 percent of trend per degree above expectation), and ranks the impact seasons
+       with an AUC of 0.75. The ASAP biomass anomaly over the Trigger 2 window explains 2
+       percent of production variation and ranks impact seasons at 0.62, and adding it to
+       temperature adds nothing. The two worst production seasons in the record, 2017 and
+       2021, both of which drew CERF allocations, were hot seasons with <em>normal or better</em>
+       biomass in the framework provinces, so the biomass trigger could not have seen them. The
+       colleague's intuition is right in direction but understated: heat is not a modifier of
+       the biomass signal here, it is the stronger signal. The caveats are real, though: the
+       production target is national while the provinces are pastoral, and the humanitarian
+       record has only five usable seasons.</p>
+  </div>
+
+  <h2 id="targets">1 · Building an impact record <a class="anchor" href="#targets" aria-label="Link to this section">#</a></h2>
+
+  <p>Two targets, as agreed. A <strong>continuous</strong> one: FAOSTAT national millet plus
+     sorghum production, expressed as the percentage departure from a 2001 to 2024 linear
+     trend (the trend removes area expansion and intensification). And a <strong>binary</strong>
+     one: growing seasons that produced a recorded humanitarian drought impact, assembled from
+     EM-DAT drought events, CERF drought allocations, and the framework's own target years.</p>
+
+  <p>Impact records are dated to the lean season in which people were affected or funds were
+     allocated, which is usually the year <em>after</em> the failed harvest. Each record was
+     assigned to a growing season on the evidence below. Where the evidence is ambiguous the
+     framework's own labelling is carried as an alternative and every result is reported under
+     both.</p>
+
+  <div class="tblwrap"><table>
+    <tr><th>Record</th><th>Date</th><th class="num">Season</th><th class="num">Alt.</th><th>Basis</th></tr>
+    <tr><td>EM-DAT 2011-9524, 2.85 million affected, Sahel, Centre-Nord, Est</td><td>Dec 2011 to 2012</td><td class="num">2011</td><td class="num"></td><td>Event starts December 2011: the failed 2011 season. The CERF supplement dates the 2012 allocation's rainfall deficit to June to September 2011.</td></tr>
+    <tr><td>CERF 12-RR-BFA-13236, $9.2 million, drought</td><td>2012</td><td class="num">2011</td><td class="num"></td><td>CERF supplement, confidence 0.85.</td></tr>
+    <tr><td>EM-DAT 2014-9196, 4.0 million affected, Sahel</td><td>May 2014</td><td class="num">2013</td><td class="num">2014</td><td>A May start is the 2014 lean season, hence the 2013 harvest. But national production in 2013 was 11 percent above trend and the framework lists 2014, whose biomass in the framework provinces was poor. Genuinely ambiguous.</td></tr>
+    <tr><td>CERF 14-UFE-BFA-10955, $3.9 million, drought</td><td>Aug 2014</td><td class="num">2013</td><td class="num">2014</td><td>Underfunded-window allocation in mid 2014 for the 2014 lean-season response. Same ambiguity.</td></tr>
+    <tr><td>CERF 18-RR-BFA-30726, $9.0 million, drought and pastoral crisis</td><td>May 2018</td><td class="num">2017</td><td class="num"></td><td>CERF supplement: poor, early-ending June to September 2017 season, confidence 0.80.</td></tr>
+    <tr><td>EM-DAT 2020-9235, 2.9 million affected, all regions</td><td>Jan to Jun 2020</td><td class="num">2019</td><td class="num"></td><td>2020 lean-season event: the 2019 harvest. Conflict displacement was already large.</td></tr>
+    <tr><td>EM-DAT 2022-9781, 3.5 million affected</td><td>to Nov 2022</td><td class="num">2021</td><td class="num">2022</td><td>3.5 million matches the June to August 2022 Cadre Harmonisé lean-season figure, hence the 2021 harvest, which was 14 percent below trend. The framework lists 2022.</td></tr>
+    <tr><td>CERF 22-RR-BFA-53665, $6.0 million, food security</td><td>May 2022</td><td class="num">2021</td><td class="num">2022</td><td>Allocated for the 2022 lean season. Typed "economic disruption"; conflict-related.</td></tr>
+    <tr><td>Framework target years</td><td>—</td><td colspan="2" class="num">2011, 2014, 2017, 2019, 2022</td><td>From the 2026 trigger analysis. Read as impact years in the main dating (2014 → 2013 season, 2022 → 2021) and as growing seasons in the alternative.</td></tr>
+    <tr><td>CERF underfunded-window drought allocations 2006 to 2009</td><td>annual</td><td colspan="2" class="num">2005 to 2008</td><td>Undated chronic-need allocations, one every year; the 2008 rapid-response one is flagged by the CERF supplement as the food-price crisis. Used only as a sensitivity.</td></tr>
+  </table></div>
+
+  <p>The main binary target is therefore <strong>2011, 2013, 2017, 2019, 2021</strong>; the
+     alternative is <strong>2011, 2014, 2017, 2019, 2022</strong>. Everything after 2018 is
+     also contaminated by the security crisis, so results are shown for 2001 to 2018 as well.
+     Cadre Harmonisé and FEWS NET classifications were examined but do not help: the national
+     phase-3-plus series starts in 2020 and is conflict-driven, and FEWS NET's northern
+     pastoral zone reached phase 3 in the 2012 lean season and otherwise stayed at 2 or below
+     until the conflict years.</p>
+
+  <figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 328" width="100%" style="max-width:760px" font-family="Roboto,system-ui,sans-serif" role="img" aria-labelledby="g1"><title id="g1">National millet and sorghum production anomaly 2001–2024 with impact seasons, and framework-province temperature and biomass anomalies</title>
+<line x1="190" y1="173.2" x2="744" y2="173.2" stroke="#e2e8e8"/><text x="184" y="176.7" text-anchor="end" font-size="9.5" fill="#7e8e8f">-20%</text>
+<line x1="190" y1="139.1" x2="744" y2="139.1" stroke="#e2e8e8"/><text x="184" y="142.6" text-anchor="end" font-size="9.5" fill="#7e8e8f">-10%</text>
+<line x1="190" y1="105.0" x2="744" y2="105.0" stroke="#9db1b3"/><text x="184" y="108.5" text-anchor="end" font-size="9.5" fill="#7e8e8f">+0%</text>
+<line x1="190" y1="70.9" x2="744" y2="70.9" stroke="#e2e8e8"/><text x="184" y="74.4" text-anchor="end" font-size="9.5" fill="#7e8e8f">+10%</text>
+<line x1="190" y1="36.8" x2="744" y2="36.8" stroke="#e2e8e8"/><text x="184" y="40.3" text-anchor="end" font-size="9.5" fill="#7e8e8f">+20%</text>
+<text x="190" y="20" font-size="12" font-weight="500" fill="#1f2324">Millet + sorghum production, % from 2001–2024 trend (FAOSTAT)</text>
+<rect x="193.0" y="105.0" width="17.1" height="27.0" rx="2" fill="#9d372b"><title>2001: -7.9%</title></rect>
+<rect x="216.1" y="105.0" width="17.1" height="29.6" rx="2" fill="#9d372b"><title>2002: -8.7%</title></rect>
+<rect x="239.2" y="79.6" width="17.1" height="25.4" rx="2" fill="#7dc1ad"><title>2003: +7.5%</title></rect>
+<rect x="262.2" y="105.0" width="17.1" height="35.5" rx="2" fill="#9d372b"><title>2004: -10.4%</title></rect>
+<rect x="285.3" y="87.7" width="17.1" height="17.3" rx="2" fill="#7dc1ad"><title>2005: +5.1%</title></rect>
+<rect x="308.4" y="96.3" width="17.1" height="8.7" rx="2" fill="#7dc1ad"><title>2006: +2.6%</title></rect>
+<rect x="331.5" y="105.0" width="17.1" height="20.5" rx="2" fill="#9d372b"><title>2007: -6.0%</title></rect>
+<rect x="354.6" y="41.6" width="17.1" height="63.4" rx="2" fill="#7dc1ad"><title>2008: +18.6%</title></rect>
+<rect x="377.7" y="105.0" width="17.1" height="19.9" rx="2" fill="#9d372b"><title>2009: -5.8%</title></rect>
+<rect x="400.8" y="42.9" width="17.1" height="62.1" rx="2" fill="#7dc1ad"><title>2010: +18.2%</title></rect>
+<rect x="423.8" y="105.0" width="17.1" height="42.0" rx="2" fill="#9d372b"><title>2011: -12.3%</title></rect>
+<circle cx="432.4" cy="190" r="4.5" fill="#9d372b"><title>2011: impact season (evidence-dated)</title></circle>
+<rect x="446.9" y="62.6" width="17.1" height="42.4" rx="2" fill="#7dc1ad"><title>2012: +12.5%</title></rect>
+<rect x="470.0" y="69.1" width="17.1" height="35.9" rx="2" fill="#7dc1ad"><title>2013: +10.5%</title></rect>
+<circle cx="478.5" cy="190" r="4.5" fill="#9d372b"><title>2013: impact season (evidence-dated)</title></circle>
+<rect x="493.1" y="105.0" width="17.1" height="0.6" rx="2" fill="#9d372b"><title>2014: -0.2%</title></rect>
+<circle cx="501.6" cy="190" r="4.5" fill="#fff" stroke="#9d372b" stroke-width="1.6"><title>2014: impact season under the framework dating (alternative)</title></circle>
+<rect x="516.2" y="105.0" width="17.1" height="39.4" rx="2" fill="#9d372b"><title>2015: -11.5%</title></rect>
+<rect x="539.2" y="105.0" width="17.1" height="16.6" rx="2" fill="#9d372b"><title>2016: -4.9%</title></rect>
+<rect x="562.3" y="105.0" width="17.1" height="64.7" rx="2" fill="#9d372b"><title>2017: -19.0%</title></rect>
+<circle cx="570.9" cy="190" r="4.5" fill="#9d372b"><title>2017: impact season (evidence-dated)</title></circle>
+<rect x="585.4" y="54.4" width="17.1" height="50.6" rx="2" fill="#7dc1ad"><title>2018: +14.8%</title></rect>
+<rect x="608.5" y="90.2" width="17.1" height="14.8" rx="2" fill="#7dc1ad"><title>2019: +4.3%</title></rect>
+<circle cx="617.0" cy="190" r="4.5" fill="#9d372b"><title>2019: impact season (evidence-dated)</title></circle>
+<rect x="631.6" y="96.8" width="17.1" height="8.2" rx="2" fill="#7dc1ad"><title>2020: +2.4%</title></rect>
+<rect x="654.7" y="105.0" width="17.1" height="48.5" rx="2" fill="#9d372b"><title>2021: -14.2%</title></rect>
+<circle cx="663.2" cy="190" r="4.5" fill="#9d372b"><title>2021: impact season (evidence-dated)</title></circle>
+<rect x="677.8" y="83.3" width="17.1" height="21.7" rx="2" fill="#7dc1ad"><title>2022: +6.4%</title></rect>
+<circle cx="686.3" cy="190" r="4.5" fill="#fff" stroke="#9d372b" stroke-width="1.6"><title>2022: impact season under the framework dating (alternative)</title></circle>
+<rect x="700.8" y="105.0" width="17.1" height="15.0" rx="2" fill="#9d372b"><title>2023: -4.4%</title></rect>
+<rect x="723.9" y="96.5" width="17.1" height="8.5" rx="2" fill="#7dc1ad"><title>2024: +2.5%</title></rect>
+<text x="184" y="194" text-anchor="end" font-size="9.5" fill="#5e6a6b">Impact season</text>
+<text x="184" y="226" text-anchor="end" font-size="9.5" fill="#5e6a6b">Temp, Jul–Sep, from trend (°C)</text>
+<rect x="191.0" y="212" width="21.1" height="20" rx="3" fill="#f4e9e8"><title>2001 Temp, Jul–Sep, from trend (°C): +0.07</title></rect>
+<text x="201.5" y="226" text-anchor="middle" font-size="8" fill="#1f2324">+0.1</text>
+<rect x="214.1" y="212" width="21.1" height="20" rx="3" fill="#9d372b"><title>2002 Temp, Jul–Sep, from trend (°C): +0.70</title></rect>
+<text x="224.6" y="226" text-anchor="middle" font-size="8" fill="#1f2324">+0.7</text>
+<rect x="237.2" y="212" width="21.1" height="20" rx="3" fill="#558be2"><title>2003 Temp, Jul–Sep, from trend (°C): -0.51</title></rect>
+<text x="247.7" y="226" text-anchor="middle" font-size="8" fill="#1f2324">-0.5</text>
+<rect x="260.2" y="212" width="21.1" height="20" rx="3" fill="#cf9d98"><title>2004 Temp, Jul–Sep, from trend (°C): +0.34</title></rect>
+<text x="270.8" y="226" text-anchor="middle" font-size="8" fill="#1f2324">+0.3</text>
+<rect x="283.3" y="212" width="21.1" height="20" rx="3" fill="#fdfdfe"><title>2005 Temp, Jul–Sep, from trend (°C): -0.01</title></rect>
+<text x="293.9" y="226" text-anchor="middle" font-size="8" fill="#1f2324">-0.0</text>
+<rect x="306.4" y="212" width="21.1" height="20" rx="3" fill="#efe0de"><title>2006 Temp, Jul–Sep, from trend (°C): +0.11</title></rect>
+<text x="317.0" y="226" text-anchor="middle" font-size="8" fill="#1f2324">+0.1</text>
+<rect x="329.5" y="212" width="21.1" height="20" rx="3" fill="#bed3f4"><title>2007 Temp, Jul–Sep, from trend (°C): -0.20</title></rect>
+<text x="340.0" y="226" text-anchor="middle" font-size="8" fill="#1f2324">-0.2</text>
+<rect x="352.6" y="212" width="21.1" height="20" rx="3" fill="#fefdfd"><title>2008 Temp, Jul–Sep, from trend (°C): +0.00</title></rect>
+<text x="363.1" y="226" text-anchor="middle" font-size="8" fill="#1f2324">+0.0</text>
+<rect x="375.7" y="212" width="21.1" height="20" rx="3" fill="#bd7971"><title>2009 Temp, Jul–Sep, from trend (°C): +0.47</title></rect>
+<text x="386.2" y="226" text-anchor="middle" font-size="8" fill="#1f2324">+0.5</text>
+<rect x="398.8" y="212" width="21.1" height="20" rx="3" fill="#d5e2f7"><title>2010 Temp, Jul–Sep, from trend (°C): -0.13</title></rect>
+<text x="409.3" y="226" text-anchor="middle" font-size="8" fill="#1f2324">-0.1</text>
+<rect x="421.8" y="212" width="21.1" height="20" rx="3" fill="#b66a61"><title>2011 Temp, Jul–Sep, from trend (°C): +0.52</title></rect>
+<text x="432.4" y="226" text-anchor="middle" font-size="8" fill="#1f2324">+0.5</text>
+<rect x="444.9" y="212" width="21.1" height="20" rx="3" fill="#3777dd"><title>2012 Temp, Jul–Sep, from trend (°C): -0.61</title></rect>
+<text x="455.5" y="226" text-anchor="middle" font-size="8" fill="#1f2324">-0.6</text>
+<rect x="468.0" y="212" width="21.1" height="20" rx="3" fill="#f5f8fd"><title>2013 Temp, Jul–Sep, from trend (°C): -0.03</title></rect>
+<text x="478.5" y="226" text-anchor="middle" font-size="8" fill="#1f2324">-0.0</text>
+<rect x="491.1" y="212" width="21.1" height="20" rx="3" fill="#d1a19c"><title>2014 Temp, Jul–Sep, from trend (°C): +0.33</title></rect>
+<text x="501.6" y="226" text-anchor="middle" font-size="8" fill="#1f2324">+0.3</text>
+<rect x="514.2" y="212" width="21.1" height="20" rx="3" fill="#cbdbf6"><title>2015 Temp, Jul–Sep, from trend (°C): -0.16</title></rect>
+<text x="524.7" y="226" text-anchor="middle" font-size="8" fill="#1f2324">-0.2</text>
+<rect x="537.2" y="212" width="21.1" height="20" rx="3" fill="#f4e9e8"><title>2016 Temp, Jul–Sep, from trend (°C): +0.07</title></rect>
+<text x="547.8" y="226" text-anchor="middle" font-size="8" fill="#1f2324">+0.1</text>
+<rect x="560.3" y="212" width="21.1" height="20" rx="3" fill="#f2e5e3"><title>2017 Temp, Jul–Sep, from trend (°C): +0.09</title></rect>
+<text x="570.9" y="226" text-anchor="middle" font-size="8" fill="#1f2324">+0.1</text>
+<rect x="583.4" y="212" width="21.1" height="20" rx="3" fill="#d9e5f8"><title>2018 Temp, Jul–Sep, from trend (°C): -0.11</title></rect>
+<text x="594.0" y="226" text-anchor="middle" font-size="8" fill="#1f2324">-0.1</text>
+<rect x="606.5" y="212" width="21.1" height="20" rx="3" fill="#c58982"><title>2019 Temp, Jul–Sep, from trend (°C): +0.41</title></rect>
+<text x="617.0" y="226" text-anchor="middle" font-size="8" fill="#1f2324">+0.4</text>
+<rect x="629.6" y="212" width="21.1" height="20" rx="3" fill="#bbd1f3"><title>2020 Temp, Jul–Sep, from trend (°C): -0.20</title></rect>
+<text x="640.1" y="226" text-anchor="middle" font-size="8" fill="#1f2324">-0.2</text>
+<rect x="652.7" y="212" width="21.1" height="20" rx="3" fill="#be7a73"><title>2021 Temp, Jul–Sep, from trend (°C): +0.46</title></rect>
+<text x="663.2" y="226" text-anchor="middle" font-size="8" fill="#1f2324">+0.5</text>
+<rect x="675.8" y="212" width="21.1" height="20" rx="3" fill="#c1d5f4"><title>2022 Temp, Jul–Sep, from trend (°C): -0.19</title></rect>
+<text x="686.3" y="226" text-anchor="middle" font-size="8" fill="#1f2324">-0.2</text>
+<rect x="698.8" y="212" width="21.1" height="20" rx="3" fill="#aa5248"><title>2023 Temp, Jul–Sep, from trend (°C): +0.60</title></rect>
+<text x="709.4" y="226" text-anchor="middle" font-size="8" fill="#1f2324">+0.6</text>
+<rect x="721.9" y="212" width="21.1" height="20" rx="3" fill="#85acea"><title>2024 Temp, Jul–Sep, from trend (°C): -0.37</title></rect>
+<text x="732.5" y="226" text-anchor="middle" font-size="8" fill="#1f2324">-0.4</text>
+<text x="184" y="252" text-anchor="end" font-size="9.5" fill="#5e6a6b">Biomass, window, detrended (z)</text>
+<rect x="191.0" y="238" width="21.1" height="20" rx="3" fill="#90bdb0"><title>2001 Biomass, window, detrended (z): +0.49</title></rect>
+<text x="201.5" y="252" text-anchor="middle" font-size="8" fill="#1f2324">+0.5</text>
+<rect x="214.1" y="238" width="21.1" height="20" rx="3" fill="#bf7e76"><title>2002 Biomass, window, detrended (z): -0.64</title></rect>
+<text x="224.6" y="252" text-anchor="middle" font-size="8" fill="#1f2324">-0.6</text>
+<rect x="237.2" y="238" width="21.1" height="20" rx="3" fill="#2a8068"><title>2003 Biomass, window, detrended (z): +0.94</title></rect>
+<text x="247.7" y="252" text-anchor="middle" font-size="8" fill="#1f2324">+0.9</text>
+<rect x="260.2" y="238" width="21.1" height="20" rx="3" fill="#f7efee"><title>2004 Biomass, window, detrended (z): -0.08</title></rect>
+<text x="270.8" y="252" text-anchor="middle" font-size="8" fill="#1f2324">-0.1</text>
+<rect x="283.3" y="238" width="21.1" height="20" rx="3" fill="#1e795f"><title>2005 Biomass, window, detrended (z): +1.33</title></rect>
+<text x="293.9" y="252" text-anchor="middle" font-size="8" fill="#1f2324">+1.3</text>
+<rect x="306.4" y="238" width="21.1" height="20" rx="3" fill="#e4c8c5"><title>2006 Biomass, window, detrended (z): -0.27</title></rect>
+<text x="317.0" y="252" text-anchor="middle" font-size="8" fill="#1f2324">-0.3</text>
+<rect x="329.5" y="238" width="21.1" height="20" rx="3" fill="#85b6a8"><title>2007 Biomass, window, detrended (z): +0.54</title></rect>
+<text x="340.0" y="252" text-anchor="middle" font-size="8" fill="#1f2324">+0.5</text>
+<rect x="352.6" y="238" width="21.1" height="20" rx="3" fill="#6da897"><title>2008 Biomass, window, detrended (z): +0.65</title></rect>
+<text x="363.1" y="252" text-anchor="middle" font-size="8" fill="#1f2324">+0.6</text>
+<rect x="375.7" y="238" width="21.1" height="20" rx="3" fill="#d3a5a0"><title>2009 Biomass, window, detrended (z): -0.45</title></rect>
+<text x="386.2" y="252" text-anchor="middle" font-size="8" fill="#1f2324">-0.4</text>
+<rect x="398.8" y="238" width="21.1" height="20" rx="3" fill="#d5aaa5"><title>2010 Biomass, window, detrended (z): -0.42</title></rect>
+<text x="409.3" y="252" text-anchor="middle" font-size="8" fill="#1f2324">-0.4</text>
+<rect x="421.8" y="238" width="21.1" height="20" rx="3" fill="#d2a49e"><title>2011 Biomass, window, detrended (z): -0.45</title></rect>
+<text x="432.4" y="252" text-anchor="middle" font-size="8" fill="#1f2324">-0.5</text>
+<rect x="444.9" y="238" width="21.1" height="20" rx="3" fill="#b9d5cd"><title>2012 Biomass, window, detrended (z): +0.31</title></rect>
+<text x="455.5" y="252" text-anchor="middle" font-size="8" fill="#1f2324">+0.3</text>
+<rect x="468.0" y="238" width="21.1" height="20" rx="3" fill="#e3eeeb"><title>2013 Biomass, window, detrended (z): +0.12</title></rect>
+<text x="478.5" y="252" text-anchor="middle" font-size="8" fill="#1f2324">+0.1</text>
+<rect x="491.1" y="238" width="21.1" height="20" rx="3" fill="#d7afaa"><title>2014 Biomass, window, detrended (z): -0.40</title></rect>
+<text x="501.6" y="252" text-anchor="middle" font-size="8" fill="#1f2324">-0.4</text>
+<rect x="514.2" y="238" width="21.1" height="20" rx="3" fill="#e1c2be"><title>2015 Biomass, window, detrended (z): -0.30</title></rect>
+<text x="524.7" y="252" text-anchor="middle" font-size="8" fill="#1f2324">-0.3</text>
+<rect x="537.2" y="238" width="21.1" height="20" rx="3" fill="#debcb8"><title>2016 Biomass, window, detrended (z): -0.33</title></rect>
+<text x="547.8" y="252" text-anchor="middle" font-size="8" fill="#1f2324">-0.3</text>
+<rect x="560.3" y="238" width="21.1" height="20" rx="3" fill="#bbd6ce"><title>2017 Biomass, window, detrended (z): +0.30</title></rect>
+<text x="570.9" y="252" text-anchor="middle" font-size="8" fill="#1f2324">+0.3</text>
+<rect x="583.4" y="238" width="21.1" height="20" rx="3" fill="#fbf7f7"><title>2018 Biomass, window, detrended (z): -0.04</title></rect>
+<text x="594.0" y="252" text-anchor="middle" font-size="8" fill="#1f2324">-0.0</text>
+<rect x="606.5" y="238" width="21.1" height="20" rx="3" fill="#c3857e"><title>2019 Biomass, window, detrended (z): -0.61</title></rect>
+<text x="617.0" y="252" text-anchor="middle" font-size="8" fill="#1f2324">-0.6</text>
+<rect x="629.6" y="238" width="21.1" height="20" rx="3" fill="#dfbeba"><title>2020 Biomass, window, detrended (z): -0.32</title></rect>
+<text x="640.1" y="252" text-anchor="middle" font-size="8" fill="#1f2324">-0.3</text>
+<rect x="652.7" y="238" width="21.1" height="20" rx="3" fill="#a8cbc1"><title>2021 Biomass, window, detrended (z): +0.38</title></rect>
+<text x="663.2" y="252" text-anchor="middle" font-size="8" fill="#1f2324">+0.4</text>
+<rect x="675.8" y="238" width="21.1" height="20" rx="3" fill="#f5ebea"><title>2022 Biomass, window, detrended (z): -0.10</title></rect>
+<text x="686.3" y="252" text-anchor="middle" font-size="8" fill="#1f2324">-0.1</text>
+<rect x="698.8" y="238" width="21.1" height="20" rx="3" fill="#8bb9ac"><title>2023 Biomass, window, detrended (z): +0.51</title></rect>
+<text x="709.4" y="252" text-anchor="middle" font-size="8" fill="#1f2324">+0.5</text>
+<rect x="721.9" y="238" width="21.1" height="20" rx="3" fill="#75ad9d"><title>2024 Biomass, window, detrended (z): +0.61</title></rect>
+<text x="732.5" y="252" text-anchor="middle" font-size="8" fill="#1f2324">+0.6</text>
+<text x="184" y="278" text-anchor="end" font-size="9.5" fill="#5e6a6b">Temp, national (°C)</text>
+<rect x="191.0" y="264" width="21.1" height="20" rx="3" fill="#f8f2f1"><title>2001 Temp, national (°C): +0.03</title></rect>
+<text x="201.5" y="278" text-anchor="middle" font-size="8" fill="#1f2324">+0.0</text>
+<rect x="214.1" y="264" width="21.1" height="20" rx="3" fill="#a03e33"><title>2002 Temp, national (°C): +0.48</title></rect>
+<text x="224.6" y="278" text-anchor="middle" font-size="8" fill="#1f2324">+0.5</text>
+<rect x="237.2" y="264" width="21.1" height="20" rx="3" fill="#75a1e7"><title>2003 Temp, national (°C): -0.30</title></rect>
+<text x="247.7" y="278" text-anchor="middle" font-size="8" fill="#1f2324">-0.3</text>
+<rect x="260.2" y="264" width="21.1" height="20" rx="3" fill="#f3e7e6"><title>2004 Temp, national (°C): +0.06</title></rect>
+<text x="270.8" y="278" text-anchor="middle" font-size="8" fill="#1f2324">+0.1</text>
+<rect x="283.3" y="264" width="21.1" height="20" rx="3" fill="#f5eae9"><title>2005 Temp, national (°C): +0.05</title></rect>
+<text x="293.9" y="278" text-anchor="middle" font-size="8" fill="#1f2324">+0.1</text>
+<rect x="306.4" y="264" width="21.1" height="20" rx="3" fill="#f7f0ef"><title>2006 Temp, national (°C): +0.04</title></rect>
+<text x="317.0" y="278" text-anchor="middle" font-size="8" fill="#1f2324">+0.0</text>
+<rect x="329.5" y="264" width="21.1" height="20" rx="3" fill="#d5e2f8"><title>2007 Temp, national (°C): -0.09</title></rect>
+<text x="340.0" y="278" text-anchor="middle" font-size="8" fill="#1f2324">-0.1</text>
+<rect x="352.6" y="264" width="21.1" height="20" rx="3" fill="#ccdcf6"><title>2008 Temp, national (°C): -0.11</title></rect>
+<text x="363.1" y="278" text-anchor="middle" font-size="8" fill="#1f2324">-0.1</text>
+<rect x="375.7" y="264" width="21.1" height="20" rx="3" fill="#c3857e"><title>2009 Temp, national (°C): +0.30</title></rect>
+<text x="386.2" y="278" text-anchor="middle" font-size="8" fill="#1f2324">+0.3</text>
+<rect x="398.8" y="264" width="21.1" height="20" rx="3" fill="#f7f0ef"><title>2010 Temp, national (°C): +0.04</title></rect>
+<text x="409.3" y="278" text-anchor="middle" font-size="8" fill="#1f2324">+0.0</text>
+<rect x="421.8" y="264" width="21.1" height="20" rx="3" fill="#af5d53"><title>2011 Temp, national (°C): +0.40</title></rect>
+<text x="432.4" y="278" text-anchor="middle" font-size="8" fill="#1f2324">+0.4</text>
+<rect x="444.9" y="264" width="21.1" height="20" rx="3" fill="#6797e5"><title>2012 Temp, national (°C): -0.33</title></rect>
+<text x="455.5" y="278" text-anchor="middle" font-size="8" fill="#1f2324">-0.3</text>
+<rect x="468.0" y="264" width="21.1" height="20" rx="3" fill="#d9e5f8"><title>2013 Temp, national (°C): -0.08</title></rect>
+<text x="478.5" y="278" text-anchor="middle" font-size="8" fill="#1f2324">-0.1</text>
+<rect x="491.1" y="264" width="21.1" height="20" rx="3" fill="#ddbab6"><title>2014 Temp, national (°C): +0.17</title></rect>
+<text x="501.6" y="278" text-anchor="middle" font-size="8" fill="#1f2324">+0.2</text>
+<rect x="514.2" y="264" width="21.1" height="20" rx="3" fill="#e9d3d1"><title>2015 Temp, national (°C): +0.11</title></rect>
+<text x="524.7" y="278" text-anchor="middle" font-size="8" fill="#1f2324">+0.1</text>
+<rect x="537.2" y="264" width="21.1" height="20" rx="3" fill="#ecd9d6"><title>2016 Temp, national (°C): +0.09</title></rect>
+<text x="547.8" y="278" text-anchor="middle" font-size="8" fill="#1f2324">+0.1</text>
+<rect x="560.3" y="264" width="21.1" height="20" rx="3" fill="#d6aca7"><title>2017 Temp, national (°C): +0.21</title></rect>
+<text x="570.9" y="278" text-anchor="middle" font-size="8" fill="#1f2324">+0.2</text>
+<rect x="583.4" y="264" width="21.1" height="20" rx="3" fill="#f5f8fd"><title>2018 Temp, national (°C): -0.02</title></rect>
+<text x="594.0" y="278" text-anchor="middle" font-size="8" fill="#1f2324">-0.0</text>
+<rect x="606.5" y="264" width="21.1" height="20" rx="3" fill="#d4a8a3"><title>2019 Temp, national (°C): +0.22</title></rect>
+<text x="617.0" y="278" text-anchor="middle" font-size="8" fill="#1f2324">+0.2</text>
+<rect x="629.6" y="264" width="21.1" height="20" rx="3" fill="#a2c0ef"><title>2020 Temp, national (°C): -0.20</title></rect>
+<text x="640.1" y="278" text-anchor="middle" font-size="8" fill="#1f2324">-0.2</text>
+<rect x="652.7" y="264" width="21.1" height="20" rx="3" fill="#e6ccc9"><title>2021 Temp, national (°C): +0.13</title></rect>
+<text x="663.2" y="278" text-anchor="middle" font-size="8" fill="#1f2324">+0.1</text>
+<rect x="675.8" y="264" width="21.1" height="20" rx="3" fill="#427fdf"><title>2022 Temp, national (°C): -0.41</title></rect>
+<text x="686.3" y="278" text-anchor="middle" font-size="8" fill="#1f2324">-0.4</text>
+<rect x="698.8" y="264" width="21.1" height="20" rx="3" fill="#a94f45"><title>2023 Temp, national (°C): +0.44</title></rect>
+<text x="709.4" y="278" text-anchor="middle" font-size="8" fill="#1f2324">+0.4</text>
+<rect x="721.9" y="264" width="21.1" height="20" rx="3" fill="#c8d9f5"><title>2024 Temp, national (°C): -0.12</title></rect>
+<text x="732.5" y="278" text-anchor="middle" font-size="8" fill="#1f2324">-0.1</text>
+<text x="201.5" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 201.5 318)">2001</text>
+<text x="224.6" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 224.6 318)">2002</text>
+<text x="247.7" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 247.7 318)">2003</text>
+<text x="270.8" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 270.8 318)">2004</text>
+<text x="293.9" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 293.9 318)">2005</text>
+<text x="317.0" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 317.0 318)">2006</text>
+<text x="340.0" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 340.0 318)">2007</text>
+<text x="363.1" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 363.1 318)">2008</text>
+<text x="386.2" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 386.2 318)">2009</text>
+<text x="409.3" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 409.3 318)">2010</text>
+<text x="432.4" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 432.4 318)">2011</text>
+<text x="455.5" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 455.5 318)">2012</text>
+<text x="478.5" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 478.5 318)">2013</text>
+<text x="501.6" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 501.6 318)">2014</text>
+<text x="524.7" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 524.7 318)">2015</text>
+<text x="547.8" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 547.8 318)">2016</text>
+<text x="570.9" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 570.9 318)">2017</text>
+<text x="594.0" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 594.0 318)">2018</text>
+<text x="617.0" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 617.0 318)">2019</text>
+<text x="640.1" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 640.1 318)">2020</text>
+<text x="663.2" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 663.2 318)">2021</text>
+<text x="686.3" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 686.3 318)">2022</text>
+<text x="709.4" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 709.4 318)">2023</text>
+<text x="732.5" y="318" text-anchor="middle" font-size="8.5" fill="#5e6a6b" transform="rotate(-60 732.5 318)">2024</text>
+</svg>
+    <figcaption><strong>Figure 1.</strong> National millet and sorghum production as a percentage
+       departure from the 2001 to 2024 trend, with the impact seasons marked (filled: main
+       dating; open: seasons that are impact years only under the framework's labelling).
+       Strips beneath: framework-province July to September temperature anomaly from trend,
+       framework-province window biomass anomaly (detrended), and the national-mean temperature
+       anomaly. Hover for values.</figcaption>
+  </figure>
+
+  <h2 id="production">2 · What explains production shortfalls <a class="anchor" href="#production" aria-label="Link to this section">#</a></h2>
+
+  <p>Predictors are the ASAP province series aggregated two ways: the four framework provinces
+     (what the trigger sees) and the unweighted mean of all 45 provinces (the scale of the
+     production target). Temperature is the July to September anomaly from each province's own
+     trend line; biomass is the cumulative-FPAR anomaly over the Trigger 2 window, detrended
+     as on the <a href="../biomass-detrended/">companion page</a>. All predictors are
+     standardised; the leave-one-out R² is the honest measure with 24 seasons.</p>
+
+  <div class="tblwrap"><table>
+    <tr><th>Predictors of production anomaly</th><th class="num">R², framework provinces</th><th class="num">Leave-one-out R²</th><th class="num">R², all provinces</th><th class="num">Leave-one-out R²</th></tr>
+    <tr><td class="best">Temperature</td><td class="num best">0.27</td><td class="num best">+0.18</td><td class="num best">0.32</td><td class="num best">+0.23</td></tr>
+    <tr><td>Biomass, detrended</td><td class="num">0.02</td><td class="num">−0.12</td><td class="num">0.01</td><td class="num">−0.18</td></tr>
+    <tr><td>Biomass, as published</td><td class="num">0.02</td><td class="num">−0.14</td><td class="num">0.01</td><td class="num">−0.18</td></tr>
+    <tr><td>Water balance</td><td class="num">0.06</td><td class="num">−0.09</td><td class="num">0.00</td><td class="num">−0.25</td></tr>
+    <tr><td>SPI-3</td><td class="num">0.07</td><td class="num">−0.07</td><td class="num">0.14</td><td class="num">0.00</td></tr>
+    <tr><td>Rainfall</td><td class="num">0.07</td><td class="num">−0.08</td><td class="num">0.19</td><td class="num">+0.01</td></tr>
+    <tr><td>Biomass + temperature</td><td class="num">0.28</td><td class="num">+0.10</td><td class="num">0.32</td><td class="num">+0.14</td></tr>
+    <tr><td>Biomass + water balance + temperature</td><td class="num">0.30</td><td class="num">0.00</td><td class="num">0.32</td><td class="num">−0.01</td></tr>
+    <tr><td>Biomass × temperature interaction</td><td class="num">0.28</td><td class="num">+0.05</td><td class="num">0.33</td><td class="num">+0.11</td></tr>
+  </table></div>
+
+  <ul>
+    <li><strong>Temperature is the only predictor with out-of-sample skill.</strong> Every other
+        single predictor has a negative leave-one-out R², meaning it predicts production worse
+        than the mean does. The temperature coefficient is −5.5 to −5.9 percent of trend per
+        standard deviation, which is −16 percent per degree in the framework provinces and
+        −26 percent per degree nationally (the national anomaly has a smaller spread).</li>
+    <li><strong>Adding biomass to temperature adds nothing</strong>, and the interaction term is
+        zero (p 0.99 for the framework provinces). The hypothesis that heat makes a biomass
+        deficit worse cannot be seen because the biomass deficit itself carries no signal for
+        production. Adding water balance and biomass together to temperature raises the
+        in-sample R² by three points and lowers the out-of-sample one to zero.</li>
+    <li><strong>This is not an artefact of the window.</strong> Biomass over the end of season
+        (dekads 27 to 30) does a little better (r 0.28 to 0.33, not significant), the full
+        season no better than the window. Temperature over August to September, the grain-filling
+        weeks, does as well as the July to September mean (r −0.54); pre-season heat does
+        nothing (r −0.01).</li>
+  </ul>
+
+  <figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 354" width="100%" style="max-width:760px" font-family="Roboto,system-ui,sans-serif" role="img" aria-labelledby="g2"><title id="g2">Growing-season temperature anomaly vs national production anomaly, 2001–2024</title>
+<text x="50" y="22" font-size="12" font-weight="500" fill="#1f2324">Framework provinces</text>
+<line x1="50" y1="284.2" x2="370" y2="284.2" stroke="#e2e8e8"/><text x="45" y="287.7" text-anchor="end" font-size="9" fill="#7e8e8f">-20%</text>
+<line x1="50" y1="225.1" x2="370" y2="225.1" stroke="#e2e8e8"/><text x="45" y="228.6" text-anchor="end" font-size="9" fill="#7e8e8f">-10%</text>
+<line x1="50" y1="166.0" x2="370" y2="166.0" stroke="#9db1b3"/><text x="45" y="169.5" text-anchor="end" font-size="9" fill="#7e8e8f">+0%</text>
+<line x1="50" y1="106.9" x2="370" y2="106.9" stroke="#e2e8e8"/><text x="45" y="110.4" text-anchor="end" font-size="9" fill="#7e8e8f">+10%</text>
+<line x1="50" y1="47.8" x2="370" y2="47.8" stroke="#e2e8e8"/><text x="45" y="51.3" text-anchor="end" font-size="9" fill="#7e8e8f">+20%</text>
+<line x1="106.5" y1="36" x2="106.5" y2="296" stroke="#e2e8e8"/><text x="106.5" y="309" text-anchor="middle" font-size="9" fill="#7e8e8f">-0.5 °C</text>
+<line x1="200.6" y1="36" x2="200.6" y2="296" stroke="#9db1b3"/><text x="200.6" y="309" text-anchor="middle" font-size="9" fill="#7e8e8f">+0.0 °C</text>
+<line x1="294.7" y1="36" x2="294.7" y2="296" stroke="#e2e8e8"/><text x="294.7" y="309" text-anchor="middle" font-size="9" fill="#7e8e8f">+0.5 °C</text>
+<line x1="86.5" y1="103.5" x2="333.1" y2="224.6" stroke="#1f2324" opacity="0.6"/>
+<text x="370" y="34" text-anchor="end" font-size="10" fill="#1f2324">-15.6% per °C, r = -0.52</text>
+<circle cx="214.6" cy="212.8" r="4.5" fill="#1862d8" stroke="#fff" stroke-width="0.8"><title>2001: temp +0.07 °C, biomass +0.49 z, production -7.9%</title></circle>
+<circle cx="333.1" cy="217.3" r="4.5" fill="#9d372b" stroke="#fff" stroke-width="0.8"><title>2002: temp +0.70 °C, biomass -0.64 z, production -8.7%</title></circle>
+<circle cx="103.7" cy="122.0" r="4.5" fill="#1862d8" stroke="#fff" stroke-width="0.8"><title>2003: temp -0.51 °C, biomass +0.94 z, production +7.5%</title></circle>
+<circle cx="264.6" cy="227.5" r="4.5" fill="#9db1b3" stroke="#fff" stroke-width="0.8"><title>2004: temp +0.34 °C, biomass -0.08 z, production -10.4%</title></circle>
+<circle cx="199.5" cy="135.9" r="4.5" fill="#1862d8" stroke="#fff" stroke-width="0.8"><title>2005: temp -0.01 °C, biomass +1.33 z, production +5.1%</title></circle>
+<circle cx="220.9" cy="150.9" r="4.5" fill="#9db1b3" stroke="#fff" stroke-width="0.8"><title>2006: temp +0.11 °C, biomass -0.27 z, production +2.6%</title></circle>
+<circle cx="163.8" cy="201.5" r="4.5" fill="#1862d8" stroke="#fff" stroke-width="0.8"><title>2007: temp -0.20 °C, biomass +0.54 z, production -6.0%</title></circle>
+<circle cx="201.5" cy="56.0" r="4.5" fill="#1862d8" stroke="#fff" stroke-width="0.8"><title>2008: temp +0.00 °C, biomass +0.65 z, production +18.6%</title></circle>
+<text x="208.5" y="59.5" font-size="9" fill="#1f2324">2008</text>
+<circle cx="288.7" cy="200.5" r="4.5" fill="#9d372b" stroke="#fff" stroke-width="0.8"><title>2009: temp +0.47 °C, biomass -0.45 z, production -5.8%</title></circle>
+<circle cx="176.8" cy="58.3" r="4.5" fill="#9d372b" stroke="#fff" stroke-width="0.8"><title>2010: temp -0.13 °C, biomass -0.42 z, production +18.2%</title></circle>
+<text x="183.8" y="61.8" font-size="9" fill="#1f2324">2010</text>
+<circle cx="298.6" cy="238.8" r="5.5" fill="#9d372b" stroke="#9d372b" stroke-width="2"><title>2011: temp +0.52 °C, biomass -0.45 z, production -12.3%</title></circle>
+<text x="305.6" y="242.3" font-size="9" fill="#1f2324">2011</text>
+<circle cx="86.5" cy="92.4" r="4.5" fill="#9db1b3" stroke="#fff" stroke-width="0.8"><title>2012: temp -0.61 °C, biomass +0.31 z, production +12.5%</title></circle>
+<circle cx="195.1" cy="103.9" r="5.5" fill="#9db1b3" stroke="#9d372b" stroke-width="2"><title>2013: temp -0.03 °C, biomass +0.12 z, production +10.5%</title></circle>
+<text x="202.1" y="107.4" font-size="9" fill="#1f2324">2013</text>
+<circle cx="262.0" cy="167.1" r="4.5" fill="#9d372b" stroke="#fff" stroke-width="0.8"><title>2014: temp +0.33 °C, biomass -0.40 z, production -0.2%</title></circle>
+<circle cx="171.0" cy="234.2" r="4.5" fill="#9db1b3" stroke="#fff" stroke-width="0.8"><title>2015: temp -0.16 °C, biomass -0.30 z, production -11.5%</title></circle>
+<circle cx="214.4" cy="194.8" r="4.5" fill="#9d372b" stroke="#fff" stroke-width="0.8"><title>2016: temp +0.07 °C, biomass -0.33 z, production -4.9%</title></circle>
+<circle cx="217.4" cy="278.2" r="5.5" fill="#9db1b3" stroke="#9d372b" stroke-width="2"><title>2017: temp +0.09 °C, biomass +0.30 z, production -19.0%</title></circle>
+<text x="224.4" y="281.7" font-size="9" fill="#1f2324">2017</text>
+<circle cx="179.3" cy="78.3" r="4.5" fill="#9db1b3" stroke="#fff" stroke-width="0.8"><title>2018: temp -0.11 °C, biomass -0.04 z, production +14.8%</title></circle>
+<text x="186.3" y="81.8" font-size="9" fill="#1f2324">2018</text>
+<circle cx="278.3" cy="140.3" r="5.5" fill="#9d372b" stroke="#9d372b" stroke-width="2"><title>2019: temp +0.41 °C, biomass -0.61 z, production +4.3%</title></circle>
+<text x="285.3" y="143.8" font-size="9" fill="#1f2324">2019</text>
+<circle cx="162.3" cy="151.8" r="4.5" fill="#9d372b" stroke="#fff" stroke-width="0.8"><title>2020: temp -0.20 °C, biomass -0.32 z, production +2.4%</title></circle>
+<circle cx="287.6" cy="250.1" r="5.5" fill="#1862d8" stroke="#9d372b" stroke-width="2"><title>2021: temp +0.46 °C, biomass +0.38 z, production -14.2%</title></circle>
+<text x="294.6" y="253.6" font-size="9" fill="#1f2324">2021</text>
+<circle cx="165.5" cy="128.3" r="4.5" fill="#9db1b3" stroke="#fff" stroke-width="0.8"><title>2022: temp -0.19 °C, biomass -0.10 z, production +6.4%</title></circle>
+<circle cx="314.3" cy="192.0" r="4.5" fill="#1862d8" stroke="#fff" stroke-width="0.8"><title>2023: temp +0.60 °C, biomass +0.51 z, production -4.4%</title></circle>
+<circle cx="131.3" cy="151.2" r="4.5" fill="#1862d8" stroke="#fff" stroke-width="0.8"><title>2024: temp -0.37 °C, biomass +0.61 z, production +2.5%</title></circle>
+<text x="420" y="22" font-size="12" font-weight="500" fill="#1f2324">All provinces (national mean)</text>
+<line x1="420" y1="284.2" x2="740" y2="284.2" stroke="#e2e8e8"/><text x="415" y="287.7" text-anchor="end" font-size="9" fill="#7e8e8f">-20%</text>
+<line x1="420" y1="225.1" x2="740" y2="225.1" stroke="#e2e8e8"/><text x="415" y="228.6" text-anchor="end" font-size="9" fill="#7e8e8f">-10%</text>
+<line x1="420" y1="166.0" x2="740" y2="166.0" stroke="#9db1b3"/><text x="415" y="169.5" text-anchor="end" font-size="9" fill="#7e8e8f">+0%</text>
+<line x1="420" y1="106.9" x2="740" y2="106.9" stroke="#e2e8e8"/><text x="415" y="110.4" text-anchor="end" font-size="9" fill="#7e8e8f">+10%</text>
+<line x1="420" y1="47.8" x2="740" y2="47.8" stroke="#e2e8e8"/><text x="415" y="51.3" text-anchor="end" font-size="9" fill="#7e8e8f">+20%</text>
+<line x1="476.5" y1="36" x2="476.5" y2="296" stroke="#e2e8e8"/><text x="476.5" y="309" text-anchor="middle" font-size="9" fill="#7e8e8f">-0.5 °C</text>
+<line x1="570.6" y1="36" x2="570.6" y2="296" stroke="#9db1b3"/><text x="570.6" y="309" text-anchor="middle" font-size="9" fill="#7e8e8f">+0.0 °C</text>
+<line x1="664.7" y1="36" x2="664.7" y2="296" stroke="#e2e8e8"/><text x="664.7" y="309" text-anchor="middle" font-size="9" fill="#7e8e8f">+0.5 °C</text>
+<line x1="493.9" y1="97.6" x2="661.0" y2="231.5" stroke="#1f2324" opacity="0.6"/>
+<text x="740" y="34" text-anchor="end" font-size="10" fill="#1f2324">-25.5% per °C, r = -0.56</text>
+<circle cx="576.4" cy="212.8" r="4.5" fill="#9db1b3" stroke="#fff" stroke-width="0.8"><title>2001: temp +0.03 °C, biomass +0.05 z, production -7.9%</title></circle>
+<circle cx="661.0" cy="217.3" r="4.5" fill="#9d372b" stroke="#fff" stroke-width="0.8"><title>2002: temp +0.48 °C, biomass -0.78 z, production -8.7%</title></circle>
+<circle cx="514.4" cy="122.0" r="4.5" fill="#1862d8" stroke="#fff" stroke-width="0.8"><title>2003: temp -0.30 °C, biomass +0.72 z, production +7.5%</title></circle>
+<circle cx="581.6" cy="227.5" r="4.5" fill="#1862d8" stroke="#fff" stroke-width="0.8"><title>2004: temp +0.06 °C, biomass +0.39 z, production -10.4%</title></circle>
+<circle cx="580.0" cy="135.9" r="4.5" fill="#1862d8" stroke="#fff" stroke-width="0.8"><title>2005: temp +0.05 °C, biomass +0.53 z, production +5.1%</title></circle>
+<circle cx="577.5" cy="150.9" r="4.5" fill="#9d372b" stroke="#fff" stroke-width="0.8"><title>2006: temp +0.04 °C, biomass -0.47 z, production +2.6%</title></circle>
+<circle cx="553.7" cy="201.5" r="4.5" fill="#9d372b" stroke="#fff" stroke-width="0.8"><title>2007: temp -0.09 °C, biomass -0.18 z, production -6.0%</title></circle>
+<circle cx="550.0" cy="56.0" r="4.5" fill="#9db1b3" stroke="#fff" stroke-width="0.8"><title>2008: temp -0.11 °C, biomass +0.13 z, production +18.6%</title></circle>
+<text x="557.0" y="59.5" font-size="9" fill="#1f2324">2008</text>
+<circle cx="627.6" cy="200.5" r="4.5" fill="#9db1b3" stroke="#fff" stroke-width="0.8"><title>2009: temp +0.30 °C, biomass +0.03 z, production -5.8%</title></circle>
+<circle cx="577.4" cy="58.3" r="4.5" fill="#1862d8" stroke="#fff" stroke-width="0.8"><title>2010: temp +0.04 °C, biomass +0.28 z, production +18.2%</title></circle>
+<text x="584.4" y="61.8" font-size="9" fill="#1f2324">2010</text>
+<circle cx="646.6" cy="238.8" r="5.5" fill="#9d372b" stroke="#9d372b" stroke-width="2"><title>2011: temp +0.40 °C, biomass -0.11 z, production -12.3%</title></circle>
+<text x="653.6" y="242.3" font-size="9" fill="#1f2324">2011</text>
+<circle cx="508.8" cy="92.4" r="4.5" fill="#1862d8" stroke="#fff" stroke-width="0.8"><title>2012: temp -0.33 °C, biomass +0.21 z, production +12.5%</title></circle>
+<circle cx="555.5" cy="103.9" r="5.5" fill="#9db1b3" stroke="#9d372b" stroke-width="2"><title>2013: temp -0.08 °C, biomass +0.05 z, production +10.5%</title></circle>
+<text x="562.5" y="107.4" font-size="9" fill="#1f2324">2013</text>
+<circle cx="602.6" cy="167.1" r="4.5" fill="#9db1b3" stroke="#fff" stroke-width="0.8"><title>2014: temp +0.17 °C, biomass -0.08 z, production -0.2%</title></circle>
+<circle cx="590.9" cy="234.2" r="4.5" fill="#9d372b" stroke="#fff" stroke-width="0.8"><title>2015: temp +0.11 °C, biomass -0.87 z, production -11.5%</title></circle>
+<circle cx="588.4" cy="194.8" r="4.5" fill="#9db1b3" stroke="#fff" stroke-width="0.8"><title>2016: temp +0.09 °C, biomass +0.19 z, production -4.9%</title></circle>
+<circle cx="609.5" cy="278.2" r="5.5" fill="#1862d8" stroke="#9d372b" stroke-width="2"><title>2017: temp +0.21 °C, biomass +0.56 z, production -19.0%</title></circle>
+<text x="616.5" y="281.7" font-size="9" fill="#1f2324">2017</text>
+<circle cx="566.6" cy="78.3" r="4.5" fill="#9d372b" stroke="#fff" stroke-width="0.8"><title>2018: temp -0.02 °C, biomass -0.29 z, production +14.8%</title></circle>
+<text x="573.6" y="81.8" font-size="9" fill="#1f2324">2018</text>
+<circle cx="611.2" cy="140.3" r="5.5" fill="#9d372b" stroke="#9d372b" stroke-width="2"><title>2019: temp +0.22 °C, biomass -0.24 z, production +4.3%</title></circle>
+<text x="618.2" y="143.8" font-size="9" fill="#1f2324">2019</text>
+<circle cx="532.9" cy="151.8" r="4.5" fill="#9d372b" stroke="#fff" stroke-width="0.8"><title>2020: temp -0.20 °C, biomass -0.37 z, production +2.4%</title></circle>
+<circle cx="594.2" cy="250.1" r="5.5" fill="#1862d8" stroke="#9d372b" stroke-width="2"><title>2021: temp +0.13 °C, biomass +0.20 z, production -14.2%</title></circle>
+<text x="601.2" y="253.6" font-size="9" fill="#1f2324">2021</text>
+<circle cx="493.9" cy="128.3" r="4.5" fill="#9db1b3" stroke="#fff" stroke-width="0.8"><title>2022: temp -0.41 °C, biomass +0.08 z, production +6.4%</title></circle>
+<circle cx="653.2" cy="192.0" r="4.5" fill="#1862d8" stroke="#fff" stroke-width="0.8"><title>2023: temp +0.44 °C, biomass +0.25 z, production -4.4%</title></circle>
+<circle cx="548.3" cy="151.2" r="4.5" fill="#9db1b3" stroke="#fff" stroke-width="0.8"><title>2024: temp -0.12 °C, biomass -0.11 z, production +2.5%</title></circle>
+<circle cx="55" cy="342" r="4.5" fill="#9d372b"/><text x="63" y="346" font-size="10" fill="#1f2324">Lowest-third biomass</text>
+<circle cx="205" cy="342" r="4.5" fill="#9db1b3"/><text x="213" y="346" font-size="10" fill="#1f2324">Middle third</text>
+<circle cx="307" cy="342" r="4.5" fill="#1862d8"/><text x="315" y="346" font-size="10" fill="#1f2324">Highest third</text>
+<circle cx="415" cy="342" r="5" fill="#fff" stroke="#9d372b" stroke-width="2"/><text x="423" y="346" font-size="10" fill="#1f2324">Impact season</text>
+</svg>
+    <figcaption><strong>Figure 2.</strong> July to September temperature anomaly from trend against
+       the national production anomaly, one point per season 2001 to 2024, for the framework
+       provinces (left) and the national mean (right). Colour is the biomass tercile; ringed
+       points are the impact seasons under the main dating. Hover for values.</figcaption>
+  </figure>
+
+  <h3>Hot with normal biomass: the seasons the trigger cannot see</h3>
+
+  <figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="100%" style="max-width:760px" font-family="Roboto,system-ui,sans-serif" role="img" aria-labelledby="g3"><title id="g3">Mean production anomaly and impact rate by heat and biomass quadrant</title>
+<text x="220" y="20" text-anchor="middle" font-size="12" font-weight="500" fill="#1f2324">Framework provinces</text>
+<text x="145.0" y="36" text-anchor="middle" font-size="9.5" fill="#5e6a6b">low biomass</text><text x="295.0" y="36" text-anchor="middle" font-size="9.5" fill="#5e6a6b">high biomass</text>
+<text x="64" y="94.5" text-anchor="end" font-size="9.5" fill="#5e6a6b">hot</text>
+<rect x="72" y="46" width="146" height="91" rx="5" fill="#dbb5b1"><title>hot / low biomass: 8 seasons [2002, 2004, 2006, 2009, 2011, 2014, 2016, 2019]; mean production -4.4%; impact seasons [2011, 2019]</title></rect>
+<text x="145.0" y="77.5" text-anchor="middle" font-size="18" font-weight="700" fill="#1f2324">-4.4%</text>
+<text x="145.0" y="101.5" text-anchor="middle" font-size="9.5" fill="#1f2324">production, 8 seasons</text>
+<text x="145.0" y="116.5" text-anchor="middle" font-size="9.5" fill="#1f2324">2 of 8 impact seasons</text>
+<rect x="222" y="46" width="146" height="91" rx="5" fill="#a14135"><title>hot / high biomass: 4 seasons [2001, 2017, 2021, 2023]; mean production -11.4%; impact seasons [2017, 2021]</title></rect>
+<text x="295.0" y="77.5" text-anchor="middle" font-size="18" font-weight="700" fill="#1f2324">-11.4%</text>
+<text x="295.0" y="101.5" text-anchor="middle" font-size="9.5" fill="#1f2324">production, 4 seasons</text>
+<text x="295.0" y="116.5" text-anchor="middle" font-size="9.5" fill="#1f2324">2 of 4 impact seasons</text>
+<text x="64" y="189.5" text-anchor="end" font-size="9.5" fill="#5e6a6b">cool</text>
+<rect x="72" y="141" width="146" height="91" rx="5" fill="#b5d3cb"><title>cool / low biomass: 4 seasons [2010, 2015, 2020, 2022]; mean production +3.9%; impact seasons []</title></rect>
+<text x="145.0" y="172.5" text-anchor="middle" font-size="18" font-weight="700" fill="#1f2324">+3.9%</text>
+<text x="145.0" y="196.5" text-anchor="middle" font-size="9.5" fill="#1f2324">production, 4 seasons</text>
+<text x="145.0" y="211.5" text-anchor="middle" font-size="9.5" fill="#1f2324">0 of 4 impact seasons</text>
+<rect x="222" y="141" width="146" height="91" rx="5" fill="#65a391"><title>cool / high biomass: 8 seasons [2003, 2005, 2007, 2008, 2012, 2013, 2018, 2024]; mean production +8.2%; impact seasons [2013]</title></rect>
+<text x="295.0" y="172.5" text-anchor="middle" font-size="18" font-weight="700" fill="#1f2324">+8.2%</text>
+<text x="295.0" y="196.5" text-anchor="middle" font-size="9.5" fill="#1f2324">production, 8 seasons</text>
+<text x="295.0" y="211.5" text-anchor="middle" font-size="9.5" fill="#1f2324">1 of 8 impact seasons</text>
+<text x="570" y="20" text-anchor="middle" font-size="12" font-weight="500" fill="#1f2324">All provinces</text>
+<text x="495.0" y="36" text-anchor="middle" font-size="9.5" fill="#5e6a6b">low biomass</text><text x="645.0" y="36" text-anchor="middle" font-size="9.5" fill="#5e6a6b">high biomass</text>
+<text x="414" y="94.5" text-anchor="end" font-size="9.5" fill="#5e6a6b">hot</text>
+<rect x="422" y="46" width="146" height="91" rx="5" fill="#d0a09a"><title>hot / low biomass: 6 seasons [2002, 2009, 2011, 2014, 2015, 2019]; mean production -5.7%; impact seasons [2011, 2019]</title></rect>
+<text x="495.0" y="77.5" text-anchor="middle" font-size="18" font-weight="700" fill="#1f2324">-5.7%</text>
+<text x="495.0" y="101.5" text-anchor="middle" font-size="9.5" fill="#1f2324">production, 6 seasons</text>
+<text x="495.0" y="116.5" text-anchor="middle" font-size="9.5" fill="#1f2324">2 of 6 impact seasons</text>
+<rect x="572" y="46" width="146" height="91" rx="5" fill="#bd7971"><title>hot / high biomass: 6 seasons [2004, 2005, 2016, 2017, 2021, 2023]; mean production -8.0%; impact seasons [2017, 2021]</title></rect>
+<text x="645.0" y="77.5" text-anchor="middle" font-size="18" font-weight="700" fill="#1f2324">-8.0%</text>
+<text x="645.0" y="101.5" text-anchor="middle" font-size="9.5" fill="#1f2324">production, 6 seasons</text>
+<text x="645.0" y="116.5" text-anchor="middle" font-size="9.5" fill="#1f2324">2 of 6 impact seasons</text>
+<text x="414" y="189.5" text-anchor="end" font-size="9.5" fill="#5e6a6b">cool</text>
+<rect x="422" y="141" width="146" height="91" rx="5" fill="#e4efec"><title>cool / low biomass: 6 seasons [2001, 2006, 2007, 2018, 2020, 2024]; mean production +1.4%; impact seasons []</title></rect>
+<text x="495.0" y="172.5" text-anchor="middle" font-size="18" font-weight="700" fill="#1f2324">+1.4%</text>
+<text x="495.0" y="196.5" text-anchor="middle" font-size="9.5" fill="#1f2324">production, 6 seasons</text>
+<text x="495.0" y="211.5" text-anchor="middle" font-size="9.5" fill="#1f2324">0 of 6 impact seasons</text>
+<rect x="572" y="141" width="146" height="91" rx="5" fill="#1e795f"><title>cool / high biomass: 6 seasons [2003, 2008, 2010, 2012, 2013, 2022]; mean production +12.3%; impact seasons [2013]</title></rect>
+<text x="645.0" y="172.5" text-anchor="middle" font-size="18" font-weight="700" fill="#1f2324">+12.3%</text>
+<text x="645.0" y="196.5" text-anchor="middle" font-size="9.5" fill="#1f2324">production, 6 seasons</text>
+<text x="645.0" y="211.5" text-anchor="middle" font-size="9.5" fill="#1f2324">1 of 6 impact seasons</text>
+<text x="70" y="278" font-size="10" fill="#5e6a6b">Splits at the 2001–2024 median of detrended Jul–Sep temperature and window biomass. Cell colour: mean production anomaly.</text>
+<text x="70" y="292" font-size="10" fill="#5e6a6b">Hover a cell for the seasons in it.</text>
+</svg>
+    <figcaption><strong>Figure 3.</strong> Seasons split at the median of the detrended
+       temperature and biomass anomalies. Each cell gives the mean production anomaly and the
+       number of impact seasons among the seasons in it. Hover for which seasons.</figcaption>
+  </figure>
+
+  <p>The quadrants say it plainly. In the framework provinces, the cool-and-low-biomass
+     seasons averaged +3.9 percent production with no impact season among them; the
+     hot-and-low-biomass seasons averaged −4.4 percent with two impact seasons; and the
+     hot-and-high-biomass seasons were the worst of all, −11.4 percent, containing 2017 and
+     2021. Those two are the deepest production shortfalls in the record and the two most
+     recent CERF drought responses, and in both the framework-province biomass was above its
+     detrended median. A biomass-only trigger, however calibrated, would not have activated in
+     either. The national split shows the same ordering.</p>
+
+  <h2 id="impact">3 · Ranking the impact seasons <a class="anchor" href="#impact" aria-label="Link to this section">#</a></h2>
+
+  <p>With five positive seasons a fitted model is not meaningful, so the binary target is
+     scored by AUC: the probability that a randomly chosen impact season scores as more
+     drought-like than a randomly chosen other season. 0.5 is chance, 1.0 is a perfect
+     ranking. Production itself is included as a reference for how well a physical outcome
+     ranks the humanitarian one.</p>
+
+  <div class="tblwrap"><table>
+    <tr><th>Target and period</th><th>Impact seasons</th><th class="num">Temperature</th><th class="num">Biomass</th><th class="num">Water balance</th><th class="num">Biomass − temp. (combined)</th><th class="num">Production, reference</th></tr>
+    <tr><td>Main dating, 2001 to 2024, framework provinces</td><td>2011, 2013, 2017, 2019, 2021</td><td class="num best">0.75</td><td class="num">0.62</td><td class="num">0.44</td><td class="num">0.67</td><td class="num">0.72</td></tr>
+    <tr><td>Main dating, 2001 to 2024, all provinces</td><td>same</td><td class="num best">0.75</td><td class="num">0.45</td><td class="num">0.31</td><td class="num">0.60</td><td class="num">0.72</td></tr>
+    <tr><td>Main dating, 2001 to 2018, framework provinces</td><td>2011, 2013, 2017</td><td class="num best">0.67</td><td class="num">0.58</td><td class="num">0.38</td><td class="num">0.58</td><td class="num">0.76</td></tr>
+    <tr><td>Alternative dating, 2001 to 2024, framework provinces</td><td>2011, 2014, 2017, 2019, 2022</td><td class="num">0.67</td><td class="num best">0.77</td><td class="num">0.51</td><td class="num">0.72</td><td class="num">0.63</td></tr>
+    <tr><td>Alternative dating, 2001 to 2018, framework provinces</td><td>2011, 2014, 2017</td><td class="num best">0.82</td><td class="num">0.71</td><td class="num">0.49</td><td class="num">0.76</td><td class="num">0.84</td></tr>
+    <tr><td>Alternative dating, 2001 to 2018, all provinces</td><td>same</td><td class="num best">0.89</td><td class="num">0.47</td><td class="num">0.24</td><td class="num">0.69</td><td class="num">0.84</td></tr>
+    <tr><td>Main plus 2005 to 2008 underfunded allocations</td><td>9 seasons</td><td class="num">0.63</td><td class="num">0.39</td><td class="num">0.51</td><td class="num">0.47</td><td class="num">0.55</td></tr>
+  </table></div>
+
+  <ul>
+    <li><strong>Temperature ranks the impact seasons best</strong> in every variant except one,
+        and that one is the alternative dating over the full record, where framework-province
+        biomass reaches 0.77 because 2014 and 2022 were poor-biomass seasons in the provinces.
+        Restrict the same dating to the pre-conflict years and temperature leads again.</li>
+    <li><strong>Water balance ranks below chance</strong> throughout: the impact seasons had
+        slightly better water balance than the others. This matches the earlier finding that
+        ASAP's water-balance index is rainfall-total-driven and misses what matters.</li>
+    <li><strong>The combined score does not beat temperature alone.</strong> Adding biomass to
+        temperature lowers the AUC in five of seven variants.</li>
+    <li><strong>The chronic underfunded allocations are not droughts.</strong> Adding 2005 to
+        2008 pushes every score toward 0.5, which is the expected result if those seasons were
+        not meteorologically unusual, and the CERF supplement's note on 2008 says as much.</li>
+    <li><strong>2013 is probably mis-dated.</strong> Under the main dating it is an impact
+        season, yet production was 11 percent above trend, the framework provinces were cool
+        and biomass was normal. The evidence points to the May 2014 EM-DAT event reflecting
+        the 2014 season after all, as the framework assumed. The alternative-dating rows are
+        therefore the more credible ones for that record, which strengthens biomass slightly
+        and leaves temperature where it is.</li>
+  </ul>
+
+  <h2 id="means">4 · What this means <a class="anchor" href="#means" aria-label="Link to this section">#</a></h2>
+  <ul>
+    <li><strong>For the question asked.</strong> Heat combined with biomass does not lead to
+        worse outcomes than biomass alone in any measurable way, because biomass in the
+        Trigger 2 window barely relates to outcomes. Heat on its own does: the hot seasons are
+        the poor-harvest seasons and the CERF seasons, whether or not the satellite saw a
+        vegetation deficit.</li>
+    <li><strong>For the trigger.</strong> The observational arm is keyed on the indicator with
+        the least outcome skill in this record. A temperature condition, whether as a second
+        arm or as a replacement for the biomass condition, is the first thing to backtest in
+        the 2027 revision. On this record, a July to September anomaly of more than +0.3 °C
+        above trend in the framework provinces selects 2002, 2004, 2009, 2011, 2014, 2019,
+        2021 and 2023: six of the eight are impact seasons or ASAP activation seasons (seven
+        under the alternative dating), 2021 is caught where biomass missed it, and the one
+        clear false alarm, 2023, was a below-trend production season (−4 percent), not a good
+        one. It misses 2017, which was only +0.1 °C in the provinces though hot nationally.</li>
+    <li><strong>For 2026.</strong> The framework provinces are running about +1 °C above trend
+        for July to September so far. The fitted relationship would put this harvest 15 to 20
+        percent below trend, the worst in the record. ASAP's biomass says otherwise. One of
+        them is wrong, and the harvest assessments in November will say which. That is the
+        single most useful check on this whole line of analysis.</li>
+    <li><strong>For the data request.</strong> The weak link is the target. National production
+        is dominated by the southern cereal belt, while the framework provinces are pastoral and
+        millet-growing. Regional production and yield series from the agricultural statistics
+        directorate (DGESS/MAERAH), which the SAP-GTP campaign evaluations draw on, would allow
+        this test at the scale the framework operates. That request should go alongside the
+        one to ANAM for station rainfall.</li>
+  </ul>
+
+  <div class="callout warn">
+    <p><strong>Caveats.</strong> Twenty-four seasons and five impact years; all p-values are
+       indicative. The national-mean predictor is an unweighted average of provinces, not
+       crop-area weighted. The production series is FAOSTAT, which for Burkina Faso is largely
+       the national agricultural survey and carries its own year-to-year reporting noise. The
+       binary record mixes humanitarian dating conventions; two of five seasons are ambiguous
+       and one is likely wrong under the main dating. Temperature's advantage over biomass
+       may partly reflect that a temperature anomaly is a cleaner measurement than a
+       satellite biomass anomaly over a province with a strong land-cover trend. None of this
+       changes the direction of the result, which holds under every dating, period and scope
+       tried.</p>
+  </div>
+
+  <div class="meta">
+    <p><strong>Sources and method.</strong> Production: FAOSTAT crops and livestock products,
+       Burkina Faso (HDX mirror <code>bfa-faostat-crops-livestock-production</code>), millet
+       and sorghum production 2001 to 2024, linear trend removed. Impact records: EM-DAT
+       (team blob snapshot via <code>ocha-stratus</code>), CERF OneGMS allocations with the
+       CERF supplement's drought valid periods (team database, schema <code>aa</code>), the
+       IPC and FEWS NET mirrors (schemas <code>ipc</code> and <code>fewsnet</code>), and the
+       framework's target years from <code>exploration/asap_adm2.md</code> in
+       <a href="https://github.com/OCHA-DAP/pa-aa-bfa-drought/tree/2026-revision">pa-aa-bfa-drought</a>.
+       Predictors: JRC ASAP indicator statistics export for all Burkina Faso provinces
+       (GAUL level 2), as on the companion pages; temperature detrended per province with a
+       Theil-Sen slope 1989 to 2025, biomass 2001 to 2025. Statistics: ordinary least squares
+       on standardised predictors with leave-one-out cross-validation; AUC by pairwise
+       comparison. Scripts <code>scripts/impact_analysis.py</code> and
+       <code>scripts/impact_figs.py</code> in
+       <a href="https://github.com/OCHA-DAP/ds-aa-bfa-drought">OCHA-DAP/ds-aa-bfa-drought</a>.
+       Page written 17 September 2026 by the OCHA Centre for Humanitarian Data.</p>
+  </div>
+</div>
+</body>
+</html>

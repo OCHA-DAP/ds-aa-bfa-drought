@@ -37,7 +37,7 @@ jobs:
           mkdir -p site
           rsync -a pages/ site/
           test -f site/index.html
-          test -f site/external-sources-sep-2026/index.html && test -f site/biomass-detrended/index.html && test -f site/temperature/index.html
+          test -f site/external-sources-sep-2026/index.html && test -f site/biomass-detrended/index.html && test -f site/temperature/index.html && test -f site/heat-and-impact/index.html
       - uses: actions/configure-pages@v5
         with:
           enablement: true

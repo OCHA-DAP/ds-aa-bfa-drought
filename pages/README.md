@@ -16,6 +16,7 @@ manual dispatch.
 | `/external-sources-sep-2026/` | `pages/external-sources-sep-2026/index.html` |
 | `/biomass-detrended/` | `pages/biomass-detrended/index.html` |
 | `/temperature/` | `pages/temperature/index.html` |
+| `/heat-and-impact/` | `pages/heat-and-impact/index.html` |
 
 ## Adding a page
 
@@ -53,6 +54,15 @@ holding `asap_bfa/*.csv` and `aoi.csv`, then the figure script, then paste the S
 same ASAP province export as above plus temperature (variable 140), rainfall (10), WSI (160) and
 SPI-3 (40); the SEAS5 forecast comes from the Copernicus Climate Data Store via `scripts/cds_t2m.py`
 (needs a `~/.cdsapirc` with the CDS URL, not the EWDS one).
+
+## The heat-and-impact analysis
+
+`pages/heat-and-impact/index.html` is hand-authored HTML with inline SVG figures from
+`scripts/impact_figs.py`, computed by `scripts/impact_analysis.py`. Inputs beyond the ASAP export:
+FAOSTAT production from HDX (`bfa-faostat-crops-livestock-production`), the EM-DAT blob snapshot
+(`ocha_stratus.emdat`), and the team dev database (`aa.cerf_allocation` + `aa.cerf_supplement`,
+`ipc.population`, `fewsnet.classification`); the pulls are one-off queries recorded in the page's
+source note, not scripted here. The impact-season dating table is in the analysis script.
 
 ## Deploy notes
 
