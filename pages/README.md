@@ -17,6 +17,7 @@ manual dispatch.
 | `/biomass-detrended/` | `pages/biomass-detrended/index.html` |
 | `/temperature/` | `pages/temperature/index.html` |
 | `/heat-and-impact/` | `pages/heat-and-impact/index.html` |
+| `/hnrp-2027/` | `pages/hnrp-2027/index.html` (password gate) + `page.enc` (encrypted page); built by `scripts/hnrp_2027/` |
 
 ## Adding a page
 
@@ -63,6 +64,13 @@ FAOSTAT production from HDX (`bfa-faostat-crops-livestock-production`), the EM-D
 (`ocha_stratus.emdat`), and the team dev database (`aa.cerf_allocation` + `aa.cerf_supplement`,
 `ipc.population`, `fewsnet.classification`); the pulls are one-off queries recorded in the page's
 source note, not scripted here. The impact-season dating table is in the analysis script.
+
+## The HNRP 2027 baseline (password-protected)
+
+`pages/hnrp-2027/` holds only a gate page and `page.enc`, the AES-256-GCM-encrypted page
+(PBKDF2-SHA256, 300 000 iterations; decrypted in the browser). The plaintext page, its CSV/XLSX
+downloads and the work files are never committed: build them outside the repo with
+`scripts/hnrp_2027/` (see its README) and copy only the encrypted `page.enc` here.
 
 ## Deploy notes
 

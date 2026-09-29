@@ -1,1 +1,6 @@
 .DS_Store
+scripts/hnrp_2027/work/
+scripts/hnrp_2027/build/
+scripts/hnrp_2027/research/
+scripts/hnrp_2027/gen_page.py
+scripts/hnrp_2027/page_template.html
