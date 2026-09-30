@@ -9,7 +9,7 @@ floods as impact records + descriptive, unranked exposure layers.
     capped at Modere and flagged (zFPARc drifts negative around Ouagadougou 2024-26 while
     biomass does not).
   - Recent = worst year of the per-year index over 2024-2026 (+ which year, + each year).
-  - Structural = number of dry years 2001-2025 (either source below its p20).
+  - Structural = number of dry years 2001-2025 (both sources below their p20).
   - 2026 watch = SPI-3 (dekad 26) <= -1 and/or Jul-Sep temperature anomaly >= +1 C; unscored.
   - FEWS NET = highest phase (and share of population in Phase 3+ units) per year; latest
     projection; assistance ("!") flag. Not combined with the hazard index.
@@ -66,8 +66,9 @@ by["diverge"] = (by.score_bio - by.score_zf).abs() >= 0.5
 by["cat_raw"] = by.idx_hazard.map(cat)
 by["cat_hazard"] = np.where(by.diverge & by.cat_raw.isin(["E", "TE"]), "M", by.cat_raw)
 by.loc[by.idx_hazard.isna(), "cat_hazard"] = None
-by["dry_year"] = ((by.bio_det < A["bio"][0]) | (by.zfparc_det < A["zf"][0])).astype(float)
-by.loc[by.bio_det.isna() & by.zfparc_det.isna(), "dry_year"] = np.nan
+# a dry year needs BOTH products below their 20th percentile (same corroboration logic as the index)
+by["dry_year"] = ((by.bio_det < A["bio"][0]) & (by.zfparc_det < A["zf"][0])).astype(float)
+by.loc[by.bio_det.isna() | by.zfparc_det.isna(), "dry_year"] = np.nan
 
 # realised historical category frequencies (pooled province-years, both sources present)
 hist = by[by.year.between(2001, 2023) & by.idx_hazard.notna()]
@@ -87,7 +88,7 @@ for y in range(WINDOW[0], WINDOW[1] + 1):
         out[f"{c}_{y}"] = wy[c]
 g = w.dropna(subset=["idx_hazard"]).sort_values(["idx_hazard", "year"], ascending=[False, False])
 worst = g.groupby("adm2_pcode").first()
-out["hazard_worst_year"] = worst.year
+out["hazard_worst_year"] = worst.year.where(worst.idx_hazard > 0)  # no "worst year" when the index is 0 all three years
 out["idx_hazard_recent"] = worst.idx_hazard
 out["score_bio_recent"] = worst.score_bio
 out["score_zf_recent"] = worst.score_zf
