@@ -103,9 +103,10 @@ out["dry_years_list"] = st.apply(lambda x: ", ".join(str(y) for y in x.loc[x.dry
 w26 = by[by.year == 2026].set_index("adm2_pcode")
 out["spi3_2026"] = w26.spi3
 out["temp_anom_2026"] = w26.temp_anom
-out["watch_2026"] = np.select(
+# np.select returns a bare array: wrap it on w26's index so it aligns with `out` (ctx row order differs)
+out["watch_2026"] = pd.Series(np.select(
     [(w26.spi3 <= -1) & (w26.temp_anom >= 1), w26.spi3 <= -1, w26.temp_anom >= 1],
-    ["sec+chaud", "sec", "chaud"], default="")
+    ["sec+chaud", "sec", "chaud"], default=""), index=w26.index)
 
 # FEWS NET: worst 2024-2026, latest projection, assistance flag
 fw = w.groupby("adm2_pcode")

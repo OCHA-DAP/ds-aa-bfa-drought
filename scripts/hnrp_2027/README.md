@@ -22,7 +22,12 @@ back here (gitignored) to rebuild.
 - **Corroboration rule**: if the biomass and zFPARc scores differ by ≥ 0.5 the category is capped
   at M and flagged (guards against land-cover drift in either product).
 - Three drought lenses: recent (worst year 2024–2026), structural (dry years 2001–2025, either
-  source < p20), 2026 watch (SPI-3 ≤ −1, Jul–Sep temperature anomaly ≥ +1 °C; unscored).
+  source < p20), 2026 watch (SPI-3 ≤ −1, Jul–Sep temperature anomaly ≥ +1 °C; scored only as signal (b) of the level of concern below).
+- **Level of concern 2026 (v1.1, 21 Oct 2026)**: the OCHA Burkina Faso office's own scoring (three
+  hazard signals, each 0–2, summed: 2026 vegetation category, SPI-3 / Jul–Sep heat, their regional
+  pasture/water coding) recomputed by `level_of_concern.py` with 2026-only vegetation. It counts
+  concurring hazard signals and keeps FEWS NET out, so it does not contradict the no-blended-index
+  rule above. Their coding sits in `work/ocha_bfa_2026-10-20.csv` (blob only).
 - **Floods are not ranked.** Satellite/modelled exposure layers (FloodScan, IMERG, JRC flood zones)
   were validated against EM-DAT province lists and did not discriminate; recorded impacts (CONASUR,
   EM-DAT) are shown instead, exposure layers stay in the files flagged "non validé".
@@ -40,6 +45,7 @@ python build_drought.py $W                     # biomass, zFPARc, SPI-3, tempera
 python build_flood.py $W                       # FloodScan Aug-Oct 5-day peak per year
 python build_context.py $W                     # HNRP 2026, CH Mar 2024, EM-DAT, population
 python consolidate.py $W                       # scores, categories, per-province + per-region tables
+python level_of_concern.py $W                  # level of concern 2026 (needs work/ocha_bfa_2026-10-20.csv)
 python gen_page.py $W build                    # plaintext page + CSV/XLSX (local only!)
 PAGE_PASSWORD=... python encrypt_page.py build/index.html ../../pages/hnrp-2027/page.enc
 ```
