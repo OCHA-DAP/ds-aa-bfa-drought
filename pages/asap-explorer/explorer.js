@@ -27,10 +27,10 @@
     4: "Level 4: poor biomass at the end of the season",
   };
   const LEVEL_NAMES_FR = {
-    1: "Niveau 1 : déficit de précipitations ou de bilan hydrique",
-    2: "Niveau 2 : biomasse faible",
-    3: "Niveau 3 : biomasse faible avec déficit de précipitations ou de bilan hydrique",
-    4: "Niveau 4 : biomasse faible en fin de saison",
+    1: "Niveau 1\u00a0: déficit de précipitations ou de bilan hydrique",
+    2: "Niveau 2\u00a0: biomasse faible",
+    3: "Niveau 3\u00a0: biomasse faible avec déficit de précipitations ou de bilan hydrique",
+    4: "Niveau 4\u00a0: biomasse faible en fin de saison",
   };
   const EXCEPTIONAL_OFFSET = 10;
   const CODE_LEVEL = { 0: 0, 10: 0, 20: 0, 98: -1, 99: -1 };
@@ -155,6 +155,8 @@
     return PART_FR[(dk - 1) % 3] + " décade " + (/^[aeiouy]/.test(name) || name === "août" ? "d’" : "de ") + name;
   }
   function of_(a, b) { return a + t(" of ", " sur ") + b; }
+  // "1 province", "2 provinces"; French also takes the singular after 0
+  function nWord(n, en1, enN, fr1, frN) { return n + " " + (LANG === "fr" ? (n > 1 ? frN : fr1) : (n === 1 ? en1 : enN)); }
 
   const COL = {
     act: "#9d372b", actSoft: "#f2d9d6", base: "#b9c4c5", none: "#eef1f1", ink: "#1f2324",
@@ -308,7 +310,7 @@
       b.classList.toggle("on", on);
     });
     $("types-sum").textContent = (preset ? "Types" : t("Custom", "Personnalisé")) + " (" + of_(ST.codes.length, WARNING_TYPES.length) + ")" +
-                                 (ST.exceptional ? "" : t(", no exceptional", ", sans exceptionnelles"));
+                                 (ST.exceptional ? "" : t(", no exceptional", ", sans conditions exceptionnelles"));
     $("exc").checked = ST.exceptional;
     $("cover").value = ST.cover;
     $("d0").value = ST.d0; $("d1").value = ST.d1;
@@ -318,7 +320,8 @@
     document.querySelectorAll('input[name="nat"]').forEach(function (el) { el.checked = el.value === ST.nat; });
     $("imp").value = ST.imp; $("yt").value = ST.yt;
     document.querySelectorAll(".ytlabel").forEach(function (el) { el.textContent = ST.yt; });
-    $("klabel").textContent = ST.k;
+    $("klabel").textContent = nWord(ST.k, "province", "provinces", "province", "provinces");
+    $("kunit").textContent = ST.k > 1 ? "provinces" : "province";
   }
 
   // ---------------- derived values
@@ -403,8 +406,9 @@
     $("live").setAttribute("data-tip", t(
       sum.k + " of " + sum.n + " seasons reach the threshold; return period " + fmtRp(sum.rp) + "; " + hits.length + " of " + nImp +
         " impact seasons reached",
-      sum.k + " saisons sur " + sum.n + " atteignent le seuil ; période de retour : " + fmtRp(sum.rp) + " ; seuil atteint pour " +
-        hits.length + " saisons avec impact sur " + nImp));
+      nWord(sum.k, "", "", "saison", "saisons") + " sur " + sum.n + (sum.k > 1 ? " atteignent" : " atteint") +
+        " le seuil\u00a0; période de retour\u00a0: " + fmtRp(sum.rp) + "\u00a0; seuil atteint pour " +
+        nWord(hits.length, "", "", "saison", "saisons") + " avec impact sur " + nImp));
     $("tiles").innerHTML = tiles.map(function (t) {
       return '<div class="tile"><div class="tv">' + esc(t.v) + '</div><div class="tl">' + esc(t.l) + "</div></div>";
     }).join("");
@@ -416,16 +420,16 @@
     const mA = mean(yA), mN = mean(yN);
     let s;
     if (LANG === "fr") {
-      s = "<p>Saisons qui atteignent le seuil : <strong>" + list(sum.years) + "</strong>" + provNote +
-          ". Période de retour calculée sur " + sum.n + " saisons avec des données pour toute la période de décades.</p>";
+      s = "<p>Saisons qui atteignent le seuil\u00a0: <strong>" + list(sum.years) + "</strong>" + provNote +
+          ". Période de retour calculée sur " + sum.n + " saisons avec des données pour toute la plage de décades.</p>";
       s += "<p>Saisons avec impact (" + (ST.imp === "alt" ? "libellés du cadre" : "datées par saison de culture") +
-           ") où le seuil est atteint : " + list(hits) + " ; où il n’est pas atteint : " + list(misses) +
-           ". Saisons où le seuil est atteint sans impact de sécheresse enregistré (" + impactRecordYears().join("–") + ") : " + list(fa) + ".</p>";
+           ") où le seuil est atteint\u00a0: " + list(hits) + "\u00a0; où il n’est pas atteint\u00a0: " + list(misses) +
+           ". Saisons où le seuil est atteint sans impact de sécheresse enregistré (" + impactRecordYears().join("–") + ")\u00a0: " + list(fa) + ".</p>";
       s += "<p>" + (ST.nat === "prod" ? "Production" : "Rendement") + " national de mil et de sorgho, " + yr0 + "–" + yr1 + " : " +
            pct(mA) + " par rapport à la tendance en moyenne pour les saisons qui atteignent le seuil (" + yA.length + "), " + pct(mN) +
            " pour les autres (" + yN.length + ").";
       if (met && notMet) {
-        s += " Par province : quand une province était en alerte, son rendement était au moins " + ST.yt +
+        s += " Par province\u00a0: quand une province était en alerte, son rendement était au moins " + ST.yt +
              "% sous la tendance dans " + Math.round(100 * metPoor / met) + "% des cas (" + metPoor + " sur " + met +
              "), contre " + Math.round(100 * notPoor / notMet) + "% quand elle ne l’était pas.";
       }
@@ -497,10 +501,10 @@
   function tipForYear(r, on) {
     const lines = [String(r.year) + (r.year === DATA.meta.years[DATA.meta.years.length - 1] ? t(" (provisional)", " (provisoire)") : "")];
     if (!r.valid) {
-      lines.push(t("No ASAP data for the whole dekad range", "Pas de données ASAP pour toute la période de décades"));
+      lines.push(t("No ASAP data for the whole dekad range", "Pas de données ASAP pour toute la plage de décades"));
     } else {
-      lines.push(r.count + t(" provinces met the condition", " provinces en alerte") +
-                 (on ? t(" (threshold reached by ", " (seuil atteint à ") + dekadLabel(r.metAt[ST.k - 1]) + ")" : ""));
+      lines.push(nWord(r.count, "province met the condition", "provinces met the condition", "province en alerte", "provinces en alerte") +
+                 (on ? t(" (threshold reached by ", " (seuil atteint dès ") + dekadLabel(r.metAt[ST.k - 1]) + ")" : ""));
       const names = DATA.provinces.filter(function (p) { return r.dekadsMet[p.id] >= ST.minDek; }).map(function (p) { return p.name; });
       if (names.length && names.length <= 14) lines.push(names.join(", "));
     }
@@ -520,7 +524,7 @@
     for (let k = 1; k <= nP; k++) { const s = summarise(ROWS, k); stats.push(s); maxK = Math.max(maxK, s.k); }
     const y = function (v) { return padT + (h - padT - padB) * (1 - v / maxK); };
     let s = svgOpen(w, h, t("Number of seasons reaching the threshold, for each count threshold",
-                            "Nombre de saisons qui atteignent le seuil, pour chaque seuil possible"));
+                            "Nombre de saisons qui atteignent le seuil, pour chaque nombre de provinces possible"));
     // band where the return period is 3 to 5 years
     stats.forEach(function (st, i) {
       if (st.rp && st.rp >= 3 && st.rp <= 5) {
@@ -539,8 +543,9 @@
         s += '<rect x="' + (cx - bw / 2) + '" y="' + y(st.k) + '" width="' + bw + '" height="' + (y(0) - y(st.k)) + '" rx="1.5" fill="' +
              (on ? COL.act : COL.base) + '"/>';
       }
-      const tip = t("Threshold " + k + " provinces: " + st.k + " of " + st.n + " seasons, " + fmtRp(st.rp),
-                    "Seuil de " + k + " provinces : " + st.k + " saisons sur " + st.n + ", " + fmtRp(st.rp)) +
+      const tip = t("Threshold " + nWord(k, "province", "provinces") + ": " + st.k + " of " + st.n + " seasons, " + fmtRp(st.rp),
+                    "Seuil de " + nWord(k, "", "", "province", "provinces") + "\u00a0: " + nWord(st.k, "", "", "saison", "saisons") + " sur " +
+                    st.n + ", " + fmtRp(st.rp)) +
                   (st.years.length && st.years.length <= 12 ? "\n" + st.years.join(", ") : "") +
                   t("\nClick to use this threshold", "\nCliquez pour utiliser ce seuil");
       s += '<rect class="hit" data-k="' + k + '" x="' + (padL + i * step) + '" y="' + padT + '" width="' + step + '" height="' +
@@ -627,7 +632,7 @@
           }
           const nDk = ST.d1 - ST.d0 + 1;
           const tip = p.name + " (" + p.region + "), " + r.year + "\n" +
-                      (!r.valid ? t("No ASAP data for the whole dekad range", "Pas de données ASAP pour toute la période de décades") :
+                      (!r.valid ? t("No ASAP data for the whole dekad range", "Pas de données ASAP pour toute la plage de décades") :
                        t("Condition met in " + n + " of " + nDk + " dekads", "En alerte pendant " + n + (n > 1 ? " décades" : " décade") + " sur " + nDk) +
                        (isMet ? "" : n > 0 ? t(" (below the minimum of " + ST.minDek + ")", " (sous le minimum de " + ST.minDek + ")") : "")) +
                       "\n" + levelSummary(p.id, r.year) +
@@ -654,8 +659,8 @@
     const f = function (v) {
       return v > 0 ? t("level ", "niveau ") + v : v === 0 ? t("no warning", "pas d’alerte") : t("off season or not assessed", "hors saison ou non évalué");
     };
-    return t("Highest warning in the range: cropland " + f(hc) + ", rangeland " + f(hr),
-             "Alerte la plus élevée sur la période : zones agricoles " + f(hc) + ", zones de pâturage " + f(hr));
+    return t("Highest ASAP warning in the range: cropland " + f(hc) + ", rangeland " + f(hr),
+             "Alerte ASAP la plus élevée sur la plage\u00a0: zones agricoles " + f(hc) + ", zones de pâturage " + f(hr));
   }
 
   // ---------------- table
@@ -697,13 +702,13 @@
            '<td class="nw">' + (row.impact === "Yes" ? '<span class="tag imp">' + YES + "</span>" : row.impact === "No" ? NO :
              '<span class="muted">' + t("not yet known", "pas encore connu") + "</span>") + "</td>" +
            '<td class="recs">' + recs.map(function (x) {
-             return '<span data-tip="' + esc(recLabel(x) + t("\nRecorded ", "\nDate : ") + recDate(x) + " (" + x.source + " " + x.id + ")") + '">' +
+             return '<span data-tip="' + esc(recLabel(x) + t("\nRecorded ", "\nDate\u00a0: ") + recDate(x) + " (" + x.source + " " + x.id + ")") + '">' +
                     esc(x.short) + "</span>";
            }).join("<br>") + "</td>" +
            "<td>" + (row.framework ? YES : "") + "</td></tr>";
     });
     $("tbody").innerHTML = s;
-    $("th-poor").textContent = t("Provinces with yield " + ST.yt + "%+ below trend", "Provinces avec rendement " + ST.yt + "%+ sous la tendance");
+    $("th-poor").textContent = t("Provinces with yield ≥" + ST.yt + "% below trend", "Provinces avec un rendement ≥" + ST.yt + "% sous la tendance");
   }
 
   function downloadCsv() {
@@ -775,7 +780,7 @@
 
   const TITLES = {
     en: "Burkina Faso drought — ASAP warning explorer for a national trigger",
-    fr: "Burkina Faso sécheresse — explorateur des alertes ASAP pour un déclencheur national",
+    fr: "Sécheresse au Burkina Faso — explorateur des alertes ASAP pour un déclencheur national",
   };
   function staticDynamicText() {
     if (!DATA) return;
@@ -784,7 +789,7 @@
     const lastTxt = dekadLong(lastDk) + " " + last.getUTCFullYear();
     const longMonth = LANG === "fr" ? MONTHS_FR_LONG[last.getUTCMonth()] : MONTHS[last.getUTCMonth()];
     $("vintage").textContent = t("ASAP archive to " + DATA.meta.asap_last_dekad + " (" + lastTxt + "); built " + DATA.meta.built + ".",
-                                 "Archive ASAP jusqu’au " + DATA.meta.asap_last_dekad + " (" + lastTxt + ") ; générée le " + DATA.meta.built + ".");
+                                 "Archive ASAP jusqu’au " + DATA.meta.asap_last_dekad + " (" + lastTxt + ")\u00a0; générée le " + DATA.meta.built + ".");
     document.querySelectorAll(".last-dekad").forEach(function (el) {
       el.textContent = last.getUTCDate() + " " + longMonth + " " + last.getUTCFullYear() + " (" + lastTxt + ")";
     });
@@ -833,8 +838,8 @@
       $("kslider").max = data.provinces.length; $("k").max = data.provinces.length;
       $("app").hidden = false; $("loading").hidden = true;
       update();
-      let t;
-      window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(function () { update(true); }, 150); });
+      let timer;
+      window.addEventListener("resize", function () { clearTimeout(timer); timer = setTimeout(function () { update(true); }, 150); });
     }).catch(function (err) {
       $("loading").textContent = t("Could not load the data (", "Impossible de charger les données (") + err + ").";
     });
