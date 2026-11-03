@@ -133,6 +133,7 @@
   .mapinfo .kv b { white-space: nowrap; font-variant-numeric: tabular-nums; }
   .recs-list { margin: 8px 0 0; padding-left: 18px; font-size: 12.5px; color: var(--n8); }
   .related { font-size: 14px; margin: -4px 0 14px; }
+  #map-section { scroll-margin-top: 100px; } /* clear the sticky settings bar when a chart click scrolls here */
   @media (max-width: 760px) { .mapwrap { grid-template-columns: 1fr; } }
   /* languages: every static text carries both, CSS shows one (team convention, KB docs/I18N.md) */
   html[data-lang="fr"] .lv-en, html:not([data-lang="fr"]) .lv-fr { display: none !important; }
@@ -255,7 +256,7 @@
       <span><i style="background:#ee9a45"></i><span class="lv lv-en">level</span><span class="lv lv-fr">niveau</span> 2</span>
       <span><i style="background:#cf4f2e"></i><span class="lv lv-en">level</span><span class="lv lv-fr">niveau</span> 3</span>
       <span><i style="background:#7c2a1f"></i><span class="lv lv-en">level</span><span class="lv lv-fr">niveau</span> 4</span>
-      <span><i style="background:#fff"></i><span class="lv lv-en">off season or no data</span><span class="lv lv-fr">hors saison ou pas de données</span></span>
+      <span><i style="background:#fff"></i><span class="lv lv-en">off season or not assessed</span><span class="lv lv-fr">hors saison ou non évalué</span></span>
       <span><i class="ol"></i><span class="lv lv-en">counts toward the threshold</span><span class="lv lv-fr">comptée pour le seuil</span></span>
     </div>
     <p class="small" style="margin:6px 0 0"><span class="lv lv-en">Colour: ASAP warning level (<span class="map-cover"></span>). Outline: the
@@ -542,6 +543,6 @@
 
 </div>
 <div id="tip" hidden></div>
-<script src="explorer.js?v=20261104a"></script>
+<script src="explorer.js?v=20261104b"></script>
 </body>
 </html>

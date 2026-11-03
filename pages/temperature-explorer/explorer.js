@@ -610,7 +610,8 @@
                    t("\nMillet and sorghum yield ", "\nRendement mil et sorgho ") + py.kg + " kg/ha, " + pct(py.anom) +
                    t(" from trend", " par rapport à la tendance")) : "");
           s += '<rect class="hit" data-year="' + yr + '" x="' + x + '" y="' + ry + '" width="' + step + '" height="' + rowH +
-               '" fill="transparent" style="cursor:pointer" data-tip="' + esc(tip) + '"/>';
+               '" fill="transparent" style="cursor:pointer" data-tip="' +
+               esc(tip + t("\nClick to show this season on the map", "\nCliquez pour afficher cette saison sur la carte")) + '"/>';
         });
       });
       top += rg.provs.length * rowH + gap;

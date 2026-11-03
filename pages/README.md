@@ -73,7 +73,7 @@ source note, not scripted here. The impact-season dating table is in the analysi
 from `data.json`, which holds every province's dekadal ASAP cropland and rangeland warning codes
 (2001–2026), province millet and sorghum yields from the FEWS NET Data Warehouse, national yield and
 production from FAOSTAT, and the drought impact records (the same dating as the heat-and-impact page).
-To refresh after a new dekad or a new year of crop statistics, download the three inputs listed in the
+To refresh after a new dekad or a new year of crop statistics, download the four inputs listed in the
 docstring of `scripts/asap_explorer/build_data.py`, then:
 
 ```bash

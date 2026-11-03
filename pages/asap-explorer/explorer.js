@@ -501,6 +501,10 @@
     const bw = Math.min(22, X.step * 0.7);
     ROWS.forEach(function (r) {
       const cx = X.x(r.year);
+      if (r.year === ST.year) {
+        s += '<rect x="' + (cx - X.step / 2) + '" y="' + padT + '" width="' + X.step + '" height="' + (h - padT - padB) +
+             '" fill="' + COL.band + '" fill-opacity="0.8"/>';
+      }
       if (!r.valid) {
         s += '<text x="' + cx + '" y="' + (y(0) - 5) + '" text-anchor="middle" class="ax na">' + t("n/a", "n.d.") + "</text>";
       } else {
@@ -513,10 +517,6 @@
         if (on) s += '<text x="' + cx + '" y="' + (top - 4) + '" text-anchor="middle" class="lab">' + r.count + "</text>";
       }
       const tip = tipForYear(r, act.has(r.year));
-      if (r.year === ST.year) {
-        s += '<rect x="' + (cx - X.step / 2) + '" y="' + padT + '" width="' + X.step + '" height="' + (h - padT - padB) +
-             '" fill="' + COL.band + '" fill-opacity="0.8"/>';
-      }
       s += '<rect class="hit" data-year="' + r.year + '" x="' + (cx - X.step / 2) + '" y="' + padT + '" width="' + X.step + '" height="' + (h - padT - 8) +
            '" fill="transparent" style="cursor:pointer" data-tip="' + esc(tip + t("\nClick to show this season on the map", "\nCliquez pour afficher cette saison sur la carte")) + '"/>';
       const lab = (r.year % 5 === 0 || r.year === DATA.meta.years[0] || r.year === last) ? String(r.year) + (r.year === last ? "*" : "") : "";
@@ -682,7 +682,8 @@
                  '" fill="none" stroke="' + COL.ink2 + '" stroke-width="0.8"/>';
           }
           s += '<rect class="hit" data-year="' + r.year + '" x="' + x + '" y="' + ry + '" width="' + step + '" height="' + rowH +
-               '" fill="transparent" style="cursor:pointer" data-tip="' + esc(tip) + '"/>';
+               '" fill="transparent" style="cursor:pointer" data-tip="' +
+               esc(tip + t("\nClick to show this season on the map", "\nCliquez pour afficher cette saison sur la carte")) + '"/>';
         });
       });
       top += rg.provs.length * rowH + gap;
@@ -709,20 +710,18 @@
   function renderMap() {
     const m = DATA.map, yi = DATA.meta.years.indexOf(ST.year), r = ROWS[yi];
     const coverName = { crop: t("cropland", "zones agricoles"), range: t("rangeland", "zones de pâturage"),
-                        or: t("cropland or rangeland, higher of the two", "zones agricoles ou de pâturage, la plus élevée"),
-                        and: t("cropland and rangeland, lower of the two", "zones agricoles et de pâturage, la plus faible") }[ST.cover];
+                        or: t("cropland or rangeland, higher of the two", "zones agricoles ou de pâturage, niveau le plus élevé des deux"),
+                        and: t("cropland and rangeland, lower of the two", "zones agricoles et de pâturage, niveau le plus faible des deux") }[ST.cover];
     let s = '<svg viewBox="-4 -4 ' + (m.width + 8) + " " + (m.height + 8) + '" role="img" aria-label="' +
             esc(t("ASAP warnings by province, ", "Alertes ASAP par province, ") + ST.year) + '">';
     let outlines = "";
     DATA.provinces.forEach(function (p) {
       const d = DEC[p.id];
       let level = -1;
-      if (r.valid || ST.mapDk) {
-        if (ST.mapDk) level = coverLevel(d, yi * 36 + ST.mapDk - 1);
-        else for (let dk = ST.d0; dk <= ST.d1; dk++) level = Math.max(level, coverLevel(d, yi * 36 + dk - 1));
-      }
+      if (ST.mapDk) level = coverLevel(d, yi * 36 + ST.mapDk - 1);
+      else for (let dk = ST.d0; dk <= ST.d1; dk++) level = Math.max(level, coverLevel(d, yi * 36 + dk - 1));
       const n = r.dekadsMet[p.id], counts = r.valid && n >= ST.minDek, nDk = ST.d1 - ST.d0 + 1;
-      const lvTxt = level > 0 ? t("level ", "niveau ") + level : level === 0 ? t("no warning", "pas d’alerte") : t("off season or no data", "hors saison ou pas de données");
+      const lvTxt = level > 0 ? t("level ", "niveau ") + level : level === 0 ? t("no warning", "pas d’alerte") : t("off season or not assessed", "hors saison ou non évalué");
       const tip = p.name + " (" + p.region + "), " + ST.year + (ST.year === DATA.meta.years[DATA.meta.years.length - 1] ? t(" (provisional)", " (provisoire)") : "") +
         "\n" + (ST.mapDk ? t("Dekad ", "Décade ") + ST.mapDk + " (" + dekadLabel(ST.mapDk) + ")" : t("Highest over dekads ", "Plus élevé sur les décades ") + ST.d0 + "–" + ST.d1) +
         " (" + coverName + ")" + t(": ", "\u00a0: ") + lvTxt +
