@@ -36,7 +36,8 @@ What goes into data.json:
         Red sorghum is reported separately in 2001 and from 2008 (in 2002-2007 "Sorghum" is the
         total), and only in some years for some northern provinces.
   - impacts: the drought impact records and their dating to growing seasons, copied from
-    scripts/impact_analysis.py (the heat-and-impact page) so both pages use the same record.
+    scripts/impact_analysis.py (the heat-and-impact page) so both pages use the same record;
+    label_fr / recorded_fr are the French versions shown when the page is in French.
 """
 
 import io
@@ -92,21 +93,21 @@ FDW_ALIASES = {"komondjari": "komandjari", "kouritenga": "kourittenga"}
 # season_main = growing season the record is attributed to on the evidence;
 # season_alt = the season under the framework's own labelling (the year recorded).
 IMPACTS = [
-    {"source": "EM-DAT", "id": "2011-9524", "label": "EM-DAT drought, 2.85M affected (Sahel, Centre-Nord, Est, Centre-Ouest, Centre-Est)",
+    {"source": "EM-DAT", "id": "2011-9524", "label_fr": "EM-DAT : sécheresse, 2.85 millions de personnes affectées (Sahel, Centre-Nord, Est, Centre-Ouest, Centre-Est)", "recorded_fr": "déc. 2011 – 2012", "label": "EM-DAT drought, 2.85M affected (Sahel, Centre-Nord, Est, Centre-Ouest, Centre-Est)",
      "short": "EM-DAT 2.85M", "recorded": "Dec 2011 – 2012", "season_main": 2011, "season_alt": 2011},
-    {"source": "CERF", "id": "12-RR-BFA-13236", "label": "CERF rapid response, drought, $9.2M",
+    {"source": "CERF", "id": "12-RR-BFA-13236", "label_fr": "CERF réponse rapide, sécheresse, $9.2M", "recorded_fr": "2012", "label": "CERF rapid response, drought, $9.2M",
      "short": "CERF $9.2M", "recorded": "2012", "season_main": 2011, "season_alt": 2011},
-    {"source": "EM-DAT", "id": "2014-9196", "label": "EM-DAT drought, 4.0M affected (Sahel)",
+    {"source": "EM-DAT", "id": "2014-9196", "label_fr": "EM-DAT : sécheresse, 4.0 millions de personnes affectées (Sahel)", "recorded_fr": "mai 2014", "label": "EM-DAT drought, 4.0M affected (Sahel)",
      "short": "EM-DAT 4.0M", "recorded": "May 2014", "season_main": 2013, "season_alt": 2014},
-    {"source": "CERF", "id": "14-UFE-BFA-10955", "label": "CERF underfunded emergencies, drought, $3.9M",
+    {"source": "CERF", "id": "14-UFE-BFA-10955", "label_fr": "CERF urgences sous-financées, sécheresse, $3.9M", "recorded_fr": "août 2014", "label": "CERF underfunded emergencies, drought, $3.9M",
      "short": "CERF $3.9M", "recorded": "Aug 2014", "season_main": 2013, "season_alt": 2014},
-    {"source": "CERF", "id": "18-RR-BFA-30726", "label": "CERF rapid response, drought and pastoral crisis, $9.0M",
+    {"source": "CERF", "id": "18-RR-BFA-30726", "label_fr": "CERF réponse rapide, sécheresse et crise pastorale, $9.0M", "recorded_fr": "mai 2018", "label": "CERF rapid response, drought and pastoral crisis, $9.0M",
      "short": "CERF $9.0M", "recorded": "May 2018", "season_main": 2017, "season_alt": 2017},
-    {"source": "EM-DAT", "id": "2020-9235", "label": "EM-DAT drought, 2.9M affected (all regions)",
+    {"source": "EM-DAT", "id": "2020-9235", "label_fr": "EM-DAT : sécheresse, 2.9 millions de personnes affectées (toutes les régions)", "recorded_fr": "janv. – juin 2020", "label": "EM-DAT drought, 2.9M affected (all regions)",
      "short": "EM-DAT 2.9M", "recorded": "Jan – Jun 2020", "season_main": 2019, "season_alt": 2019},
-    {"source": "EM-DAT", "id": "2022-9781", "label": "EM-DAT drought, 3.5M affected",
+    {"source": "EM-DAT", "id": "2022-9781", "label_fr": "EM-DAT : sécheresse, 3.5 millions de personnes affectées", "recorded_fr": "jusqu’à nov. 2022", "label": "EM-DAT drought, 3.5M affected",
      "short": "EM-DAT 3.5M", "recorded": "to Nov 2022", "season_main": 2021, "season_alt": 2022},
-    {"source": "CERF", "id": "22-RR-BFA-53665", "label": "CERF rapid response, food insecurity (lean season), $6.0M",
+    {"source": "CERF", "id": "22-RR-BFA-53665", "label_fr": "CERF réponse rapide, insécurité alimentaire (période de soudure), $6.0M", "recorded_fr": "mai 2022", "label": "CERF rapid response, food insecurity (lean season), $6.0M",
      "short": "CERF $6.0M", "recorded": "May 2022", "season_main": 2021, "season_alt": 2022},
 ]
 FRAMEWORK_YEARS = [2011, 2014, 2017, 2019, 2022]  # target years of the 2026 trigger analysis

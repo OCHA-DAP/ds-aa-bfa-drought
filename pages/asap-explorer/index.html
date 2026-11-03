@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Burkina Faso drought — ASAP warning explorer for a national trigger</title>
-<meta name="description" content="Interactive tool to test national-level observational drought trigger rules built on JRC ASAP warnings for Burkina Faso's 45 provinces, 2001–2026, compared with millet and sorghum yields and recorded drought impacts.">
+<meta name="description" content="Interactive tool to test national-level observational drought trigger rules built on JRC ASAP warnings for Burkina Faso's 45 provinces, 2001–2026, compared with millet and sorghum yields and recorded drought impacts. In English and French.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
   .panel { position: sticky; top: 0; z-index: 20; background: #fff; border: 1px solid var(--n15); border-radius: 6px;
     padding: 8px 12px; margin: 16px 0 10px; font-size: 13px; transition: box-shadow .15s; }
   .panel.stuck { border-radius: 0 0 6px 6px; border-top-color: transparent; box-shadow: 0 6px 18px rgba(31,35,36,.12); }
-  .bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
+  .bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 11px; }
   .bar + .bar { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--n1); }
   .grp { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
   .lb { font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--n7); }
@@ -48,7 +48,7 @@
   button.on { background: var(--b6); border-color: var(--b6); color: #fff; position: relative; }
   select, input[type=number] { font: 400 13px 'Roboto', system-ui, sans-serif; padding: 3px 4px; border: 1px solid var(--n15); border-radius: 4px; background: #fff; }
   input[type=number] { width: 52px; }
-  input[type=range] { width: 84px; accent-color: var(--e6); margin: 0; }
+  input[type=range] { width: 64px; accent-color: var(--e6); margin: 0; }
   details.pop { position: relative; }
   details.pop summary { list-style: none; cursor: pointer; font-weight: 500; color: var(--b7); padding: 4px 9px;
     border: 1px solid var(--b1); border-radius: 4px; background: #fff; }
@@ -63,7 +63,7 @@
   fieldset.lvl legend { font-size: 12px; font-weight: 500; color: var(--n8); padding: 0 4px; }
   fieldset.lvl label { display: block; font-size: 13px; line-height: 1.65; }
   .pop-body .exc { display: block; margin-top: 8px; font-size: 12.5px; color: var(--n8); }
-  .live { margin-left: auto; font-size: 12.5px; color: var(--n8); white-space: nowrap; }
+  .live { margin-left: auto; font-size: 12px; color: var(--n8); white-space: nowrap; }
   .live b { color: var(--n9); }
   #empty { color: var(--e7); font-weight: 500; margin: 6px 0 0; }
   @media (max-width: 760px) { .panel { position: static; } .pop-body { width: 92vw; } #levels { grid-template-columns: 1fr; } .live { margin-left: 0; } }
@@ -113,143 +113,197 @@
   code { background: var(--n1); padding: 1px 5px; border-radius: 3px; font-size: 12.5px; }
   .notes table { font-size: 13px; }
   @media (max-width: 640px) { h1 { font-size: 22px; } }
+
+  /* languages: every static text carries both, CSS shows one (team convention, KB docs/I18N.md) */
+  html[data-lang="fr"] .lv-en, html:not([data-lang="fr"]) .lv-fr { display: none !important; }
+  .topline { display: flex; justify-content: space-between; align-items: center; max-width: 1112px; margin: 0 auto; padding-right: 16px; }
+  .aa-lang { display: inline-flex; border: 1px solid var(--b1); border-radius: 6px; overflow: hidden; }
+  .aa-lang button { border: none; border-radius: 0; background: #fff; color: var(--b7); font-size: 12px; font-weight: 700; padding: 5px 10px; }
+  .aa-lang button:hover { background: var(--b05); }
+  .aa-lang button.on { background: var(--b6); color: #fff; }
 </style>
 </head>
 <body>
 <!-- back to the site landing page — first element inside body -->
-<a class="home-link" href="../">← Burkina Faso drought AA</a>
+<div class="topline"><a class="home-link" href="../"><span class="lv lv-en">← Burkina Faso drought AA</span><span class="lv lv-fr">← Action anticipatoire sécheresse, Burkina Faso</span></a>
+  <span class="aa-lang" role="group" aria-label="Language / Langue"><button type="button" data-l="en" class="on">EN</button><button type="button" data-l="fr">FR</button></span></div>
 <div class="wrap">
 
-<h1>ASAP warning explorer for a national drought trigger</h1>
-<p class="sub">This tool tests rules for a national, observational drought trigger based on the JRC ASAP
+<h1><span class="lv lv-en">ASAP warning explorer for a national drought trigger</span><span class="lv lv-fr">Explorateur des alertes ASAP pour un déclencheur national de sécheresse</span></h1>
+<p class="sub lv lv-en">This tool tests rules for a national, observational drought trigger based on the JRC ASAP
   warnings for Burkina Faso's 45 provinces. Choose which warnings count, the dekads to look at, and whether
   cropland, rangeland or both must be affected. For every season since 2001 the tool counts how many provinces
   met that condition, marks the seasons in which the count reaches the threshold you set, and compares those
   seasons with millet and sorghum yields and with recorded drought impacts. The table at the end gives one row per
   season.</p>
+<p class="sub lv lv-fr">Cet outil permet de tester des règles pour un déclencheur observationnel national de sécheresse
+  fondé sur les alertes ASAP du JRC pour les 45 provinces du Burkina Faso. Choisissez les alertes prises en compte, les
+  décades à examiner, et si les zones agricoles, les zones de pâturage ou les deux doivent être concernées. Pour chaque
+  saison depuis 2001, l’outil compte le nombre de provinces en alerte, indique les saisons où ce nombre atteint le seuil
+  choisi, et compare ces saisons aux rendements du mil et du sorgho et aux impacts de sécheresse enregistrés. Le tableau
+  final donne une ligne par saison.</p>
 
 <div class="callout warn">
-  <p><strong>2026 is provisional.</strong> ASAP revises recent dekads after first publication, and the archive used
-    here ends on <span id="last-dekad">its last available dekad</span>. Seasons without ASAP data for the whole dekad
-    range selected are left out of the counts (the archive starts on 21 May 2001).</p>
+  <p class="lv lv-en"><strong>2026 is provisional.</strong> ASAP revises recent dekads after first publication, and the
+    archive used here ends on <span class="last-dekad"></span>. Seasons without ASAP data for the whole dekad range
+    selected are left out of the counts (the archive starts on 21 May 2001).</p>
+  <p class="lv lv-fr"><strong>2026 est provisoire.</strong> ASAP révise les décades récentes après leur première
+    publication, et l’archive utilisée ici s’arrête au <span class="last-dekad"></span>. Les saisons sans données ASAP
+    pour toute la plage de décades choisie sont exclues des calculs (l’archive commence le 21 mai 2001).</p>
 </div>
 
-<p id="loading">Loading data…</p>
+<p id="loading"><span class="lv lv-en">Loading data…</span><span class="lv lv-fr">Chargement des données…</span></p>
 <div id="app" hidden>
 
 <div id="panel-top"></div>
-<section class="panel" id="panel" aria-label="Trigger settings">
+<section class="panel" id="panel" aria-label="Trigger settings" data-aria-fr="Paramètres du déclencheur">
   <div class="bar">
-    <div class="grp"><span class="lb" data-tip="Which ASAP warnings count. The buttons select whole levels; the menu lets you pick the indicator combinations within each level.">Warnings</span>
+    <div class="grp"><span class="lb" data-tip="Which ASAP warnings count. The buttons select whole levels; the menu lets you pick the indicator combinations within each level."
+        data-tip-fr="Alertes ASAP prises en compte. Les boutons sélectionnent des niveaux entiers&nbsp;; le menu permet de choisir les combinaisons d’indicateurs de chaque niveau."><span class="lv lv-en">Warnings</span><span class="lv lv-fr">Alertes</span></span>
       <div class="seg" id="presets"></div>
       <details class="pop" id="types"><summary id="types-sum">Types</summary>
         <div class="pop-body">
           <div id="levels"></div>
-          <label class="exc"><input type="checkbox" id="exc"> Include the same warnings when part of the area also has
-            exceptionally good biomass (ASAP: "with exceptional conditions"; grouped with the plain warnings of the same level)</label>
+          <label class="exc"><input type="checkbox" id="exc"> <span class="lv lv-en">Include the same warnings when part of the area also has
+            exceptionally good biomass (ASAP: "with exceptional conditions"; grouped with the plain warnings of the same level)</span><span class="lv lv-fr">Inclure
+            ces alertes quand une partie de la zone présente aussi une biomasse exceptionnellement bonne (ASAP&nbsp;: «&nbsp;with exceptional
+            conditions&nbsp;»&nbsp;; regroupées avec les alertes du même niveau)</span></label>
         </div>
       </details>
     </div>
-    <div class="grp"><span class="lb" data-tip="Whether the warning has to be on cropland, rangeland, either, or both. &quot;And&quot; requires both in the same dekad.">Land cover</span>
-      <select id="cover" aria-label="Land cover">
-        <option value="crop">Cropland</option>
-        <option value="range">Rangeland</option>
-        <option value="or">Cropland or rangeland</option>
-        <option value="and">Cropland and rangeland</option>
+    <div class="grp"><span class="lb" data-tip="Whether the warning has to be on cropland, rangeland, either, or both. &quot;And&quot; requires both in the same dekad."
+        data-tip-fr="Si l’alerte doit concerner les zones agricoles, les zones de pâturage, l’une ou l’autre, ou les deux. «&nbsp;Et&nbsp;» exige les deux dans la même décade."><span class="lv lv-en">Land cover</span><span class="lv lv-fr">Zones</span></span>
+      <select id="cover" aria-label="Land cover" data-aria-fr="Zones">
+        <option value="crop" data-fr="Zones agricoles">Cropland</option>
+        <option value="range" data-fr="Zones de pâturage">Rangeland</option>
+        <option value="or" data-fr="Agricoles ou pâturage">Cropland or rangeland</option>
+        <option value="and" data-fr="Agricoles et pâturage">Cropland and rangeland</option>
       </select></div>
-    <div class="grp"><span class="lb" data-tip="Dekads of the season to look at (1st, 2nd or 3rd ten days of each month).">Dekads</span>
-      <select id="d0" aria-label="First dekad"></select>–<select id="d1" aria-label="Last dekad"></select></div>
-    <div class="grp"><span class="lb" data-tip="A province counts for a season when it meets the condition in at least this many dekads of the range (not necessarily consecutive).">Min. dekads</span>
-      <input type="number" id="mindek" min="1" max="36" step="1" aria-label="Minimum dekads per province"></div>
+    <div class="grp"><span class="lb" data-tip="Dekads of the season to look at (1st, 2nd or 3rd ten days of each month)."
+        data-tip-fr="Décades de la saison à examiner (1re, 2e ou 3e dizaine de jours de chaque mois)."><span class="lv lv-en">Dekads</span><span class="lv lv-fr">Décades</span></span>
+      <select id="d0" aria-label="First dekad" data-aria-fr="Première décade"></select>–<select id="d1" aria-label="Last dekad" data-aria-fr="Dernière décade"></select></div>
+    <div class="grp"><span class="lb" data-tip="A province counts for a season when it meets the condition in at least this many dekads of the range (not necessarily consecutive)."
+        data-tip-fr="Une province est comptée pour une saison si elle est en alerte pendant au moins ce nombre de décades de la période (pas forcément consécutives)."><span class="lv lv-en">Min. dekads</span><span class="lv lv-fr">Décades min.</span></span>
+      <input type="number" id="mindek" min="1" max="36" step="1" aria-label="Minimum dekads per province" data-aria-fr="Nombre minimum de décades par province"></div>
   </div>
   <div class="bar">
-    <div class="grp"><span class="lb" data-tip="A season reaches the threshold when at least this many provinces meet the condition.">Threshold</span>
-      <input type="range" id="kslider" min="1" max="45" step="1" aria-label="Count threshold">
-      <input type="number" id="k" min="1" max="45" step="1" aria-label="Count threshold"> provinces
-      <button type="button" id="suggest" data-tip="Set the threshold whose return period is closest to 4 years for the current settings.">1 in 4 yrs</button></div>
-    <div class="grp"><span class="lb" data-tip="How impact records are attributed to seasons. Growing season: 2011, 2013, 2017, 2019, 2021. Framework labelling: 2011, 2014, 2017, 2019, 2022. See &quot;Drought impact records&quot; below.">Impact years</span>
-      <select id="imp" aria-label="Impact seasons">
-        <option value="main">Growing season</option>
-        <option value="alt">Framework labels</option>
+    <div class="grp"><span class="lb" data-tip="A season reaches the threshold when at least this many provinces meet the condition."
+        data-tip-fr="Une saison atteint le seuil quand au moins ce nombre de provinces sont en alerte."><span class="lv lv-en">Threshold</span><span class="lv lv-fr">Seuil</span></span>
+      <input type="range" id="kslider" min="1" max="45" step="1" aria-label="Count threshold" data-aria-fr="Seuil (nombre de provinces)">
+      <input type="number" id="k" min="1" max="45" step="1" aria-label="Count threshold" data-aria-fr="Seuil (nombre de provinces)"> <span id="kunit">provinces</span>
+      <button type="button" id="suggest" data-tip="Set the threshold whose return period is closest to 4 years for the current settings."
+        data-tip-fr="Choisir le seuil dont la période de retour est la plus proche de 4 ans pour les paramètres actuels."><span class="lv lv-en">1 in 4 yrs</span><span class="lv lv-fr">1 an sur 4</span></button></div>
+    <div class="grp"><span class="lb" data-tip="How impact records are attributed to seasons. Growing season: 2011, 2013, 2017, 2019, 2021. Framework labelling: 2011, 2014, 2017, 2019, 2022. See &quot;Drought impact records&quot; below."
+        data-tip-fr="Comment les impacts enregistrés sont rattachés aux saisons. Saison de culture&nbsp;: 2011, 2013, 2017, 2019, 2021. Libellés du cadre&nbsp;: 2011, 2014, 2017, 2019, 2022. Voir «&nbsp;Impacts de sécheresse enregistrés&nbsp;» plus bas."><span class="lv lv-en">Impact years</span><span class="lv lv-fr">Impacts</span></span>
+      <select id="imp" aria-label="Impact seasons" data-aria-fr="Saisons avec impact">
+        <option value="main" data-fr="Saison de culture">Growing season</option>
+        <option value="alt" data-fr="Libellés du cadre">Framework labels</option>
       </select></div>
-    <div class="grp"><span class="lb" data-tip="Millet and sorghum yield, per province, used in the province chart and the table.">Poor yield</span>
-      <select id="yt" aria-label="Poor-yield province">
-        <option value="10">≥10% below trend</option>
-        <option value="15">≥15% below trend</option>
-        <option value="20">≥20% below trend</option>
-        <option value="25">≥25% below trend</option>
-        <option value="30">≥30% below trend</option>
+    <div class="grp"><span class="lb" data-tip="Millet and sorghum yield, per province, used in the province chart and the table."
+        data-tip-fr="Rendement du mil et du sorgho par province, utilisé dans le graphique par province et dans le tableau."><span class="lv lv-en">Poor yield</span><span class="lv lv-fr">Rendement</span></span>
+      <select id="yt" aria-label="Poor-yield province" data-aria-fr="Province à rendement faible">
+        <option value="10" data-fr="≥10% sous la tendance">≥10% below trend</option>
+        <option value="15" data-fr="≥15% sous la tendance">≥15% below trend</option>
+        <option value="20" data-fr="≥20% sous la tendance">≥20% below trend</option>
+        <option value="25" data-fr="≥25% sous la tendance">≥25% below trend</option>
+        <option value="30" data-fr="≥30% sous la tendance">≥30% below trend</option>
       </select></div>
     <div class="live" id="live" aria-live="polite"></div>
   </div>
-  <p id="empty" hidden>No warning type selected: open "Types" and tick at least one box.</p>
+  <p id="empty" hidden><span class="lv lv-en">No warning type selected: open "Types" and tick at least one box.</span><span class="lv lv-fr">Aucun type d’alerte sélectionné&nbsp;: ouvrez «&nbsp;Types&nbsp;» et cochez au moins une case.</span></p>
 </section>
 
-<h2 id="results">Results for these settings</h2>
+<h2 id="results"><span class="lv lv-en">Results for these settings</span><span class="lv lv-fr">Résultats pour ces paramètres</span></h2>
 <div class="tiles" id="tiles"></div>
 <div id="summary"></div>
 
 <figure>
-  <div class="legend"><span><i style="background:#9d372b"></i>threshold reached</span><span><i style="background:#b9c4c5"></i>below threshold</span>
-    <span><i class="dash"></i>count threshold (<b id="klabel"></b> provinces)</span><span><i class="dia"></i>impact season</span></div>
+  <div class="legend"><span><i style="background:#9d372b"></i><span class="lv lv-en">threshold reached</span><span class="lv lv-fr">seuil atteint</span></span>
+    <span><i style="background:#b9c4c5"></i><span class="lv lv-en">below threshold</span><span class="lv lv-fr">sous le seuil</span></span>
+    <span><i class="dash"></i><span class="lv lv-en">count threshold</span><span class="lv lv-fr">seuil</span> (<b id="klabel"></b>)</span>
+    <span><i class="dia"></i><span class="lv lv-en">impact season</span><span class="lv lv-fr">saison avec impact</span></span></div>
   <div class="chart" id="chart-counts"></div>
-  <figcaption>Number of provinces meeting the warning condition in each season. "n/a": no ASAP data for the whole
-    dekad range. *2026 provisional. Hover over a season for the provinces, the dekad the threshold was reached, the
-    national yield and the impact records.</figcaption>
+  <figcaption><span class="lv lv-en">Number of provinces meeting the warning condition in each season. "n/a": no ASAP data for the
+    whole dekad range. *2026 provisional. Hover over a season for the provinces, the dekad the threshold was reached, the
+    national yield and the impact records.</span><span class="lv lv-fr">Nombre de provinces en alerte à chaque saison.
+    «&nbsp;n.d.&nbsp;»&nbsp;: pas de données ASAP pour toute la plage de décades. *2026 provisoire. Survolez une saison pour voir les
+    provinces, la décade à laquelle le seuil a été atteint, le rendement national et les impacts enregistrés.</span></figcaption>
 </figure>
 
 <figure>
-  <div class="legend"><span><i style="background:#9d372b"></i>current threshold</span><span><i style="background:#e9f5f1;border:1px solid #d4eae4"></i>return period between 3 and 5 years</span></div>
+  <div class="legend"><span><i style="background:#9d372b"></i><span class="lv lv-en">current threshold</span><span class="lv lv-fr">seuil actuel</span></span>
+    <span><i style="background:#e9f5f1;border:1px solid #d4eae4"></i><span class="lv lv-en">return period between 3 and 5 years</span><span class="lv lv-fr">période de retour entre 3 et 5 ans</span></span></div>
   <div class="chart" id="krp"></div>
-  <figcaption>Number of seasons that reach the threshold, for every possible count threshold with the other settings
-    unchanged. Click a bar to use that threshold. Return period = (seasons with data + 1) ÷ seasons reaching the
-    threshold.</figcaption>
+  <figcaption><span class="lv lv-en">Number of seasons that reach the threshold, for every possible count threshold with the other
+    settings unchanged. Click a bar to use that threshold. Return period = (seasons with data + 1) ÷ seasons reaching the
+    threshold.</span><span class="lv lv-fr">Nombre de saisons qui atteignent le seuil, pour chaque nombre de provinces possible,
+    les autres paramètres restant inchangés. Cliquez sur une barre pour utiliser ce seuil. Période de retour = (saisons avec données + 1)
+    ÷ saisons qui atteignent le seuil.</span></figcaption>
 </figure>
 
-<h2 id="yield">Comparison with yield and production</h2>
+<h2 id="yield"><span class="lv lv-en">Comparison with yield and production</span><span class="lv lv-fr">Comparaison avec le rendement et la production</span></h2>
 <figure>
-  <div class="legend"><span class="radios"><label><input type="radio" name="nat" value="yield"> Yield</label>
+  <div class="legend"><span class="radios"><label><input type="radio" name="nat" value="yield"> <span class="lv lv-en">Yield</span><span class="lv lv-fr">Rendement</span></label>
     <label><input type="radio" name="nat" value="prod"> Production</label></span>
-    <span><i style="background:#9d372b"></i>threshold reached</span><span><i style="background:#b9c4c5"></i>threshold not reached</span></div>
+    <span><i style="background:#9d372b"></i><span class="lv lv-en">threshold reached</span><span class="lv lv-fr">seuil atteint</span></span>
+    <span><i style="background:#b9c4c5"></i><span class="lv lv-en">threshold not reached</span><span class="lv lv-fr">seuil non atteint</span></span></div>
   <div class="chart" id="chart-yield"></div>
-  <figcaption>National millet and sorghum yield or production (FAOSTAT), percentage above or below its 2001–2023
-    trend. FAOSTAT yield is production per area harvested, so fields that failed completely lower production but
-    not yield: in 2004, for example, yield was close to trend while production was 11% below it. FAOSTAT figures for
-    2024 are estimates and are not shown. Hover for both values.</figcaption>
+  <figcaption><span class="lv lv-en">National millet and sorghum yield or production (FAOSTAT), percentage above or below its
+    2001–2023 trend. FAOSTAT yield is production per area harvested, so fields that failed completely lower production but
+    not yield: in 2004, for example, yield was close to trend while production was 11% below it. FAOSTAT figures for 2024
+    are estimates and are not shown. Hover for both values.</span><span class="lv lv-fr">Rendement ou production nationale
+    de mil et de sorgho (FAOSTAT), en pourcentage au-dessus ou au-dessous de la tendance 2001–2023. Le rendement FAOSTAT est
+    la production par superficie récoltée&nbsp;: les champs complètement perdus réduisent la production mais pas le rendement.
+    En 2004 par exemple, le rendement était proche de la tendance alors que la production était 11% en dessous. Les chiffres
+    FAOSTAT de 2024 sont des estimations et ne sont pas affichés. Survolez pour voir les deux valeurs.</span></figcaption>
 </figure>
 
 <figure>
-  <div class="legend"><span><i style="background:#9d372b"></i>province meets the condition</span>
-    <span><i style="background:#f2d9d6"></i>condition met in fewer dekads than the minimum</span>
-    <span><i style="background:#eef1f1"></i>not met</span>
-    <span><i class="dot"></i>millet and sorghum yield at least <b id="ytlabel"></b>% below the province's trend</span></div>
+  <div class="legend"><span><i style="background:#9d372b"></i><span class="lv lv-en">province meets the condition</span><span class="lv lv-fr">province en alerte</span></span>
+    <span><i style="background:#f2d9d6"></i><span class="lv lv-en">condition met in fewer dekads than the minimum</span><span class="lv lv-fr">en alerte pendant moins de décades que le minimum</span></span>
+    <span><i style="background:#eef1f1"></i><span class="lv lv-en">not met</span><span class="lv lv-fr">pas d’alerte</span></span>
+    <span><i class="dot"></i><span class="lv lv-en">millet and sorghum yield at least <b class="ytlabel"></b>% below the province's trend</span><span class="lv lv-fr">rendement mil et sorgho au moins <b class="ytlabel"></b>% sous la tendance de la province</span></span></div>
   <div class="chart" id="chart-grid"></div>
-  <figcaption>Each province and season, regions ordered roughly north to south. Province yield statistics are noisier
-    than the national series, with some implausible single values; treat single dots with care.</figcaption>
+  <figcaption><span class="lv lv-en">Each province and season, regions ordered roughly north to south. Province yield statistics
+    are noisier than the national series, with some implausible single values; treat single dots with care.</span><span class="lv lv-fr">Chaque
+    province et chaque saison, régions classées à peu près du nord au sud. Les statistiques de rendement par province sont plus
+    bruitées que la série nationale, avec quelques valeurs isolées peu plausibles&nbsp;; interprétez les points isolés avec prudence.</span></figcaption>
 </figure>
 
-<h2 id="table">Season by season</h2>
-<p>One row per season with the result for the current settings, yields, and recorded drought impacts. Seasons
-  reaching the threshold are shaded. <button type="button" id="csv">Download as CSV</button></p>
+<h2 id="table"><span class="lv lv-en">Season by season</span><span class="lv lv-fr">Saison par saison</span></h2>
+<p><span class="lv lv-en">One row per season with the result for the current settings, yields, and recorded drought impacts.
+  Seasons reaching the threshold are shaded.</span><span class="lv lv-fr">Une ligne par saison avec le résultat pour les
+  paramètres actuels, les rendements et les impacts de sécheresse enregistrés. Les saisons qui atteignent le seuil sont
+  surlignées.</span> <button type="button" id="csv"><span class="lv lv-en">Download as CSV</span><span class="lv lv-fr">Télécharger en CSV</span></button></p>
 <div class="tblwrap">
 <table>
   <thead><tr>
-    <th>Season</th><th class="num">Provinces meeting the condition</th><th>Threshold reached, by dekad</th>
-    <th class="num">National yield, kg/ha</th><th class="num">Yield vs trend</th><th class="num">Production vs trend</th>
-    <th class="num" id="th-poor">Provinces with poor yield</th><th>Impact season</th><th>Impact records</th>
-    <th>Framework target year</th>
+    <th><span class="lv lv-en">Season</span><span class="lv lv-fr">Saison</span></th>
+    <th class="num"><span class="lv lv-en">Provinces meeting the condition</span><span class="lv lv-fr">Provinces en alerte</span></th>
+    <th><span class="lv lv-en">Threshold reached, by dekad</span><span class="lv lv-fr">Seuil atteint, décade</span></th>
+    <th class="num"><span class="lv lv-en">National yield, kg/ha</span><span class="lv lv-fr">Rendement national, kg/ha</span></th>
+    <th class="num"><span class="lv lv-en">Yield vs trend</span><span class="lv lv-fr">Rendement, écart à la tendance</span></th>
+    <th class="num"><span class="lv lv-en">Production vs trend</span><span class="lv lv-fr">Production, écart à la tendance</span></th>
+    <th class="num" id="th-poor">Provinces with poor yield</th>
+    <th><span class="lv lv-en">Impact season</span><span class="lv lv-fr">Saison avec impact</span></th>
+    <th><span class="lv lv-en">Impact records</span><span class="lv lv-fr">Impacts enregistrés</span></th>
+    <th><span class="lv lv-en">Framework target year</span><span class="lv lv-fr">Année cible du cadre</span></th>
   </tr></thead>
   <tbody id="tbody"></tbody>
 </table>
 </div>
-<p class="muted" style="font-size:13px">National yield and production: millet and sorghum, FAOSTAT. Provinces with poor
+<p class="muted lv lv-en" style="font-size:13px">National yield and production: millet and sorghum, FAOSTAT. Provinces with poor
   yield: FEWS NET province statistics ("of n" where some provinces have no complete statistics). Impact records are
   listed under the season they are attributed to with the dating chosen above; hover a record for details. *2026
-  provisional.</p>
+  provisional. The CSV download keeps English column names and values.</p>
+<p class="muted lv lv-fr" style="font-size:13px">Rendement et production nationaux&nbsp;: mil et sorgho, FAOSTAT. Provinces avec
+  rendement faible&nbsp;: statistiques provinciales FEWS NET («&nbsp;sur n&nbsp;» quand certaines provinces n’ont pas de statistiques
+  complètes). Les impacts sont listés sous la saison à laquelle ils sont rattachés selon la datation choisie&nbsp;; survolez un
+  impact pour le détail. *2026 provisoire. Le fichier CSV garde les noms de colonnes et les valeurs en anglais.</p>
 
 </div><!-- #app -->
 
-<div class="notes">
+<div class="notes lv lv-en">
 <h2 id="method">How the count is made</h2>
 <ol>
   <li>Each dekad, ASAP gives every province one warning for cropland and one for rangeland. A province meets the
@@ -296,8 +350,8 @@
     <a href="https://fews.net/data">FEWS NET Data Warehouse</a>: rainfed millet and sorghum (white and red), production
     divided by area planted, 2001–2023. Province-years without both millet and sorghum figures are left empty (Bam,
     Namentenga and Sanmatenga in 2008). Red sorghum is reported separately in 2001 and from 2008 (for 2002–2007 the
-    sorghum figure is the total), and in some northern provinces only in some years. The province figures do not always add up to the national totals, so they are used
-    only for the province comparison.</li>
+    sorghum figure is the total), and in some northern provinces only in some years. The province figures do not always
+    add up to the national totals, so they are used only for the province comparison.</li>
   <li><strong>Trends:</strong> each yield or production series is compared with a straight-line trend fitted over
     2001–2023 (Theil–Sen, which is not pulled by single extreme values); the anomaly is the percentage above or below
     it.</li>
@@ -325,19 +379,107 @@
 <p>The framework target years (2011, 2014, 2017, 2019, 2022) come from the 2026 trigger analysis. The EM-DAT and CERF
   records used here run to 2024. A failed season shows up in the following lean season, so with the growing-season
   dating the last season that can be scored is 2023; with the framework labelling it is 2024. Later seasons show "not
-  yet known" in the table and are not counted as misses or as seasons without impact. Not used: the EM-DAT drought of April 2001 in Plateau Central (no figures; it
-  follows the 2000 season), CERF underfunded-window drought allocations of 2006–2009 (yearly, chronic needs), and
-  Cadre Harmonisé figures (national series from 2020 only, driven by the conflict). From 2019 onwards, the security
-  crisis affects both the impact records and the agricultural statistics.</p>
+  yet known" in the table and are not counted as misses or as seasons without impact. Not used: the EM-DAT drought of
+  April 2001 in Plateau Central (no figures; it follows the 2000 season), CERF underfunded-window drought allocations of
+  2006–2009 (yearly, chronic needs), and Cadre Harmonisé figures (national series from 2020 only, driven by the
+  conflict). From 2019 onwards, the security crisis affects both the impact records and the agricultural statistics.</p>
 </div>
 
-<p class="meta"><span id="vintage"></span> Sources: JRC ASAP (agricultural-production-hotspots.ec.europa.eu), FAOSTAT,
-  FEWS NET Data Warehouse, EM-DAT (CRED/UCLouvain), CERF allocation records. Code:
+<div class="notes lv lv-fr">
+<h2 id="methode">Méthode de comptage</h2>
+<ol>
+  <li>À chaque décade, ASAP attribue à chaque province une alerte pour les zones agricoles et une pour les zones de
+    pâturage. Une province est en alerte pour une décade quand cette alerte fait partie des types cochés, pour les zones
+    agricoles, les zones de pâturage, l’une ou l’autre, ou les deux, selon le choix.</li>
+  <li>Une province est comptée pour une saison quand elle est en alerte pendant au moins le nombre minimum de décades de
+    la période. Ces décades ne doivent pas forcément être consécutives.</li>
+  <li>Une saison atteint le seuil quand au moins ce nombre de provinces sont comptées. La décade indiquée dans le tableau
+    est celle à laquelle le nombre de provinces requis a été atteint.</li>
+  <li>La période de retour est (n + 1) ÷ k, où n est le nombre de saisons avec des données ASAP pour toute la période de
+    décades et k le nombre de saisons qui atteignent le seuil.</li>
+</ol>
+
+<h3>Types d’alertes ASAP</h3>
+<p>Une alerte est émise quand un indicateur est à plus d’un écart-type sous sa moyenne de long terme (score z inférieur à
+  −1) sur au moins 25% de la superficie agricole ou de pâturage active d’une province, et seulement pendant la saison.</p>
+<table>
+  <thead><tr><th>Niveau</th><th>Indicateurs sous le seuil</th><th>Signification</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Indice de satisfaction des besoins en eau (WSI), indice de précipitations standardisé sur 3 mois (SPI-3), ou les deux</td><td>Déficit de précipitations ou de bilan hydrique pouvant entraîner une mauvaise croissance</td></tr>
+    <tr><td>2</td><td>Anomalie cumulée du NDVI depuis le début de la saison (zNDVIc)</td><td>Mauvaise croissance de la végétation</td></tr>
+    <tr><td>3</td><td>zNDVIc avec WSI, SPI-3 ou les deux (bilan hydrique + biomasse)</td><td>Mauvaise croissance avec déficit de précipitations ou de bilan hydrique</td></tr>
+    <tr><td>4</td><td>zNDVIc, une fois la saison en sénescence</td><td>Mauvaise croissance sur l’ensemble de la saison</td></tr>
+  </tbody>
+</table>
+<p>Le niveau 4 n’est possible qu’une fois la saison en sénescence. Au Burkina Faso, les premières alertes de niveau 4
+  d’une saison apparaissent au plus tôt à la décade 27, généralement aux décades 28 ou 29 (début octobre)&nbsp;; le niveau 4 ne
+  se produit donc jamais dans la fenêtre du cadre (décades 21 à 26). Selon ASAP, les alertes de niveau 4 émises après la
+  dernière décade où la majeure partie de la superficie cultivée d’une province est encore active reposent sur une part
+  trop faible de cette superficie pour être fiables.</p>
+
+<h3>Données</h3>
+<ul>
+  <li><strong>Alertes ASAP&nbsp;:</strong> archive des alertes ASAP du JRC au niveau admin 2 (fichier du 2 novembre 2026), du
+    21 mai 2001 au 11 octobre 2026. ASAP utilise les 45 provinces antérieures à la réforme territoriale de 2025.
+    L’archive a été révisée depuis la copie de mars 2026 utilisée pour le cadre 2026&nbsp;: les codes des unités du Burkina Faso
+    ont changé et certaines alertes passées ont été recalculées (84% des codes des zones agricoles de juillet à octobre pour
+    les quatre provinces du cadre sont inchangés). La règle du cadre (niveau 3 ou plus, au moins 2 provinces parmi Loroum,
+    Oudalan, Séno et Yagha, décades 21 à 26) donne les mêmes saisons avec les deux versions&nbsp;: 2002, 2004, 2006, 2009 et
+    2011. Les décades récentes sont aussi révisées&nbsp;: l’alerte de niveau 3 pour les zones agricoles du Séno observée lors
+    du suivi d’août 2026 est une alerte de niveau 1 dans cette archive.</li>
+  <li><strong>Rendement et production nationaux&nbsp;:</strong> FAOSTAT, mil et sorgho (via HDX), chiffres officiels
+    2001–2023&nbsp;; le rendement est la production divisée par la superficie récoltée.</li>
+  <li><strong>Rendements par province&nbsp;:</strong> statistiques agricoles officielles par province compilées dans le
+    <a href="https://fews.net/data">FEWS NET Data Warehouse</a>&nbsp;: mil et sorgho (blanc et rouge) pluviaux, production
+    divisée par la superficie semée, 2001–2023. Les années-provinces où il manque le chiffre du mil ou celui du sorgho sont
+    laissées vides (Bam, Namentenga et Sanmatenga en 2008). Le sorgho rouge est déclaré séparément en 2001 et à partir de 2008
+    (pour 2002–2007, le chiffre du sorgho est le total), et dans certaines provinces du nord seulement certaines années.
+    Les chiffres provinciaux ne correspondent pas toujours aux totaux nationaux&nbsp;; ils ne servent qu’à la comparaison par
+    province.</li>
+  <li><strong>Tendances&nbsp;:</strong> chaque série de rendement ou de production est comparée à une tendance linéaire ajustée
+    sur 2001–2023 (Theil–Sen, peu sensible aux valeurs extrêmes isolées)&nbsp;; l’anomalie est l’écart en pourcentage
+    au-dessus ou au-dessous de cette tendance.</li>
+  <li><strong>Impacts de sécheresse&nbsp;:</strong> les impacts enregistrés et leur datation proviennent de la
+    <a href="../heat-and-impact/">page chaleur et impact</a> (en anglais), listés ci-dessous.</li>
+</ul>
+
+<h3 id="impacts-fr">Impacts de sécheresse enregistrés</h3>
+<p>Les impacts sont datés de la période de soudure pendant laquelle des personnes ont été touchées ou des fonds alloués,
+  généralement l’année qui suit la mauvaise récolte. Chaque impact est rattaché à une saison de culture. Quand les
+  éléments sont ambigus, la datation du cadre est proposée comme alternative.</p>
+<table>
+  <thead><tr><th>Impact enregistré</th><th>Date</th><th class="num">Saison (saison de culture)</th><th class="num">Saison (libellés du cadre)</th></tr></thead>
+  <tbody>
+    <tr><td>EM-DAT 2011-9524&nbsp;: sécheresse, 2.85 millions de personnes affectées (Sahel, Centre-Nord, Est, Centre-Ouest, Centre-Est)</td><td>déc. 2011 – 2012</td><td class="num">2011</td><td class="num">2011</td></tr>
+    <tr><td>CERF 12-RR-BFA-13236&nbsp;: réponse rapide, sécheresse, $9.2M</td><td>2012</td><td class="num">2011</td><td class="num">2011</td></tr>
+    <tr><td>EM-DAT 2014-9196&nbsp;: sécheresse, 4.0 millions de personnes affectées (Sahel)</td><td>mai 2014</td><td class="num">2013</td><td class="num">2014</td></tr>
+    <tr><td>CERF 14-UFE-BFA-10955&nbsp;: urgences sous-financées, sécheresse, $3.9M</td><td>août 2014</td><td class="num">2013</td><td class="num">2014</td></tr>
+    <tr><td>CERF 18-RR-BFA-30726&nbsp;: réponse rapide, sécheresse et crise pastorale, $9.0M</td><td>mai 2018</td><td class="num">2017</td><td class="num">2017</td></tr>
+    <tr><td>EM-DAT 2020-9235&nbsp;: sécheresse, 2.9 millions de personnes affectées (toutes les régions)</td><td>janv. – juin 2020</td><td class="num">2019</td><td class="num">2019</td></tr>
+    <tr><td>EM-DAT 2022-9781&nbsp;: sécheresse, 3.5 millions de personnes affectées</td><td>jusqu’à nov. 2022</td><td class="num">2021</td><td class="num">2022</td></tr>
+    <tr><td>CERF 22-RR-BFA-53665&nbsp;: réponse rapide, insécurité alimentaire en période de soudure, $6.0M</td><td>mai 2022</td><td class="num">2021</td><td class="num">2022</td></tr>
+  </tbody>
+</table>
+<p>Les années cibles du cadre (2011, 2014, 2017, 2019, 2022) proviennent de l’analyse du déclencheur 2026. Les données
+  EM-DAT et CERF utilisées ici vont jusqu’en 2024. Une mauvaise saison se traduit par des impacts pendant la période de
+  soudure suivante&nbsp;: avec la datation par saison de culture, la dernière saison évaluable est 2023&nbsp;; avec les libellés du
+  cadre, c’est 2024. Les saisons suivantes sont indiquées «&nbsp;pas encore connu&nbsp;» dans le tableau et ne comptent ni comme des
+  saisons manquées ni comme des saisons sans impact. Non utilisés&nbsp;: la sécheresse EM-DAT d’avril 2001 au Plateau Central
+  (sans chiffres&nbsp;; elle suit la saison 2000), les allocations sécheresse de 2006 à 2009 de la fenêtre CERF des urgences
+  sous-financées (annuelles, besoins chroniques), et les chiffres du Cadre Harmonisé (série nationale à partir de
+  2020 seulement, déterminée par le conflit). À partir de 2019, la crise sécuritaire affecte à la fois les impacts
+  enregistrés et les statistiques agricoles.</p>
+</div>
+
+<p class="meta"><span id="vintage"></span> <span class="lv lv-en">Sources: JRC ASAP (agricultural-production-hotspots.ec.europa.eu),
+  FAOSTAT, FEWS NET Data Warehouse, EM-DAT (CRED/UCLouvain), CERF allocation records. Code:</span><span class="lv lv-fr">Sources&nbsp;:
+  JRC ASAP (agricultural-production-hotspots.ec.europa.eu), FAOSTAT, FEWS NET Data Warehouse, EM-DAT (CRED/UCLouvain),
+  données d’allocation du CERF. Code&nbsp;:</span>
   <a href="https://github.com/OCHA-DAP/ds-aa-bfa-drought/tree/main/scripts/asap_explorer">scripts/asap_explorer</a>.
-  OCHA Centre for Humanitarian Data.</p>
+  <span class="lv lv-en">OCHA Centre for Humanitarian Data.</span><span class="lv lv-fr">Centre de données humanitaires d’OCHA.</span></p>
 
 </div>
 <div id="tip" hidden></div>
-<script src="explorer.js?v=20261103c"></script>
+<script src="explorer.js?v=20261103h"></script>
 </body>
 </html>
