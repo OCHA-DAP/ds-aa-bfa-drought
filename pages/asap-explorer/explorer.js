@@ -143,10 +143,10 @@
   const DEFAULTS = { codes: [6, 7, 8, 9], exceptional: true, cover: "or", d0: 21, d1: 26, minDek: 1, k: null,
                      imp: "main", yt: 20, nat: "yield" };
   const PRESETS = [
-    { id: "ge1", label: "Level 1 or above", codes: [2, 3, 4, 5, 6, 7, 8, 9] },
-    { id: "ge2", label: "Level 2 or above", codes: [5, 6, 7, 8, 9] },
-    { id: "ge3", label: "Level 3 or above", codes: [6, 7, 8, 9] },
-    { id: "eq4", label: "Level 4 only", codes: [9] },
+    { id: "ge1", label: "≥1", tip: "Level 1 or above", codes: [2, 3, 4, 5, 6, 7, 8, 9] },
+    { id: "ge2", label: "≥2", tip: "Level 2 or above", codes: [5, 6, 7, 8, 9] },
+    { id: "ge3", label: "≥3", tip: "Level 3 or above", codes: [6, 7, 8, 9] },
+    { id: "eq4", label: "4", tip: "Level 4 only", codes: [9] },
   ];
 
   let DATA, DEC, ST, ROWS;
@@ -206,7 +206,7 @@
     });
     lv.innerHTML = html;
     $("presets").innerHTML = PRESETS.map(function (p) {
-      return '<button type="button" class="preset" data-preset="' + p.id + '">' + esc(p.label) + "</button>";
+      return '<button type="button" class="preset" data-preset="' + p.id + '" data-tip="' + esc(p.tip) + '">' + esc(p.label) + "</button>";
     }).join("");
 
     const opts = [];
@@ -227,9 +227,17 @@
       update();
     });
     $("exc").addEventListener("change", function (e) { ST.exceptional = e.target.checked; update(); });
-    document.querySelectorAll('input[name="cover"]').forEach(function (el) {
-      el.addEventListener("change", function (e) { ST.cover = e.target.value; update(); });
+    $("cover").addEventListener("change", function (e) { ST.cover = e.target.value; update(); });
+    // close the warning-types menu on a click outside it or on Escape
+    document.addEventListener("click", function (e) {
+      if ($("types").open && !$("types").contains(e.target)) $("types").open = false;
     });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") $("types").open = false; });
+    // shadow under the settings bar once it is stuck to the top of the window
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (en) { $("panel").classList.toggle("stuck", !en[0].isIntersecting); })
+        .observe($("panel-top"));
+    }
     $("d0").addEventListener("change", function (e) {
       ST.d0 = +e.target.value; if (ST.d1 < ST.d0) ST.d1 = ST.d0; update();
     });
@@ -263,12 +271,17 @@
       el.checked = ST.codes.indexOf(+el.dataset.code) >= 0;
     });
     const key = ST.codes.slice().sort().join(",");
+    let preset = null;
     document.querySelectorAll(".preset").forEach(function (b) {
       const p = PRESETS.find(function (x) { return x.id === b.dataset.preset; });
-      b.classList.toggle("on", p.codes.slice().sort().join(",") === key);
+      const on = p.codes.slice().sort().join(",") === key;
+      if (on) preset = p;
+      b.classList.toggle("on", on);
     });
+    $("types-sum").textContent = (preset ? "Types" : "Custom") + " (" + ST.codes.length + " of " + WARNING_TYPES.length + ")" +
+                                 (ST.exceptional ? "" : ", no exceptional");
     $("exc").checked = ST.exceptional;
-    document.querySelectorAll('input[name="cover"]').forEach(function (el) { el.checked = el.value === ST.cover; });
+    $("cover").value = ST.cover;
     $("d0").value = ST.d0; $("d1").value = ST.d1;
     $("mindek").max = ST.d1 - ST.d0 + 1;
     $("mindek").value = ST.minDek;
@@ -277,7 +290,6 @@
     $("imp").value = ST.imp; $("yt").value = ST.yt;
     $("ytlabel").textContent = ST.yt;
     $("klabel").textContent = ST.k;
-    $("range-note").textContent = dekadLong(ST.d0) + " to " + dekadLong(ST.d1) + " (" + (ST.d1 - ST.d0 + 1) + " dekads)";
   }
 
   // ---------------- derived values
@@ -355,6 +367,10 @@
       { v: hits.length + " of " + (hits.length + misses.length), l: "impact seasons reached" },
       { v: String(fa.length), l: "seasons reached without a recorded impact" },
     ];
+    $("live").innerHTML = "<b>" + sum.k + "</b> of " + sum.n + " · <b>" + (sum.rp ? "1 in " + sum.rp.toFixed(1) + " yrs" : "never") +
+                          "</b> · impact <b>" + hits.length + "</b> of " + (hits.length + misses.length);
+    $("live").setAttribute("data-tip", sum.k + " of " + sum.n + " seasons reach the threshold; return period " + fmtRp(sum.rp) +
+                           "; " + hits.length + " of " + (hits.length + misses.length) + " impact seasons reached");
     $("tiles").innerHTML = tiles.map(function (t) {
       return '<div class="tile"><div class="tv">' + esc(t.v) + '</div><div class="tl">' + esc(t.l) + "</div></div>";
     }).join("");
@@ -683,7 +699,7 @@
   }
 
   function init() {
-    fetch("data.json").then(function (r) { return r.json(); }).then(function (data) {
+    fetch("data.json", { cache: "no-cache" }).then(function (r) { return r.json(); }).then(function (data) {
       DATA = data;
       DEC = decode(data);
       ST = readState();

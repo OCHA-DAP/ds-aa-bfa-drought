@@ -29,28 +29,44 @@
   .callout.warn { border-left-color: var(--w5); }
   .callout p { margin: 6px 0; }
 
-  /* controls */
-  .panel { background: #fff; border: 1px solid var(--n15); border-radius: 6px; padding: 14px 16px 6px; margin: 18px 0 10px; }
-  .panel h3 { margin: 4px 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--n7); }
-  .row { display: flex; flex-wrap: wrap; gap: 18px 28px; margin-bottom: 12px; align-items: flex-start; }
-  .ctl { display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
-  .ctl > span.t { font-weight: 500; color: var(--n8); font-size: 13px; }
-  .ctl small { color: var(--n7); font-size: 12px; max-width: 46ch; }
-  #levels { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 8px 14px; width: 100%; }
-  fieldset.lvl { border: 1px solid var(--n1); border-radius: 5px; margin: 0; padding: 6px 10px 8px; }
-  fieldset.lvl legend { font-size: 12.5px; font-weight: 500; color: var(--n8); padding: 0 4px; }
-  fieldset.lvl label { display: block; font-size: 13.5px; line-height: 1.7; }
-  .presets { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 10px; }
-  button { font: 500 13px/1 'Roboto', system-ui, sans-serif; cursor: pointer; border-radius: 4px; padding: 7px 11px;
+  /* controls: a compact bar that sticks to the top of the window while the results scroll under it */
+  .panel { position: sticky; top: 0; z-index: 20; background: #fff; border: 1px solid var(--n15); border-radius: 6px;
+    padding: 8px 12px; margin: 16px 0 10px; font-size: 13px; transition: box-shadow .15s; }
+  .panel.stuck { border-radius: 0 0 6px 6px; border-top-color: transparent; box-shadow: 0 6px 18px rgba(31,35,36,.12); }
+  .bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
+  .bar + .bar { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--n1); }
+  .grp { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .lb { font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--n7); }
+  .lb[data-tip] { cursor: help; border-bottom: 1px dotted var(--n6); }
+  .seg { display: inline-flex; }
+  .seg button { border-radius: 0; margin-left: -1px; padding: 5px 9px; }
+  .seg button:first-child { border-radius: 4px 0 0 4px; margin-left: 0; }
+  .seg button:last-child { border-radius: 0 4px 4px 0; }
+  button { font: 500 12.5px/1 'Roboto', system-ui, sans-serif; cursor: pointer; border-radius: 4px; padding: 5px 9px;
     border: 1px solid var(--b1); background: var(--b05); color: var(--b7); }
   button:hover { background: var(--b1); }
-  button.on { background: var(--b6); border-color: var(--b6); color: #fff; }
-  select, input[type=number] { font: 400 14px 'Roboto', system-ui, sans-serif; padding: 4px 6px; border: 1px solid var(--n15); border-radius: 4px; background: #fff; }
-  input[type=number] { width: 64px; }
-  .radios label { margin-right: 14px; white-space: nowrap; }
-  .kline { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-  .kline input[type=range] { width: 220px; accent-color: var(--e6); }
-  #empty { color: var(--e7); font-weight: 500; }
+  button.on { background: var(--b6); border-color: var(--b6); color: #fff; position: relative; }
+  select, input[type=number] { font: 400 13px 'Roboto', system-ui, sans-serif; padding: 3px 4px; border: 1px solid var(--n15); border-radius: 4px; background: #fff; }
+  input[type=number] { width: 52px; }
+  input[type=range] { width: 84px; accent-color: var(--e6); margin: 0; }
+  details.pop { position: relative; }
+  details.pop summary { list-style: none; cursor: pointer; font-weight: 500; color: var(--b7); padding: 4px 9px;
+    border: 1px solid var(--b1); border-radius: 4px; background: #fff; }
+  details.pop summary::-webkit-details-marker { display: none; }
+  details.pop summary::after { content: " ▾"; color: var(--n7); }
+  details.pop[open] summary { background: var(--b05); }
+  .pop-body { position: absolute; z-index: 30; top: calc(100% + 6px); left: 0; width: 560px; background: #fff;
+    border: 1px solid var(--n15); border-radius: 6px; box-shadow: 0 8px 24px rgba(31,35,36,.16); padding: 10px 12px;
+    white-space: normal; }
+  #levels { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+  fieldset.lvl { border: 1px solid var(--n1); border-radius: 5px; margin: 0; padding: 4px 8px 6px; }
+  fieldset.lvl legend { font-size: 12px; font-weight: 500; color: var(--n8); padding: 0 4px; }
+  fieldset.lvl label { display: block; font-size: 13px; line-height: 1.65; }
+  .pop-body .exc { display: block; margin-top: 8px; font-size: 12.5px; color: var(--n8); }
+  .live { margin-left: auto; font-size: 12.5px; color: var(--n8); white-space: nowrap; }
+  .live b { color: var(--n9); }
+  #empty { color: var(--e7); font-weight: 500; margin: 6px 0 0; }
+  @media (max-width: 760px) { .panel { position: static; } .pop-body { width: 92vw; } #levels { grid-template-columns: 1fr; } .live { margin-left: 0; } }
 
   /* summary */
   .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 16px 0 8px; }
@@ -74,7 +90,7 @@
   svg .lab { font-size: 11px; fill: var(--n9); font-weight: 500; }
   svg .pv { font-size: 10.5px; fill: var(--n8); }
   svg .rg { font-size: 10px; fill: var(--n7); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
-  #tip { position: fixed; z-index: 10; pointer-events: none; background: var(--n9); color: #fff; font-size: 12.5px; line-height: 1.45;
+  #tip { position: fixed; z-index: 50; pointer-events: none; background: var(--n9); color: #fff; font-size: 12.5px; line-height: 1.45;
     padding: 7px 10px; border-radius: 4px; max-width: 360px; white-space: pre-line; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
 
   table { border-collapse: collapse; width: 100%; margin: 10px 0 6px; background: #fff; border: 1px solid var(--n15); font-size: 13px; }
@@ -96,7 +112,7 @@
   .meta { color: var(--n7); font-size: 13px; border-top: 1px solid var(--n15); padding-top: 14px; margin-top: 40px; }
   code { background: var(--n1); padding: 1px 5px; border-radius: 3px; font-size: 12.5px; }
   .notes table { font-size: 13px; }
-  @media (max-width: 640px) { h1 { font-size: 22px; } .kline input[type=range] { width: 150px; } }
+  @media (max-width: 640px) { h1 { font-size: 22px; } }
 </style>
 </head>
 <body>
@@ -121,57 +137,52 @@
 <p id="loading">Loading data…</p>
 <div id="app" hidden>
 
-<section class="panel" aria-label="Trigger settings">
-  <h3>Which warnings count</h3>
-  <div class="presets" id="presets"></div>
-  <div class="row"><div id="levels"></div></div>
-  <div class="row">
-    <label class="ctl"><span><input type="checkbox" id="exc"> Include the same warnings when part of the area also has exceptionally good biomass</span>
-      <small>ASAP flags these as "with exceptional conditions". It groups them with the plain warnings of the same level.</small></label>
+<div id="panel-top"></div>
+<section class="panel" id="panel" aria-label="Trigger settings">
+  <div class="bar">
+    <div class="grp"><span class="lb" data-tip="Which ASAP warnings count. The buttons select whole levels; the menu lets you pick the indicator combinations within each level.">Warnings</span>
+      <div class="seg" id="presets"></div>
+      <details class="pop" id="types"><summary id="types-sum">Types</summary>
+        <div class="pop-body">
+          <div id="levels"></div>
+          <label class="exc"><input type="checkbox" id="exc"> Include the same warnings when part of the area also has
+            exceptionally good biomass (ASAP: "with exceptional conditions"; grouped with the plain warnings of the same level)</label>
+        </div>
+      </details>
+    </div>
+    <div class="grp"><span class="lb" data-tip="Whether the warning has to be on cropland, rangeland, either, or both. &quot;And&quot; requires both in the same dekad.">Land cover</span>
+      <select id="cover" aria-label="Land cover">
+        <option value="crop">Cropland</option>
+        <option value="range">Rangeland</option>
+        <option value="or">Cropland or rangeland</option>
+        <option value="and">Cropland and rangeland</option>
+      </select></div>
+    <div class="grp"><span class="lb" data-tip="Dekads of the season to look at (1st, 2nd or 3rd ten days of each month).">Dekads</span>
+      <select id="d0" aria-label="First dekad"></select>–<select id="d1" aria-label="Last dekad"></select></div>
+    <div class="grp"><span class="lb" data-tip="A province counts for a season when it meets the condition in at least this many dekads of the range (not necessarily consecutive).">Min. dekads</span>
+      <input type="number" id="mindek" min="1" max="36" step="1" aria-label="Minimum dekads per province"></div>
   </div>
-  <p id="empty" hidden>No warning type selected: tick at least one box.</p>
-
-  <h3>Where and when</h3>
-  <div class="row">
-    <div class="ctl radios"><span class="t">Land cover</span>
-      <div>
-        <label><input type="radio" name="cover" value="crop"> Cropland only</label>
-        <label><input type="radio" name="cover" value="range"> Rangeland only</label>
-        <label><input type="radio" name="cover" value="or"> Cropland or rangeland</label>
-        <label><input type="radio" name="cover" value="and"> Cropland and rangeland</label>
-      </div>
-      <small>"And" requires both in the same dekad.</small></div>
-    <div class="ctl"><span class="t">Dekads</span>
-      <div><select id="d0" aria-label="First dekad"></select> to <select id="d1" aria-label="Last dekad"></select></div>
-      <small id="range-note"></small></div>
-    <label class="ctl"><span class="t">Minimum dekads per province</span>
-      <input type="number" id="mindek" min="1" max="36" step="1">
-      <small>A province counts for a season when it meets the condition in at least this many dekads of the range (not necessarily consecutive).</small></label>
+  <div class="bar">
+    <div class="grp"><span class="lb" data-tip="A season reaches the threshold when at least this many provinces meet the condition.">Threshold</span>
+      <input type="range" id="kslider" min="1" max="45" step="1" aria-label="Count threshold">
+      <input type="number" id="k" min="1" max="45" step="1" aria-label="Count threshold"> provinces
+      <button type="button" id="suggest" data-tip="Set the threshold whose return period is closest to 4 years for the current settings.">1 in 4 yrs</button></div>
+    <div class="grp"><span class="lb" data-tip="How impact records are attributed to seasons. Growing season: 2011, 2013, 2017, 2019, 2021. Framework labelling: 2011, 2014, 2017, 2019, 2022. See &quot;Drought impact records&quot; below.">Impact years</span>
+      <select id="imp" aria-label="Impact seasons">
+        <option value="main">Growing season</option>
+        <option value="alt">Framework labels</option>
+      </select></div>
+    <div class="grp"><span class="lb" data-tip="Millet and sorghum yield, per province, used in the province chart and the table.">Poor yield</span>
+      <select id="yt" aria-label="Poor-yield province">
+        <option value="10">≥10% below trend</option>
+        <option value="15">≥15% below trend</option>
+        <option value="20">≥20% below trend</option>
+        <option value="25">≥25% below trend</option>
+        <option value="30">≥30% below trend</option>
+      </select></div>
+    <div class="live" id="live" aria-live="polite"></div>
   </div>
-
-  <h3>Count threshold and comparison</h3>
-  <div class="row">
-    <div class="ctl"><span class="t">Threshold: at least this many provinces</span>
-      <div class="kline"><input type="range" id="kslider" min="1" max="45" step="1" aria-label="Count threshold">
-        <input type="number" id="k" min="1" max="45" step="1" aria-label="Count threshold">
-        <button type="button" id="suggest">Set to about 1 in 4 years</button></div>
-      <small>The button picks the threshold whose return period is closest to 4 years for the current settings.</small></div>
-    <label class="ctl"><span class="t">Impact seasons</span>
-      <select id="imp">
-        <option value="main">Dated to the growing season (2011, 2013, 2017, 2019, 2021)</option>
-        <option value="alt">Framework labelling (2011, 2014, 2017, 2019, 2022)</option>
-      </select>
-      <small>See "Drought impact records" below for how each record is dated.</small></label>
-    <label class="ctl"><span class="t">Poor-yield province</span>
-      <select id="yt">
-        <option value="10">10% or more below trend</option>
-        <option value="15">15% or more below trend</option>
-        <option value="20">20% or more below trend</option>
-        <option value="25">25% or more below trend</option>
-        <option value="30">30% or more below trend</option>
-      </select>
-      <small>Millet and sorghum yield, per province. Used in the province chart and the table.</small></label>
-  </div>
+  <p id="empty" hidden>No warning type selected: open "Types" and tick at least one box.</p>
 </section>
 
 <h2 id="results">Results for these settings</h2>
@@ -327,6 +338,6 @@
 
 </div>
 <div id="tip" hidden></div>
-<script src="explorer.js"></script>
+<script src="explorer.js?v=20261103c"></script>
 </body>
 </html>

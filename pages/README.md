@@ -86,6 +86,8 @@ between ASAP and FEWS NET. `check_rules.js` re-derives known results (the framew
 provinces gives 2002, 2004, 2006, 2009, 2011; national counts match values computed separately with
 pandas from the November 2026 archive). The expected values are tied to that archive and need
 updating when ASAP revises past dekads. Settings are kept in the URL query string, so a view can be shared as a link.
+When `explorer.js` changes, bump the `?v=` on its `<script>` tag in `index.html` so browsers do not pair a
+cached old script with the new page; `data.json` is always revalidated.
 
 ## The HNRP 2027 baseline (password-protected)
 
