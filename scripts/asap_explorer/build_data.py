@@ -33,8 +33,8 @@ What goes into data.json:
         sorghum is missing for Bam, Namentenga and Sanmatenga in 2008 and red sorghum is
         reported as zero in about 20 provinces in 2012. Province-years without both millet and
         (white or total) sorghum are left empty; zero production or area counts as missing.
-        Red sorghum is reported separately only from 2008 (in 2002-2007 "Sorghum" is the total)
-        and only in some years for some northern provinces.
+        Red sorghum is reported separately in 2001 and from 2008 (in 2002-2007 "Sorghum" is the
+        total), and only in some years for some northern provinces.
   - impacts: the drought impact records and their dating to growing seasons, copied from
     scripts/impact_analysis.py (the heat-and-impact page) so both pages use the same record.
 """
