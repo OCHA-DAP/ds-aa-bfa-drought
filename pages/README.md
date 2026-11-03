@@ -89,6 +89,16 @@ updating when ASAP revises past dekads. Settings are kept in the URL query strin
 When `explorer.js` changes, bump the `?v=` on its `<script>` tag in `index.html` so browsers do not pair a
 cached old script with the new page; `data.json` is always revalidated.
 
+The page is in English and French (toggle at the top right; `?lang=fr` opens it in French; the choice is
+kept in `localStorage` under `aa-lang`, the key the team's other bilingual sites use). Static text
+carries both languages as `.lv-en` / `.lv-fr` elements switched by CSS; `<option>`s and `aria-label`s
+carry a `data-fr` / `data-aria-fr` attribute; text built in `explorer.js` goes through `t(en, fr)` and is
+re-rendered on a switch. The impact records' French labels are in `build_data.py` (`label_fr`,
+`recorded_fr`). French terms follow the BFA framework document and the glossary in the KB
+(`docs/I18N.md`): *alerte de niveau 3 (bilan hydrique + biomasse)*, *zones agricoles / de pâturage*,
+*décade*, *seuil*, *période de retour*. Numbers keep the decimal point in both languages. The CSV
+download stays in English.
+
 ## The HNRP 2027 baseline (password-protected)
 
 `pages/hnrp-2027/` holds only a gate page and `page.enc`, the AES-256-GCM-encrypted page
