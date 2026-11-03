@@ -163,7 +163,9 @@
     ink2: "#5e6a6b", grid: "#e2e8e8", band: "#e9f5f1", brand: "#1e795f",
   };
   const DEFAULTS = { codes: [6, 7, 8, 9], exceptional: true, cover: "or", d0: 21, d1: 26, minDek: 1, k: null,
-                     imp: "main", yt: 20, nat: "yield" };
+                     imp: "main", yt: 20, nat: "yield", year: null, mapDk: null };
+  // ASAP warning levels on the map: ordinal, light to dark
+  const LEVEL_FILL = { "-1": "#ffffff", 0: "#eef1f1", 1: "#f5d77e", 2: "#ee9a45", 3: "#cf4f2e", 4: "#7c2a1f" };
   const PRESETS = [
     { id: "ge1", label: "≥1", tip: "Level 1 or above", tipFr: "Niveau 1 ou plus", codes: [2, 3, 4, 5, 6, 7, 8, 9] },
     { id: "ge2", label: "≥2", tip: "Level 2 or above", tipFr: "Niveau 2 ou plus", codes: [5, 6, 7, 8, 9] },
@@ -206,6 +208,10 @@
     const yt = int("yt");
     if ([10, 15, 20, 25, 30].indexOf(yt) >= 0) st.yt = yt;
     if (q.get("nat") === "prod") st.nat = "prod";
+    const y = int("y");
+    st.year = DATA.meta.years.indexOf(y) >= 0 ? y : DATA.meta.years[DATA.meta.years.length - 1];
+    const mdk = int("mdk");
+    st.mapDk = mdk >= st.d0 && mdk <= st.d1 ? mdk : null;
     return st;
   }
   function writeState() {
@@ -213,7 +219,8 @@
     q.set("w", ST.codes.slice().sort(function (a, b) { return a - b; }).join(","));
     q.set("x", ST.exceptional ? "1" : "0");
     q.set("lc", ST.cover); q.set("d0", ST.d0); q.set("d1", ST.d1); q.set("md", ST.minDek);
-    q.set("k", ST.k); q.set("imp", ST.imp); q.set("yt", ST.yt); q.set("nat", ST.nat);
+    q.set("k", ST.k); q.set("imp", ST.imp); q.set("yt", ST.yt); q.set("nat", ST.nat); q.set("y", ST.year);
+    if (ST.mapDk) q.set("mdk", ST.mapDk);
     if (LANG === "fr") q.set("lang", "fr");
     history.replaceState(null, "", "?" + q.toString());
   }
@@ -289,6 +296,29 @@
       const k = e.target.closest("[data-k]");
       if (k) { ST.k = +k.dataset.k; update(true); }
     });
+    // map: season and dekad
+    $("year").innerHTML = DATA.meta.years.map(function (y) {
+      return '<option value="' + y + '">' + y + (y === DATA.meta.years[DATA.meta.years.length - 1] ? "*" : "") + "</option>";
+    }).join("");
+    $("year").addEventListener("change", function (e) { ST.year = +e.target.value; update(true); });
+    $("yprev").addEventListener("click", function () { stepYear(-1); });
+    $("ynext").addEventListener("click", function () { stepYear(1); });
+    $("mapdk").addEventListener("change", function (e) { ST.mapDk = e.target.value === "all" ? null : +e.target.value; update(true); });
+    ["chart-counts", "chart-grid"].forEach(function (id) {
+      $(id).addEventListener("click", function (e) {
+        const c = e.target.closest("[data-year]");
+        if (c) { ST.year = +c.dataset.year; update(true); $("map-section").scrollIntoView({ behavior: "smooth", block: "start" }); }
+      });
+    });
+  }
+  function stepYear(d) {
+    const ys = DATA.meta.years, i = ys.indexOf(ST.year) + d;
+    if (i >= 0 && i < ys.length) { ST.year = ys[i]; update(true); }
+  }
+  function buildMapDekadOptions() {
+    let o = '<option value="all">' + esc(t("Highest level, dekads " + ST.d0 + "–" + ST.d1, "Niveau le plus élevé, décades " + ST.d0 + "–" + ST.d1)) + "</option>";
+    for (let dk = ST.d0; dk <= ST.d1; dk++) o += '<option value="' + dk + '">' + esc(t("Dekad ", "Décade ") + dk + " · " + dekadLabel(dk)) + "</option>";
+    $("mapdk").innerHTML = o;
   }
 
   function buildDekadOptions() {
@@ -322,6 +352,10 @@
     document.querySelectorAll(".ytlabel").forEach(function (el) { el.textContent = ST.yt; });
     $("klabel").textContent = nWord(ST.k, "province", "provinces", "province", "provinces");
     $("kunit").textContent = ST.k > 1 ? "provinces" : "province";
+    if (ST.mapDk !== null && (ST.mapDk < ST.d0 || ST.mapDk > ST.d1)) ST.mapDk = null;
+    buildMapDekadOptions();
+    $("mapdk").value = ST.mapDk === null ? "all" : String(ST.mapDk);
+    $("year").value = ST.year;
   }
 
   // ---------------- derived values
@@ -467,6 +501,10 @@
     const bw = Math.min(22, X.step * 0.7);
     ROWS.forEach(function (r) {
       const cx = X.x(r.year);
+      if (r.year === ST.year) {
+        s += '<rect x="' + (cx - X.step / 2) + '" y="' + padT + '" width="' + X.step + '" height="' + (h - padT - padB) +
+             '" fill="' + COL.band + '" fill-opacity="0.8"/>';
+      }
       if (!r.valid) {
         s += '<text x="' + cx + '" y="' + (y(0) - 5) + '" text-anchor="middle" class="ax na">' + t("n/a", "n.d.") + "</text>";
       } else {
@@ -479,8 +517,8 @@
         if (on) s += '<text x="' + cx + '" y="' + (top - 4) + '" text-anchor="middle" class="lab">' + r.count + "</text>";
       }
       const tip = tipForYear(r, act.has(r.year));
-      s += '<rect class="hit" x="' + (cx - X.step / 2) + '" y="' + padT + '" width="' + X.step + '" height="' + (h - padT - 8) +
-           '" fill="transparent" data-tip="' + esc(tip) + '"/>';
+      s += '<rect class="hit" data-year="' + r.year + '" x="' + (cx - X.step / 2) + '" y="' + padT + '" width="' + X.step + '" height="' + (h - padT - 8) +
+           '" fill="transparent" style="cursor:pointer" data-tip="' + esc(tip + t("\nClick to show this season on the map", "\nCliquez pour afficher cette saison sur la carte")) + '"/>';
       const lab = (r.year % 5 === 0 || r.year === DATA.meta.years[0] || r.year === last) ? String(r.year) + (r.year === last ? "*" : "") : "";
       if (lab) s += '<text x="' + cx + '" y="' + (h - padB + 16) + '" text-anchor="middle" class="ax">' + lab + "</text>";
       else s += '<line x1="' + cx + '" x2="' + cx + '" y1="' + (h - padB + 2) + '" y2="' + (h - padB + 6) + '" stroke="' + COL.ink2 + '"/>';
@@ -639,13 +677,86 @@
                       (yi < 0 ? "" : ya === null ? t("\nNo complete millet and sorghum statistics", "\nPas de statistiques complètes pour le mil et le sorgho") :
                         t("\nMillet and sorghum yield ", "\nRendement mil et sorgho ") + DATA.yield.province[p.id].kg_ha[yi] + " kg/ha, " +
                         pct(ya) + t(" from trend", " par rapport à la tendance"));
-          s += '<rect class="hit" x="' + x + '" y="' + ry + '" width="' + step + '" height="' + rowH + '" fill="transparent" data-tip="' + esc(tip) + '"/>';
+          if (r.year === ST.year) {
+            s += '<rect x="' + (x + 0.5) + '" y="' + (ry + 0.5) + '" width="' + (step - 1) + '" height="' + (rowH - 1) +
+                 '" fill="none" stroke="' + COL.ink2 + '" stroke-width="0.8"/>';
+          }
+          s += '<rect class="hit" data-year="' + r.year + '" x="' + x + '" y="' + ry + '" width="' + step + '" height="' + rowH +
+               '" fill="transparent" style="cursor:pointer" data-tip="' +
+               esc(tip + t("\nClick to show this season on the map", "\nCliquez pour afficher cette saison sur la carte")) + '"/>';
         });
       });
       top += rg.provs.length * rowH + gap;
     });
     s += "</svg>";
     el.innerHTML = s;
+  }
+
+  // ---------------- map by season
+  function lvl(code) { const v = CODE_LEVEL[code]; return v === undefined ? -1 : v; }
+  // level shown for one dekad under the land-cover setting (or: higher of the two; and: lower of the two)
+  function coverLevel(d, i) {
+    const c = lvl(d.crop[i]), r = lvl(d.range[i]);
+    if (ST.cover === "crop") return c;
+    if (ST.cover === "range") return r;
+    if (ST.cover === "and") return Math.min(c, r);
+    return Math.max(c, r);
+  }
+  function levelSeq(arr, yi) {
+    let out = [];
+    for (let dk = ST.d0; dk <= ST.d1; dk++) { const v = lvl(arr[yi * 36 + dk - 1]); out.push(v < 0 ? "–" : String(v)); }
+    return out.join(" ");
+  }
+  function renderMap() {
+    const m = DATA.map, yi = DATA.meta.years.indexOf(ST.year), r = ROWS[yi];
+    const coverName = { crop: t("cropland", "zones agricoles"), range: t("rangeland", "zones de pâturage"),
+                        or: t("cropland or rangeland, higher of the two", "zones agricoles ou de pâturage, niveau le plus élevé des deux"),
+                        and: t("cropland and rangeland, lower of the two", "zones agricoles et de pâturage, niveau le plus faible des deux") }[ST.cover];
+    let s = '<svg viewBox="-4 -4 ' + (m.width + 8) + " " + (m.height + 8) + '" role="img" aria-label="' +
+            esc(t("ASAP warnings by province, ", "Alertes ASAP par province, ") + ST.year) + '">';
+    let outlines = "";
+    DATA.provinces.forEach(function (p) {
+      const d = DEC[p.id];
+      let level = -1;
+      if (ST.mapDk) level = coverLevel(d, yi * 36 + ST.mapDk - 1);
+      else for (let dk = ST.d0; dk <= ST.d1; dk++) level = Math.max(level, coverLevel(d, yi * 36 + dk - 1));
+      const n = r.dekadsMet[p.id], counts = r.valid && n >= ST.minDek, nDk = ST.d1 - ST.d0 + 1;
+      const lvTxt = level > 0 ? t("level ", "niveau ") + level : level === 0 ? t("no warning", "pas d’alerte") : t("off season or not assessed", "hors saison ou non évalué");
+      const tip = p.name + " (" + p.region + "), " + ST.year + (ST.year === DATA.meta.years[DATA.meta.years.length - 1] ? t(" (provisional)", " (provisoire)") : "") +
+        "\n" + (ST.mapDk ? t("Dekad ", "Décade ") + ST.mapDk + " (" + dekadLabel(ST.mapDk) + ")" : t("Highest over dekads ", "Plus élevé sur les décades ") + ST.d0 + "–" + ST.d1) +
+        " (" + coverName + ")" + t(": ", "\u00a0: ") + lvTxt +
+        t("\nCropland by dekad ", "\nZones agricoles par décade ") + ST.d0 + "–" + ST.d1 + t(": ", "\u00a0: ") + levelSeq(d.crop, yi) +
+        t("\nRangeland by dekad ", "\nZones de pâturage par décade ") + ST.d0 + "–" + ST.d1 + t(": ", "\u00a0: ") + levelSeq(d.range, yi) +
+        (!r.valid ? t("\nNo ASAP data for the whole dekad range", "\nPas de données ASAP pour toute la plage de décades") :
+         counts ? t("\nCounts toward the threshold (condition met in " + n + " of " + nDk + " dekads)",
+                    "\nComptée pour le seuil (en alerte pendant " + n + (n > 1 ? " décades" : " décade") + " sur " + nDk + ")")
+                : t("\nDoes not count (condition met in " + n + " of " + nDk + " dekads; minimum " + ST.minDek + ")",
+                    "\nNon comptée (en alerte pendant " + n + (n > 1 ? " décades" : " décade") + " sur " + nDk + "\u00a0; minimum " + ST.minDek + ")"));
+      s += '<path d="' + m.provinces[String(p.id)] + '" fill="' + LEVEL_FILL[level] + '" stroke="' + (level < 0 ? "#c9d3d3" : "#fff") +
+           '" stroke-width="0.8" data-tip="' + esc(tip) + '"/>';
+      if (counts) outlines += '<path d="' + m.provinces[String(p.id)] + '" fill="none" stroke="' + COL.ink + '" stroke-width="2.2" pointer-events="none"/>';
+    });
+    m.regions.forEach(function (dd) { s += '<path d="' + dd + '" fill="none" stroke="#7e8e8f" stroke-width="0.9" pointer-events="none"/>'; });
+    $("map").innerHTML = s + outlines + "</svg>";
+    document.querySelectorAll(".map-cover").forEach(function (el) { el.textContent = coverName; });
+
+    // side panel: did the season reach the threshold?
+    const sum = summarise(ROWS, ST.k), reached = sum.years.indexOf(ST.year) >= 0, ny = nationalYield(ST.year);
+    const recs = impactRecords(ST.year), last = DATA.meta.years[DATA.meta.years.length - 1];
+    const impTxt = !inImpactRecord(ST.year) ? '<span class="muted">' + t("not yet known", "pas encore connu") + "</span>" :
+                   impactSeasons().indexOf(ST.year) >= 0 ? '<span class="tag imp">' + t("Yes", "Oui") + "</span>" : t("No", "Non");
+    let info = '<div class="yr">' + ST.year + (ST.year === last ? '<span class="muted">*</span>' : "") + "</div>";
+    info += '<div class="kv"><span>' + t("Provinces meeting the condition", "Provinces en alerte") + "</span><b>" + (r.valid ? r.count : "–") + "</b></div>";
+    info += '<div class="kv"><span>' + t("Threshold", "Seuil") + " (" + nWord(ST.k, "province", "provinces", "province", "provinces") + ")</span><b>" +
+            (!r.valid ? t("no data", "pas de données") : reached ? '<span class="tag on">' + t("reached", "atteint") + "</span> " +
+             t("by ", "dès ") + dekadLabel(r.metAt[ST.k - 1]) : '<span class="tag off">' + t("not reached", "non atteint") + "</span>") + "</b></div>";
+    info += '<div class="kv"><span>' + t("National yield vs trend", "Rendement national, écart à la tendance") + "</span><b>" + (ny ? pct(ny.anom) : "–") + "</b></div>";
+    info += '<div class="kv"><span>' + t("National production vs trend", "Production nationale, écart à la tendance") + "</span><b>" + (ny ? pct(ny.prodAnom) : "–") + "</b></div>";
+    info += '<div class="kv"><span>' + t("Impact season", "Saison avec impact") + "</span><b>" + impTxt + "</b></div>";
+    if (recs.length) info += '<ul class="recs-list">' + recs.map(function (x) { return "<li>" + esc(recLabel(x)) + ' <span class="muted">(' + esc(recDate(x)) + ")</span></li>"; }).join("") + "</ul>";
+    $("map-info").innerHTML = info;
+    $("yprev").disabled = ST.year === DATA.meta.years[0];
+    $("ynext").disabled = ST.year === last;
   }
 
   function levelSummary(pid, year) {
@@ -771,6 +882,7 @@
     writeState();
     const sum = summarise(ROWS, ST.k);
     renderSummary(sum);
+    renderMap();
     renderCounts(sum);
     renderKStrip();
     renderYield(sum);

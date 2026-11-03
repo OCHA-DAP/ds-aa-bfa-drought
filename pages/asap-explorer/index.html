@@ -114,6 +114,27 @@
   .notes table { font-size: 13px; }
   @media (max-width: 640px) { h1 { font-size: 22px; } }
 
+  /* map by season */
+  .mapwrap { display: grid; grid-template-columns: minmax(0, 3fr) minmax(220px, 1.2fr); gap: 16px; align-items: start; margin: 10px 0 6px; }
+  .mapcol { background: #fff; border: 1px solid var(--n15); border-radius: 6px; padding: 10px 12px; }
+  #map svg { display: block; width: 100%; max-width: 620px; height: auto; margin: 0 auto; }
+  #map path[data-tip]:hover { opacity: .85; }
+  .yearbar { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; }
+  .yearbar select#year { font-weight: 700; }
+  .yearbar button:disabled { opacity: .4; cursor: default; }
+  .maplegend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12.5px; color: var(--n8); margin-top: 6px; }
+  .maplegend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; vertical-align: -1px; margin-right: 5px; border: 1px solid #e2e8e8; }
+  .maplegend i.ol { background: #fff; border: 2px solid var(--n9); }
+  .small { font-size: 12.5px; color: var(--n7); }
+  .mapinfo { background: #fff; border: 1px solid var(--n15); border-radius: 6px; padding: 12px 14px; font-size: 13.5px; }
+  .mapinfo .yr { font-family: 'Merriweather', Georgia, serif; font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+  .mapinfo .kv { display: flex; justify-content: space-between; gap: 10px; padding: 5px 0; border-bottom: 1px solid var(--n1); }
+  .mapinfo .kv span { color: var(--n8); }
+  .mapinfo .kv b { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .recs-list { margin: 8px 0 0; padding-left: 18px; font-size: 12.5px; color: var(--n8); }
+  .related { font-size: 14px; margin: -4px 0 14px; }
+  #map-section { scroll-margin-top: 100px; } /* clear the sticky settings bar when a chart click scrolls here */
+  @media (max-width: 760px) { .mapwrap { grid-template-columns: 1fr; } }
   /* languages: every static text carries both, CSS shows one (team convention, KB docs/I18N.md) */
   html[data-lang="fr"] .lv-en, html:not([data-lang="fr"]) .lv-fr { display: none !important; }
   .topline { display: flex; justify-content: space-between; align-items: center; max-width: 1112px; margin: 0 auto; padding-right: 16px; }
@@ -142,6 +163,13 @@
   saison depuis 2001, l’outil compte le nombre de provinces en alerte, indique les saisons où ce nombre atteint le seuil
   choisi, et compare ces saisons aux rendements du mil et du sorgho et aux impacts de sécheresse enregistrés. Le tableau
   final donne une ligne par saison.</p>
+
+<p class="related lv lv-en">See also: <a href="https://agricultural-production-hotspots.ec.europa.eu/wexplorer/" target="_blank" rel="noopener">JRC
+  ASAP Warning Explorer ↗</a> (the JRC's own map of current and past ASAP warnings, all countries) ·
+  <a href="../temperature-explorer/">temperature explorer</a> (the same trigger tests on growing-season heat).</p>
+<p class="related lv lv-fr">Voir aussi&nbsp;: <a href="https://agricultural-production-hotspots.ec.europa.eu/wexplorer/" target="_blank" rel="noopener">ASAP
+  Warning Explorer du JRC ↗</a> (la carte des alertes ASAP actuelles et passées du JRC, tous pays) ·
+  <a href="../temperature-explorer/">explorateur des températures</a> (les mêmes tests de déclencheur sur la chaleur de la saison de culture).</p>
 
 <div class="callout warn">
   <p class="lv lv-en"><strong>2026 is provisional.</strong> ASAP revises recent dekads after first publication, and the
@@ -212,6 +240,33 @@
   </div>
   <p id="empty" hidden><span class="lv lv-en">No warning type selected: open "Types" and tick at least one box.</span><span class="lv lv-fr">Aucun type d’alerte sélectionné&nbsp;: ouvrez «&nbsp;Types&nbsp;» et cochez au moins une case.</span></p>
 </section>
+
+<h2 id="map-section"><span class="lv lv-en">Map by season</span><span class="lv lv-fr">Carte par saison</span></h2>
+<div class="mapwrap">
+  <div class="mapcol">
+    <div class="yearbar"><button type="button" id="yprev" aria-label="Previous season" data-aria-fr="Saison précédente">◀</button>
+      <select id="year" aria-label="Season" data-aria-fr="Saison"></select>
+      <button type="button" id="ynext" aria-label="Next season" data-aria-fr="Saison suivante">▶</button>
+      <select id="mapdk" aria-label="Dekad shown on the map" data-aria-fr="Décade affichée sur la carte"></select>
+      <span class="muted small"><span class="lv lv-en">or click a season in the charts below</span><span class="lv lv-fr">ou cliquez sur une saison dans les graphiques ci-dessous</span></span></div>
+    <div id="map"></div>
+    <div class="maplegend">
+      <span><i style="background:#eef1f1"></i><span class="lv lv-en">no warning</span><span class="lv lv-fr">pas d’alerte</span></span>
+      <span><i style="background:#f5d77e"></i><span class="lv lv-en">level</span><span class="lv lv-fr">niveau</span> 1</span>
+      <span><i style="background:#ee9a45"></i><span class="lv lv-en">level</span><span class="lv lv-fr">niveau</span> 2</span>
+      <span><i style="background:#cf4f2e"></i><span class="lv lv-en">level</span><span class="lv lv-fr">niveau</span> 3</span>
+      <span><i style="background:#7c2a1f"></i><span class="lv lv-en">level</span><span class="lv lv-fr">niveau</span> 4</span>
+      <span><i style="background:#fff"></i><span class="lv lv-en">off season or not assessed</span><span class="lv lv-fr">hors saison ou non évalué</span></span>
+      <span><i class="ol"></i><span class="lv lv-en">counts toward the threshold</span><span class="lv lv-fr">comptée pour le seuil</span></span>
+    </div>
+    <p class="small" style="margin:6px 0 0"><span class="lv lv-en">Colour: ASAP warning level (<span class="map-cover"></span>). Outline: the
+      province meets the warning condition set above for this season. Hover a province for its warnings dekad by
+      dekad.</span><span class="lv lv-fr">Couleur&nbsp;: niveau d’alerte ASAP (<span class="map-cover"></span>). Contour&nbsp;: la
+      province est en alerte selon la condition choisie plus haut pour cette saison. Survolez une province pour voir ses
+      alertes décade par décade.</span></p>
+  </div>
+  <div class="mapinfo" id="map-info"></div>
+</div>
 
 <h2 id="results"><span class="lv lv-en">Results for these settings</span><span class="lv lv-fr">Résultats pour ces paramètres</span></h2>
 <div class="tiles" id="tiles"></div>
@@ -344,6 +399,10 @@
     dekads 21 to 26) gives the same seasons with both versions: 2002, 2004, 2006, 2009 and 2011. Recent dekads are
     revised too: the level-3 cropland warning for Séno seen during the August 2026 monitoring is a level-1 warning in
     this archive.</li>
+  <li><strong>Map:</strong> OCHA common operational dataset of administrative boundaries for Burkina Faso, 2020 edition
+    (the same 45 provinces as ASAP), simplified. The JRC's
+    <a href="https://agricultural-production-hotspots.ec.europa.eu/wexplorer/" target="_blank" rel="noopener">ASAP Warning
+    Explorer</a> shows the same warnings on ASAP's own boundaries, for every country.</li>
   <li><strong>National yield and production:</strong> FAOSTAT millet and sorghum (via HDX), official figures
     2001–2023; yield is production divided by area harvested.</li>
   <li><strong>Province yields:</strong> official agricultural statistics by province compiled in the
@@ -427,6 +486,10 @@
     Oudalan, Séno et Yagha, décades 21 à 26) donne les mêmes saisons avec les deux versions&nbsp;: 2002, 2004, 2006, 2009 et
     2011. Les décades récentes sont aussi révisées&nbsp;: l’alerte de niveau 3 pour les zones agricoles du Séno observée lors
     du suivi d’août 2026 est une alerte de niveau 1 dans cette archive.</li>
+  <li><strong>Carte&nbsp;:</strong> limites administratives de référence d’OCHA (COD) pour le Burkina Faso, édition 2020
+    (les mêmes 45 provinces qu’ASAP), simplifiées. L’<a href="https://agricultural-production-hotspots.ec.europa.eu/wexplorer/"
+    target="_blank" rel="noopener">ASAP Warning Explorer</a> du JRC montre les mêmes alertes sur les limites d’ASAP, pour
+    tous les pays.</li>
   <li><strong>Rendement et production nationaux&nbsp;:</strong> FAOSTAT, mil et sorgho (via HDX), chiffres officiels
     2001–2023&nbsp;; le rendement est la production divisée par la superficie récoltée.</li>
   <li><strong>Rendements par province&nbsp;:</strong> statistiques agricoles officielles par province compilées dans le
@@ -472,14 +535,14 @@
 </div>
 
 <p class="meta"><span id="vintage"></span> <span class="lv lv-en">Sources: JRC ASAP (agricultural-production-hotspots.ec.europa.eu),
-  FAOSTAT, FEWS NET Data Warehouse, EM-DAT (CRED/UCLouvain), CERF allocation records. Code:</span><span class="lv lv-fr">Sources&nbsp;:
-  JRC ASAP (agricultural-production-hotspots.ec.europa.eu), FAOSTAT, FEWS NET Data Warehouse, EM-DAT (CRED/UCLouvain),
+  OCHA COD-AB, FAOSTAT, FEWS NET Data Warehouse, EM-DAT (CRED/UCLouvain), CERF allocation records. Code:</span><span class="lv lv-fr">Sources&nbsp;:
+  JRC ASAP (agricultural-production-hotspots.ec.europa.eu), OCHA COD-AB, FAOSTAT, FEWS NET Data Warehouse, EM-DAT (CRED/UCLouvain),
   données d’allocation du CERF. Code&nbsp;:</span>
   <a href="https://github.com/OCHA-DAP/ds-aa-bfa-drought/tree/main/scripts/asap_explorer">scripts/asap_explorer</a>.
   <span class="lv lv-en">OCHA Centre for Humanitarian Data.</span><span class="lv lv-fr">Centre de données humanitaires d’OCHA.</span></p>
 
 </div>
 <div id="tip" hidden></div>
-<script src="explorer.js?v=20261103h"></script>
+<script src="explorer.js?v=20261104b"></script>
 </body>
 </html>

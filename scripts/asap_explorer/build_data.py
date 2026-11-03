@@ -14,9 +14,12 @@ Inputs (downloaded by hand, never committed):
      (dataset bfa-faostat-crops-livestock-production):
        curl -sL -o bfa_faostat.csv "https://data.humdata.org/dataset/739c3a73-1747-47bf-89bf-31de84df82d2/resource/8f1ef403-423d-4088-9175-c55a8c3c3e1a/download/bfa_faostat_crops_livestock_products.csv"
 
+  4. Province boundaries: OCHA COD-AB for Burkina Faso, 2020 edition (45 provinces, before the
+     2025 reform), e.g. bfa_adm2.shp from pa-aa-bfa-drought/temp/ (EPSG:4326).
+
 Usage:
-  uv run --with pandas python scripts/asap_explorer/build_data.py \
-      warnings_l2_ts.zip bf_crop.csv bfa_faostat.csv pages/asap-explorer/data.json
+  uv run --with pandas --with geopandas --with pyogrio --with "shapely>=2.1" python scripts/asap_explorer/build_data.py \
+      warnings_l2_ts.zip bf_crop.csv bfa_faostat.csv bfa_adm2.shp pages/asap-explorer/data.json
 
 What goes into data.json:
   - provinces: the 45 ASAP admin-2 units (the provinces in place before the 2025 territorial
@@ -35,6 +38,7 @@ What goes into data.json:
         (white or total) sorghum are left empty; zero production or area counts as missing.
         Red sorghum is reported separately in 2001 and from 2008 (in 2002-2007 "Sorghum" is the
         total), and only in some years for some northern provinces.
+  - map: the 45 provinces and 13 regions as SVG paths (from the COD-AB boundaries).
   - impacts: the drought impact records and their dating to growing seasons, copied from
     scripts/impact_analysis.py (the heat-and-impact page) so both pages use the same record;
     label_fr / recorded_fr are the French versions shown when the page is in French.
@@ -42,14 +46,17 @@ What goes into data.json:
 
 import io
 import json
+import math
 import re
 import sys
 import unicodedata
 import zipfile
 from datetime import date
 
+import geopandas as gpd
 import numpy as np
 import pandas as pd
+import shapely
 
 ASAP0_ID_BFA = 17  # ASAP's own country id for Burkina Faso in the Nov 2026 archive (was 219 before)
 YEARS = list(range(2001, 2027))
@@ -117,6 +124,7 @@ IMPACT_SEASONS_ALT = [2011, 2014, 2017, 2019, 2022]
 # 2024 season would be recorded in the 2025 lean season, so with the growing-season dating
 # the last season that can be scored is 2023.
 IMPACT_RECORD_YEARS = {"main": [2001, 2023], "alt": [2001, 2024]}
+MAP_WIDTH = 600  # SVG user units of the province map
 
 
 def norm(name: str) -> str:
@@ -255,7 +263,40 @@ def load_yield(fdw_path: str, fao_path: str, provinces: list[dict]) -> dict:
     return {"years": YIELD_YEARS, "national": load_national_yield(fao_path), "province": prov_out}
 
 
-def main(zip_path: str, fdw_path: str, fao_path: str, out_path: str) -> None:
+def build_map(shp_path: str, provinces: list[dict]) -> dict:
+    """Province outlines as SVG paths (equirectangular, cos-latitude scaled), plus region outlines.
+
+    Shared with scripts/temperature_explorer/build_data.py. Input: OCHA COD-AB for Burkina Faso,
+    2020 edition (45 provinces, before the 2025 reform), EPSG:4326.
+    """
+    g = gpd.read_file(shp_path).to_crs(4326)
+    g["key"] = g["ADM2_FR"].map(norm)
+    by_key = {norm(p["name"]): p for p in provinces}
+    if set(g["key"]) != set(by_key) or g["key"].duplicated().any():
+        raise SystemExit(f"boundary crosswalk failed: {sorted(set(g['key']) ^ set(by_key))}")
+    # simplify as a coverage so neighbouring provinces keep shared edges
+    g["geometry"] = shapely.coverage_simplify(g.geometry.values, tolerance=0.02)
+    minx, miny, maxx, maxy = g.total_bounds
+    lat0 = math.radians((miny + maxy) / 2)
+    sx = MAP_WIDTH / ((maxx - minx) * math.cos(lat0))
+    height = (maxy - miny) * sx
+
+    def path(geom):
+        polys = [geom] if geom.geom_type == "Polygon" else list(geom.geoms)
+        parts = []
+        for poly in polys:
+            for ring in [poly.exterior, *poly.interiors]:
+                pts = [((x - minx) * math.cos(lat0) * sx, (maxy - y) * sx) for x, y in ring.coords]
+                parts.append("M" + "L".join(f"{x:.1f},{y:.1f}" for x, y in pts[:-1]) + "Z")
+        return "".join(parts)
+
+    prov_paths = {str(by_key[k]["id"]): path(geom) for k, geom in zip(g["key"], g.geometry)}
+    regions = g.dissolve(by="ADM1_FR").geometry
+    return {"width": MAP_WIDTH, "height": round(height, 1), "provinces": prov_paths,
+            "regions": [path(geom) for geom in regions]}
+
+
+def main(zip_path: str, fdw_path: str, fao_path: str, shp_path: str, out_path: str) -> None:
     df = load_asap(zip_path)
     units = df[["asap1_name", "asap2_id", "asap2_name"]].drop_duplicates()
     if len(units) != 45 or units["asap2_id"].duplicated().any():
@@ -284,6 +325,7 @@ def main(zip_path: str, fdw_path: str, fao_path: str, out_path: str) -> None:
         "provinces": provinces,
         "warnings": encode_warnings(df, provinces),
         "yield": load_yield(fdw_path, fao_path, provinces),
+        "map": build_map(shp_path, provinces),
         "impacts": IMPACTS,
     }
     with open(out_path, "w", encoding="utf-8") as f:
@@ -292,6 +334,6 @@ def main(zip_path: str, fdw_path: str, fao_path: str, out_path: str) -> None:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 5:
+    if len(sys.argv) != 6:
         raise SystemExit(__doc__)
     main(*sys.argv[1:])

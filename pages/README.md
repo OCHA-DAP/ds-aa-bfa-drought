@@ -73,13 +73,20 @@ source note, not scripted here. The impact-season dating table is in the analysi
 from `data.json`, which holds every province's dekadal ASAP cropland and rangeland warning codes
 (2001–2026), province millet and sorghum yields from the FEWS NET Data Warehouse, national yield and
 production from FAOSTAT, and the drought impact records (the same dating as the heat-and-impact page).
-To refresh after a new dekad or a new year of crop statistics, download the three inputs listed in the
+To refresh after a new dekad or a new year of crop statistics, download the four inputs listed in the
 docstring of `scripts/asap_explorer/build_data.py`, then:
 
 ```bash
-uv run --with pandas python scripts/asap_explorer/build_data.py warnings_l2_ts.zip bf_crop.csv bfa_faostat.csv pages/asap-explorer/data.json
+uv run --with pandas --with geopandas --with pyogrio --with "shapely>=2.1" python scripts/asap_explorer/build_data.py \
+    warnings_l2_ts.zip bf_crop.csv bfa_faostat.csv bfa_adm2.shp pages/asap-explorer/data.json
 node scripts/asap_explorer/check_rules.js
 ```
+
+The page has a map by season (2020 COD-AB provinces, simplified by `build_map` in the same script, which
+the temperature explorer's build reuses): each province coloured by its highest ASAP warning level over
+the chosen dekads (or at one dekad) under the land-cover setting, outlined when it meets the warning
+condition, with a panel saying whether the season reached the threshold. It links to the JRC's own
+ASAP Warning Explorer.
 
 The build fails loudly if ASAP changes Burkina Faso's country id again (it moved from 219 to 17
 between March and November 2026), adds a warning code, or if the 45 provinces no longer match
