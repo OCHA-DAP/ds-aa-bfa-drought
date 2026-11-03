@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burkina Faso drought — ASAP warning explorer for a national trigger</title>
+<meta name="description" content="Interactive tool to test national-level observational drought trigger rules built on JRC ASAP warnings for Burkina Faso's 45 provinces, 2001–2026, compared with millet and sorghum yields and recorded drought impacts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: light;
+    --b5:#269777; --b6:#1e795f; --b7:#18614c; --b05:#e9f5f1; --b1:#d4eae4;
+    --n9:#1f2324; --n8:#3f4748; --n7:#5e6a6b; --n6:#7e8e8f; --n15:#e2e8e8; --n1:#ebeff0; --n05:#f5f7f7;
+    --w05:#fbf4ea; --w5:#d48f2a; --e05:#f9eceb; --e6:#9d372b; --e7:#762920; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--n05); color: var(--n9); font: 400 15px/1.55 'Roboto', system-ui, sans-serif; }
+  .home-link { display: inline-block; margin: 10px 12px; padding: 6px 12px; font: 500 13px/1 'Roboto', system-ui, sans-serif;
+    color: var(--b6); background: var(--b05); border: 1px solid var(--b1); border-radius: 4px; text-decoration: none; }
+  .home-link:hover { background: var(--b1); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px 56px; }
+  h1 { font-family: 'Merriweather', Georgia, serif; font-size: 26px; font-weight: 700; line-height: 1.25; margin: 8px 0 6px; text-wrap: balance; }
+  h2 { font-size: 19px; font-weight: 700; margin: 36px 0 8px; color: var(--b7); border-bottom: 2px solid var(--b1); padding-bottom: 5px; }
+  h3 { font-size: 15.5px; font-weight: 700; margin: 20px 0 6px; }
+  .sub { color: var(--n8); margin: 2px 0 14px; max-width: 86ch; }
+  p, li { max-width: 86ch; }
+  a { color: var(--b6); }
+  .callout { background: #fff; border: 1px solid var(--n15); border-left: 4px solid var(--b6); border-radius: 4px; padding: 10px 16px; margin: 14px 0; font-size: 14px; }
+  .callout.warn { border-left-color: var(--w5); }
+  .callout p { margin: 6px 0; }
+
+  /* controls: a compact bar that sticks to the top of the window while the results scroll under it */
+  .panel { position: sticky; top: 0; z-index: 20; background: #fff; border: 1px solid var(--n15); border-radius: 6px;
+    padding: 8px 12px; margin: 16px 0 10px; font-size: 13px; transition: box-shadow .15s; }
+  .panel.stuck { border-radius: 0 0 6px 6px; border-top-color: transparent; box-shadow: 0 6px 18px rgba(31,35,36,.12); }
+  .bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
+  .bar + .bar { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--n1); }
+  .grp { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .lb { font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--n7); }
+  .lb[data-tip] { cursor: help; border-bottom: 1px dotted var(--n6); }
+  .seg { display: inline-flex; }
+  .seg button { border-radius: 0; margin-left: -1px; padding: 5px 9px; }
+  .seg button:first-child { border-radius: 4px 0 0 4px; margin-left: 0; }
+  .seg button:last-child { border-radius: 0 4px 4px 0; }
+  button { font: 500 12.5px/1 'Roboto', system-ui, sans-serif; cursor: pointer; border-radius: 4px; padding: 5px 9px;
+    border: 1px solid var(--b1); background: var(--b05); color: var(--b7); }
+  button:hover { background: var(--b1); }
+  button.on { background: var(--b6); border-color: var(--b6); color: #fff; position: relative; }
+  select, input[type=number] { font: 400 13px 'Roboto', system-ui, sans-serif; padding: 3px 4px; border: 1px solid var(--n15); border-radius: 4px; background: #fff; }
+  input[type=number] { width: 52px; }
+  input[type=range] { width: 84px; accent-color: var(--e6); margin: 0; }
+  details.pop { position: relative; }
+  details.pop summary { list-style: none; cursor: pointer; font-weight: 500; color: var(--b7); padding: 4px 9px;
+    border: 1px solid var(--b1); border-radius: 4px; background: #fff; }
+  details.pop summary::-webkit-details-marker { display: none; }
+  details.pop summary::after { content: " ▾"; color: var(--n7); }
+  details.pop[open] summary { background: var(--b05); }
+  .pop-body { position: absolute; z-index: 30; top: calc(100% + 6px); left: 0; width: 560px; background: #fff;
+    border: 1px solid var(--n15); border-radius: 6px; box-shadow: 0 8px 24px rgba(31,35,36,.16); padding: 10px 12px;
+    white-space: normal; }
+  #levels { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+  fieldset.lvl { border: 1px solid var(--n1); border-radius: 5px; margin: 0; padding: 4px 8px 6px; }
+  fieldset.lvl legend { font-size: 12px; font-weight: 500; color: var(--n8); padding: 0 4px; }
+  fieldset.lvl label { display: block; font-size: 13px; line-height: 1.65; }
+  .pop-body .exc { display: block; margin-top: 8px; font-size: 12.5px; color: var(--n8); }
+  .live { margin-left: auto; font-size: 12.5px; color: var(--n8); white-space: nowrap; }
+  .live b { color: var(--n9); }
+  #empty { color: var(--e7); font-weight: 500; margin: 6px 0 0; }
+  @media (max-width: 760px) { .panel { position: static; } .pop-body { width: 92vw; } #levels { grid-template-columns: 1fr; } .live { margin-left: 0; } }
+
+  /* summary */
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 16px 0 8px; }
+  .tile { background: #fff; border: 1px solid var(--n15); border-radius: 6px; padding: 10px 14px; }
+  .tv { font-size: 22px; font-weight: 700; color: var(--n9); font-variant-numeric: tabular-nums; }
+  .tl { font-size: 12.5px; color: var(--n7); }
+  #summary p { margin: 6px 0; }
+
+  figure { margin: 16px 0; background: #fff; border: 1px solid var(--n15); border-radius: 6px; padding: 12px 12px 6px; }
+  figure .chart { width: 100%; overflow-x: auto; }
+  figure svg { display: block; margin: 0 auto; }
+  figcaption { color: var(--n7); font-size: 13px; padding: 8px 6px 2px; max-width: 110ch; }
+  .legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 12.5px; color: var(--n8); padding: 0 6px 6px; }
+  .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; vertical-align: -1px; margin-right: 5px; }
+  .legend i.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--n9); vertical-align: 1px; }
+  .legend i.dia { width: 9px; height: 9px; background: var(--n9); transform: rotate(45deg); border-radius: 0; }
+  .legend i.dash { width: 18px; height: 0; border-top: 2px dashed var(--n9); border-radius: 0; vertical-align: 3px; }
+  svg text { font-family: 'Roboto', system-ui, sans-serif; }
+  svg .ax { font-size: 11px; fill: var(--n7); }
+  svg .na { font-size: 9.5px; }
+  svg .lab { font-size: 11px; fill: var(--n9); font-weight: 500; }
+  svg .pv { font-size: 10.5px; fill: var(--n8); }
+  svg .rg { font-size: 10px; fill: var(--n7); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  #tip { position: fixed; z-index: 50; pointer-events: none; background: var(--n9); color: #fff; font-size: 12.5px; line-height: 1.45;
+    padding: 7px 10px; border-radius: 4px; max-width: 360px; white-space: pre-line; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+
+  table { border-collapse: collapse; width: 100%; margin: 10px 0 6px; background: #fff; border: 1px solid var(--n15); font-size: 13px; }
+  th, td { padding: 6px 8px; border-bottom: 1px solid var(--n1); text-align: left; vertical-align: top; }
+  th { background: var(--n05); font-weight: 500; color: var(--n8); font-size: 12.5px; }
+  thead th { position: sticky; top: 0; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.nw { white-space: nowrap; }
+  td.recs { white-space: nowrap; font-size: 12.5px; }
+  td.recs span { border-bottom: 1px dotted var(--n6); cursor: help; }
+  thead th, thead th.num { vertical-align: bottom; white-space: normal; max-width: 108px; line-height: 1.3; }
+  tr.hit-row td { background: #fcf6f5; }
+  .tblwrap { overflow-x: auto; max-height: 720px; overflow-y: auto; border-radius: 4px; }
+  .tag { display: inline-block; font-size: 11.5px; font-weight: 500; padding: 1px 7px; border-radius: 9px; white-space: nowrap; }
+  .tag.on { background: var(--e05); color: var(--e7); }
+  .tag.off { background: var(--n1); color: var(--n7); }
+  .tag.imp { background: var(--n9); color: #fff; }
+  .muted { color: var(--n6); }
+  .meta { color: var(--n7); font-size: 13px; border-top: 1px solid var(--n15); padding-top: 14px; margin-top: 40px; }
+  code { background: var(--n1); padding: 1px 5px; border-radius: 3px; font-size: 12.5px; }
+  .notes table { font-size: 13px; }
+  @media (max-width: 640px) { h1 { font-size: 22px; } }
+</style>
+</head>
+<body>
+<!-- back to the site landing page — first element inside body -->
+<a class="home-link" href="../">← Burkina Faso drought AA</a>
+<div class="wrap">
+
+<h1>ASAP warning explorer for a national drought trigger</h1>
+<p class="sub">This tool tests rules for a national, observational drought trigger based on the JRC ASAP
+  warnings for Burkina Faso's 45 provinces. Choose which warnings count, the dekads to look at, and whether
+  cropland, rangeland or both must be affected. For every season since 2001 the tool counts how many provinces
+  met that condition, marks the seasons in which the count reaches the threshold you set, and compares those
+  seasons with millet and sorghum yields and with recorded drought impacts. The table at the end gives one row per
+  season.</p>
+
+<div class="callout warn">
+  <p><strong>2026 is provisional.</strong> ASAP revises recent dekads after first publication, and the archive used
+    here ends on <span id="last-dekad">its last available dekad</span>. Seasons without ASAP data for the whole dekad
+    range selected are left out of the counts (the archive starts on 21 May 2001).</p>
+</div>
+
+<p id="loading">Loading data…</p>
+<div id="app" hidden>
+
+<div id="panel-top"></div>
+<section class="panel" id="panel" aria-label="Trigger settings">
+  <div class="bar">
+    <div class="grp"><span class="lb" data-tip="Which ASAP warnings count. The buttons select whole levels; the menu lets you pick the indicator combinations within each level.">Warnings</span>
+      <div class="seg" id="presets"></div>
+      <details class="pop" id="types"><summary id="types-sum">Types</summary>
+        <div class="pop-body">
+          <div id="levels"></div>
+          <label class="exc"><input type="checkbox" id="exc"> Include the same warnings when part of the area also has
+            exceptionally good biomass (ASAP: "with exceptional conditions"; grouped with the plain warnings of the same level)</label>
+        </div>
+      </details>
+    </div>
+    <div class="grp"><span class="lb" data-tip="Whether the warning has to be on cropland, rangeland, either, or both. &quot;And&quot; requires both in the same dekad.">Land cover</span>
+      <select id="cover" aria-label="Land cover">
+        <option value="crop">Cropland</option>
+        <option value="range">Rangeland</option>
+        <option value="or">Cropland or rangeland</option>
+        <option value="and">Cropland and rangeland</option>
+      </select></div>
+    <div class="grp"><span class="lb" data-tip="Dekads of the season to look at (1st, 2nd or 3rd ten days of each month).">Dekads</span>
+      <select id="d0" aria-label="First dekad"></select>–<select id="d1" aria-label="Last dekad"></select></div>
+    <div class="grp"><span class="lb" data-tip="A province counts for a season when it meets the condition in at least this many dekads of the range (not necessarily consecutive).">Min. dekads</span>
+      <input type="number" id="mindek" min="1" max="36" step="1" aria-label="Minimum dekads per province"></div>
+  </div>
+  <div class="bar">
+    <div class="grp"><span class="lb" data-tip="A season reaches the threshold when at least this many provinces meet the condition.">Threshold</span>
+      <input type="range" id="kslider" min="1" max="45" step="1" aria-label="Count threshold">
+      <input type="number" id="k" min="1" max="45" step="1" aria-label="Count threshold"> provinces
+      <button type="button" id="suggest" data-tip="Set the threshold whose return period is closest to 4 years for the current settings.">1 in 4 yrs</button></div>
+    <div class="grp"><span class="lb" data-tip="How impact records are attributed to seasons. Growing season: 2011, 2013, 2017, 2019, 2021. Framework labelling: 2011, 2014, 2017, 2019, 2022. See &quot;Drought impact records&quot; below.">Impact years</span>
+      <select id="imp" aria-label="Impact seasons">
+        <option value="main">Growing season</option>
+        <option value="alt">Framework labels</option>
+      </select></div>
+    <div class="grp"><span class="lb" data-tip="Millet and sorghum yield, per province, used in the province chart and the table.">Poor yield</span>
+      <select id="yt" aria-label="Poor-yield province">
+        <option value="10">≥10% below trend</option>
+        <option value="15">≥15% below trend</option>
+        <option value="20">≥20% below trend</option>
+        <option value="25">≥25% below trend</option>
+        <option value="30">≥30% below trend</option>
+      </select></div>
+    <div class="live" id="live" aria-live="polite"></div>
+  </div>
+  <p id="empty" hidden>No warning type selected: open "Types" and tick at least one box.</p>
+</section>
+
+<h2 id="results">Results for these settings</h2>
+<div class="tiles" id="tiles"></div>
+<div id="summary"></div>
+
+<figure>
+  <div class="legend"><span><i style="background:#9d372b"></i>threshold reached</span><span><i style="background:#b9c4c5"></i>below threshold</span>
+    <span><i class="dash"></i>count threshold (<b id="klabel"></b> provinces)</span><span><i class="dia"></i>impact season</span></div>
+  <div class="chart" id="chart-counts"></div>
+  <figcaption>Number of provinces meeting the warning condition in each season. "n/a": no ASAP data for the whole
+    dekad range. *2026 provisional. Hover over a season for the provinces, the dekad the threshold was reached, the
+    national yield and the impact records.</figcaption>
+</figure>
+
+<figure>
+  <div class="legend"><span><i style="background:#9d372b"></i>current threshold</span><span><i style="background:#e9f5f1;border:1px solid #d4eae4"></i>return period between 3 and 5 years</span></div>
+  <div class="chart" id="krp"></div>
+  <figcaption>Number of seasons that reach the threshold, for every possible count threshold with the other settings
+    unchanged. Click a bar to use that threshold. Return period = (seasons with data + 1) ÷ seasons reaching the
+    threshold.</figcaption>
+</figure>
+
+<h2 id="yield">Comparison with yield and production</h2>
+<figure>
+  <div class="legend"><span class="radios"><label><input type="radio" name="nat" value="yield"> Yield</label>
+    <label><input type="radio" name="nat" value="prod"> Production</label></span>
+    <span><i style="background:#9d372b"></i>threshold reached</span><span><i style="background:#b9c4c5"></i>threshold not reached</span></div>
+  <div class="chart" id="chart-yield"></div>
+  <figcaption>National millet and sorghum yield or production (FAOSTAT), percentage above or below its 2001–2023
+    trend. FAOSTAT yield is production per area harvested, so fields that failed completely lower production but
+    not yield: in 2004, for example, yield was close to trend while production was 11% below it. FAOSTAT figures for
+    2024 are estimates and are not shown. Hover for both values.</figcaption>
+</figure>
+
+<figure>
+  <div class="legend"><span><i style="background:#9d372b"></i>province meets the condition</span>
+    <span><i style="background:#f2d9d6"></i>condition met in fewer dekads than the minimum</span>
+    <span><i style="background:#eef1f1"></i>not met</span>
+    <span><i class="dot"></i>millet and sorghum yield at least <b id="ytlabel"></b>% below the province's trend</span></div>
+  <div class="chart" id="chart-grid"></div>
+  <figcaption>Each province and season, regions ordered roughly north to south. Province yield statistics are noisier
+    than the national series, with some implausible single values; treat single dots with care.</figcaption>
+</figure>
+
+<h2 id="table">Season by season</h2>
+<p>One row per season with the result for the current settings, yields, and recorded drought impacts. Seasons
+  reaching the threshold are shaded. <button type="button" id="csv">Download as CSV</button></p>
+<div class="tblwrap">
+<table>
+  <thead><tr>
+    <th>Season</th><th class="num">Provinces meeting the condition</th><th>Threshold reached, by dekad</th>
+    <th class="num">National yield, kg/ha</th><th class="num">Yield vs trend</th><th class="num">Production vs trend</th>
+    <th class="num" id="th-poor">Provinces with poor yield</th><th>Impact season</th><th>Impact records</th>
+    <th>Framework target year</th>
+  </tr></thead>
+  <tbody id="tbody"></tbody>
+</table>
+</div>
+<p class="muted" style="font-size:13px">National yield and production: millet and sorghum, FAOSTAT. Provinces with poor
+  yield: FEWS NET province statistics ("of n" where some provinces have no complete statistics). Impact records are
+  listed under the season they are attributed to with the dating chosen above; hover a record for details. *2026
+  provisional.</p>
+
+</div><!-- #app -->
+
+<div class="notes">
+<h2 id="method">How the count is made</h2>
+<ol>
+  <li>Each dekad, ASAP gives every province one warning for cropland and one for rangeland. A province meets the
+    condition in a dekad when that warning is one of the types ticked above, for cropland, rangeland, either, or both,
+    as selected.</li>
+  <li>A province counts for a season when it meets the condition in at least the minimum number of dekads within the
+    range. The dekads do not need to be consecutive.</li>
+  <li>A season reaches the threshold when at least that many provinces count. "Reached by dekad" is the dekad by which
+    the threshold number of provinces had met the condition.</li>
+  <li>The return period is (n + 1) ÷ k, where n is the number of seasons with ASAP data for the whole dekad range and
+    k the number of seasons that reach the threshold.</li>
+</ol>
+
+<h3>ASAP warning types</h3>
+<p>A warning is issued when an indicator is more than one standard deviation below its long-term mean (z-score below
+  −1) on at least 25% of the active cropland or rangeland of a province, and only while the season is active.</p>
+<table>
+  <thead><tr><th>Level</th><th>Indicators below threshold</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Water satisfaction index (WSI), 3-month standardised precipitation index (SPI-3), or both</td><td>Rainfall or water-balance deficit that may lead to poor growth</td></tr>
+    <tr><td>2</td><td>Cumulative NDVI anomaly since the start of the season (zNDVIc)</td><td>Poor vegetation growth</td></tr>
+    <tr><td>3</td><td>zNDVIc together with WSI, SPI-3, or both</td><td>Poor growth with a rainfall or water-balance deficit</td></tr>
+    <tr><td>4</td><td>zNDVIc, once the season is in senescence</td><td>Poor growth over the whole season</td></tr>
+  </tbody>
+</table>
+<p>Level 4 can only occur once the season is in senescence. In Burkina Faso the first level-4 warnings of a
+  season appear in dekad 27 at the earliest, usually in dekads 28 or 29 (early October), so level 4 never occurs in
+  the framework window (dekads 21 to 26). According to ASAP, level-4 warnings issued after the last dekad in which
+  most of a province's growing area is still active rest on too small a share of that area to be relied on.</p>
+
+<h3>Data</h3>
+<ul>
+  <li><strong>ASAP warnings:</strong> JRC ASAP admin-2 warning archive (file dated 2 November 2026), from 21 May 2001 to
+    11 October 2026. ASAP uses the 45 provinces in place before the 2025 territorial reform.
+    The archive has been revised since the March 2026 copy used for the 2026 framework: Burkina Faso's unit codes
+    changed and some past warnings were recomputed (84% of cropland codes in July to October for the four framework
+    provinces are unchanged). The framework's rule (level 3 or above, at least 2 of Loroum, Oudalan, Séno and Yagha,
+    dekads 21 to 26) gives the same seasons with both versions: 2002, 2004, 2006, 2009 and 2011. Recent dekads are
+    revised too: the level-3 cropland warning for Séno seen during the August 2026 monitoring is a level-1 warning in
+    this archive.</li>
+  <li><strong>National yield and production:</strong> FAOSTAT millet and sorghum (via HDX), official figures
+    2001–2023; yield is production divided by area harvested.</li>
+  <li><strong>Province yields:</strong> official agricultural statistics by province compiled in the
+    <a href="https://fews.net/data">FEWS NET Data Warehouse</a>: rainfed millet and sorghum (white and red), production
+    divided by area planted, 2001–2023. Province-years without both millet and sorghum figures are left empty (Bam,
+    Namentenga and Sanmatenga in 2008). Red sorghum is reported separately in 2001 and from 2008 (for 2002–2007 the
+    sorghum figure is the total), and in some northern provinces only in some years. The province figures do not always add up to the national totals, so they are used
+    only for the province comparison.</li>
+  <li><strong>Trends:</strong> each yield or production series is compared with a straight-line trend fitted over
+    2001–2023 (Theil–Sen, which is not pulled by single extreme values); the anomaly is the percentage above or below
+    it.</li>
+  <li><strong>Drought impacts:</strong> the records and their dating from the
+    <a href="../heat-and-impact/">heat-and-impact page</a>, listed below.</li>
+</ul>
+
+<h3 id="impacts">Drought impact records</h3>
+<p>Impact records are dated to the lean season in which people were affected or funds were allocated, usually the year
+  after the failed harvest. Each record is attributed to a growing season. Where the evidence is ambiguous, the
+  framework's own labelling is offered as the alternative dating.</p>
+<table>
+  <thead><tr><th>Record</th><th>Recorded</th><th class="num">Season (growing season)</th><th class="num">Season (framework labelling)</th></tr></thead>
+  <tbody>
+    <tr><td>EM-DAT 2011-9524: drought, 2.85 million affected (Sahel, Centre-Nord, Est, Centre-Ouest, Centre-Est)</td><td>Dec 2011 – 2012</td><td class="num">2011</td><td class="num">2011</td></tr>
+    <tr><td>CERF 12-RR-BFA-13236: rapid response, drought, $9.2 million</td><td>2012</td><td class="num">2011</td><td class="num">2011</td></tr>
+    <tr><td>EM-DAT 2014-9196: drought, 4.0 million affected (Sahel)</td><td>May 2014</td><td class="num">2013</td><td class="num">2014</td></tr>
+    <tr><td>CERF 14-UFE-BFA-10955: underfunded emergencies, drought, $3.9 million</td><td>Aug 2014</td><td class="num">2013</td><td class="num">2014</td></tr>
+    <tr><td>CERF 18-RR-BFA-30726: rapid response, drought and pastoral crisis, $9.0 million</td><td>May 2018</td><td class="num">2017</td><td class="num">2017</td></tr>
+    <tr><td>EM-DAT 2020-9235: drought, 2.9 million affected (all regions)</td><td>Jan – Jun 2020</td><td class="num">2019</td><td class="num">2019</td></tr>
+    <tr><td>EM-DAT 2022-9781: drought, 3.5 million affected</td><td>to Nov 2022</td><td class="num">2021</td><td class="num">2022</td></tr>
+    <tr><td>CERF 22-RR-BFA-53665: rapid response, food insecurity in the lean season, $6.0 million</td><td>May 2022</td><td class="num">2021</td><td class="num">2022</td></tr>
+  </tbody>
+</table>
+<p>The framework target years (2011, 2014, 2017, 2019, 2022) come from the 2026 trigger analysis. The EM-DAT and CERF
+  records used here run to 2024. A failed season shows up in the following lean season, so with the growing-season
+  dating the last season that can be scored is 2023; with the framework labelling it is 2024. Later seasons show "not
+  yet known" in the table and are not counted as misses or as seasons without impact. Not used: the EM-DAT drought of April 2001 in Plateau Central (no figures; it
+  follows the 2000 season), CERF underfunded-window drought allocations of 2006–2009 (yearly, chronic needs), and
+  Cadre Harmonisé figures (national series from 2020 only, driven by the conflict). From 2019 onwards, the security
+  crisis affects both the impact records and the agricultural statistics.</p>
+</div>
+
+<p class="meta"><span id="vintage"></span> Sources: JRC ASAP (agricultural-production-hotspots.ec.europa.eu), FAOSTAT,
+  FEWS NET Data Warehouse, EM-DAT (CRED/UCLouvain), CERF allocation records. Code:
+  <a href="https://github.com/OCHA-DAP/ds-aa-bfa-drought/tree/main/scripts/asap_explorer">scripts/asap_explorer</a>.
+  OCHA Centre for Humanitarian Data.</p>
+
+</div>
+<div id="tip" hidden></div>
+<script src="explorer.js?v=20261103c"></script>
+</body>
+</html>

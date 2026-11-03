@@ -17,6 +17,7 @@ manual dispatch.
 | `/biomass-detrended/` | `pages/biomass-detrended/index.html` |
 | `/temperature/` | `pages/temperature/index.html` |
 | `/heat-and-impact/` | `pages/heat-and-impact/index.html` |
+| `/asap-explorer/` | `pages/asap-explorer/index.html` + `explorer.js` + `data.json` (built by `scripts/asap_explorer/`) |
 | `/hnrp-2027/` | `pages/hnrp-2027/index.html` (password gate) + `page.enc` (encrypted page); built by `scripts/hnrp_2027/` |
 
 ## Adding a page
@@ -64,6 +65,29 @@ FAOSTAT production from HDX (`bfa-faostat-crops-livestock-production`), the EM-D
 (`ocha_stratus.emdat`), and the team dev database (`aa.cerf_allocation` + `aa.cerf_supplement`,
 `ipc.population`, `fewsnet.classification`); the pulls are one-off queries recorded in the page's
 source note, not scripted here. The impact-season dating table is in the analysis script.
+
+## The ASAP warning explorer
+
+`pages/asap-explorer/` is an interactive page: `explorer.js` evaluates the trigger rule in the browser
+from `data.json`, which holds every province's dekadal ASAP cropland and rangeland warning codes
+(2001–2026), province millet and sorghum yields from the FEWS NET Data Warehouse, national yield and
+production from FAOSTAT, and the drought impact records (the same dating as the heat-and-impact page).
+To refresh after a new dekad or a new year of crop statistics, download the three inputs listed in the
+docstring of `scripts/asap_explorer/build_data.py`, then:
+
+```bash
+uv run --with pandas python scripts/asap_explorer/build_data.py warnings_l2_ts.zip bf_crop.csv bfa_faostat.csv pages/asap-explorer/data.json
+node scripts/asap_explorer/check_rules.js
+```
+
+The build fails loudly if ASAP changes Burkina Faso's country id again (it moved from 219 to 17
+between March and November 2026), adds a warning code, or if the 45 provinces no longer match
+between ASAP and FEWS NET. `check_rules.js` re-derives known results (the framework rule on its four
+provinces gives 2002, 2004, 2006, 2009, 2011; national counts match values computed separately with
+pandas from the November 2026 archive). The expected values are tied to that archive and need
+updating when ASAP revises past dekads. Settings are kept in the URL query string, so a view can be shared as a link.
+When `explorer.js` changes, bump the `?v=` on its `<script>` tag in `index.html` so browsers do not pair a
+cached old script with the new page; `data.json` is always revalidated.
 
 ## The HNRP 2027 baseline (password-protected)
 
