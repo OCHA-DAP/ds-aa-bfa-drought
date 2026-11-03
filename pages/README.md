@@ -70,22 +70,22 @@ source note, not scripted here. The impact-season dating table is in the analysi
 
 `pages/asap-explorer/` is an interactive page: `explorer.js` evaluates the trigger rule in the browser
 from `data.json`, which holds every province's dekadal ASAP cropland and rangeland warning codes
-(2001–2026), the province and national millet and sorghum yields from the FEWS NET Data Warehouse, and
-the drought impact records (the same dating as the heat-and-impact page). To refresh after a new dekad
-or a new year of crop statistics, download the two inputs listed in the docstring of
-`scripts/asap_explorer/build_data.py`, then:
+(2001–2026), province millet and sorghum yields from the FEWS NET Data Warehouse, national yield and
+production from FAOSTAT, and the drought impact records (the same dating as the heat-and-impact page).
+To refresh after a new dekad or a new year of crop statistics, download the three inputs listed in the
+docstring of `scripts/asap_explorer/build_data.py`, then:
 
 ```bash
-uv run --with pandas python scripts/asap_explorer/build_data.py warnings_l2_ts.zip bf_crop.csv pages/asap-explorer/data.json
+uv run --with pandas python scripts/asap_explorer/build_data.py warnings_l2_ts.zip bf_crop.csv bfa_faostat.csv pages/asap-explorer/data.json
 node scripts/asap_explorer/check_rules.js
 ```
 
 The build fails loudly if ASAP changes Burkina Faso's country id again (it moved from 219 to 17
 between March and November 2026), adds a warning code, or if the 45 provinces no longer match
 between ASAP and FEWS NET. `check_rules.js` re-derives known results (the framework rule on its four
-provinces gives 2002, 2004, 2006, 2009, 2011; national counts match an independent pandas
-computation); some expected values are tied to the November 2026 archive and need updating when
-ASAP revises past dekads. Settings are kept in the URL query string, so a view can be shared as a link.
+provinces gives 2002, 2004, 2006, 2009, 2011; national counts match values computed separately with
+pandas from the November 2026 archive). The expected values are tied to that archive and need
+updating when ASAP revises past dekads. Settings are kept in the URL query string, so a view can be shared as a link.
 
 ## The HNRP 2027 baseline (password-protected)
 

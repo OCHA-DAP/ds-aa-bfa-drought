@@ -114,8 +114,8 @@
 
 <div class="callout warn">
   <p><strong>2026 is provisional.</strong> ASAP revises recent dekads after first publication, and the archive used
-    here ends on 11 October 2026. Seasons without ASAP data for the whole dekad range selected are left out of the
-    counts (2001 starts on 21 May; 2026 ends at the 2nd dekad of October).</p>
+    here ends on <span id="last-dekad">its last available dekad</span>. Seasons without ASAP data for the whole dekad
+    range selected are left out of the counts (the archive starts on 21 May 2001).</p>
 </div>
 
 <p id="loading">Loading data…</p>
@@ -195,12 +195,16 @@
     threshold.</figcaption>
 </figure>
 
-<h2 id="yield">Comparison with yields</h2>
+<h2 id="yield">Comparison with yield and production</h2>
 <figure>
-  <div class="legend"><span><i style="background:#9d372b"></i>threshold reached</span><span><i style="background:#b9c4c5"></i>threshold not reached</span></div>
+  <div class="legend"><span class="radios"><label><input type="radio" name="nat" value="yield"> Yield</label>
+    <label><input type="radio" name="nat" value="prod"> Production</label></span>
+    <span><i style="background:#9d372b"></i>threshold reached</span><span><i style="background:#b9c4c5"></i>threshold not reached</span></div>
   <div class="chart" id="chart-yield"></div>
-  <figcaption>National millet and sorghum yield, percentage above or below its 2001–2023 trend. Official statistics
-    for 2024 onwards are not yet in the source. Hover for yield and production.</figcaption>
+  <figcaption>National millet and sorghum yield or production (FAOSTAT), percentage above or below its 2001–2023
+    trend. FAOSTAT yield is production per area harvested, so fields that failed completely lower production but
+    not yield: in 2004, for example, yield was close to trend while production was 11% below it. FAOSTAT figures for
+    2024 are estimates and are not shown. Hover for both values.</figcaption>
 </figure>
 
 <figure>
@@ -220,15 +224,17 @@
 <table>
   <thead><tr>
     <th>Season</th><th class="num">Provinces meeting the condition</th><th>Threshold reached, by dekad</th>
-    <th class="num">National yield (kg/ha)</th><th class="num">Yield vs trend</th><th class="num">Production vs trend</th>
+    <th class="num">National yield, kg/ha</th><th class="num">Yield vs trend</th><th class="num">Production vs trend</th>
     <th class="num" id="th-poor">Provinces with poor yield</th><th>Impact season</th><th>Impact records</th>
     <th>Framework target year</th>
   </tr></thead>
   <tbody id="tbody"></tbody>
 </table>
 </div>
-<p class="muted" style="font-size:13px">Yields: millet and sorghum. Impact records are listed under the season they are
-  attributed to with the dating chosen above; hover a record for details. *2026 provisional.</p>
+<p class="muted" style="font-size:13px">National yield and production: millet and sorghum, FAOSTAT. Provinces with poor
+  yield: FEWS NET province statistics ("of n" where some provinces have no complete statistics). Impact records are
+  listed under the season they are attributed to with the dating chosen above; hover a record for details. *2026
+  provisional.</p>
 
 </div><!-- #app -->
 
@@ -273,11 +279,17 @@
     dekads 21 to 26) gives the same seasons with both versions: 2002, 2004, 2006, 2009 and 2011. Recent dekads are
     revised too: the level-3 cropland warning for Séno seen during the August 2026 monitoring is a level-1 warning in
     this archive.</li>
-  <li><strong>Yields:</strong> official agricultural statistics by province compiled in the
+  <li><strong>National yield and production:</strong> FAOSTAT millet and sorghum (via HDX), official figures
+    2001–2023; yield is production divided by area harvested.</li>
+  <li><strong>Province yields:</strong> official agricultural statistics by province compiled in the
     <a href="https://fews.net/data">FEWS NET Data Warehouse</a>: rainfed millet and sorghum (white and red), production
-    divided by area planted, 2001–2023. The national value is total production divided by total area. The trend is a
-    straight line fitted to each series (Theil–Sen, which is not pulled by single extreme values), and the anomaly is
-    the percentage above or below it.</li>
+    divided by area planted, 2001–2023. Province-years without both millet and sorghum figures are left empty (Bam,
+    Namentenga and Sanmatenga in 2008). Red sorghum is reported separately only from 2008, and in some northern
+    provinces only in some years. The province figures do not always add up to the national totals, so they are used
+    only for the province comparison.</li>
+  <li><strong>Trends:</strong> each yield or production series is compared with a straight-line trend fitted over
+    2001–2023 (Theil–Sen, which is not pulled by single extreme values); the anomaly is the percentage above or below
+    it.</li>
   <li><strong>Drought impacts:</strong> the records and their dating from the
     <a href="../heat-and-impact/">heat-and-impact page</a>, listed below.</li>
 </ul>
@@ -299,16 +311,17 @@
     <tr><td>CERF 22-RR-BFA-53665: rapid response, food insecurity in the lean season, $6.0 million</td><td>May 2022</td><td class="num">2021</td><td class="num">2022</td></tr>
   </tbody>
 </table>
-<p>The framework target years (2011, 2014, 2017, 2019, 2022) come from the 2026 trigger analysis. The impact record
-  covers seasons up to 2024; for 2025 and 2026 the table shows "not yet known" and these seasons are not counted as
-  misses or as seasons without impact. Not used: the EM-DAT drought of April 2001 in Plateau Central (no figures; it
+<p>The framework target years (2011, 2014, 2017, 2019, 2022) come from the 2026 trigger analysis. The EM-DAT and CERF
+  records used here run to 2024. A failed season shows up in the following lean season, so with the growing-season
+  dating the last season that can be scored is 2023; with the framework labelling it is 2024. Later seasons show "not
+  yet known" in the table and are not counted as misses or as seasons without impact. Not used: the EM-DAT drought of April 2001 in Plateau Central (no figures; it
   follows the 2000 season), CERF underfunded-window drought allocations of 2006–2009 (yearly, chronic needs), and
   Cadre Harmonisé figures (national series from 2020 only, driven by the conflict). From 2019 onwards, the security
   crisis affects both the impact records and the agricultural statistics.</p>
 </div>
 
-<p class="meta"><span id="vintage"></span> Sources: JRC ASAP (agricultural-production-hotspots.ec.europa.eu), FEWS NET
-  Data Warehouse, EM-DAT (CRED/UCLouvain), CERF allocation records. Code:
+<p class="meta"><span id="vintage"></span> Sources: JRC ASAP (agricultural-production-hotspots.ec.europa.eu), FAOSTAT,
+  FEWS NET Data Warehouse, EM-DAT (CRED/UCLouvain), CERF allocation records. Code:
   <a href="https://github.com/OCHA-DAP/ds-aa-bfa-drought/tree/main/scripts/asap_explorer">scripts/asap_explorer</a>.
   OCHA Centre for Humanitarian Data.</p>
 

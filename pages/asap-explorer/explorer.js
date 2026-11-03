@@ -83,7 +83,7 @@
           else ok = sel[c] === 1 || sel[r] === 1;
           if (ok) {
             n++;
-            if (n === st.minDek && first === null) first = dk;
+            if (n >= st.minDek && first === null) first = dk;
           }
         }
         perProv[p.id] = n;
@@ -141,7 +141,7 @@
     ink2: "#5e6a6b", grid: "#e2e8e8", band: "#e9f5f1", brand: "#1e795f",
   };
   const DEFAULTS = { codes: [6, 7, 8, 9], exceptional: true, cover: "or", d0: 21, d1: 26, minDek: 1, k: null,
-                     imp: "main", yt: 20 };
+                     imp: "main", yt: 20, nat: "yield" };
   const PRESETS = [
     { id: "ge1", label: "Level 1 or above", codes: [2, 3, 4, 5, 6, 7, 8, 9] },
     { id: "ge2", label: "Level 2 or above", codes: [5, 6, 7, 8, 9] },
@@ -169,17 +169,19 @@
     if (q.has("w")) st.codes = q.get("w").split(",").map(Number).filter(function (c) { return CODE_LEVEL[c] > 0 && c <= 9; });
     if (q.has("x")) st.exceptional = q.get("x") !== "0";
     if (["crop", "range", "or", "and"].indexOf(q.get("lc")) >= 0) st.cover = q.get("lc");
-    const d0 = +q.get("d0"), d1 = +q.get("d1");
+    const int = function (name) { const v = Math.round(Number(q.get(name))); return isFinite(v) ? v : 0; };
+    const d0 = int("d0"), d1 = int("d1");
     if (d0 >= 1 && d0 <= 36) st.d0 = d0;
     if (d1 >= 1 && d1 <= 36) st.d1 = d1;
     if (st.d1 < st.d0) { const t = st.d0; st.d0 = st.d1; st.d1 = t; }
-    const md = +q.get("md");
+    const md = int("md");
     if (md >= 1) st.minDek = md;
-    const k = +q.get("k");
-    if (k >= 1 && k <= 45) st.k = k;
+    const k = int("k");
+    if (k >= 1 && k <= DATA.provinces.length) st.k = k;
     if (q.get("imp") === "alt") st.imp = "alt";
-    const yt = +q.get("yt");
+    const yt = int("yt");
     if ([10, 15, 20, 25, 30].indexOf(yt) >= 0) st.yt = yt;
+    if (q.get("nat") === "prod") st.nat = "prod";
     return st;
   }
   function writeState() {
@@ -187,7 +189,7 @@
     q.set("w", ST.codes.slice().sort(function (a, b) { return a - b; }).join(","));
     q.set("x", ST.exceptional ? "1" : "0");
     q.set("lc", ST.cover); q.set("d0", ST.d0); q.set("d1", ST.d1); q.set("md", ST.minDek);
-    q.set("k", ST.k); q.set("imp", ST.imp); q.set("yt", ST.yt);
+    q.set("k", ST.k); q.set("imp", ST.imp); q.set("yt", ST.yt); q.set("nat", ST.nat);
     history.replaceState(null, "", "?" + q.toString());
   }
 
@@ -235,15 +237,20 @@
       ST.d1 = +e.target.value; if (ST.d0 > ST.d1) ST.d0 = ST.d1; update();
     });
     $("mindek").addEventListener("change", function (e) {
-      ST.minDek = Math.max(1, Math.min(+e.target.value || 1, ST.d1 - ST.d0 + 1)); update();
+      ST.minDek = Math.round(+e.target.value) || 1; update();
     });
-    $("k").addEventListener("input", function (e) { ST.k = Math.max(1, Math.min(+e.target.value || 1, 45)); update(true); });
+    $("k").addEventListener("change", function (e) {
+      ST.k = Math.max(1, Math.min(Math.round(+e.target.value) || 1, DATA.provinces.length)); update(true);
+    });
     $("kslider").addEventListener("input", function (e) { ST.k = +e.target.value; update(true); });
     $("suggest").addEventListener("click", function () {
       ST.k = suggestK(ROWS, DATA.provinces.length, 4); update(true);
     });
     $("imp").addEventListener("change", function (e) { ST.imp = e.target.value; update(true); });
     $("yt").addEventListener("change", function (e) { ST.yt = +e.target.value; update(true); });
+    document.querySelectorAll('input[name="nat"]').forEach(function (el) {
+      el.addEventListener("change", function (e) { ST.nat = e.target.value; update(true); });
+    });
     $("csv").addEventListener("click", downloadCsv);
     $("krp").addEventListener("click", function (e) {
       const k = e.target.closest("[data-k]");
@@ -264,9 +271,9 @@
     document.querySelectorAll('input[name="cover"]').forEach(function (el) { el.checked = el.value === ST.cover; });
     $("d0").value = ST.d0; $("d1").value = ST.d1;
     $("mindek").max = ST.d1 - ST.d0 + 1;
-    if (ST.minDek > ST.d1 - ST.d0 + 1) ST.minDek = ST.d1 - ST.d0 + 1;
     $("mindek").value = ST.minDek;
     $("k").value = ST.k; $("kslider").value = ST.k;
+    document.querySelectorAll('input[name="nat"]').forEach(function (el) { el.checked = el.value === ST.nat; });
     $("imp").value = ST.imp; $("yt").value = ST.yt;
     $("ytlabel").textContent = ST.yt;
     $("klabel").textContent = ST.k;
@@ -275,7 +282,8 @@
 
   // ---------------- derived values
   function impactSeasons() { return ST.imp === "alt" ? DATA.meta.impact_seasons_alt : DATA.meta.impact_seasons_main; }
-  function inImpactRecord(y) { return y >= DATA.meta.impact_record_years[0] && y <= DATA.meta.impact_record_years[1]; }
+  function impactRecordYears() { return DATA.meta.impact_record_years[ST.imp]; }
+  function inImpactRecord(y) { const r = impactRecordYears(); return y >= r[0] && y <= r[1]; }
   function yieldIdx(y) { const i = DATA.yield.years.indexOf(y); return i; }
   function nationalYield(y) {
     const i = yieldIdx(y);
@@ -283,10 +291,18 @@
     const n = DATA.yield.national;
     return { kg: n.kg_ha[i], anom: n.anom[i], prod: n.prod_kt[i], prodAnom: n.prod_anom[i] };
   }
+  function provincesWithYield(y) {
+    const i = yieldIdx(y);
+    if (i < 0) return 0;
+    return DATA.provinces.filter(function (p) { return DATA.yield.province[p.id].anom[i] !== null; }).length;
+  }
   function poorYieldProvinces(y) {
     const i = yieldIdx(y);
     if (i < 0) return null;
-    return DATA.provinces.filter(function (p) { return DATA.yield.province[p.id].anom[i] <= -ST.yt; });
+    return DATA.provinces.filter(function (p) {
+      const a = DATA.yield.province[p.id].anom[i];
+      return a !== null && a <= -ST.yt;
+    });
   }
   function impactRecords(y) {
     const key = ST.imp === "alt" ? "season_alt" : "season_main";
@@ -315,7 +331,7 @@
     ROWS.forEach(function (r) {
       const ny = r.valid ? nationalYield(r.year) : null;
       if (!ny) return;
-      (act.has(r.year) ? yA : yN).push(ny.anom);
+      (act.has(r.year) ? yA : yN).push(ST.nat === "prod" ? ny.prodAnom : ny.anom);
     });
     const mean = function (a) { return a.length ? a.reduce(function (s, v) { return s + v; }, 0) / a.length : null; };
 
@@ -325,8 +341,10 @@
       const i = yieldIdx(r.year);
       if (!r.valid || i < 0) return;
       DATA.provinces.forEach(function (p) {
+        const a = DATA.yield.province[p.id].anom[i];
+        if (a === null) return;
         const isMet = r.dekadsMet[p.id] >= ST.minDek;
-        const poor = DATA.yield.province[p.id].anom[i] <= -ST.yt;
+        const poor = a <= -ST.yt;
         if (isMet) { met++; if (poor) metPoor++; } else { notMet++; if (poor) notPoor++; }
       });
     });
@@ -348,12 +366,12 @@
     s += ". Return period from " + sum.n + " seasons with data for the whole dekad range.</p>";
     s += "<p>Impact seasons (" + (ST.imp === "alt" ? "framework labelling" : "dated to the growing season") + "): reached " +
          list(hits) + "; not reached " + list(misses) + ". Seasons reached with no recorded drought impact (" +
-         DATA.meta.impact_record_years.join("–") + "): " + list(fa) + ".</p>";
+         impactRecordYears().join("–") + "): " + list(fa) + ".</p>";
     const mA = mean(yA), mN = mean(yN);
-    s += "<p>National millet and sorghum yield, " + DATA.yield.years[0] + "–" + DATA.yield.years[DATA.yield.years.length - 1] +
+    s += "<p>National millet and sorghum " + (ST.nat === "prod" ? "production" : "yield") + ", " + DATA.yield.years[0] + "–" + DATA.yield.years[DATA.yield.years.length - 1] +
          ": " + pct(mA) + " from trend on average in seasons that reach the threshold (" + yA.length + "), " + pct(mN) +
          " in the others (" + yN.length + ").";
-    if (met) {
+    if (met && notMet) {
       s += " By province: when a province met the warning condition, its yield was at least " + ST.yt +
            "% below trend in " + Math.round(100 * metPoor / met) + "% of cases (" + metPoor + " of " + met +
            "), against " + Math.round(100 * notPoor / notMet) + "% when it did not.";
@@ -469,7 +487,8 @@
     const y = function (v) { return padT + (h - padT - padB) * (lim - Math.max(-lim, Math.min(lim, v))) / (2 * lim); };
     const act = new Set(sum.years);
     const last = DATA.meta.years[DATA.meta.years.length - 1];
-    let s = svgOpen(w, h, "National millet and sorghum yield, percentage from trend, by season");
+    const prodMode = ST.nat === "prod";
+    let s = svgOpen(w, h, "National millet and sorghum " + (prodMode ? "production" : "yield") + ", percentage from trend, by season");
     [-20, -10, 0, 10, 20].forEach(function (v) {
       s += '<line x1="' + padL + '" x2="' + (w - padR) + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="' + (v === 0 ? COL.ink2 : COL.grid) + '"/>';
       s += '<text x="' + (padL - 6) + '" y="' + (y(v) + 4) + '" text-anchor="end" class="ax">' + (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v) + "%</text>";
@@ -478,10 +497,11 @@
     DATA.meta.years.forEach(function (yr) {
       const cx = X.x(yr), ny = nationalYield(yr);
       if (ny) {
-        const y0 = y(0), y1 = y(ny.anom);
+        const v = prodMode ? ny.prodAnom : ny.anom;
+        const y0 = y(0), y1 = y(v);
         s += '<rect x="' + (cx - bw / 2) + '" y="' + Math.min(y0, y1) + '" width="' + bw + '" height="' + Math.abs(y1 - y0) + '" rx="2" fill="' +
              (act.has(yr) ? COL.act : COL.base) + '"/>';
-        const tip = yr + ": " + ny.kg + " kg/ha, " + pct(ny.anom) + " from trend\nProduction " + ny.prod + " thousand t, " +
+        const tip = yr + "\nYield " + ny.kg + " kg/ha, " + pct(ny.anom) + " from trend\nProduction " + ny.prod + " thousand t, " +
                     pct(ny.prodAnom) + " from trend" + (act.has(yr) ? "\nThreshold reached" : "");
         s += '<rect class="hit" x="' + (cx - X.step / 2) + '" y="' + padT + '" width="' + X.step + '" height="' + (h - padT - padB) +
              '" fill="transparent" data-tip="' + esc(tip) + '"/>';
@@ -531,7 +551,8 @@
           const tip = p.name + " (" + p.region + "), " + r.year + "\n" + (!r.valid ? "No ASAP data for the whole dekad range" :
                       "Condition met in " + n + " of " + (ST.d1 - ST.d0 + 1) + " dekads" + (isMet ? "" : n > 0 ? " (below the minimum of " + ST.minDek + ")" : "")) +
                       "\n" + levelSummary(p.id, r.year) +
-                      (yi >= 0 ? "\nMillet and sorghum yield " + DATA.yield.province[p.id].kg_ha[yi] + " kg/ha, " + pct(ya) + " from trend" : "");
+                      (yi < 0 ? "" : ya === null ? "\nNo complete millet and sorghum statistics" :
+                        "\nMillet and sorghum yield " + DATA.yield.province[p.id].kg_ha[yi] + " kg/ha, " + pct(ya) + " from trend");
           s += '<rect class="hit" x="' + x + '" y="' + ry + '" width="' + step + '" height="' + rowH + '" fill="transparent" data-tip="' + esc(tip) + '"/>';
         });
       });
@@ -565,7 +586,7 @@
         reached: r.valid ? (act.has(r.year) ? "Yes" : "No") : "No data",
         dekad: r.valid && act.has(r.year) ? r.metAt[ST.k - 1] : null,
         yieldKg: ny ? ny.kg : null, yieldAnom: ny ? ny.anom : null, prodAnom: ny ? ny.prodAnom : null,
-        poor: poor ? poor.length : null,
+        poor: poor ? poor.length : null, withYield: provincesWithYield(r.year),
         impact: inImpactRecord(r.year) ? (imp.has(r.year) ? "Yes" : "No") : "Not yet known",
         emdat: recs.filter(function (x) { return x.source === "EM-DAT"; }),
         cerf: recs.filter(function (x) { return x.source === "CERF"; }),
@@ -586,7 +607,7 @@
            '<td class="num">' + (t.yieldKg === null ? "–" : t.yieldKg) + "</td>" +
            '<td class="num">' + pct(t.yieldAnom) + "</td>" +
            '<td class="num">' + pct(t.prodAnom) + "</td>" +
-           '<td class="num">' + (t.poor === null ? "–" : t.poor) + "</td>" +
+           '<td class="num">' + (t.poor === null ? "–" : t.poor + (t.withYield < DATA.provinces.length ? " of " + t.withYield : "")) + "</td>" +
            '<td class="nw">' + (t.impact === "Yes" ? '<span class="tag imp">Yes</span>' : t.impact === "No" ? "No" : '<span class="muted">not yet known</span>') + "</td>" +
            '<td class="recs">' + recs.map(function (x) { return '<span data-tip="' + esc(x.label + "\nRecorded " + x.recorded + " (" + x.source + " " + x.id + ")") + '">' + esc(x.short) + "</span>"; }).join("<br>") + "</td>" +
            "<td>" + (t.framework ? "Yes" : "") + "</td></tr>";
@@ -600,12 +621,12 @@
     const rows = tableRows(sum);
     const head = ["season", "provisional", "provinces_meeting_condition", "threshold_reached", "threshold_reached_dekad",
                   "national_millet_sorghum_yield_kg_ha", "national_yield_pct_from_trend", "national_production_pct_from_trend",
-                  "provinces_yield_" + ST.yt + "pct_below_trend", "impact_season", "emdat_drought", "cerf_drought", "framework_target_year"];
+                  "provinces_yield_" + ST.yt + "pct_below_trend", "provinces_with_yield_data", "impact_season", "emdat_drought", "cerf_drought", "framework_target_year"];
     const q = function (v) { v = v === null || v === undefined ? "" : String(v); return /[",;\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
     const lines = [head.join(",")];
     rows.forEach(function (t) {
       lines.push([t.year, t.provisional ? "yes" : "", t.count, t.reached, t.dekad ? t.dekad + " (" + dekadLabel(t.dekad) + ")" : "",
-                  t.yieldKg, t.yieldAnom, t.prodAnom, t.poor, t.impact,
+                  t.yieldKg, t.yieldAnom, t.prodAnom, t.poor, t.poor === null ? "" : t.withYield, t.impact,
                   t.emdat.map(function (x) { return x.label + " [" + x.id + ", " + x.recorded + "]"; }).join("; "),
                   t.cerf.map(function (x) { return x.label + " [" + x.id + ", " + x.recorded + "]"; }).join("; "),
                   t.framework ? "yes" : ""].map(q).join(","));
@@ -647,6 +668,7 @@
     } else {
       $("empty").hidden = true;
     }
+    ST.minDek = Math.max(1, Math.min(Math.round(ST.minDek) || 1, ST.d1 - ST.d0 + 1));
     if (!kOnly) ROWS = evaluate(DATA, DEC, ST);
     if (ST.k === null) ST.k = suggestK(ROWS, DATA.provinces.length, 4);
     syncControls();
@@ -667,11 +689,17 @@
       ST = readState();
       buildControls();
       initTooltip();
-      $("vintage").textContent = "ASAP archive to " + data.meta.asap_last_dekad + " (" + dekadLong(29) + " 2026); built " + data.meta.built + ".";
+      const last = new Date(data.meta.asap_last_dekad + "T00:00:00Z");
+      const lastDk = last.getUTCMonth() * 3 + Math.min(Math.floor((last.getUTCDate() - 1) / 10), 2) + 1;
+      const lastTxt = dekadLong(lastDk) + " " + last.getUTCFullYear();
+      $("vintage").textContent = "ASAP archive to " + data.meta.asap_last_dekad + " (" + lastTxt + "); built " + data.meta.built + ".";
+      $("last-dekad").textContent = last.getUTCDate() + " " + MONTHS[last.getUTCMonth()] + " " + last.getUTCFullYear() +
+                                    " (" + lastTxt + ")";
+      $("kslider").max = data.provinces.length; $("k").max = data.provinces.length;
+      $("app").hidden = false; $("loading").hidden = true;
       update();
       let t;
       window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(function () { update(true); }, 150); });
-      $("app").hidden = false; $("loading").hidden = true;
     }).catch(function (err) {
       $("loading").textContent = "Could not load the data (" + err + ").";
     });

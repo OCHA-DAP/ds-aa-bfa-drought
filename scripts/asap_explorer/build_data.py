@@ -10,10 +10,13 @@ Inputs (downloaded by hand, never committed):
      statistics by province, public, no login):
        curl -sL -o bf_crop.csv \
          "https://fdw.fews.net/api/cropproductionindicatorvalue.csv?country_code=BF"
+  3. FAOSTAT crops and livestock production for Burkina Faso, from HDX
+     (dataset bfa-faostat-crops-livestock-production):
+       curl -sL -o bfa_faostat.csv "https://data.humdata.org/dataset/739c3a73-1747-47bf-89bf-31de84df82d2/resource/8f1ef403-423d-4088-9175-c55a8c3c3e1a/download/bfa_faostat_crops_livestock_products.csv"
 
 Usage:
   uv run --with pandas python scripts/asap_explorer/build_data.py \
-      warnings_l2_ts.zip bf_crop.csv pages/asap-explorer/data.json
+      warnings_l2_ts.zip bf_crop.csv bfa_faostat.csv pages/asap-explorer/data.json
 
 What goes into data.json:
   - provinces: the 45 ASAP admin-2 units (the provinces in place before the 2025 territorial
@@ -21,9 +24,17 @@ What goes into data.json:
   - warnings: per province, two strings (cropland, rangeland) of len(years) * 36 characters,
     one character per dekad, encoding the ASAP warning code (see CODE_CHARS). "." = no data
     (before the archive starts in May 2001 or after its last dekad).
-  - yield: millet + sorghum (white and red), rainfed, production / area planted, per province
-    and national (sum of production / sum of area), 2001-2023, with the percentage departure
-    from each series' own 2001-2023 linear trend.
+  - yield: millet + sorghum, 2001-2023, with the percentage departure from each series' own
+    2001-2023 trend (Theil-Sen).
+      national: FAOSTAT (production / area harvested), official figures only (flag "A");
+        FAOSTAT 2024 is imputed (millet) or unofficial (sorghum) and is left out.
+      province: FEWS NET Data Warehouse, rainfed millet + sorghum + red sorghum, production /
+        area planted. Summing the provinces does not give a usable national series: white
+        sorghum is missing for Bam, Namentenga and Sanmatenga in 2008 and red sorghum is
+        reported as zero in about 20 provinces in 2012. Province-years without both millet and
+        (white or total) sorghum are left empty; zero production or area counts as missing.
+        Red sorghum is reported separately only from 2008 (in 2002-2007 "Sorghum" is the total)
+        and only in some years for some northern provinces.
   - impacts: the drought impact records and their dating to growing seasons, copied from
     scripts/impact_analysis.py (the heat-and-impact page) so both pages use the same record.
 """
@@ -41,7 +52,7 @@ import pandas as pd
 
 ASAP0_ID_BFA = 17  # ASAP's own country id for Burkina Faso in the Nov 2026 archive (was 219 before)
 YEARS = list(range(2001, 2027))
-YIELD_YEARS = list(range(2001, 2024))
+YIELD_YEARS = list(range(2001, 2024))  # FEWS NET ends 2023; FAOSTAT official figures end 2023
 
 # ASAP warning codes seen in the archive -> one character each.
 CODE_CHARS = {
@@ -101,7 +112,10 @@ IMPACTS = [
 FRAMEWORK_YEARS = [2011, 2014, 2017, 2019, 2022]  # target years of the 2026 trigger analysis
 IMPACT_SEASONS_MAIN = [2011, 2013, 2017, 2019, 2021]
 IMPACT_SEASONS_ALT = [2011, 2014, 2017, 2019, 2022]
-IMPACT_RECORD_YEARS = [2001, 2024]  # seasons the impact record can speak to (EM-DAT snapshot to 2024)
+# Seasons the impact record can speak to. The EM-DAT and CERF records run to 2024; a failed
+# 2024 season would be recorded in the 2025 lean season, so with the growing-season dating
+# the last season that can be scored is 2023.
+IMPACT_RECORD_YEARS = {"main": [2001, 2023], "alt": [2001, 2024]}
 
 
 def norm(name: str) -> str:
@@ -170,9 +184,37 @@ def trend_anomaly(years: np.ndarray, values: np.ndarray) -> np.ndarray:
     return (values - fit) / fit * 100
 
 
-def load_yield(fdw_path: str, provinces: list[dict]) -> dict:
+def rounded(values, digits=0):
+    return [None if np.isnan(v) else (round(v) if digits == 0 else round(v, digits)) for v in values]
+
+
+def load_national_yield(fao_path: str) -> dict:
+    f = pd.read_csv(fao_path, dtype=str)
+    f = f[f["Iso3"] == "BFA"]
+    f = f[f["Item"].isin(["Millet", "Sorghum"]) & f["Element"].isin(["Production", "Area harvested"])].copy()
+    f["Year"] = f["Year"].astype(int)
+    f["Value"] = f["Value"].astype(float)
+    f = f[f["Year"].isin(YIELD_YEARS)]
+    if (f["Flag"] != "A").any():
+        bad = f[f["Flag"] != "A"][["Item", "Element", "Year", "Flag"]].to_dict("records")
+        raise SystemExit(f"FAOSTAT values in {YIELD_YEARS[0]}-{YIELD_YEARS[-1]} that are not official: {bad}")
+    t = f.pivot_table(index="Year", columns="Element", values="Value", aggfunc="sum").reindex(YIELD_YEARS)
+    if t.isna().any().any() or (f.groupby(["Year", "Element"]).size() != 2).any():
+        raise SystemExit("FAOSTAT millet/sorghum production or area missing for some year")
+    yrs = np.array(YIELD_YEARS, dtype=float)
+    prod, area = t["Production"].to_numpy(dtype=float), t["Area harvested"].to_numpy(dtype=float)
+    ny = prod / area * 1000  # t/ha -> kg/ha
+    return {
+        "kg_ha": rounded(ny),
+        "anom": rounded(trend_anomaly(yrs, ny), 1),
+        "prod_kt": rounded(prod / 1000),
+        "prod_anom": rounded(trend_anomaly(yrs, prod), 1),
+    }
+
+
+def load_yield(fdw_path: str, fao_path: str, provinces: list[dict]) -> dict:
     d = pd.read_csv(fdw_path, low_memory=False, encoding="utf-8-sig")
-    d = d[d["value"].notna() & d["admin_2"].notna() & d["admin_3"].isna()].copy()
+    d = d[d["value"].notna() & (d["value"] > 0) & d["admin_2"].notna() & d["admin_3"].isna()].copy()
     d["year"] = pd.to_datetime(d["period_date"]).dt.year
     d = d[
         d["product"].isin(["Millet", "Sorghum", "Sorghum (Red)"])
@@ -181,8 +223,16 @@ def load_yield(fdw_path: str, provinces: list[dict]) -> dict:
         & d["year"].isin(YIELD_YEARS)
     ]
     d["key"] = d["admin_2"].map(norm)
+    if d.duplicated(["key", "year", "product", "indicator"]).any():
+        raise SystemExit("duplicate FEWS NET rows for a province, year, product and indicator")
+    # a product counts for a province-year only with both production and area
+    both = d.groupby(["key", "year", "product"])["indicator"].transform("nunique") == 2
+    d = d[both]
+    have = d.groupby(["key", "year"])["product"].agg(set)
+    complete = have.apply(lambda s: "Millet" in s and "Sorghum" in s)
     t = d.pivot_table(index=["key", "year"], columns="indicator", values="value", aggfunc="sum")
     t = t.rename(columns={"Area Planted": "area", "Quantity Produced": "prod"})
+    t.loc[~complete.reindex(t.index, fill_value=False), ["area", "prod"]] = np.nan
 
     asap_keys = {norm(p["name"]): p for p in provinces}
     fdw_keys = set(t.index.get_level_values("key"))
@@ -191,28 +241,19 @@ def load_yield(fdw_path: str, provinces: list[dict]) -> dict:
                          f"only ASAP {sorted(set(asap_keys) - fdw_keys)}")
 
     yrs = np.array(YIELD_YEARS, dtype=float)
-    prov_out = {}
+    prov_out, gaps = {}, []
     for key, p in asap_keys.items():
         g = t.loc[key].reindex(YIELD_YEARS)
-        if g.isna().any().any():
-            raise SystemExit(f"missing yield years for {p['name']}: {g[g.isna().any(axis=1)].index.tolist()}")
         y = (g["prod"] / g["area"]).to_numpy(dtype=float) * 1000  # t/ha -> kg/ha
-        prov_out[str(p["id"])] = {
-            "kg_ha": [round(v) for v in y],
-            "anom": [round(v, 1) for v in trend_anomaly(yrs, y)],
-        }
-    nat = t.groupby("year")[["prod", "area"]].sum().reindex(YIELD_YEARS)
-    ny = (nat["prod"] / nat["area"]).to_numpy(dtype=float) * 1000
-    nat_out = {
-        "kg_ha": [round(v) for v in ny],
-        "anom": [round(v, 1) for v in trend_anomaly(yrs, ny)],
-        "prod_kt": [round(v / 1000) for v in nat["prod"].to_numpy(dtype=float)],
-        "prod_anom": [round(v, 1) for v in trend_anomaly(yrs, nat["prod"].to_numpy(dtype=float))],
-    }
-    return {"years": YIELD_YEARS, "national": nat_out, "province": prov_out}
+        gaps += [f"{p['name']} {yr}" for yr, v in zip(YIELD_YEARS, y) if np.isnan(v)]
+        if np.isnan(y).sum() > 3:
+            raise SystemExit(f"more than 3 missing yield years for {p['name']}")
+        prov_out[str(p["id"])] = {"kg_ha": rounded(y), "anom": rounded(trend_anomaly(yrs, y), 1)}
+    print(f"province-years without complete millet and sorghum statistics ({len(gaps)}): {', '.join(gaps)}")
+    return {"years": YIELD_YEARS, "national": load_national_yield(fao_path), "province": prov_out}
 
 
-def main(zip_path: str, fdw_path: str, out_path: str) -> None:
+def main(zip_path: str, fdw_path: str, fao_path: str, out_path: str) -> None:
     df = load_asap(zip_path)
     units = df[["asap1_name", "asap2_id", "asap2_name"]].drop_duplicates()
     if len(units) != 45 or units["asap2_id"].duplicated().any():
@@ -240,7 +281,7 @@ def main(zip_path: str, fdw_path: str, out_path: str) -> None:
         },
         "provinces": provinces,
         "warnings": encode_warnings(df, provinces),
-        "yield": load_yield(fdw_path, provinces),
+        "yield": load_yield(fdw_path, fao_path, provinces),
         "impacts": IMPACTS,
     }
     with open(out_path, "w", encoding="utf-8") as f:
@@ -249,6 +290,6 @@ def main(zip_path: str, fdw_path: str, out_path: str) -> None:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
+    if len(sys.argv) != 5:
         raise SystemExit(__doc__)
     main(*sys.argv[1:])

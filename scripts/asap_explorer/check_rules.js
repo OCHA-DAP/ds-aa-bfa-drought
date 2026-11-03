@@ -57,6 +57,10 @@ const md3 = X.evaluate(data, dec, Object.assign({}, base, { minDek: 3 }));
 check("min dekads 3 never exceeds min dekads 1", md3.every((r, i) => r.count <= rows[i].count), true);
 check("reached-by dekads inside the range", md3.every((r) => r.metAt.every((d) => d >= 23 && d <= 26)), true);
 
+// a non-integer minimum (from a typed value) behaves like the next integer, never as "no province"
+const mdHalf = X.evaluate(data, dec, Object.assign({}, base, { minDek: 2.5 }));
+check("min dekads 2.5 equals min dekads 3", mdHalf.map((r) => r.count), md3.map((r) => r.count));
+
 // return period
 const s12 = X.summarise(rows, 12);
 check("threshold 12: seasons", s12.years, [2002, 2006, 2007, 2015, 2024, 2026]);
