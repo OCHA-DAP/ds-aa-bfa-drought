@@ -11,7 +11,7 @@
   function decode(data) {
     const out = {};
     data.provinces.forEach(function (p) {
-      out[p.id] = Float64Array.from(data.temp[String(p.id)], function (v) { return v / 100; });
+      out[p.id] = Float64Array.from(data.temp[String(p.id)], function (v) { return v / 1000; });
     });
     return out;
   }
@@ -89,6 +89,8 @@
   let LANG = "en";
   function t(en, fr) { return LANG === "fr" ? fr : en; }
   const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const MONTHS_LONG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+                       "November", "December"];
   const MONTHS_FR = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
   const MONTHS_FR_LONG = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre",
                           "novembre", "décembre"];
@@ -96,7 +98,7 @@
   function dekadLabel(dk) { return (LANG === "fr" ? MONTHS_FR : MONTHS)[Math.floor((dk - 1) / 3)] + " " + ((dk - 1) % 3 + 1); }
   function dekadLong(dk) {
     const m = Math.floor((dk - 1) / 3);
-    if (LANG !== "fr") return PART[(dk - 1) % 3] + " dekad of " + MONTHS[m];
+    if (LANG !== "fr") return PART[(dk - 1) % 3] + " dekad of " + MONTHS_LONG[m];
     const name = MONTHS_FR_LONG[m];
     return PART_FR[(dk - 1) % 3] + " décade " + (/^[aeiouy]/.test(name) || name === "août" ? "d’" : "de ") + name;
   }
@@ -120,7 +122,8 @@
     return "rgb(" + DIV[DIV.length - 1][1].join(",") + ")";
   }
   const DEFAULTS = { sev: 0.3, d0: 19, d1: 27, k: null, imp: "main", yt: 20, nat: "yield", year: null };
-  const SEV_MAX = 1.5, SEV_GRID = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2];
+  const SEV_MAX = 1.5;
+  const SEV_GRID = Array.from({ length: 25 }, function (_, i) { return i / 20; }); // 0 to 1.2 degC by 0.05, the slider step
 
   let DATA, DEC, ST, ROWS, ANOM;
   const $ = function (id) { return document.getElementById(id); };
@@ -355,13 +358,13 @@
       s += "<p>Saisons avec impact (" + (ST.imp === "alt" ? "libellés du cadre" : "datées par saison de culture") +
            ") où le seuil est atteint : " + list(hits) + " ; où il n’est pas atteint : " + list(misses) +
            ". Saisons où le seuil est atteint sans impact de sécheresse enregistré (" + ir + ") : " + list(fa) +
-           ". Avant " + impactRecordYears()[0] + ", les impacts enregistrés utilisés ici ne couvrent pas les saisons.</p>";
-      s += "<p>" + (ST.nat === "prod" ? "Production" : "Rendement") + " national de mil et de sorgho, " + ny0 + "–" + ny1 + " : " +
+           ". Les impacts enregistrés utilisés ici ne couvrent pas les saisons antérieures à " + impactRecordYears()[0] + ".</p>";
+      s += "<p>" + (ST.nat === "prod" ? "Production nationale" : "Rendement national") + " de mil et de sorgho, " + ny0 + "–" + ny1 + " : " +
            pct(mA) + " par rapport à la tendance en moyenne pour les saisons qui atteignent le seuil (" + yA.length + "), " + pct(mN) +
            " pour les autres (" + yN.length + ").";
       if (met && notMet) {
         s += " Par province (" + DATA.yield.years[0] + "–" + DATA.yield.years[DATA.yield.years.length - 1] +
-             ") : quand une province atteignait le seuil de chaleur, son rendement était au moins " + ST.yt +
+             ") : quand une province atteignait le seuil de sévérité, son rendement était au moins " + ST.yt +
              "% sous la tendance dans " + Math.round(100 * metPoor / met) + "% des cas (" + metPoor + " sur " + met +
              "), contre " + Math.round(100 * notPoor / notMet) + "% sinon.";
       }
@@ -376,7 +379,7 @@
            " in the others (" + yN.length + ").";
       if (met && notMet) {
         s += " By province (" + DATA.yield.years[0] + "–" + DATA.yield.years[DATA.yield.years.length - 1] +
-             "): when a province reached the heat threshold, its yield was at least " + ST.yt + "% below trend in " +
+             "): when a province reached the severity threshold, its yield was at least " + ST.yt + "% below trend in " +
              Math.round(100 * metPoor / met) + "% of cases (" + metPoor + " of " + met + "), against " +
              Math.round(100 * notPoor / notMet) + "% otherwise.";
       }
@@ -500,7 +503,7 @@
 
   // ---------------- chart: return period for every severity x count threshold
   function renderRpGrid() {
-    const el = $("rpgrid"), w = chartWidth(el), padL = 64, padR = 14, padT = 8, padB = 34, cellH = 15;
+    const el = $("rpgrid"), w = chartWidth(el), padL = 64, padR = 14, padT = 8, padB = 34, cellH = 11;
     const nP = DATA.provinces.length, cw = (w - padL - padR) / nP, h = padT + SEV_GRID.length * cellH + padB;
     const nYears = ROWS.filter(function (r) { return r.valid; }).length;
     let s = svgOpen(w, h, t("Return period for each severity threshold and number of provinces",
@@ -512,7 +515,7 @@
         DATA.provinces.forEach(function (p) { if (ANOM[p.id].anom[yi] >= sev - 1e-9) c++; });
         return { year: r.year, c: c };
       });
-      s += '<text x="' + (padL - 6) + '" y="' + (cy + cellH - 4) + '" text-anchor="end" class="ax">' + degC(sev, 1).replace(" °C", "") + "</text>";
+      if (ri % 2 === 0) s += '<text x="' + (padL - 6) + '" y="' + (cy + cellH - 2) + '" text-anchor="end" class="ax">' + degC(sev, 1).replace(" °C", "") + "</text>";
       for (let k = 1; k <= nP; k++) {
         const yrs = counts.filter(function (x) { return x.c >= k; }).map(function (x) { return x.year; });
         const rp = yrs.length ? (nYears + 1) / yrs.length : null;
@@ -521,7 +524,7 @@
         const cur = Math.abs(sev - ST.sev) < 1e-9 && k === ST.k;
         s += '<rect x="' + (x + 0.5) + '" y="' + (cy + 0.5) + '" width="' + (cw - 1) + '" height="' + (cellH - 1) + '" fill="' + fill + '"' +
              (cur ? ' stroke="' + COL.ink + '" stroke-width="2"' : !rp ? ' stroke="' + COL.grid + '"' : "") + "/>";
-        const tip = t("Severity ", "Sévérité ") + degC(sev, 1) + t(", threshold ", ", seuil de ") +
+        const tip = t("Severity ", "Sévérité ") + degC(sev, 2) + t(", threshold ", ", seuil de ") +
                     nWord(k, "province", "provinces", "province", "provinces") + "\n" + yrs.length + t(" of ", " sur ") + nYears +
                     t(" seasons, ", " saisons, ") + fmtRp(rp) + (yrs.length && yrs.length <= 12 ? "\n" + yrs.join(", ") : "") +
                     t("\nClick to use these settings", "\nCliquez pour utiliser ces paramètres");
@@ -543,12 +546,12 @@
   // ---------------- chart: national yield or production
   function renderYield(sum) {
     const el = $("chart-yield"), w = chartWidth(el), h = 230, padL = 44, padR = 14, padT = 14, padB = 30;
-    const X = yearX(w, padL, padR), lim = 35;
+    const X = yearX(w, padL, padR), lim = 40;
     const y = function (v) { return padT + (h - padT - padB) * (lim - Math.max(-lim, Math.min(lim, v))) / (2 * lim); };
     const act = new Set(sum.years), prodMode = ST.nat === "prod";
     let s = svgOpen(w, h, t("National millet and sorghum " + (prodMode ? "production" : "yield") + ", percentage from trend, by season",
-                            (prodMode ? "Production" : "Rendement") + " national de mil et de sorgho, écart à la tendance en pourcentage, par saison"));
-    [-30, -20, -10, 0, 10, 20, 30].forEach(function (v) {
+                            (prodMode ? "Production nationale" : "Rendement national") + " de mil et de sorgho, écart à la tendance en pourcentage, par saison"));
+    [-40, -20, 0, 20, 40].forEach(function (v) {
       s += '<line x1="' + padL + '" x2="' + (w - padR) + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="' + (v === 0 ? COL.ink2 : COL.grid) + '"/>';
       s += '<text x="' + (padL - 6) + '" y="' + (y(v) + 4) + '" text-anchor="end" class="ax">' + (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v) + "%</text>";
     });
@@ -726,10 +729,7 @@
     const last = new Date(DATA.meta.asap_last_dekad + "T00:00:00Z");
     const lastDk = last.getUTCMonth() * 3 + Math.min(Math.floor((last.getUTCDate() - 1) / 10), 2) + 1;
     const lastTxt = dekadLong(lastDk) + " " + last.getUTCFullYear();
-    const longMonth = LANG === "fr" ? MONTHS_FR_LONG[last.getUTCMonth()] : MONTHS[last.getUTCMonth()];
-    document.querySelectorAll(".last-dekad").forEach(function (el) {
-      el.textContent = last.getUTCDate() + " " + longMonth + " " + last.getUTCFullYear() + " (" + lastTxt + ")";
-    });
+    document.querySelectorAll(".last-dekad").forEach(function (el) { el.textContent = lastTxt; });
     $("vintage").textContent = t("ASAP temperature to " + DATA.meta.asap_last_dekad + " (" + lastTxt + "); built " + DATA.meta.built + ".",
                                  "Températures ASAP jusqu’au " + DATA.meta.asap_last_dekad + " (" + lastTxt + ") ; générée le " + DATA.meta.built + ".");
   }

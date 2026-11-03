@@ -4,7 +4,7 @@ The indicator is the one used on the heat-and-impact page (scripts/impact_analys
 temperature over cropland (variable 140, "crop during growing cycle" mask, ECMWF), averaged over
 a window of dekads per province and season, expressed as the departure from the province's own
 Theil-Sen trend fitted over 1989-2025. The window mean and the anomaly are computed in the
-browser, so this file stores the dekadal temperatures for the dekads the explorer offers.
+browser, so this file stores the dekadal temperatures (0.001 degC) for the dekads the explorer offers.
 
 Inputs (downloaded by hand, never committed):
   1. ASAP indicator statistics, temperature over cropland, all Burkina Faso provinces:
@@ -44,18 +44,19 @@ ASAP_EXPLORER_DATA = HERE.parent.parent / "pages" / "asap-explorer" / "data.json
 MAP_WIDTH = 600  # SVG user units
 
 
-def load_temperature(path: str, provinces: list[dict]) -> dict:
+def load_temperature(path: str, provinces: list[dict]) -> tuple[dict, str]:
     d = pd.read_csv(path, dtype={"date": str})
     if not {"region_id", "variable_id", "class_id", "date", "value"} <= set(d.columns):
         raise SystemExit("unexpected ASAP export columns")
-    if set(d["variable_id"]) != {140} or set(d["class_id"]) != {1}:
-        raise SystemExit("expected temperature (variable 140) over cropland (class 1)")
+    if set(d["variable_id"]) != {140} or set(d["class_id"]) != {1} or set(d["class_name"]) != {"Crop during growing cycle"}:
+        raise SystemExit("expected temperature (variable 140) over cropland during the growing cycle (classesset 1)")
     d["date"] = pd.to_datetime(d["date"], format="%Y%m%d")
     d["year"] = d["date"].dt.year
     d["dekad"] = asap.dekad_of(d["date"])
     ids = {p["id"] for p in provinces}
     if set(d["region_id"]) != ids:
         raise SystemExit(f"province ids differ from the ASAP explorer: {sorted(set(d['region_id']) ^ ids)}")
+    last = d["date"].max().date().isoformat()
     d = d[d["year"].isin(YEARS) & d["dekad"].isin(DEKADS)]
     if d.duplicated(["region_id", "year", "dekad"]).any():
         raise SystemExit("duplicate province-dekads")
@@ -68,9 +69,9 @@ def load_temperature(path: str, provinces: list[dict]) -> dict:
                 v = g.get((y, dk))
                 if v is None or pd.isna(v):
                     raise SystemExit(f"missing temperature: {p['name']} {y} dekad {dk}")
-                vals.append(int(round(float(v) * 100)))  # 0.01 degC
+                vals.append(int(round(float(v) * 1000)))  # 0.001 degC, the precision of the export
         out[str(p["id"])] = vals
-    return out, d["date"].max().date().isoformat()
+    return out, last
 
 
 def build_map(shp_path: str, provinces: list[dict]) -> dict:

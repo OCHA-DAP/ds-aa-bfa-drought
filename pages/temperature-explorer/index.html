@@ -38,10 +38,6 @@
   .grp { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
   .lb { font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--n7); }
   .lb[data-tip] { cursor: help; border-bottom: 1px dotted var(--n6); }
-  .seg { display: inline-flex; }
-  .seg button { border-radius: 0; margin-left: -1px; padding: 5px 9px; }
-  .seg button:first-child { border-radius: 4px 0 0 4px; margin-left: 0; }
-  .seg button:last-child { border-radius: 0 4px 4px 0; }
   button { font: 500 12.5px/1 'Roboto', system-ui, sans-serif; cursor: pointer; border-radius: 4px; padding: 5px 9px;
     border: 1px solid var(--b1); background: var(--b05); color: var(--b7); }
   button:hover { background: var(--b1); }
@@ -49,24 +45,10 @@
   select, input[type=number] { font: 400 13px 'Roboto', system-ui, sans-serif; padding: 3px 4px; border: 1px solid var(--n15); border-radius: 4px; background: #fff; }
   input[type=number] { width: 52px; }
   input[type=range] { width: 64px; accent-color: var(--e6); margin: 0; }
-  details.pop { position: relative; }
-  details.pop summary { list-style: none; cursor: pointer; font-weight: 500; color: var(--b7); padding: 4px 9px;
     border: 1px solid var(--b1); border-radius: 4px; background: #fff; }
-  details.pop summary::-webkit-details-marker { display: none; }
-  details.pop summary::after { content: " ▾"; color: var(--n7); }
-  details.pop[open] summary { background: var(--b05); }
-  .pop-body { position: absolute; z-index: 30; top: calc(100% + 6px); left: 0; width: 560px; background: #fff;
-    border: 1px solid var(--n15); border-radius: 6px; box-shadow: 0 8px 24px rgba(31,35,36,.16); padding: 10px 12px;
-    white-space: normal; }
-  #levels { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
-  fieldset.lvl { border: 1px solid var(--n1); border-radius: 5px; margin: 0; padding: 4px 8px 6px; }
-  fieldset.lvl legend { font-size: 12px; font-weight: 500; color: var(--n8); padding: 0 4px; }
-  fieldset.lvl label { display: block; font-size: 13px; line-height: 1.65; }
-  .pop-body .exc { display: block; margin-top: 8px; font-size: 12.5px; color: var(--n8); }
   .live { margin-left: auto; font-size: 12px; color: var(--n8); white-space: nowrap; }
   .live b { color: var(--n9); }
-  #empty { color: var(--e7); font-weight: 500; margin: 6px 0 0; }
-  @media (max-width: 760px) { .panel { position: static; } .pop-body { width: 92vw; } #levels { grid-template-columns: 1fr; } .live { margin-left: 0; } }
+  @media (max-width: 760px) { .panel { position: static; } .live { margin-left: 0; } }
 
   /* summary */
   .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 16px 0 8px; }
@@ -164,11 +146,11 @@
   L’<a href="../asap-explorer/">explorateur des alertes ASAP</a> fait de même pour les alertes ASAP.</p>
 
 <div class="callout warn">
-  <p class="lv lv-en"><strong>2026 is provisional</strong>: ASAP data end on <span class="last-dekad"></span> and recent dekads can be revised.
+  <p class="lv lv-en"><strong>2026 is provisional</strong>: ASAP data end with the <span class="last-dekad"></span>, and recent dekads can be revised.
     The trend is fitted on the complete seasons 1989–2025, so 2026 is compared with a trend it did not help to fit, as it
     would be in real time. A window mean is only known once its last dekad is over: with the current window, after the
     <span class="known-by"></span>.</p>
-  <p class="lv lv-fr"><strong>2026 est provisoire</strong>&nbsp;: les données ASAP s’arrêtent au <span class="last-dekad"></span> et les décades
+  <p class="lv lv-fr"><strong>2026 est provisoire</strong>&nbsp;: les données ASAP s’arrêtent à la <span class="last-dekad"></span>, et les décades
     récentes peuvent être révisées. La tendance est ajustée sur les saisons complètes 1989–2025&nbsp;: 2026 est donc comparée à
     une tendance à laquelle elle n’a pas contribué, comme en temps réel. Une moyenne sur la plage n’est connue qu’à la fin de sa
     dernière décade&nbsp;: avec la plage actuelle, après la <span class="known-by"></span>.</p>
@@ -457,6 +439,6 @@
 
 </div>
 <div id="tip" hidden></div>
-<script src="explorer.js?v=20261103a"></script>
+<script src="explorer.js?v=20261103b"></script>
 </body>
 </html>
