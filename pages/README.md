@@ -18,6 +18,7 @@ manual dispatch.
 | `/temperature/` | `pages/temperature/index.html` |
 | `/heat-and-impact/` | `pages/heat-and-impact/index.html` |
 | `/asap-explorer/` | `pages/asap-explorer/index.html` + `explorer.js` + `data.json` (built by `scripts/asap_explorer/`) |
+| `/temperature-explorer/` | `pages/temperature-explorer/index.html` + `explorer.js` + `data.json` (built by `scripts/temperature_explorer/`) |
 | `/hnrp-2027/` | `pages/hnrp-2027/index.html` (password gate) + `page.enc` (encrypted page); built by `scripts/hnrp_2027/` |
 
 ## Adding a page
@@ -98,6 +99,28 @@ re-rendered on a switch. The impact records' French labels are in `build_data.py
 (`docs/I18N.md`): *alerte de niveau 3 (bilan hydrique + biomasse)*, *zones agricoles / de pâturage*,
 *décade*, *seuil*, *période de retour*. Numbers keep the decimal point in both languages. The CSV
 download stays in English.
+
+## The temperature explorer
+
+`pages/temperature-explorer/` follows the ASAP explorer's pattern (same layout, bilingual mechanism, impact
+records and province yields) for the temperature indicator of the heat-and-impact page: ASAP temperature
+over cropland (variable 140, in-season cropland mask, ECMWF), averaged over the chosen dekads, minus the
+province's own Theil–Sen trend fitted over 1989–2025 (line through the mean of the fit years, as in
+`scripts/impact_analysis.py`). `data.json` stores the dekadal temperatures for dekads 17–29 (the span with
+data for every province in every season, 1989–2026) plus the simplified 2020 COD-AB province boundaries;
+the window mean, the trend and the anomaly are computed in the browser. National FAOSTAT yield and
+production use a 1989–2023 trend here (2001–2023 on the ASAP explorer). To refresh:
+
+```bash
+uv run --with pandas --with geopandas --with pyogrio --with "shapely>=2.1" python scripts/temperature_explorer/build_data.py \
+    temp_crop.csv bf_crop.csv bfa_faostat.csv bfa_adm2.shp pages/temperature-explorer/data.json
+node scripts/temperature_explorer/check_rules.js
+```
+
+The download commands are in the script's docstring; the province list comes from
+`pages/asap-explorer/data.json`, so build the ASAP explorer first. `check_rules.js` reproduces the
+four-province July–September anomalies and national counts computed separately with pandas from the
+November 2026 export; update the expected values when ASAP revises the series.
 
 ## The HNRP 2027 baseline (password-protected)
 

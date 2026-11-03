@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burkina Faso drought — temperature explorer for a national trigger</title>
+<meta name="description" content="Interactive tool to explore growing-season temperature anomalies in Burkina Faso's 45 provinces since 1989 on a map, and to test national drought trigger rules on them against millet and sorghum yields and recorded drought impacts. In English and French.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: light;
+    --b5:#269777; --b6:#1e795f; --b7:#18614c; --b05:#e9f5f1; --b1:#d4eae4;
+    --n9:#1f2324; --n8:#3f4748; --n7:#5e6a6b; --n6:#7e8e8f; --n15:#e2e8e8; --n1:#ebeff0; --n05:#f5f7f7;
+    --w05:#fbf4ea; --w5:#d48f2a; --e05:#f9eceb; --e6:#9d372b; --e7:#762920; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--n05); color: var(--n9); font: 400 15px/1.55 'Roboto', system-ui, sans-serif; }
+  .home-link { display: inline-block; margin: 10px 12px; padding: 6px 12px; font: 500 13px/1 'Roboto', system-ui, sans-serif;
+    color: var(--b6); background: var(--b05); border: 1px solid var(--b1); border-radius: 4px; text-decoration: none; }
+  .home-link:hover { background: var(--b1); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px 56px; }
+  h1 { font-family: 'Merriweather', Georgia, serif; font-size: 26px; font-weight: 700; line-height: 1.25; margin: 8px 0 6px; text-wrap: balance; }
+  h2 { font-size: 19px; font-weight: 700; margin: 36px 0 8px; color: var(--b7); border-bottom: 2px solid var(--b1); padding-bottom: 5px; }
+  h3 { font-size: 15.5px; font-weight: 700; margin: 20px 0 6px; }
+  .sub { color: var(--n8); margin: 2px 0 14px; max-width: 86ch; }
+  p, li { max-width: 86ch; }
+  a { color: var(--b6); }
+  .callout { background: #fff; border: 1px solid var(--n15); border-left: 4px solid var(--b6); border-radius: 4px; padding: 10px 16px; margin: 14px 0; font-size: 14px; }
+  .callout.warn { border-left-color: var(--w5); }
+  .callout p { margin: 6px 0; }
+
+  /* controls: a compact bar that sticks to the top of the window while the results scroll under it */
+  .panel { position: sticky; top: 0; z-index: 20; background: #fff; border: 1px solid var(--n15); border-radius: 6px;
+    padding: 8px 12px; margin: 16px 0 10px; font-size: 13px; transition: box-shadow .15s; }
+  .panel.stuck { border-radius: 0 0 6px 6px; border-top-color: transparent; box-shadow: 0 6px 18px rgba(31,35,36,.12); }
+  .bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 11px; }
+  .bar + .bar { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--n1); }
+  .grp { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .lb { font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--n7); }
+  .lb[data-tip] { cursor: help; border-bottom: 1px dotted var(--n6); }
+  .seg { display: inline-flex; }
+  .seg button { border-radius: 0; margin-left: -1px; padding: 5px 9px; }
+  .seg button:first-child { border-radius: 4px 0 0 4px; margin-left: 0; }
+  .seg button:last-child { border-radius: 0 4px 4px 0; }
+  button { font: 500 12.5px/1 'Roboto', system-ui, sans-serif; cursor: pointer; border-radius: 4px; padding: 5px 9px;
+    border: 1px solid var(--b1); background: var(--b05); color: var(--b7); }
+  button:hover { background: var(--b1); }
+  button.on { background: var(--b6); border-color: var(--b6); color: #fff; position: relative; }
+  select, input[type=number] { font: 400 13px 'Roboto', system-ui, sans-serif; padding: 3px 4px; border: 1px solid var(--n15); border-radius: 4px; background: #fff; }
+  input[type=number] { width: 52px; }
+  input[type=range] { width: 64px; accent-color: var(--e6); margin: 0; }
+  details.pop { position: relative; }
+  details.pop summary { list-style: none; cursor: pointer; font-weight: 500; color: var(--b7); padding: 4px 9px;
+    border: 1px solid var(--b1); border-radius: 4px; background: #fff; }
+  details.pop summary::-webkit-details-marker { display: none; }
+  details.pop summary::after { content: " ▾"; color: var(--n7); }
+  details.pop[open] summary { background: var(--b05); }
+  .pop-body { position: absolute; z-index: 30; top: calc(100% + 6px); left: 0; width: 560px; background: #fff;
+    border: 1px solid var(--n15); border-radius: 6px; box-shadow: 0 8px 24px rgba(31,35,36,.16); padding: 10px 12px;
+    white-space: normal; }
+  #levels { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+  fieldset.lvl { border: 1px solid var(--n1); border-radius: 5px; margin: 0; padding: 4px 8px 6px; }
+  fieldset.lvl legend { font-size: 12px; font-weight: 500; color: var(--n8); padding: 0 4px; }
+  fieldset.lvl label { display: block; font-size: 13px; line-height: 1.65; }
+  .pop-body .exc { display: block; margin-top: 8px; font-size: 12.5px; color: var(--n8); }
+  .live { margin-left: auto; font-size: 12px; color: var(--n8); white-space: nowrap; }
+  .live b { color: var(--n9); }
+  #empty { color: var(--e7); font-weight: 500; margin: 6px 0 0; }
+  @media (max-width: 760px) { .panel { position: static; } .pop-body { width: 92vw; } #levels { grid-template-columns: 1fr; } .live { margin-left: 0; } }
+
+  /* summary */
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 16px 0 8px; }
+  .tile { background: #fff; border: 1px solid var(--n15); border-radius: 6px; padding: 10px 14px; }
+  .tv { font-size: 22px; font-weight: 700; color: var(--n9); font-variant-numeric: tabular-nums; }
+  .tl { font-size: 12.5px; color: var(--n7); }
+  #summary p { margin: 6px 0; }
+
+  figure { margin: 16px 0; background: #fff; border: 1px solid var(--n15); border-radius: 6px; padding: 12px 12px 6px; }
+  figure .chart { width: 100%; overflow-x: auto; }
+  figure svg { display: block; margin: 0 auto; }
+  figcaption { color: var(--n7); font-size: 13px; padding: 8px 6px 2px; max-width: 110ch; }
+  .legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 12.5px; color: var(--n8); padding: 0 6px 6px; }
+  .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 2px; vertical-align: -1px; margin-right: 5px; }
+  .legend i.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--n9); vertical-align: 1px; }
+  .legend i.dia { width: 9px; height: 9px; background: var(--n9); transform: rotate(45deg); border-radius: 0; }
+  .legend i.dash { width: 18px; height: 0; border-top: 2px dashed var(--n9); border-radius: 0; vertical-align: 3px; }
+  svg text { font-family: 'Roboto', system-ui, sans-serif; }
+  svg .ax { font-size: 11px; fill: var(--n7); }
+  svg .na { font-size: 9.5px; }
+  svg .lab { font-size: 11px; fill: var(--n9); font-weight: 500; }
+  svg .pv { font-size: 10.5px; fill: var(--n8); }
+  svg .rg { font-size: 10px; fill: var(--n7); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  #tip { position: fixed; z-index: 50; pointer-events: none; background: var(--n9); color: #fff; font-size: 12.5px; line-height: 1.45;
+    padding: 7px 10px; border-radius: 4px; max-width: 360px; white-space: pre-line; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+
+  table { border-collapse: collapse; width: 100%; margin: 10px 0 6px; background: #fff; border: 1px solid var(--n15); font-size: 13px; }
+  th, td { padding: 6px 8px; border-bottom: 1px solid var(--n1); text-align: left; vertical-align: top; }
+  th { background: var(--n05); font-weight: 500; color: var(--n8); font-size: 12.5px; }
+  thead th { position: sticky; top: 0; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.nw { white-space: nowrap; }
+  td.recs { white-space: nowrap; font-size: 12.5px; }
+  td.recs span { border-bottom: 1px dotted var(--n6); cursor: help; }
+  thead th, thead th.num { vertical-align: bottom; white-space: normal; max-width: 108px; line-height: 1.3; }
+  tr.hit-row td { background: #fcf6f5; }
+  .tblwrap { overflow-x: auto; max-height: 720px; overflow-y: auto; border-radius: 4px; }
+  .tag { display: inline-block; font-size: 11.5px; font-weight: 500; padding: 1px 7px; border-radius: 9px; white-space: nowrap; }
+  .tag.on { background: var(--e05); color: var(--e7); }
+  .tag.off { background: var(--n1); color: var(--n7); }
+  .tag.imp { background: var(--n9); color: #fff; }
+  .muted { color: var(--n6); }
+  .meta { color: var(--n7); font-size: 13px; border-top: 1px solid var(--n15); padding-top: 14px; margin-top: 40px; }
+  code { background: var(--n1); padding: 1px 5px; border-radius: 3px; font-size: 12.5px; }
+  .notes table { font-size: 13px; }
+  @media (max-width: 640px) { h1 { font-size: 22px; } }
+
+  /* languages: every static text carries both, CSS shows one (team convention, KB docs/I18N.md) */
+  html[data-lang="fr"] .lv-en, html:not([data-lang="fr"]) .lv-fr { display: none !important; }
+  .topline { display: flex; justify-content: space-between; align-items: center; max-width: 1112px; margin: 0 auto; padding-right: 16px; }
+  .aa-lang { display: inline-flex; border: 1px solid var(--b1); border-radius: 6px; overflow: hidden; }
+  .aa-lang button { border: none; border-radius: 0; background: #fff; color: var(--b7); font-size: 12px; font-weight: 700; padding: 5px 10px; }
+  .aa-lang button:hover { background: var(--b05); }
+  .aa-lang button.on { background: var(--b6); color: #fff; }
+
+  /* map explorer */
+  .mapwrap { display: grid; grid-template-columns: minmax(0, 3fr) minmax(220px, 1.2fr); gap: 16px; align-items: start; margin: 10px 0 6px; }
+  .mapcol { background: #fff; border: 1px solid var(--n15); border-radius: 6px; padding: 10px 12px; }
+  #map svg { display: block; width: 100%; max-width: 620px; height: auto; margin: 0 auto; }
+  #map path[data-tip] { cursor: default; }
+  #map path[data-tip]:hover { opacity: .85; }
+  .yearbar { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; }
+  .yearbar select { font-weight: 700; }
+  .yearbar button:disabled { opacity: .4; cursor: default; }
+  .maplegend { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+  .small { font-size: 12.5px; color: var(--n7); }
+  .mapinfo { background: #fff; border: 1px solid var(--n15); border-radius: 6px; padding: 12px 14px; font-size: 13.5px; }
+  .mapinfo .yr { font-family: 'Merriweather', Georgia, serif; font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+  .mapinfo .kv { display: flex; justify-content: space-between; gap: 10px; padding: 5px 0; border-bottom: 1px solid var(--n1); }
+  .mapinfo .kv span { color: var(--n8); }
+  .mapinfo .kv b { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .recs-list { margin: 8px 0 0; padding-left: 18px; font-size: 12.5px; color: var(--n8); }
+  @media (max-width: 760px) { .mapwrap { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<!-- back to the site landing page — first element inside body -->
+<div class="topline"><a class="home-link" href="../"><span class="lv lv-en">← Burkina Faso drought AA</span><span class="lv lv-fr">← Action anticipatoire sécheresse, Burkina Faso</span></a>
+  <span class="aa-lang" role="group" aria-label="Language / Langue"><button type="button" data-l="en" class="on">EN</button><button type="button" data-l="fr">FR</button></span></div>
+<div class="wrap">
+
+<h1><span class="lv lv-en">Temperature explorer for a national drought trigger</span><span class="lv lv-fr">Explorateur des températures pour un déclencheur national de sécheresse</span></h1>
+<p class="sub lv lv-en">This tool looks at growing-season heat in Burkina Faso's 45 provinces since 1989, using the indicator of the
+  <a href="../heat-and-impact/">heat-and-impact analysis</a>: the mean temperature over cropland during the chosen dekads,
+  compared with the province's own long-term trend. Pick a season to see it on the map. To test a trigger, set how much
+  hotter than its trend a province must be (the severity threshold) and how many provinces must reach it; the tool marks
+  the seasons that would have reached the threshold and compares them with millet and sorghum yields and with recorded
+  drought impacts. The <a href="../asap-explorer/">ASAP warning explorer</a> does the same for the ASAP warnings.</p>
+<p class="sub lv lv-fr">Cet outil examine la chaleur pendant la saison de culture dans les 45 provinces du Burkina Faso depuis
+  1989, avec l’indicateur de l’<a href="../heat-and-impact/">analyse chaleur et impact</a> (en anglais)&nbsp;: la température
+  moyenne sur les zones agricoles pendant les décades choisies, comparée à la tendance de long terme de la province.
+  Choisissez une saison pour l’afficher sur la carte. Pour tester un déclencheur, fixez de combien une province doit dépasser
+  sa tendance (le seuil de sévérité) et combien de provinces doivent l’atteindre&nbsp;; l’outil indique les saisons où le seuil
+  aurait été atteint et les compare aux rendements du mil et du sorgho et aux impacts de sécheresse enregistrés.
+  L’<a href="../asap-explorer/">explorateur des alertes ASAP</a> fait de même pour les alertes ASAP.</p>
+
+<div class="callout warn">
+  <p class="lv lv-en"><strong>2026 is provisional</strong>: ASAP data end on <span class="last-dekad"></span> and recent dekads can be revised.
+    The trend is fitted on the complete seasons 1989–2025, so 2026 is compared with a trend it did not help to fit, as it
+    would be in real time. A window mean is only known once its last dekad is over: with the current window, after the
+    <span class="known-by"></span>.</p>
+  <p class="lv lv-fr"><strong>2026 est provisoire</strong>&nbsp;: les données ASAP s’arrêtent au <span class="last-dekad"></span> et les décades
+    récentes peuvent être révisées. La tendance est ajustée sur les saisons complètes 1989–2025&nbsp;: 2026 est donc comparée à
+    une tendance à laquelle elle n’a pas contribué, comme en temps réel. Une moyenne sur la plage n’est connue qu’à la fin de sa
+    dernière décade&nbsp;: avec la plage actuelle, après la <span class="known-by"></span>.</p>
+</div>
+
+<p id="loading"><span class="lv lv-en">Loading data…</span><span class="lv lv-fr">Chargement des données…</span></p>
+<div id="app" hidden>
+
+<div id="panel-top"></div>
+<section class="panel" id="panel" aria-label="Trigger settings" data-aria-fr="Paramètres du déclencheur">
+  <div class="bar">
+    <div class="grp"><span class="lb" data-tip="How much hotter than its own trend a province must be, as the mean over the chosen dekads (°C)."
+        data-tip-fr="De combien une province doit dépasser sa propre tendance, en moyenne sur les décades choisies (°C)."><span class="lv lv-en">Severity</span><span class="lv lv-fr">Sévérité</span></span>
+      <input type="range" id="sev" min="0" max="1.5" step="0.05" aria-label="Severity threshold" data-aria-fr="Seuil de sévérité">
+      <input type="number" id="sevn" min="0" max="1.5" step="0.05" aria-label="Severity threshold" data-aria-fr="Seuil de sévérité"> °C</div>
+    <div class="grp"><span class="lb" data-tip="Dekads of the season to average (1st, 2nd or 3rd ten days of each month). A window mean is only known after its last dekad."
+        data-tip-fr="Décades de la saison sur lesquelles faire la moyenne (1re, 2e ou 3e dizaine de jours de chaque mois). Une moyenne n’est connue qu’après la dernière décade de la plage."><span class="lv lv-en">Dekads</span><span class="lv lv-fr">Décades</span></span>
+      <select id="d0" aria-label="First dekad" data-aria-fr="Première décade"></select>–<select id="d1" aria-label="Last dekad" data-aria-fr="Dernière décade"></select></div>
+    <div class="grp"><span class="lb" data-tip="A season reaches the threshold when at least this many provinces are at or above the severity threshold."
+        data-tip-fr="Une saison atteint le seuil quand au moins ce nombre de provinces atteignent le seuil de sévérité."><span class="lv lv-en">Threshold</span><span class="lv lv-fr">Seuil</span></span>
+      <input type="range" id="kslider" min="1" max="45" step="1" aria-label="Count threshold" data-aria-fr="Seuil (nombre de provinces)">
+      <input type="number" id="k" min="1" max="45" step="1" aria-label="Count threshold" data-aria-fr="Seuil (nombre de provinces)"> <span id="kunit">provinces</span>
+      <button type="button" id="suggest" data-tip="Set the threshold whose return period is closest to 4 years for the current settings."
+        data-tip-fr="Choisir le seuil dont la période de retour est la plus proche de 4 ans pour les paramètres actuels."><span class="lv lv-en">1 in 4 yrs</span><span class="lv lv-fr">1 an sur 4</span></button></div>
+  </div>
+  <div class="bar">
+    <div class="grp"><span class="lb" data-tip="How impact records are attributed to seasons. Growing season: 2011, 2013, 2017, 2019, 2021. Framework labelling: 2011, 2014, 2017, 2019, 2022. See &quot;Drought impact records&quot; below."
+        data-tip-fr="Comment les impacts enregistrés sont rattachés aux saisons. Saison de culture&nbsp;: 2011, 2013, 2017, 2019, 2021. Libellés du cadre&nbsp;: 2011, 2014, 2017, 2019, 2022. Voir «&nbsp;Impacts de sécheresse enregistrés&nbsp;» plus bas."><span class="lv lv-en">Impact years</span><span class="lv lv-fr">Impacts</span></span>
+      <select id="imp" aria-label="Impact seasons" data-aria-fr="Saisons avec impact">
+        <option value="main" data-fr="Saison de culture">Growing season</option>
+        <option value="alt" data-fr="Libellés du cadre">Framework labels</option>
+      </select></div>
+    <div class="grp"><span class="lb" data-tip="Millet and sorghum yield, per province, used in the province chart and the table."
+        data-tip-fr="Rendement du mil et du sorgho par province, utilisé dans le graphique par province et dans le tableau."><span class="lv lv-en">Poor yield</span><span class="lv lv-fr">Rendement</span></span>
+      <select id="yt" aria-label="Poor-yield province" data-aria-fr="Province à rendement faible">
+        <option value="10" data-fr="≥10% sous la tendance">≥10% below trend</option>
+        <option value="15" data-fr="≥15% sous la tendance">≥15% below trend</option>
+        <option value="20" data-fr="≥20% sous la tendance">≥20% below trend</option>
+        <option value="25" data-fr="≥25% sous la tendance">≥25% below trend</option>
+        <option value="30" data-fr="≥30% sous la tendance">≥30% below trend</option>
+      </select></div>
+    <div class="live" id="live" aria-live="polite"></div>
+  </div>
+</section>
+
+<h2 id="map-section"><span class="lv lv-en">Map by season</span><span class="lv lv-fr">Carte par saison</span></h2>
+<div class="mapwrap">
+  <div class="mapcol">
+    <div class="yearbar"><button type="button" id="yprev" aria-label="Previous season" data-aria-fr="Saison précédente">◀</button>
+      <select id="year" aria-label="Season" data-aria-fr="Saison"></select>
+      <button type="button" id="ynext" aria-label="Next season" data-aria-fr="Saison suivante">▶</button>
+      <span class="muted small"><span class="lv lv-en">or click a season in the charts below</span><span class="lv lv-fr">ou cliquez sur une saison dans les graphiques ci-dessous</span></span></div>
+    <div id="map"></div>
+    <div class="maplegend"><div id="map-legend"></div>
+      <div class="small"><span class="lv lv-en">Anomaly from the province trend, °C. Thick outline: at or above the severity threshold
+        (<b class="sevlabel"></b>).</span><span class="lv lv-fr">Anomalie par rapport à la tendance de la province, °C. Contour
+        épais&nbsp;: province atteignant le seuil de sévérité (<b class="sevlabel"></b>).</span></div></div>
+  </div>
+  <div class="mapinfo" id="map-info"></div>
+</div>
+
+<h2 id="results"><span class="lv lv-en">Results for these settings</span><span class="lv lv-fr">Résultats pour ces paramètres</span></h2>
+<div class="tiles" id="tiles"></div>
+<div id="summary"></div>
+
+<figure>
+  <div class="legend"><span><i style="background:#9d372b"></i><span class="lv lv-en">threshold reached</span><span class="lv lv-fr">seuil atteint</span></span>
+    <span><i style="background:#b9c4c5"></i><span class="lv lv-en">below threshold</span><span class="lv lv-fr">sous le seuil</span></span>
+    <span><i class="dash"></i><span class="lv lv-en">count threshold</span><span class="lv lv-fr">seuil</span> (<b id="klabel"></b>)</span>
+    <span><i class="dia"></i><span class="lv lv-en">impact season</span><span class="lv lv-fr">saison avec impact</span></span></div>
+  <div class="chart" id="chart-counts"></div>
+  <figcaption><span class="lv lv-en">Number of provinces at or above the severity threshold in each season. *2026 provisional.
+    Hover for the national mean anomaly, yield and impact records; click a season to show it on the map.</span><span class="lv lv-fr">Nombre
+    de provinces atteignant le seuil de sévérité à chaque saison. *2026 provisoire. Survolez pour voir l’anomalie moyenne
+    nationale, le rendement et les impacts enregistrés&nbsp;; cliquez sur une saison pour l’afficher sur la carte.</span></figcaption>
+</figure>
+
+<figure>
+  <div class="legend"><span class="lv lv-en">Return period:</span><span class="lv lv-fr">Période de retour&nbsp;:</span>
+    <span><i style="background:#d8dede"></i><span class="lv lv-en">under 2 years</span><span class="lv lv-fr">moins de 2 ans</span></span>
+    <span><i style="background:#bfe0d6"></i>2–3 <span class="lv lv-en">years</span><span class="lv lv-fr">ans</span></span>
+    <span><i style="background:#269777"></i>3–5 <span class="lv lv-en">years</span><span class="lv lv-fr">ans</span></span>
+    <span><i style="background:#7cc2ad"></i>5–10 <span class="lv lv-en">years</span><span class="lv lv-fr">ans</span></span>
+    <span><i style="background:#d4eae4"></i><span class="lv lv-en">over 10 years</span><span class="lv lv-fr">plus de 10 ans</span></span>
+    <span><i style="background:#fff;border:1px solid #e2e8e8"></i><span class="lv lv-en">never</span><span class="lv lv-fr">jamais</span></span></div>
+  <div class="chart" id="rpgrid"></div>
+  <figcaption><span class="lv lv-en">Return period for every combination of severity threshold (rows) and number of provinces
+    required (columns), with the dekads unchanged. The outlined cell is the current setting; click a cell to use it.
+    Return period = (seasons + 1) ÷ seasons reaching the threshold.</span><span class="lv lv-fr">Période de retour pour
+    chaque combinaison de seuil de sévérité (lignes) et de nombre de provinces requis (colonnes), à décades inchangées. La
+    case encadrée correspond aux paramètres actuels&nbsp;; cliquez sur une case pour l’utiliser. Période de retour = (saisons
+    + 1) ÷ saisons qui atteignent le seuil.</span></figcaption>
+</figure>
+
+<h2 id="yield"><span class="lv lv-en">Comparison with yield and production</span><span class="lv lv-fr">Comparaison avec le rendement et la production</span></h2>
+<figure>
+  <div class="legend"><span class="radios"><label><input type="radio" name="nat" value="yield"> <span class="lv lv-en">Yield</span><span class="lv lv-fr">Rendement</span></label>
+    <label><input type="radio" name="nat" value="prod"> Production</label></span>
+    <span><i style="background:#9d372b"></i><span class="lv lv-en">threshold reached</span><span class="lv lv-fr">seuil atteint</span></span>
+    <span><i style="background:#b9c4c5"></i><span class="lv lv-en">threshold not reached</span><span class="lv lv-fr">seuil non atteint</span></span></div>
+  <div class="chart" id="chart-yield"></div>
+  <figcaption><span class="lv lv-en">National millet and sorghum yield or production (FAOSTAT), percentage above or below its
+    1989–2023 trend. The ASAP explorer uses a 2001–2023 trend, so the same season can show a slightly different value
+    there. FAOSTAT yield is production per area harvested, so fields that failed completely lower production but not
+    yield. FAOSTAT figures for 2024 are estimates and are not shown.</span><span class="lv lv-fr">Rendement ou production
+    nationale de mil et de sorgho (FAOSTAT), en pourcentage au-dessus ou au-dessous de la tendance 1989–2023. L’explorateur
+    ASAP utilise une tendance 2001–2023&nbsp;: une même saison peut donc y afficher une valeur un peu différente. Le rendement
+    FAOSTAT est la production par superficie récoltée&nbsp;: les champs complètement perdus réduisent la production mais pas
+    le rendement. Les chiffres FAOSTAT de 2024 sont des estimations et ne sont pas affichés.</span></figcaption>
+</figure>
+
+<figure>
+  <div class="legend"><span><i style="background:#9d372b"></i><span class="lv lv-en">at or above the severity threshold</span><span class="lv lv-fr">atteignant le seuil de sévérité</span></span>
+    <span><i style="background:#eef1f1"></i><span class="lv lv-en">below</span><span class="lv lv-fr">en dessous</span></span>
+    <span><i class="dot"></i><span class="lv lv-en">millet and sorghum yield at least <b class="ytlabel"></b>% below the province's trend (2001–2023)</span><span class="lv lv-fr">rendement mil et sorgho au moins <b class="ytlabel"></b>% sous la tendance de la province (2001–2023)</span></span></div>
+  <div class="chart" id="chart-grid"></div>
+  <figcaption><span class="lv lv-en">Each province and season, regions ordered roughly north to south; the selected season is
+    outlined. Province yield statistics start in 2001 and are noisier than the national series; treat single dots with
+    care.</span><span class="lv lv-fr">Chaque province et chaque saison, régions classées à peu près du nord au sud&nbsp;; la
+    saison choisie est encadrée. Les statistiques de rendement par province commencent en 2001 et sont plus bruitées que la
+    série nationale&nbsp;; interprétez les points isolés avec prudence.</span></figcaption>
+</figure>
+
+<h2 id="table"><span class="lv lv-en">Season by season</span><span class="lv lv-fr">Saison par saison</span></h2>
+<p><span class="lv lv-en">One row per season with the result for the current settings, yields, and recorded drought impacts.
+  Seasons reaching the threshold are shaded.</span><span class="lv lv-fr">Une ligne par saison avec le résultat pour les
+  paramètres actuels, les rendements et les impacts de sécheresse enregistrés. Les saisons qui atteignent le seuil sont
+  surlignées.</span> <button type="button" id="csv"><span class="lv lv-en">Download as CSV</span><span class="lv lv-fr">Télécharger en CSV</span></button></p>
+<div class="tblwrap">
+<table>
+  <thead><tr>
+    <th><span class="lv lv-en">Season</span><span class="lv lv-fr">Saison</span></th>
+    <th class="num"><span class="lv lv-en">National mean anomaly</span><span class="lv lv-fr">Anomalie moyenne nationale</span></th>
+    <th class="num" id="th-count">Provinces</th>
+    <th><span class="lv lv-en">Threshold reached</span><span class="lv lv-fr">Seuil atteint</span></th>
+    <th class="num"><span class="lv lv-en">National yield, kg/ha</span><span class="lv lv-fr">Rendement national, kg/ha</span></th>
+    <th class="num"><span class="lv lv-en">Yield vs trend</span><span class="lv lv-fr">Rendement, écart à la tendance</span></th>
+    <th class="num"><span class="lv lv-en">Production vs trend</span><span class="lv lv-fr">Production, écart à la tendance</span></th>
+    <th class="num" id="th-poor">Provinces with poor yield</th>
+    <th><span class="lv lv-en">Impact season</span><span class="lv lv-fr">Saison avec impact</span></th>
+    <th><span class="lv lv-en">Impact records</span><span class="lv lv-fr">Impacts enregistrés</span></th>
+    <th><span class="lv lv-en">Framework target year</span><span class="lv lv-fr">Année cible du cadre</span></th>
+  </tr></thead>
+  <tbody id="tbody"></tbody>
+</table>
+</div>
+<p class="muted lv lv-en" style="font-size:13px">National mean anomaly: unweighted mean of the 45 provinces. National yield and
+  production: millet and sorghum, FAOSTAT, trend 1989–2023. Provinces with poor yield: FEWS NET province statistics,
+  2001–2023 ("of n" where some provinces have no complete statistics). *2026 provisional. The CSV download keeps English
+  column names and values.</p>
+<p class="muted lv lv-fr" style="font-size:13px">Anomalie moyenne nationale&nbsp;: moyenne non pondérée des 45 provinces.
+  Rendement et production nationaux&nbsp;: mil et sorgho, FAOSTAT, tendance 1989–2023. Provinces avec rendement faible&nbsp;:
+  statistiques provinciales FEWS NET, 2001–2023 («&nbsp;sur n&nbsp;» quand certaines provinces n’ont pas de statistiques
+  complètes). *2026 provisoire. Le fichier CSV garde les noms de colonnes et les valeurs en anglais.</p>
+
+</div><!-- #app -->
+
+<div class="notes lv lv-en">
+<h2 id="method">How the indicator and the count are made</h2>
+<ol>
+  <li>ASAP gives, for every province and dekad, the mean temperature over the province's cropland (ECMWF data, cropland
+    pixels in their growing season), from 1989.</li>
+  <li>For each province and season, the tool averages the dekads in the chosen range, then compares that mean with the
+    province's own trend: a straight line fitted with the Theil–Sen method (median of the slopes between all pairs of
+    years) over the complete seasons 1989–2025. The anomaly is the difference, in °C. This is the indicator of the
+    heat-and-impact analysis, which used July to September (dekads 19 to 27).</li>
+  <li>A province counts for a season when its anomaly is at or above the severity threshold. A season reaches the
+    threshold when at least the chosen number of provinces count.</li>
+  <li>The return period is (n + 1) ÷ k, where n is the number of seasons (38, 1989–2026) and k the number of seasons
+    that reach the threshold.</li>
+</ol>
+<p>July–September temperature has risen in every province since 1989, by 0.04 to 0.27 °C per decade (median 0.17; each
+  province's trend is in the map tooltips). Measuring each season against the province's trend removes that warming: a
+  season counts as hot relative to the temperature expected for its year, not relative to the 1990s. Heat anomalies are
+  also spatially coherent: in most seasons either very few provinces are hot or most of them are, which is why the count
+  jumps between low and high values.</p>
+<p>The dekads offered run from the 2nd dekad of June to the 2nd dekad of October (17 to 29), the span with data for
+  every province in every season. The heat-and-impact analysis found that August–September temperature does as well as
+  the July–September mean, and that pre-season temperature does not explain production.</p>
+
+<h3>Data</h3>
+<ul>
+  <li><strong>Temperature:</strong> JRC ASAP indicator statistics, temperature over cropland during the growing cycle
+    (ECMWF), province level, downloaded on 3 November 2026. ASAP uses the 45 provinces in place before the 2025 territorial
+    reform. Recomputed from the current download, the July–September anomalies of the four framework provinces differ
+    from those on the heat-and-impact page (downloaded in September 2026) by at most 0.06 °C.</li>
+  <li><strong>Map:</strong> OCHA common operational dataset of administrative boundaries for Burkina Faso, 2020 edition
+    (45 provinces), simplified.</li>
+  <li><strong>National yield and production:</strong> FAOSTAT millet and sorghum (via HDX), official figures 1989–2023;
+    yield is production divided by area harvested.</li>
+  <li><strong>Province yields:</strong> official agricultural statistics by province compiled in the
+    <a href="https://fews.net/data">FEWS NET Data Warehouse</a>, 2001–2023, as in the <a href="../asap-explorer/">ASAP
+    warning explorer</a>.</li>
+  <li><strong>Drought impacts:</strong> the records and their dating from the <a href="../heat-and-impact/">heat-and-impact
+    page</a>, listed below. They cover seasons from 2001; earlier seasons show "no impact record" and are not counted as
+    hits, misses or seasons without impact.</li>
+</ul>
+<h3 id="impacts">Drought impact records</h3>
+<p>Impact records are dated to the lean season in which people were affected or funds were allocated, usually the year
+  after the failed harvest. Each record is attributed to a growing season. Where the evidence is ambiguous, the
+  framework's own labelling is offered as the alternative dating.</p>
+<table>
+  <thead><tr><th>Record</th><th>Recorded</th><th class="num">Season (growing season)</th><th class="num">Season (framework labelling)</th></tr></thead>
+  <tbody>
+    <tr><td>EM-DAT 2011-9524: drought, 2.85 million affected (Sahel, Centre-Nord, Est, Centre-Ouest, Centre-Est)</td><td>Dec 2011 – 2012</td><td class="num">2011</td><td class="num">2011</td></tr>
+    <tr><td>CERF 12-RR-BFA-13236: rapid response, drought, $9.2 million</td><td>2012</td><td class="num">2011</td><td class="num">2011</td></tr>
+    <tr><td>EM-DAT 2014-9196: drought, 4.0 million affected (Sahel)</td><td>May 2014</td><td class="num">2013</td><td class="num">2014</td></tr>
+    <tr><td>CERF 14-UFE-BFA-10955: underfunded emergencies, drought, $3.9 million</td><td>Aug 2014</td><td class="num">2013</td><td class="num">2014</td></tr>
+    <tr><td>CERF 18-RR-BFA-30726: rapid response, drought and pastoral crisis, $9.0 million</td><td>May 2018</td><td class="num">2017</td><td class="num">2017</td></tr>
+    <tr><td>EM-DAT 2020-9235: drought, 2.9 million affected (all regions)</td><td>Jan – Jun 2020</td><td class="num">2019</td><td class="num">2019</td></tr>
+    <tr><td>EM-DAT 2022-9781: drought, 3.5 million affected</td><td>to Nov 2022</td><td class="num">2021</td><td class="num">2022</td></tr>
+    <tr><td>CERF 22-RR-BFA-53665: rapid response, food insecurity in the lean season, $6.0 million</td><td>May 2022</td><td class="num">2021</td><td class="num">2022</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="notes lv lv-fr">
+<h2 id="methode">Construction de l’indicateur et du comptage</h2>
+<ol>
+  <li>ASAP fournit, pour chaque province et chaque décade, la température moyenne sur les zones agricoles de la province
+    (données ECMWF, pixels agricoles pendant leur saison de culture), depuis 1989.</li>
+  <li>Pour chaque province et chaque saison, l’outil fait la moyenne des décades de la plage choisie, puis compare cette
+    moyenne à la tendance propre à la province&nbsp;: une droite ajustée par la méthode de Theil–Sen (médiane des pentes entre
+    toutes les paires d’années) sur les saisons complètes 1989–2025. L’anomalie est l’écart, en °C. C’est l’indicateur de
+    l’analyse chaleur et impact, qui utilisait juillet à septembre (décades 19 à 27).</li>
+  <li>Une province est comptée pour une saison quand son anomalie atteint le seuil de sévérité. Une saison atteint le seuil
+    quand au moins le nombre de provinces choisi est compté.</li>
+  <li>La période de retour est (n + 1) ÷ k, où n est le nombre de saisons (38, 1989–2026) et k le nombre de saisons qui
+    atteignent le seuil.</li>
+</ol>
+<p>La température de juillet–septembre a augmenté dans toutes les provinces depuis 1989, de 0.04 à 0.27 °C par décennie
+  (médiane 0.17&nbsp;; la tendance de chaque province figure dans les infobulles de la carte). Mesurer chaque saison par
+  rapport à la tendance de la province retire ce réchauffement&nbsp;: une saison est chaude par rapport à la température
+  attendue pour son année, et non par rapport aux années 1990. Les anomalies de chaleur sont aussi cohérentes dans
+  l’espace&nbsp;: la plupart des saisons, soit très peu de provinces sont chaudes, soit la plupart le sont, d’où les sauts du
+  nombre de provinces.</p>
+<p>Les décades proposées vont de la 2e décade de juin à la 2e décade d’octobre (17 à 29), la période pour laquelle toutes
+  les provinces ont des données pour toutes les saisons. L’analyse chaleur et impact a montré que la température
+  d’août–septembre explique la production aussi bien que la moyenne de juillet–septembre, et que la température avant la
+  saison ne l’explique pas.</p>
+
+<h3>Données</h3>
+<ul>
+  <li><strong>Température&nbsp;:</strong> statistiques d’indicateurs ASAP du JRC, température sur les zones agricoles pendant
+    le cycle de culture (ECMWF), par province, téléchargées le 3 novembre 2026. ASAP utilise les 45 provinces antérieures à
+    la réforme territoriale de 2025. Recalculées à partir du téléchargement actuel, les anomalies de juillet–septembre des
+    quatre provinces du cadre diffèrent d’au plus 0.06 °C de celles de la page chaleur et impact (téléchargées en septembre
+    2026).</li>
+  <li><strong>Carte&nbsp;:</strong> limites administratives de référence d’OCHA (COD) pour le Burkina Faso, édition 2020
+    (45 provinces), simplifiées.</li>
+  <li><strong>Rendement et production nationaux&nbsp;:</strong> FAOSTAT, mil et sorgho (via HDX), chiffres officiels
+    1989–2023&nbsp;; le rendement est la production divisée par la superficie récoltée.</li>
+  <li><strong>Rendements par province&nbsp;:</strong> statistiques agricoles officielles par province compilées dans le
+    <a href="https://fews.net/data">FEWS NET Data Warehouse</a>, 2001–2023, comme dans l’<a href="../asap-explorer/">explorateur
+    des alertes ASAP</a>.</li>
+  <li><strong>Impacts de sécheresse&nbsp;:</strong> les impacts enregistrés et leur datation proviennent de la
+    <a href="../heat-and-impact/">page chaleur et impact</a> (en anglais), listés ci-dessous. Ils couvrent les saisons à
+    partir de 2001&nbsp;; les saisons antérieures sont indiquées «&nbsp;pas de données d’impact&nbsp;» et ne comptent ni
+    comme saisons atteintes, ni manquées, ni sans impact.</li>
+</ul>
+<h3 id="impacts-fr">Impacts de sécheresse enregistrés</h3>
+<p>Les impacts sont datés de la période de soudure pendant laquelle des personnes ont été touchées ou des fonds alloués,
+  généralement l’année qui suit la mauvaise récolte. Chaque impact est rattaché à une saison de culture. Quand les
+  éléments sont ambigus, la datation du cadre est proposée comme alternative.</p>
+<table>
+  <thead><tr><th>Impact enregistré</th><th>Date</th><th class="num">Saison (saison de culture)</th><th class="num">Saison (libellés du cadre)</th></tr></thead>
+  <tbody>
+    <tr><td>EM-DAT 2011-9524&nbsp;: sécheresse, 2.85 millions de personnes affectées (Sahel, Centre-Nord, Est, Centre-Ouest, Centre-Est)</td><td>déc. 2011 – 2012</td><td class="num">2011</td><td class="num">2011</td></tr>
+    <tr><td>CERF 12-RR-BFA-13236&nbsp;: réponse rapide, sécheresse, $9.2M</td><td>2012</td><td class="num">2011</td><td class="num">2011</td></tr>
+    <tr><td>EM-DAT 2014-9196&nbsp;: sécheresse, 4.0 millions de personnes affectées (Sahel)</td><td>mai 2014</td><td class="num">2013</td><td class="num">2014</td></tr>
+    <tr><td>CERF 14-UFE-BFA-10955&nbsp;: urgences sous-financées, sécheresse, $3.9M</td><td>août 2014</td><td class="num">2013</td><td class="num">2014</td></tr>
+    <tr><td>CERF 18-RR-BFA-30726&nbsp;: réponse rapide, sécheresse et crise pastorale, $9.0M</td><td>mai 2018</td><td class="num">2017</td><td class="num">2017</td></tr>
+    <tr><td>EM-DAT 2020-9235&nbsp;: sécheresse, 2.9 millions de personnes affectées (toutes les régions)</td><td>janv. – juin 2020</td><td class="num">2019</td><td class="num">2019</td></tr>
+    <tr><td>EM-DAT 2022-9781&nbsp;: sécheresse, 3.5 millions de personnes affectées</td><td>jusqu’à nov. 2022</td><td class="num">2021</td><td class="num">2022</td></tr>
+    <tr><td>CERF 22-RR-BFA-53665&nbsp;: réponse rapide, insécurité alimentaire en période de soudure, $6.0M</td><td>mai 2022</td><td class="num">2021</td><td class="num">2022</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p class="meta"><span id="vintage"></span> <span class="lv lv-en">Sources: JRC ASAP (agricultural-production-hotspots.ec.europa.eu),
+  OCHA COD-AB, FAOSTAT, FEWS NET Data Warehouse, EM-DAT (CRED/UCLouvain), CERF allocation records. Code:</span><span class="lv lv-fr">Sources&nbsp;:
+  JRC ASAP (agricultural-production-hotspots.ec.europa.eu), OCHA COD-AB, FAOSTAT, FEWS NET Data Warehouse, EM-DAT
+  (CRED/UCLouvain), données d’allocation du CERF. Code&nbsp;:</span>
+  <a href="https://github.com/OCHA-DAP/ds-aa-bfa-drought/tree/main/scripts/temperature_explorer">scripts/temperature_explorer</a>.
+  <span class="lv lv-en">OCHA Centre for Humanitarian Data.</span><span class="lv lv-fr">Centre de données humanitaires d’OCHA.</span></p>
+
+</div>
+<div id="tip" hidden></div>
+<script src="explorer.js?v=20261103a"></script>
+</body>
+</html>
