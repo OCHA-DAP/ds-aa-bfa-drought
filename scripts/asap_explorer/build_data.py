@@ -189,20 +189,21 @@ def rounded(values, digits=0):
     return [None if np.isnan(v) else (round(v) if digits == 0 else round(v, digits)) for v in values]
 
 
-def load_national_yield(fao_path: str) -> dict:
+def load_national_yield(fao_path: str, years: list[int] | None = None) -> dict:
     f = pd.read_csv(fao_path, dtype=str)
     f = f[f["Iso3"] == "BFA"]
     f = f[f["Item"].isin(["Millet", "Sorghum"]) & f["Element"].isin(["Production", "Area harvested"])].copy()
     f["Year"] = f["Year"].astype(int)
     f["Value"] = f["Value"].astype(float)
-    f = f[f["Year"].isin(YIELD_YEARS)]
+    years = years or YIELD_YEARS
+    f = f[f["Year"].isin(years)]
     if (f["Flag"] != "A").any():
         bad = f[f["Flag"] != "A"][["Item", "Element", "Year", "Flag"]].to_dict("records")
-        raise SystemExit(f"FAOSTAT values in {YIELD_YEARS[0]}-{YIELD_YEARS[-1]} that are not official: {bad}")
-    t = f.pivot_table(index="Year", columns="Element", values="Value", aggfunc="sum").reindex(YIELD_YEARS)
+        raise SystemExit(f"FAOSTAT values in {years[0]}-{years[-1]} that are not official: {bad}")
+    t = f.pivot_table(index="Year", columns="Element", values="Value", aggfunc="sum").reindex(years)
     if t.isna().any().any() or (f.groupby(["Year", "Element"]).size() != 2).any():
         raise SystemExit("FAOSTAT millet/sorghum production or area missing for some year")
-    yrs = np.array(YIELD_YEARS, dtype=float)
+    yrs = np.array(years, dtype=float)
     prod, area = t["Production"].to_numpy(dtype=float), t["Area harvested"].to_numpy(dtype=float)
     ny = prod / area * 1000  # t/ha -> kg/ha
     return {
