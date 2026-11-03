@@ -21,15 +21,12 @@ Usage:
 
 import importlib.util
 import json
-import math
 import sys
 from datetime import date
 from pathlib import Path
 
-import geopandas as gpd
 import numpy as np
 import pandas as pd
-import shapely
 
 HERE = Path(__file__).resolve().parent
 spec = importlib.util.spec_from_file_location("asap_build", HERE.parent / "asap_explorer" / "build_data.py")
@@ -41,7 +38,6 @@ DEKADS = list(range(17, 30))  # 2nd dekad of June to 2nd dekad of October: compl
 FIT_YEARS = [1989, 2025]  # trend fitted on complete seasons only, as in the analysis
 NATIONAL_YIELD_YEARS = list(range(1989, 2024))  # FAOSTAT official figures; 2024 is imputed/unofficial
 ASAP_EXPLORER_DATA = HERE.parent.parent / "pages" / "asap-explorer" / "data.json"
-MAP_WIDTH = 600  # SVG user units
 
 
 def load_temperature(path: str, provinces: list[dict]) -> tuple[dict, str]:
@@ -74,34 +70,6 @@ def load_temperature(path: str, provinces: list[dict]) -> tuple[dict, str]:
     return out, last
 
 
-def build_map(shp_path: str, provinces: list[dict]) -> dict:
-    g = gpd.read_file(shp_path).to_crs(4326)
-    g["key"] = g["ADM2_FR"].map(asap.norm)
-    by_key = {asap.norm(p["name"]): p for p in provinces}
-    if set(g["key"]) != set(by_key) or g["key"].duplicated().any():
-        raise SystemExit(f"boundary crosswalk failed: {sorted(set(g['key']) ^ set(by_key))}")
-    # simplify as a coverage so neighbouring provinces keep shared edges
-    g["geometry"] = shapely.coverage_simplify(g.geometry.values, tolerance=0.02)
-    minx, miny, maxx, maxy = g.total_bounds
-    lat0 = math.radians((miny + maxy) / 2)
-    sx = MAP_WIDTH / ((maxx - minx) * math.cos(lat0))
-    height = (maxy - miny) * sx
-
-    def path(geom):
-        polys = [geom] if geom.geom_type == "Polygon" else list(geom.geoms)
-        parts = []
-        for poly in polys:
-            for ring in [poly.exterior, *poly.interiors]:
-                pts = [((x - minx) * math.cos(lat0) * sx, (maxy - y) * sx) for x, y in ring.coords]
-                parts.append("M" + "L".join(f"{x:.1f},{y:.1f}" for x, y in pts[:-1]) + "Z")
-        return "".join(parts)
-
-    prov_paths = {str(by_key[k]["id"]): path(geom) for k, geom in zip(g["key"], g.geometry)}
-    regions = g.dissolve(by="ADM1_FR").geometry
-    return {"width": MAP_WIDTH, "height": round(height, 1), "provinces": prov_paths,
-            "regions": [path(geom) for geom in regions]}
-
-
 def main(temp_path: str, fdw_path: str, fao_path: str, shp_path: str, out_path: str) -> None:
     asap_data = json.loads(ASAP_EXPLORER_DATA.read_text(encoding="utf-8"))
     provinces = asap_data["provinces"]
@@ -123,7 +91,7 @@ def main(temp_path: str, fdw_path: str, fao_path: str, shp_path: str, out_path: 
         },
         "provinces": provinces,
         "temp": temp,
-        "map": build_map(shp_path, provinces),
+        "map": asap.build_map(shp_path, provinces),
         "yield": yld,
         "impacts": asap.IMPACTS,
     }
