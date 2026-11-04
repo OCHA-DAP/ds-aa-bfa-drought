@@ -61,7 +61,12 @@ SPI-3 (40); the SEAS5 forecast comes from the Copernicus Climate Data Store via 
 ## The heat-and-impact analysis
 
 `pages/heat-and-impact/index.html` is hand-authored HTML with inline SVG figures from
-`scripts/impact_figs.py`, computed by `scripts/impact_analysis.py`. Inputs beyond the ASAP export:
+`scripts/impact_figs.py`, computed by `scripts/impact_analysis.py`. The "at a glance" scatter grid
+(production, yield and impact seasons against each indicator, framework provinces and all provinces) is
+`scripts/impact_scatter_grid.py`, run on the same scratch directory after `impact_analysis.py`; it writes
+`grid_aoi.svg` and `grid_nat.svg` to paste into the page. Since November 2026 the analysis uses ASAP's
+renumbered province ids (country_id=17); the September 2026 figures used the old ids (219) and ASAP's
+rainfall before its October revision, see the dated note on the page. Inputs beyond the ASAP export:
 FAOSTAT production from HDX (`bfa-faostat-crops-livestock-production`), the EM-DAT blob snapshot
 (`ocha_stratus.emdat`), and the team dev database (`aa.cerf_allocation` + `aa.cerf_supplement`,
 `ipc.population`, `fewsnet.classification`); the pulls are one-off queries recorded in the page's
