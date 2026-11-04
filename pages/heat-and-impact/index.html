@@ -89,7 +89,8 @@
     <p><strong>Temperature on this page is detrended.</strong> It is each province's July to September
        mean temperature (ASAP, over cropland) minus that province's own 1989–2025 trend. Warming over the
        years therefore does not count as heat: a season counts as hot only when it was hotter than
-       expected for its year. Biomass is detrended in the same way (over 2001–2025).</p>
+       expected for its year. Biomass is detrended similarly: the trend over 2001–2025 is removed per
+       province, and it is the mean of the cropland and rangeland anomalies.</p>
   </div>
 
   <h2 id="glance">At a glance: what tracks harvests and impact <a class="anchor" href="#glance" aria-label="Link to this section">#</a></h2>
@@ -312,88 +313,88 @@
 <rect x="352" y="54" width="108" height="104" fill="#fff" stroke="#e2e8e8"/>
 <line x1="352" y1="106.0" x2="460" y2="106.0" stroke="#e2e8e8"/>
 <line x1="359.4" y1="119.4" x2="452.6" y2="83.2" stroke="#1f2324" stroke-width="1.2" opacity="0.55"/>
-<circle cx="375.6" cy="123.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2001: +40.58 mm/dekad, production -7.9%</title></circle>
-<circle cx="364.9" cy="124.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2002: +36.87 mm/dekad, production -8.7%</title></circle>
-<circle cx="420.4" cy="89.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2003: +56.04 mm/dekad, production +7.5%</title></circle>
-<circle cx="359.4" cy="128.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2004: +35.01 mm/dekad, production -10.4%</title></circle>
-<circle cx="389.8" cy="95.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2005: +45.48 mm/dekad, production +5.1%</title></circle>
-<circle cx="384.4" cy="100.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2006: +43.63 mm/dekad, production +2.6%</title></circle>
-<circle cx="404.9" cy="119.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2007: +50.69 mm/dekad, production -6.0%</title></circle>
-<circle cx="377.5" cy="65.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2008: +41.25 mm/dekad, production +18.6%</title></circle>
-<circle cx="388.2" cy="118.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2009: +44.93 mm/dekad, production -5.8%</title></circle>
-<circle cx="401.9" cy="66.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2010: +49.65 mm/dekad, production +18.2%</title></circle>
-<circle cx="385.0" cy="132.7" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2011: +43.82 mm/dekad, production -12.3% (impact season)</title></circle>
-<circle cx="423.9" cy="79.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2012: +57.26 mm/dekad, production +12.5%</title></circle>
-<circle cx="386.5" cy="83.2" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2013: +44.35 mm/dekad, production +10.5% (impact season)</title></circle>
-<circle cx="385.0" cy="106.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2014: +43.84 mm/dekad, production -0.2%</title></circle>
-<circle cx="414.6" cy="131.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2015: +54.05 mm/dekad, production -11.5%</title></circle>
-<circle cx="391.3" cy="116.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2016: +45.99 mm/dekad, production -4.9%</title></circle>
-<circle cx="374.6" cy="147.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2017: +40.24 mm/dekad, production -19.0% (impact season)</title></circle>
-<circle cx="397.3" cy="73.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2018: +48.06 mm/dekad, production +14.8%</title></circle>
-<circle cx="390.6" cy="96.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2019: +45.74 mm/dekad, production +4.3% (impact season)</title></circle>
-<circle cx="452.6" cy="100.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2020: +67.14 mm/dekad, production +2.4%</title></circle>
-<circle cx="384.3" cy="136.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2021: +43.59 mm/dekad, production -14.2% (impact season)</title></circle>
-<circle cx="405.9" cy="92.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2022: +51.05 mm/dekad, production +6.4%</title></circle>
-<circle cx="383.4" cy="115.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2023: +43.26 mm/dekad, production -4.4%</title></circle>
-<circle cx="411.4" cy="100.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2024: +52.95 mm/dekad, production +2.5%</title></circle>
+<circle cx="375.6" cy="123.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2001: 40.6 mm/dekad, production -7.9%</title></circle>
+<circle cx="364.9" cy="124.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2002: 36.9 mm/dekad, production -8.7%</title></circle>
+<circle cx="420.4" cy="89.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2003: 56.0 mm/dekad, production +7.5%</title></circle>
+<circle cx="359.4" cy="128.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2004: 35.0 mm/dekad, production -10.4%</title></circle>
+<circle cx="389.8" cy="95.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2005: 45.5 mm/dekad, production +5.1%</title></circle>
+<circle cx="384.4" cy="100.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2006: 43.6 mm/dekad, production +2.6%</title></circle>
+<circle cx="404.9" cy="119.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2007: 50.7 mm/dekad, production -6.0%</title></circle>
+<circle cx="377.5" cy="65.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2008: 41.2 mm/dekad, production +18.6%</title></circle>
+<circle cx="388.2" cy="118.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2009: 44.9 mm/dekad, production -5.8%</title></circle>
+<circle cx="401.9" cy="66.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2010: 49.6 mm/dekad, production +18.2%</title></circle>
+<circle cx="385.0" cy="132.7" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2011: 43.8 mm/dekad, production -12.3% (impact season)</title></circle>
+<circle cx="423.9" cy="79.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2012: 57.3 mm/dekad, production +12.5%</title></circle>
+<circle cx="386.5" cy="83.2" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2013: 44.4 mm/dekad, production +10.5% (impact season)</title></circle>
+<circle cx="385.0" cy="106.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2014: 43.8 mm/dekad, production -0.2%</title></circle>
+<circle cx="414.6" cy="131.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2015: 54.1 mm/dekad, production -11.5%</title></circle>
+<circle cx="391.3" cy="116.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2016: 46.0 mm/dekad, production -4.9%</title></circle>
+<circle cx="374.6" cy="147.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2017: 40.2 mm/dekad, production -19.0% (impact season)</title></circle>
+<circle cx="397.3" cy="73.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2018: 48.1 mm/dekad, production +14.8%</title></circle>
+<circle cx="390.6" cy="96.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2019: 45.7 mm/dekad, production +4.3% (impact season)</title></circle>
+<circle cx="452.6" cy="100.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2020: 67.1 mm/dekad, production +2.4%</title></circle>
+<circle cx="384.3" cy="136.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2021: 43.6 mm/dekad, production -14.2% (impact season)</title></circle>
+<circle cx="405.9" cy="92.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2022: 51.1 mm/dekad, production +6.4%</title></circle>
+<circle cx="383.4" cy="115.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2023: 43.3 mm/dekad, production -4.4%</title></circle>
+<circle cx="411.4" cy="100.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2024: 52.9 mm/dekad, production +2.5%</title></circle>
 <text x="455" y="69" text-anchor="end" font-size="15" font-weight="700" stroke="#fff" stroke-width="3" paint-order="stroke" fill="#5e6a6b">12%</text>
 <rect x="352" y="188" width="108" height="104" fill="#fff" stroke="#e2e8e8"/>
 <line x1="352" y1="240.0" x2="460" y2="240.0" stroke="#e2e8e8"/>
 <line x1="359.4" y1="251.1" x2="452.6" y2="221.1" stroke="#1f2324" stroke-width="1.2" opacity="0.55"/>
-<circle cx="375.6" cy="251.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2001: +40.58 mm/dekad, yield -5.4%</title></circle>
-<circle cx="364.9" cy="258.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2002: +36.87 mm/dekad, yield -8.4%</title></circle>
-<circle cx="420.4" cy="238.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2003: +56.04 mm/dekad, yield +0.6%</title></circle>
-<circle cx="359.4" cy="244.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2004: +35.01 mm/dekad, yield -2.0%</title></circle>
-<circle cx="389.8" cy="215.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2005: +45.48 mm/dekad, yield +11.3%</title></circle>
-<circle cx="384.4" cy="204.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2006: +43.63 mm/dekad, yield +16.4%</title></circle>
-<circle cx="404.9" cy="244.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2007: +50.69 mm/dekad, yield -2.3%</title></circle>
-<circle cx="377.5" cy="242.1" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2008: +41.25 mm/dekad, yield -1.0%</title></circle>
-<circle cx="388.2" cy="252.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2009: +44.93 mm/dekad, yield -5.8%</title></circle>
-<circle cx="401.9" cy="233.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2010: +49.65 mm/dekad, yield +2.9%</title></circle>
-<circle cx="385.0" cy="260.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2011: +43.82 mm/dekad, yield -9.5% (impact season)</title></circle>
-<circle cx="423.9" cy="224.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2012: +57.26 mm/dekad, yield +7.2%</title></circle>
-<circle cx="386.5" cy="233.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2013: +44.35 mm/dekad, yield +3.1% (impact season)</title></circle>
-<circle cx="385.0" cy="225.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2014: +43.84 mm/dekad, yield +6.6%</title></circle>
-<circle cx="414.6" cy="241.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2015: +54.05 mm/dekad, yield -0.5%</title></circle>
-<circle cx="391.3" cy="249.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2016: +45.99 mm/dekad, yield -4.5%</title></circle>
-<circle cx="374.6" cy="278.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2017: +40.24 mm/dekad, yield -17.7% (impact season)</title></circle>
-<circle cx="397.3" cy="235.1" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2018: +48.06 mm/dekad, yield +2.3%</title></circle>
-<circle cx="390.6" cy="239.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2019: +45.74 mm/dekad, yield +0.2% (impact season)</title></circle>
-<circle cx="452.6" cy="223.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2020: +67.14 mm/dekad, yield +7.8%</title></circle>
-<circle cx="384.3" cy="261.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2021: +43.59 mm/dekad, yield -9.7% (impact season)</title></circle>
-<circle cx="405.9" cy="229.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2022: +51.05 mm/dekad, yield +4.7%</title></circle>
-<circle cx="383.4" cy="234.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2023: +43.26 mm/dekad, yield +2.6%</title></circle>
-<circle cx="411.4" cy="237.3" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2024: +52.95 mm/dekad, yield +1.3%</title></circle>
+<circle cx="375.6" cy="251.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2001: 40.6 mm/dekad, yield -5.4%</title></circle>
+<circle cx="364.9" cy="258.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2002: 36.9 mm/dekad, yield -8.4%</title></circle>
+<circle cx="420.4" cy="238.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2003: 56.0 mm/dekad, yield +0.6%</title></circle>
+<circle cx="359.4" cy="244.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2004: 35.0 mm/dekad, yield -2.0%</title></circle>
+<circle cx="389.8" cy="215.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2005: 45.5 mm/dekad, yield +11.3%</title></circle>
+<circle cx="384.4" cy="204.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2006: 43.6 mm/dekad, yield +16.4%</title></circle>
+<circle cx="404.9" cy="244.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2007: 50.7 mm/dekad, yield -2.3%</title></circle>
+<circle cx="377.5" cy="242.1" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2008: 41.2 mm/dekad, yield -1.0%</title></circle>
+<circle cx="388.2" cy="252.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2009: 44.9 mm/dekad, yield -5.8%</title></circle>
+<circle cx="401.9" cy="233.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2010: 49.6 mm/dekad, yield +2.9%</title></circle>
+<circle cx="385.0" cy="260.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2011: 43.8 mm/dekad, yield -9.5% (impact season)</title></circle>
+<circle cx="423.9" cy="224.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2012: 57.3 mm/dekad, yield +7.2%</title></circle>
+<circle cx="386.5" cy="233.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2013: 44.4 mm/dekad, yield +3.1% (impact season)</title></circle>
+<circle cx="385.0" cy="225.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2014: 43.8 mm/dekad, yield +6.6%</title></circle>
+<circle cx="414.6" cy="241.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2015: 54.1 mm/dekad, yield -0.5%</title></circle>
+<circle cx="391.3" cy="249.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2016: 46.0 mm/dekad, yield -4.5%</title></circle>
+<circle cx="374.6" cy="278.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2017: 40.2 mm/dekad, yield -17.7% (impact season)</title></circle>
+<circle cx="397.3" cy="235.1" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2018: 48.1 mm/dekad, yield +2.3%</title></circle>
+<circle cx="390.6" cy="239.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2019: 45.7 mm/dekad, yield +0.2% (impact season)</title></circle>
+<circle cx="452.6" cy="223.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2020: 67.1 mm/dekad, yield +7.8%</title></circle>
+<circle cx="384.3" cy="261.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2021: 43.6 mm/dekad, yield -9.7% (impact season)</title></circle>
+<circle cx="405.9" cy="229.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2022: 51.1 mm/dekad, yield +4.7%</title></circle>
+<circle cx="383.4" cy="234.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2023: 43.3 mm/dekad, yield +2.6%</title></circle>
+<circle cx="411.4" cy="237.3" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2024: 52.9 mm/dekad, yield +1.3%</title></circle>
 <text x="455" y="203" text-anchor="end" font-size="15" font-weight="700" stroke="#fff" stroke-width="3" paint-order="stroke" fill="#5e6a6b">17%</text>
 <rect x="352" y="322" width="108" height="104" fill="#fff" stroke="#e2e8e8"/>
 <line x1="356" y1="353.2" x2="456" y2="353.2" stroke="#e2e8e8"/>
-<line x1="384.2" y1="342.2" x2="384.2" y2="364.2" stroke="#9d372b" stroke-width="2"><title>Impact seasons average: +43.55 mm/dekad</title></line>
+<line x1="384.2" y1="342.2" x2="384.2" y2="364.2" stroke="#9d372b" stroke-width="2"><title>Impact seasons average: 43.5 mm/dekad</title></line>
 <line x1="356" y1="396.9" x2="456" y2="396.9" stroke="#e2e8e8"/>
-<line x1="396.4" y1="385.9" x2="396.4" y2="407.9" stroke="#5e6a6b" stroke-width="2"><title>Other seasons average: +47.78 mm/dekad</title></line>
-<circle cx="375.6" cy="398.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2001: +40.58 mm/dekad</title></circle>
-<circle cx="364.9" cy="401.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2002: +36.87 mm/dekad</title></circle>
-<circle cx="420.4" cy="400.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2003: +56.04 mm/dekad</title></circle>
-<circle cx="359.4" cy="393.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2004: +35.01 mm/dekad</title></circle>
-<circle cx="389.8" cy="394.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2005: +45.48 mm/dekad</title></circle>
-<circle cx="384.4" cy="401.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2006: +43.63 mm/dekad</title></circle>
-<circle cx="404.9" cy="390.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2007: +50.69 mm/dekad</title></circle>
-<circle cx="377.5" cy="400.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2008: +41.25 mm/dekad</title></circle>
-<circle cx="388.2" cy="400.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2009: +44.93 mm/dekad</title></circle>
-<circle cx="401.9" cy="396.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2010: +49.65 mm/dekad</title></circle>
-<circle cx="385.0" cy="350.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2011: +43.82 mm/dekad (impact season)</title></circle>
-<circle cx="423.9" cy="394.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2012: +57.26 mm/dekad</title></circle>
-<circle cx="386.5" cy="350.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2013: +44.35 mm/dekad (impact season)</title></circle>
-<circle cx="385.0" cy="396.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2014: +43.84 mm/dekad</title></circle>
-<circle cx="414.6" cy="396.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2015: +54.05 mm/dekad</title></circle>
-<circle cx="391.3" cy="397.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2016: +45.99 mm/dekad</title></circle>
-<circle cx="374.6" cy="359.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2017: +40.24 mm/dekad (impact season)</title></circle>
-<circle cx="397.3" cy="400.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2018: +48.06 mm/dekad</title></circle>
-<circle cx="390.6" cy="354.7" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2019: +45.74 mm/dekad (impact season)</title></circle>
-<circle cx="452.6" cy="402.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2020: +67.14 mm/dekad</title></circle>
-<circle cx="384.3" cy="349.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2021: +43.59 mm/dekad (impact season)</title></circle>
-<circle cx="405.9" cy="392.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2022: +51.05 mm/dekad</title></circle>
-<circle cx="383.4" cy="398.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2023: +43.26 mm/dekad</title></circle>
-<circle cx="411.4" cy="391.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2024: +52.95 mm/dekad</title></circle>
+<line x1="396.4" y1="385.9" x2="396.4" y2="407.9" stroke="#5e6a6b" stroke-width="2"><title>Other seasons average: 47.8 mm/dekad</title></line>
+<circle cx="375.6" cy="398.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2001: 40.6 mm/dekad</title></circle>
+<circle cx="364.9" cy="401.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2002: 36.9 mm/dekad</title></circle>
+<circle cx="420.4" cy="400.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2003: 56.0 mm/dekad</title></circle>
+<circle cx="359.4" cy="393.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2004: 35.0 mm/dekad</title></circle>
+<circle cx="389.8" cy="394.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2005: 45.5 mm/dekad</title></circle>
+<circle cx="384.4" cy="401.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2006: 43.6 mm/dekad</title></circle>
+<circle cx="404.9" cy="390.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2007: 50.7 mm/dekad</title></circle>
+<circle cx="377.5" cy="400.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2008: 41.2 mm/dekad</title></circle>
+<circle cx="388.2" cy="400.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2009: 44.9 mm/dekad</title></circle>
+<circle cx="401.9" cy="396.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2010: 49.6 mm/dekad</title></circle>
+<circle cx="385.0" cy="350.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2011: 43.8 mm/dekad (impact season)</title></circle>
+<circle cx="423.9" cy="394.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2012: 57.3 mm/dekad</title></circle>
+<circle cx="386.5" cy="350.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2013: 44.4 mm/dekad (impact season)</title></circle>
+<circle cx="385.0" cy="396.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2014: 43.8 mm/dekad</title></circle>
+<circle cx="414.6" cy="396.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2015: 54.1 mm/dekad</title></circle>
+<circle cx="391.3" cy="397.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2016: 46.0 mm/dekad</title></circle>
+<circle cx="374.6" cy="359.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2017: 40.2 mm/dekad (impact season)</title></circle>
+<circle cx="397.3" cy="400.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2018: 48.1 mm/dekad</title></circle>
+<circle cx="390.6" cy="354.7" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2019: 45.7 mm/dekad (impact season)</title></circle>
+<circle cx="452.6" cy="402.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2020: 67.1 mm/dekad</title></circle>
+<circle cx="384.3" cy="349.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2021: 43.6 mm/dekad (impact season)</title></circle>
+<circle cx="405.9" cy="392.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2022: 51.1 mm/dekad</title></circle>
+<circle cx="383.4" cy="398.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2023: 43.3 mm/dekad</title></circle>
+<circle cx="411.4" cy="391.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2024: 52.9 mm/dekad</title></circle>
 <text x="455" y="337" text-anchor="end" font-size="15" font-weight="700" stroke="#fff" stroke-width="3" paint-order="stroke" fill="#5e6a6b">69%</text>
 <line x1="373.9" y1="426" x2="373.9" y2="429" stroke="#7e8e8f"/><text x="373.9" y="439" text-anchor="middle" font-size="9.5" fill="#7e8e8f">40</text>
 <line x1="402.9" y1="426" x2="402.9" y2="429" stroke="#7e8e8f"/><text x="402.9" y="439" text-anchor="middle" font-size="9.5" fill="#7e8e8f">50</text>
@@ -403,88 +404,88 @@
 <rect x="472" y="54" width="108" height="104" fill="#fff" stroke="#e2e8e8"/>
 <line x1="472" y1="106.0" x2="580" y2="106.0" stroke="#e2e8e8"/>
 <line x1="479.4" y1="118.1" x2="572.6" y2="99.3" stroke="#1f2324" stroke-width="1.2" opacity="0.55"/>
-<circle cx="552.9" cy="123.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2001: +97.50%, production -7.9%</title></circle>
-<circle cx="485.0" cy="124.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2002: +89.40%, production -8.7%</title></circle>
-<circle cx="572.6" cy="89.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2003: +99.85%, production +7.5%</title></circle>
-<circle cx="483.7" cy="128.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2004: +89.25%, production -10.4%</title></circle>
-<circle cx="561.8" cy="95.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2005: +98.56%, production +5.1%</title></circle>
-<circle cx="511.5" cy="100.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2006: +92.56%, production +2.6%</title></circle>
-<circle cx="550.0" cy="119.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2007: +97.15%, production -6.0%</title></circle>
-<circle cx="517.3" cy="65.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2008: +93.26%, production +18.6%</title></circle>
-<circle cx="479.4" cy="118.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2009: +88.74%, production -5.8%</title></circle>
-<circle cx="544.2" cy="66.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2010: +96.46%, production +18.2%</title></circle>
-<circle cx="545.1" cy="132.7" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2011: +96.57%, production -12.3% (impact season)</title></circle>
-<circle cx="572.0" cy="79.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2012: +99.78%, production +12.5%</title></circle>
-<circle cx="550.3" cy="83.2" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2013: +97.20%, production +10.5% (impact season)</title></circle>
-<circle cx="522.9" cy="106.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2014: +93.92%, production -0.2%</title></circle>
-<circle cx="565.4" cy="131.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2015: +99.00%, production -11.5%</title></circle>
-<circle cx="536.0" cy="116.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2016: +95.49%, production -4.9%</title></circle>
-<circle cx="563.1" cy="147.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2017: +98.72%, production -19.0% (impact season)</title></circle>
-<circle cx="568.1" cy="73.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2018: +99.31%, production +14.8%</title></circle>
-<circle cx="548.3" cy="96.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2019: +96.96%, production +4.3% (impact season)</title></circle>
-<circle cx="548.5" cy="100.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2020: +96.98%, production +2.4%</title></circle>
-<circle cx="535.2" cy="136.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2021: +95.39%, production -14.2% (impact season)</title></circle>
-<circle cx="545.5" cy="92.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2022: +96.62%, production +6.4%</title></circle>
-<circle cx="531.0" cy="115.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2023: +94.90%, production -4.4%</title></circle>
-<circle cx="556.2" cy="100.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2024: +97.89%, production +2.5%</title></circle>
+<circle cx="552.9" cy="123.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2001: 97.5%, production -7.9%</title></circle>
+<circle cx="485.0" cy="124.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2002: 89.4%, production -8.7%</title></circle>
+<circle cx="572.6" cy="89.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2003: 99.8%, production +7.5%</title></circle>
+<circle cx="483.7" cy="128.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2004: 89.2%, production -10.4%</title></circle>
+<circle cx="561.8" cy="95.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2005: 98.6%, production +5.1%</title></circle>
+<circle cx="511.5" cy="100.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2006: 92.6%, production +2.6%</title></circle>
+<circle cx="550.0" cy="119.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2007: 97.2%, production -6.0%</title></circle>
+<circle cx="517.3" cy="65.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2008: 93.3%, production +18.6%</title></circle>
+<circle cx="479.4" cy="118.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2009: 88.7%, production -5.8%</title></circle>
+<circle cx="544.2" cy="66.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2010: 96.5%, production +18.2%</title></circle>
+<circle cx="545.1" cy="132.7" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2011: 96.6%, production -12.3% (impact season)</title></circle>
+<circle cx="572.0" cy="79.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2012: 99.8%, production +12.5%</title></circle>
+<circle cx="550.3" cy="83.2" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2013: 97.2%, production +10.5% (impact season)</title></circle>
+<circle cx="522.9" cy="106.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2014: 93.9%, production -0.2%</title></circle>
+<circle cx="565.4" cy="131.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2015: 99.0%, production -11.5%</title></circle>
+<circle cx="536.0" cy="116.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2016: 95.5%, production -4.9%</title></circle>
+<circle cx="563.1" cy="147.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2017: 98.7%, production -19.0% (impact season)</title></circle>
+<circle cx="568.1" cy="73.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2018: 99.3%, production +14.8%</title></circle>
+<circle cx="548.3" cy="96.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2019: 97.0%, production +4.3% (impact season)</title></circle>
+<circle cx="548.5" cy="100.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2020: 97.0%, production +2.4%</title></circle>
+<circle cx="535.2" cy="136.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2021: 95.4%, production -14.2% (impact season)</title></circle>
+<circle cx="545.5" cy="92.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2022: 96.6%, production +6.4%</title></circle>
+<circle cx="531.0" cy="115.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2023: 94.9%, production -4.4%</title></circle>
+<circle cx="556.2" cy="100.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2024: 97.9%, production +2.5%</title></circle>
 <text x="575" y="69" text-anchor="end" font-size="15" font-weight="700" stroke="#fff" stroke-width="3" paint-order="stroke" fill="#5e6a6b">6%</text>
 <rect x="472" y="188" width="108" height="104" fill="#fff" stroke="#e2e8e8"/>
 <line x1="472" y1="240.0" x2="580" y2="240.0" stroke="#e2e8e8"/>
 <line x1="479.4" y1="244.4" x2="572.6" y2="237.6" stroke="#1f2324" stroke-width="1.2" opacity="0.55"/>
-<circle cx="552.9" cy="251.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2001: +97.50%, yield -5.4%</title></circle>
-<circle cx="485.0" cy="258.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2002: +89.40%, yield -8.4%</title></circle>
-<circle cx="572.6" cy="238.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2003: +99.85%, yield +0.6%</title></circle>
-<circle cx="483.7" cy="244.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2004: +89.25%, yield -2.0%</title></circle>
-<circle cx="561.8" cy="215.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2005: +98.56%, yield +11.3%</title></circle>
-<circle cx="511.5" cy="204.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2006: +92.56%, yield +16.4%</title></circle>
-<circle cx="550.0" cy="244.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2007: +97.15%, yield -2.3%</title></circle>
-<circle cx="517.3" cy="242.1" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2008: +93.26%, yield -1.0%</title></circle>
-<circle cx="479.4" cy="252.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2009: +88.74%, yield -5.8%</title></circle>
-<circle cx="544.2" cy="233.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2010: +96.46%, yield +2.9%</title></circle>
-<circle cx="545.1" cy="260.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2011: +96.57%, yield -9.5% (impact season)</title></circle>
-<circle cx="572.0" cy="224.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2012: +99.78%, yield +7.2%</title></circle>
-<circle cx="550.3" cy="233.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2013: +97.20%, yield +3.1% (impact season)</title></circle>
-<circle cx="522.9" cy="225.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2014: +93.92%, yield +6.6%</title></circle>
-<circle cx="565.4" cy="241.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2015: +99.00%, yield -0.5%</title></circle>
-<circle cx="536.0" cy="249.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2016: +95.49%, yield -4.5%</title></circle>
-<circle cx="563.1" cy="278.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2017: +98.72%, yield -17.7% (impact season)</title></circle>
-<circle cx="568.1" cy="235.1" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2018: +99.31%, yield +2.3%</title></circle>
-<circle cx="548.3" cy="239.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2019: +96.96%, yield +0.2% (impact season)</title></circle>
-<circle cx="548.5" cy="223.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2020: +96.98%, yield +7.8%</title></circle>
-<circle cx="535.2" cy="261.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2021: +95.39%, yield -9.7% (impact season)</title></circle>
-<circle cx="545.5" cy="229.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2022: +96.62%, yield +4.7%</title></circle>
-<circle cx="531.0" cy="234.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2023: +94.90%, yield +2.6%</title></circle>
-<circle cx="556.2" cy="237.3" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2024: +97.89%, yield +1.3%</title></circle>
+<circle cx="552.9" cy="251.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2001: 97.5%, yield -5.4%</title></circle>
+<circle cx="485.0" cy="258.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2002: 89.4%, yield -8.4%</title></circle>
+<circle cx="572.6" cy="238.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2003: 99.8%, yield +0.6%</title></circle>
+<circle cx="483.7" cy="244.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2004: 89.2%, yield -2.0%</title></circle>
+<circle cx="561.8" cy="215.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2005: 98.6%, yield +11.3%</title></circle>
+<circle cx="511.5" cy="204.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2006: 92.6%, yield +16.4%</title></circle>
+<circle cx="550.0" cy="244.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2007: 97.2%, yield -2.3%</title></circle>
+<circle cx="517.3" cy="242.1" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2008: 93.3%, yield -1.0%</title></circle>
+<circle cx="479.4" cy="252.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2009: 88.7%, yield -5.8%</title></circle>
+<circle cx="544.2" cy="233.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2010: 96.5%, yield +2.9%</title></circle>
+<circle cx="545.1" cy="260.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2011: 96.6%, yield -9.5% (impact season)</title></circle>
+<circle cx="572.0" cy="224.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2012: 99.8%, yield +7.2%</title></circle>
+<circle cx="550.3" cy="233.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2013: 97.2%, yield +3.1% (impact season)</title></circle>
+<circle cx="522.9" cy="225.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2014: 93.9%, yield +6.6%</title></circle>
+<circle cx="565.4" cy="241.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2015: 99.0%, yield -0.5%</title></circle>
+<circle cx="536.0" cy="249.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2016: 95.5%, yield -4.5%</title></circle>
+<circle cx="563.1" cy="278.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2017: 98.7%, yield -17.7% (impact season)</title></circle>
+<circle cx="568.1" cy="235.1" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2018: 99.3%, yield +2.3%</title></circle>
+<circle cx="548.3" cy="239.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2019: 97.0%, yield +0.2% (impact season)</title></circle>
+<circle cx="548.5" cy="223.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2020: 97.0%, yield +7.8%</title></circle>
+<circle cx="535.2" cy="261.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2021: 95.4%, yield -9.7% (impact season)</title></circle>
+<circle cx="545.5" cy="229.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2022: 96.6%, yield +4.7%</title></circle>
+<circle cx="531.0" cy="234.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2023: 94.9%, yield +2.6%</title></circle>
+<circle cx="556.2" cy="237.3" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2024: 97.9%, yield +1.3%</title></circle>
 <text x="575" y="203" text-anchor="end" font-size="15" font-weight="700" stroke="#fff" stroke-width="3" paint-order="stroke" fill="#5e6a6b">2%</text>
 <rect x="472" y="322" width="108" height="104" fill="#fff" stroke="#e2e8e8"/>
 <line x1="476" y1="353.2" x2="576" y2="353.2" stroke="#e2e8e8"/>
-<line x1="548.4" y1="342.2" x2="548.4" y2="364.2" stroke="#9d372b" stroke-width="2"><title>Impact seasons average: +96.97%</title></line>
+<line x1="548.4" y1="342.2" x2="548.4" y2="364.2" stroke="#9d372b" stroke-width="2"><title>Impact seasons average: 97.0%</title></line>
 <line x1="476" y1="396.9" x2="576" y2="396.9" stroke="#e2e8e8"/>
-<line x1="537.0" y1="385.9" x2="537.0" y2="407.9" stroke="#5e6a6b" stroke-width="2"><title>Other seasons average: +95.61%</title></line>
-<circle cx="552.9" cy="398.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2001: +97.50%</title></circle>
-<circle cx="485.0" cy="401.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2002: +89.40%</title></circle>
-<circle cx="572.6" cy="400.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2003: +99.85%</title></circle>
-<circle cx="483.7" cy="393.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2004: +89.25%</title></circle>
-<circle cx="561.8" cy="394.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2005: +98.56%</title></circle>
-<circle cx="511.5" cy="401.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2006: +92.56%</title></circle>
-<circle cx="550.0" cy="390.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2007: +97.15%</title></circle>
-<circle cx="517.3" cy="400.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2008: +93.26%</title></circle>
-<circle cx="479.4" cy="400.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2009: +88.74%</title></circle>
-<circle cx="544.2" cy="396.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2010: +96.46%</title></circle>
-<circle cx="545.1" cy="350.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2011: +96.57% (impact season)</title></circle>
-<circle cx="572.0" cy="394.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2012: +99.78%</title></circle>
-<circle cx="550.3" cy="350.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2013: +97.20% (impact season)</title></circle>
-<circle cx="522.9" cy="396.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2014: +93.92%</title></circle>
-<circle cx="565.4" cy="396.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2015: +99.00%</title></circle>
-<circle cx="536.0" cy="397.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2016: +95.49%</title></circle>
-<circle cx="563.1" cy="359.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2017: +98.72% (impact season)</title></circle>
-<circle cx="568.1" cy="400.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2018: +99.31%</title></circle>
-<circle cx="548.3" cy="354.7" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2019: +96.96% (impact season)</title></circle>
-<circle cx="548.5" cy="402.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2020: +96.98%</title></circle>
-<circle cx="535.2" cy="349.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2021: +95.39% (impact season)</title></circle>
-<circle cx="545.5" cy="392.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2022: +96.62%</title></circle>
-<circle cx="531.0" cy="398.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2023: +94.90%</title></circle>
-<circle cx="556.2" cy="391.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2024: +97.89%</title></circle>
+<line x1="537.0" y1="385.9" x2="537.0" y2="407.9" stroke="#5e6a6b" stroke-width="2"><title>Other seasons average: 95.6%</title></line>
+<circle cx="552.9" cy="398.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2001: 97.5%</title></circle>
+<circle cx="485.0" cy="401.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2002: 89.4%</title></circle>
+<circle cx="572.6" cy="400.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2003: 99.8%</title></circle>
+<circle cx="483.7" cy="393.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2004: 89.2%</title></circle>
+<circle cx="561.8" cy="394.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2005: 98.6%</title></circle>
+<circle cx="511.5" cy="401.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2006: 92.6%</title></circle>
+<circle cx="550.0" cy="390.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2007: 97.2%</title></circle>
+<circle cx="517.3" cy="400.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2008: 93.3%</title></circle>
+<circle cx="479.4" cy="400.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2009: 88.7%</title></circle>
+<circle cx="544.2" cy="396.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2010: 96.5%</title></circle>
+<circle cx="545.1" cy="350.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2011: 96.6% (impact season)</title></circle>
+<circle cx="572.0" cy="394.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2012: 99.8%</title></circle>
+<circle cx="550.3" cy="350.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2013: 97.2% (impact season)</title></circle>
+<circle cx="522.9" cy="396.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2014: 93.9%</title></circle>
+<circle cx="565.4" cy="396.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2015: 99.0%</title></circle>
+<circle cx="536.0" cy="397.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2016: 95.5%</title></circle>
+<circle cx="563.1" cy="359.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2017: 98.7% (impact season)</title></circle>
+<circle cx="568.1" cy="400.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2018: 99.3%</title></circle>
+<circle cx="548.3" cy="354.7" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2019: 97.0% (impact season)</title></circle>
+<circle cx="548.5" cy="402.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2020: 97.0%</title></circle>
+<circle cx="535.2" cy="349.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2021: 95.4% (impact season)</title></circle>
+<circle cx="545.5" cy="392.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2022: 96.6%</title></circle>
+<circle cx="531.0" cy="398.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2023: 94.9%</title></circle>
+<circle cx="556.2" cy="391.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2024: 97.9%</title></circle>
 <text x="575" y="337" text-anchor="end" font-size="15" font-weight="700" stroke="#fff" stroke-width="3" paint-order="stroke" fill="#5e6a6b">44%</text>
 <line x1="490.0" y1="426" x2="490.0" y2="429" stroke="#7e8e8f"/><text x="490.0" y="439" text-anchor="middle" font-size="9.5" fill="#7e8e8f">90</text>
 <line x1="531.9" y1="426" x2="531.9" y2="429" stroke="#7e8e8f"/><text x="531.9" y="439" text-anchor="middle" font-size="9.5" fill="#7e8e8f">95</text>
@@ -687,9 +688,7 @@
 <circle cx="204.4" cy="398.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2023: +0.41 °C</title></circle>
 <circle cx="149.7" cy="391.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2024: -0.09 °C</title></circle>
 <text x="215" y="337" text-anchor="end" font-size="15" font-weight="700" stroke="#fff" stroke-width="3" paint-order="stroke" fill="#1f2324">74%</text>
-<line x1="132.9" y1="426" x2="132.9" y2="429" stroke="#7e8e8f"/><text x="132.9" y="439" text-anchor="middle" font-size="9.5" fill="#7e8e8f">-0.2</text>
 <line x1="160.1" y1="426" x2="160.1" y2="429" stroke="#7e8e8f"/><text x="160.1" y="439" text-anchor="middle" font-size="9.5" fill="#7e8e8f">0</text>
-<line x1="187.3" y1="426" x2="187.3" y2="429" stroke="#7e8e8f"/><text x="187.3" y="439" text-anchor="middle" font-size="9.5" fill="#7e8e8f">+0.2</text>
 <line x1="214.5" y1="426" x2="214.5" y2="429" stroke="#7e8e8f"/><text x="214.5" y="439" text-anchor="middle" font-size="9.5" fill="#7e8e8f">+0.5</text>
 <text x="286.0" y="18" text-anchor="middle" font-size="12" font-weight="700" fill="#1f2324">Biomass (FPAR)</text>
 <text x="286.0" y="31" text-anchor="middle" font-size="10" font-weight="400" fill="#5e6a6b">detrended (z)</text>
@@ -787,88 +786,88 @@
 <rect x="352" y="54" width="108" height="104" fill="#fff" stroke="#e2e8e8"/>
 <line x1="352" y1="106.0" x2="460" y2="106.0" stroke="#e2e8e8"/>
 <line x1="359.4" y1="129.1" x2="452.6" y2="88.7" stroke="#1f2324" stroke-width="1.2" opacity="0.55"/>
-<circle cx="390.7" cy="123.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2001: +58.31 mm/dekad, production -7.9%</title></circle>
-<circle cx="375.0" cy="124.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2002: +54.09 mm/dekad, production -8.7%</title></circle>
-<circle cx="436.3" cy="89.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2003: +70.65 mm/dekad, production +7.5%</title></circle>
-<circle cx="375.3" cy="128.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2004: +54.16 mm/dekad, production -10.4%</title></circle>
-<circle cx="385.4" cy="95.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2005: +56.90 mm/dekad, production +5.1%</title></circle>
-<circle cx="401.0" cy="100.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2006: +61.11 mm/dekad, production +2.6%</title></circle>
-<circle cx="429.3" cy="119.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2007: +68.74 mm/dekad, production -6.0%</title></circle>
-<circle cx="423.4" cy="65.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2008: +67.17 mm/dekad, production +18.6%</title></circle>
-<circle cx="412.6" cy="118.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2009: +64.24 mm/dekad, production -5.8%</title></circle>
-<circle cx="434.5" cy="66.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2010: +70.15 mm/dekad, production +18.2%</title></circle>
-<circle cx="380.6" cy="132.7" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2011: +55.59 mm/dekad, production -12.3% (impact season)</title></circle>
-<circle cx="434.1" cy="79.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2012: +70.06 mm/dekad, production +12.5%</title></circle>
-<circle cx="395.9" cy="83.2" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2013: +59.74 mm/dekad, production +10.5% (impact season)</title></circle>
-<circle cx="404.9" cy="106.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2014: +62.16 mm/dekad, production -0.2%</title></circle>
-<circle cx="451.4" cy="131.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2015: +74.73 mm/dekad, production -11.5%</title></circle>
-<circle cx="424.4" cy="116.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2016: +67.43 mm/dekad, production -4.9%</title></circle>
-<circle cx="359.4" cy="147.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2017: +49.87 mm/dekad, production -19.0% (impact season)</title></circle>
-<circle cx="431.7" cy="73.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2018: +69.40 mm/dekad, production +14.8%</title></circle>
-<circle cx="418.6" cy="96.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2019: +65.87 mm/dekad, production +4.3% (impact season)</title></circle>
-<circle cx="452.6" cy="100.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2020: +75.03 mm/dekad, production +2.4%</title></circle>
-<circle cx="413.2" cy="136.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2021: +64.40 mm/dekad, production -14.2% (impact season)</title></circle>
-<circle cx="449.2" cy="92.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2022: +74.14 mm/dekad, production +6.4%</title></circle>
-<circle cx="400.2" cy="115.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2023: +60.90 mm/dekad, production -4.4%</title></circle>
-<circle cx="423.6" cy="100.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2024: +67.20 mm/dekad, production +2.5%</title></circle>
+<circle cx="390.7" cy="123.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2001: 58.3 mm/dekad, production -7.9%</title></circle>
+<circle cx="375.0" cy="124.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2002: 54.1 mm/dekad, production -8.7%</title></circle>
+<circle cx="436.3" cy="89.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2003: 70.6 mm/dekad, production +7.5%</title></circle>
+<circle cx="375.3" cy="128.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2004: 54.2 mm/dekad, production -10.4%</title></circle>
+<circle cx="385.4" cy="95.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2005: 56.9 mm/dekad, production +5.1%</title></circle>
+<circle cx="401.0" cy="100.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2006: 61.1 mm/dekad, production +2.6%</title></circle>
+<circle cx="429.3" cy="119.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2007: 68.7 mm/dekad, production -6.0%</title></circle>
+<circle cx="423.4" cy="65.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2008: 67.2 mm/dekad, production +18.6%</title></circle>
+<circle cx="412.6" cy="118.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2009: 64.2 mm/dekad, production -5.8%</title></circle>
+<circle cx="434.5" cy="66.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2010: 70.2 mm/dekad, production +18.2%</title></circle>
+<circle cx="380.6" cy="132.7" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2011: 55.6 mm/dekad, production -12.3% (impact season)</title></circle>
+<circle cx="434.1" cy="79.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2012: 70.1 mm/dekad, production +12.5%</title></circle>
+<circle cx="395.9" cy="83.2" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2013: 59.7 mm/dekad, production +10.5% (impact season)</title></circle>
+<circle cx="404.9" cy="106.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2014: 62.2 mm/dekad, production -0.2%</title></circle>
+<circle cx="451.4" cy="131.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2015: 74.7 mm/dekad, production -11.5%</title></circle>
+<circle cx="424.4" cy="116.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2016: 67.4 mm/dekad, production -4.9%</title></circle>
+<circle cx="359.4" cy="147.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2017: 49.9 mm/dekad, production -19.0% (impact season)</title></circle>
+<circle cx="431.7" cy="73.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2018: 69.4 mm/dekad, production +14.8%</title></circle>
+<circle cx="418.6" cy="96.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2019: 65.9 mm/dekad, production +4.3% (impact season)</title></circle>
+<circle cx="452.6" cy="100.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2020: 75.0 mm/dekad, production +2.4%</title></circle>
+<circle cx="413.2" cy="136.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2021: 64.4 mm/dekad, production -14.2% (impact season)</title></circle>
+<circle cx="449.2" cy="92.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2022: 74.1 mm/dekad, production +6.4%</title></circle>
+<circle cx="400.2" cy="115.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2023: 60.9 mm/dekad, production -4.4%</title></circle>
+<circle cx="423.6" cy="100.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2024: 67.2 mm/dekad, production +2.5%</title></circle>
 <text x="455" y="69" text-anchor="end" font-size="15" font-weight="700" stroke="#fff" stroke-width="3" paint-order="stroke" fill="#5e6a6b">25%</text>
 <rect x="352" y="188" width="108" height="104" fill="#fff" stroke="#e2e8e8"/>
 <line x1="352" y1="240.0" x2="460" y2="240.0" stroke="#e2e8e8"/>
 <line x1="359.4" y1="253.1" x2="452.6" y2="230.1" stroke="#1f2324" stroke-width="1.2" opacity="0.55"/>
-<circle cx="390.7" cy="251.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2001: +58.31 mm/dekad, yield -5.4%</title></circle>
-<circle cx="375.0" cy="258.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2002: +54.09 mm/dekad, yield -8.4%</title></circle>
-<circle cx="436.3" cy="238.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2003: +70.65 mm/dekad, yield +0.6%</title></circle>
-<circle cx="375.3" cy="244.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2004: +54.16 mm/dekad, yield -2.0%</title></circle>
-<circle cx="385.4" cy="215.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2005: +56.90 mm/dekad, yield +11.3%</title></circle>
-<circle cx="401.0" cy="204.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2006: +61.11 mm/dekad, yield +16.4%</title></circle>
-<circle cx="429.3" cy="244.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2007: +68.74 mm/dekad, yield -2.3%</title></circle>
-<circle cx="423.4" cy="242.1" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2008: +67.17 mm/dekad, yield -1.0%</title></circle>
-<circle cx="412.6" cy="252.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2009: +64.24 mm/dekad, yield -5.8%</title></circle>
-<circle cx="434.5" cy="233.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2010: +70.15 mm/dekad, yield +2.9%</title></circle>
-<circle cx="380.6" cy="260.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2011: +55.59 mm/dekad, yield -9.5% (impact season)</title></circle>
-<circle cx="434.1" cy="224.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2012: +70.06 mm/dekad, yield +7.2%</title></circle>
-<circle cx="395.9" cy="233.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2013: +59.74 mm/dekad, yield +3.1% (impact season)</title></circle>
-<circle cx="404.9" cy="225.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2014: +62.16 mm/dekad, yield +6.6%</title></circle>
-<circle cx="451.4" cy="241.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2015: +74.73 mm/dekad, yield -0.5%</title></circle>
-<circle cx="424.4" cy="249.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2016: +67.43 mm/dekad, yield -4.5%</title></circle>
-<circle cx="359.4" cy="278.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2017: +49.87 mm/dekad, yield -17.7% (impact season)</title></circle>
-<circle cx="431.7" cy="235.1" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2018: +69.40 mm/dekad, yield +2.3%</title></circle>
-<circle cx="418.6" cy="239.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2019: +65.87 mm/dekad, yield +0.2% (impact season)</title></circle>
-<circle cx="452.6" cy="223.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2020: +75.03 mm/dekad, yield +7.8%</title></circle>
-<circle cx="413.2" cy="261.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2021: +64.40 mm/dekad, yield -9.7% (impact season)</title></circle>
-<circle cx="449.2" cy="229.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2022: +74.14 mm/dekad, yield +4.7%</title></circle>
-<circle cx="400.2" cy="234.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2023: +60.90 mm/dekad, yield +2.6%</title></circle>
-<circle cx="423.6" cy="237.3" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2024: +67.20 mm/dekad, yield +1.3%</title></circle>
+<circle cx="390.7" cy="251.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2001: 58.3 mm/dekad, yield -5.4%</title></circle>
+<circle cx="375.0" cy="258.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2002: 54.1 mm/dekad, yield -8.4%</title></circle>
+<circle cx="436.3" cy="238.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2003: 70.6 mm/dekad, yield +0.6%</title></circle>
+<circle cx="375.3" cy="244.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2004: 54.2 mm/dekad, yield -2.0%</title></circle>
+<circle cx="385.4" cy="215.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2005: 56.9 mm/dekad, yield +11.3%</title></circle>
+<circle cx="401.0" cy="204.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2006: 61.1 mm/dekad, yield +16.4%</title></circle>
+<circle cx="429.3" cy="244.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2007: 68.7 mm/dekad, yield -2.3%</title></circle>
+<circle cx="423.4" cy="242.1" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2008: 67.2 mm/dekad, yield -1.0%</title></circle>
+<circle cx="412.6" cy="252.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2009: 64.2 mm/dekad, yield -5.8%</title></circle>
+<circle cx="434.5" cy="233.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2010: 70.2 mm/dekad, yield +2.9%</title></circle>
+<circle cx="380.6" cy="260.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2011: 55.6 mm/dekad, yield -9.5% (impact season)</title></circle>
+<circle cx="434.1" cy="224.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2012: 70.1 mm/dekad, yield +7.2%</title></circle>
+<circle cx="395.9" cy="233.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2013: 59.7 mm/dekad, yield +3.1% (impact season)</title></circle>
+<circle cx="404.9" cy="225.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2014: 62.2 mm/dekad, yield +6.6%</title></circle>
+<circle cx="451.4" cy="241.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2015: 74.7 mm/dekad, yield -0.5%</title></circle>
+<circle cx="424.4" cy="249.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2016: 67.4 mm/dekad, yield -4.5%</title></circle>
+<circle cx="359.4" cy="278.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2017: 49.9 mm/dekad, yield -17.7% (impact season)</title></circle>
+<circle cx="431.7" cy="235.1" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2018: 69.4 mm/dekad, yield +2.3%</title></circle>
+<circle cx="418.6" cy="239.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2019: 65.9 mm/dekad, yield +0.2% (impact season)</title></circle>
+<circle cx="452.6" cy="223.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2020: 75.0 mm/dekad, yield +7.8%</title></circle>
+<circle cx="413.2" cy="261.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2021: 64.4 mm/dekad, yield -9.7% (impact season)</title></circle>
+<circle cx="449.2" cy="229.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2022: 74.1 mm/dekad, yield +4.7%</title></circle>
+<circle cx="400.2" cy="234.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2023: 60.9 mm/dekad, yield +2.6%</title></circle>
+<circle cx="423.6" cy="237.3" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2024: 67.2 mm/dekad, yield +1.3%</title></circle>
 <text x="455" y="203" text-anchor="end" font-size="15" font-weight="700" stroke="#fff" stroke-width="3" paint-order="stroke" fill="#5e6a6b">16%</text>
 <rect x="352" y="322" width="108" height="104" fill="#fff" stroke="#e2e8e8"/>
 <line x1="356" y1="353.2" x2="456" y2="353.2" stroke="#e2e8e8"/>
-<line x1="393.6" y1="342.2" x2="393.6" y2="364.2" stroke="#9d372b" stroke-width="2"><title>Impact seasons average: +59.09 mm/dekad</title></line>
+<line x1="393.6" y1="342.2" x2="393.6" y2="364.2" stroke="#9d372b" stroke-width="2"><title>Impact seasons average: 59.1 mm/dekad</title></line>
 <line x1="356" y1="396.9" x2="456" y2="396.9" stroke="#e2e8e8"/>
-<line x1="417.7" y1="385.9" x2="417.7" y2="407.9" stroke="#5e6a6b" stroke-width="2"><title>Other seasons average: +65.61 mm/dekad</title></line>
-<circle cx="390.7" cy="398.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2001: +58.31 mm/dekad</title></circle>
-<circle cx="375.0" cy="401.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2002: +54.09 mm/dekad</title></circle>
-<circle cx="436.3" cy="400.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2003: +70.65 mm/dekad</title></circle>
-<circle cx="375.3" cy="393.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2004: +54.16 mm/dekad</title></circle>
-<circle cx="385.4" cy="394.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2005: +56.90 mm/dekad</title></circle>
-<circle cx="401.0" cy="401.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2006: +61.11 mm/dekad</title></circle>
-<circle cx="429.3" cy="390.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2007: +68.74 mm/dekad</title></circle>
-<circle cx="423.4" cy="400.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2008: +67.17 mm/dekad</title></circle>
-<circle cx="412.6" cy="400.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2009: +64.24 mm/dekad</title></circle>
-<circle cx="434.5" cy="396.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2010: +70.15 mm/dekad</title></circle>
-<circle cx="380.6" cy="350.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2011: +55.59 mm/dekad (impact season)</title></circle>
-<circle cx="434.1" cy="394.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2012: +70.06 mm/dekad</title></circle>
-<circle cx="395.9" cy="350.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2013: +59.74 mm/dekad (impact season)</title></circle>
-<circle cx="404.9" cy="396.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2014: +62.16 mm/dekad</title></circle>
-<circle cx="451.4" cy="396.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2015: +74.73 mm/dekad</title></circle>
-<circle cx="424.4" cy="397.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2016: +67.43 mm/dekad</title></circle>
-<circle cx="359.4" cy="359.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2017: +49.87 mm/dekad (impact season)</title></circle>
-<circle cx="431.7" cy="400.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2018: +69.40 mm/dekad</title></circle>
-<circle cx="418.6" cy="354.7" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2019: +65.87 mm/dekad (impact season)</title></circle>
-<circle cx="452.6" cy="402.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2020: +75.03 mm/dekad</title></circle>
-<circle cx="413.2" cy="349.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2021: +64.40 mm/dekad (impact season)</title></circle>
-<circle cx="449.2" cy="392.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2022: +74.14 mm/dekad</title></circle>
-<circle cx="400.2" cy="398.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2023: +60.90 mm/dekad</title></circle>
-<circle cx="423.6" cy="391.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2024: +67.20 mm/dekad</title></circle>
+<line x1="417.7" y1="385.9" x2="417.7" y2="407.9" stroke="#5e6a6b" stroke-width="2"><title>Other seasons average: 65.6 mm/dekad</title></line>
+<circle cx="390.7" cy="398.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2001: 58.3 mm/dekad</title></circle>
+<circle cx="375.0" cy="401.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2002: 54.1 mm/dekad</title></circle>
+<circle cx="436.3" cy="400.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2003: 70.6 mm/dekad</title></circle>
+<circle cx="375.3" cy="393.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2004: 54.2 mm/dekad</title></circle>
+<circle cx="385.4" cy="394.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2005: 56.9 mm/dekad</title></circle>
+<circle cx="401.0" cy="401.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2006: 61.1 mm/dekad</title></circle>
+<circle cx="429.3" cy="390.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2007: 68.7 mm/dekad</title></circle>
+<circle cx="423.4" cy="400.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2008: 67.2 mm/dekad</title></circle>
+<circle cx="412.6" cy="400.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2009: 64.2 mm/dekad</title></circle>
+<circle cx="434.5" cy="396.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2010: 70.2 mm/dekad</title></circle>
+<circle cx="380.6" cy="350.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2011: 55.6 mm/dekad (impact season)</title></circle>
+<circle cx="434.1" cy="394.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2012: 70.1 mm/dekad</title></circle>
+<circle cx="395.9" cy="350.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2013: 59.7 mm/dekad (impact season)</title></circle>
+<circle cx="404.9" cy="396.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2014: 62.2 mm/dekad</title></circle>
+<circle cx="451.4" cy="396.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2015: 74.7 mm/dekad</title></circle>
+<circle cx="424.4" cy="397.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2016: 67.4 mm/dekad</title></circle>
+<circle cx="359.4" cy="359.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2017: 49.9 mm/dekad (impact season)</title></circle>
+<circle cx="431.7" cy="400.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2018: 69.4 mm/dekad</title></circle>
+<circle cx="418.6" cy="354.7" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2019: 65.9 mm/dekad (impact season)</title></circle>
+<circle cx="452.6" cy="402.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2020: 75.0 mm/dekad</title></circle>
+<circle cx="413.2" cy="349.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2021: 64.4 mm/dekad (impact season)</title></circle>
+<circle cx="449.2" cy="392.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2022: 74.1 mm/dekad</title></circle>
+<circle cx="400.2" cy="398.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2023: 60.9 mm/dekad</title></circle>
+<circle cx="423.6" cy="391.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2024: 67.2 mm/dekad</title></circle>
 <text x="455" y="337" text-anchor="end" font-size="15" font-weight="700" stroke="#fff" stroke-width="3" paint-order="stroke" fill="#5e6a6b">77%</text>
 <line x1="359.9" y1="426" x2="359.9" y2="429" stroke="#7e8e8f"/><text x="359.9" y="439" text-anchor="middle" font-size="9.5" fill="#7e8e8f">50</text>
 <line x1="396.9" y1="426" x2="396.9" y2="429" stroke="#7e8e8f"/><text x="396.9" y="439" text-anchor="middle" font-size="9.5" fill="#7e8e8f">60</text>
@@ -878,88 +877,88 @@
 <rect x="472" y="54" width="108" height="104" fill="#fff" stroke="#e2e8e8"/>
 <line x1="472" y1="106.0" x2="580" y2="106.0" stroke="#e2e8e8"/>
 <line x1="479.4" y1="108.8" x2="572.6" y2="104.0" stroke="#1f2324" stroke-width="1.2" opacity="0.55"/>
-<circle cx="547.5" cy="123.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2001: +98.05%, production -7.9%</title></circle>
-<circle cx="490.4" cy="124.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2002: +95.32%, production -8.7%</title></circle>
-<circle cx="556.4" cy="89.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2003: +98.48%, production +7.5%</title></circle>
-<circle cx="541.5" cy="128.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2004: +97.77%, production -10.4%</title></circle>
-<circle cx="543.1" cy="95.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2005: +97.84%, production +5.1%</title></circle>
-<circle cx="535.8" cy="100.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2006: +97.49%, production +2.6%</title></circle>
-<circle cx="480.2" cy="119.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2007: +94.83%, production -6.0%</title></circle>
-<circle cx="479.4" cy="65.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2008: +94.79%, production +18.6%</title></circle>
-<circle cx="511.6" cy="118.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2009: +96.34%, production -5.8%</title></circle>
-<circle cx="562.0" cy="66.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2010: +98.75%, production +18.2%</title></circle>
-<circle cx="553.0" cy="132.7" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2011: +98.32%, production -12.3% (impact season)</title></circle>
-<circle cx="572.6" cy="79.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2012: +99.25%, production +12.5%</title></circle>
-<circle cx="511.8" cy="83.2" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2013: +96.35%, production +10.5% (impact season)</title></circle>
-<circle cx="542.3" cy="106.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2014: +97.81%, production -0.2%</title></circle>
-<circle cx="481.9" cy="131.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2015: +94.91%, production -11.5%</title></circle>
-<circle cx="555.2" cy="116.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2016: +98.42%, production -4.9%</title></circle>
-<circle cx="566.7" cy="147.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2017: +98.98%, production -19.0% (impact season)</title></circle>
-<circle cx="538.0" cy="73.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2018: +97.60%, production +14.8%</title></circle>
-<circle cx="561.1" cy="96.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2019: +98.71%, production +4.3% (impact season)</title></circle>
-<circle cx="545.9" cy="100.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2020: +97.98%, production +2.4%</title></circle>
-<circle cx="544.5" cy="136.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2021: +97.91%, production -14.2% (impact season)</title></circle>
-<circle cx="559.3" cy="92.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2022: +98.62%, production +6.4%</title></circle>
-<circle cx="526.7" cy="115.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2023: +97.06%, production -4.4%</title></circle>
-<circle cx="513.4" cy="100.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2024: +96.42%, production +2.5%</title></circle>
+<circle cx="547.5" cy="123.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2001: 98.1%, production -7.9%</title></circle>
+<circle cx="490.4" cy="124.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2002: 95.3%, production -8.7%</title></circle>
+<circle cx="556.4" cy="89.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2003: 98.5%, production +7.5%</title></circle>
+<circle cx="541.5" cy="128.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2004: 97.8%, production -10.4%</title></circle>
+<circle cx="543.1" cy="95.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2005: 97.8%, production +5.1%</title></circle>
+<circle cx="535.8" cy="100.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2006: 97.5%, production +2.6%</title></circle>
+<circle cx="480.2" cy="119.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2007: 94.8%, production -6.0%</title></circle>
+<circle cx="479.4" cy="65.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2008: 94.8%, production +18.6%</title></circle>
+<circle cx="511.6" cy="118.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2009: 96.3%, production -5.8%</title></circle>
+<circle cx="562.0" cy="66.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2010: 98.7%, production +18.2%</title></circle>
+<circle cx="553.0" cy="132.7" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2011: 98.3%, production -12.3% (impact season)</title></circle>
+<circle cx="572.6" cy="79.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2012: 99.3%, production +12.5%</title></circle>
+<circle cx="511.8" cy="83.2" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2013: 96.3%, production +10.5% (impact season)</title></circle>
+<circle cx="542.3" cy="106.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2014: 97.8%, production -0.2%</title></circle>
+<circle cx="481.9" cy="131.0" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2015: 94.9%, production -11.5%</title></circle>
+<circle cx="555.2" cy="116.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2016: 98.4%, production -4.9%</title></circle>
+<circle cx="566.7" cy="147.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2017: 99.0%, production -19.0% (impact season)</title></circle>
+<circle cx="538.0" cy="73.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2018: 97.6%, production +14.8%</title></circle>
+<circle cx="561.1" cy="96.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2019: 98.7%, production +4.3% (impact season)</title></circle>
+<circle cx="545.9" cy="100.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2020: 98.0%, production +2.4%</title></circle>
+<circle cx="544.5" cy="136.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2021: 97.9%, production -14.2% (impact season)</title></circle>
+<circle cx="559.3" cy="92.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2022: 98.6%, production +6.4%</title></circle>
+<circle cx="526.7" cy="115.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2023: 97.1%, production -4.4%</title></circle>
+<circle cx="513.4" cy="100.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2024: 96.4%, production +2.5%</title></circle>
 <text x="575" y="69" text-anchor="end" font-size="15" font-weight="700" stroke="#fff" stroke-width="3" paint-order="stroke" fill="#5e6a6b">0%</text>
 <rect x="472" y="188" width="108" height="104" fill="#fff" stroke="#e2e8e8"/>
 <line x1="472" y1="240.0" x2="580" y2="240.0" stroke="#e2e8e8"/>
 <line x1="479.4" y1="242.1" x2="572.6" y2="238.5" stroke="#1f2324" stroke-width="1.2" opacity="0.55"/>
-<circle cx="547.5" cy="251.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2001: +98.05%, yield -5.4%</title></circle>
-<circle cx="490.4" cy="258.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2002: +95.32%, yield -8.4%</title></circle>
-<circle cx="556.4" cy="238.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2003: +98.48%, yield +0.6%</title></circle>
-<circle cx="541.5" cy="244.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2004: +97.77%, yield -2.0%</title></circle>
-<circle cx="543.1" cy="215.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2005: +97.84%, yield +11.3%</title></circle>
-<circle cx="535.8" cy="204.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2006: +97.49%, yield +16.4%</title></circle>
-<circle cx="480.2" cy="244.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2007: +94.83%, yield -2.3%</title></circle>
-<circle cx="479.4" cy="242.1" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2008: +94.79%, yield -1.0%</title></circle>
-<circle cx="511.6" cy="252.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2009: +96.34%, yield -5.8%</title></circle>
-<circle cx="562.0" cy="233.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2010: +98.75%, yield +2.9%</title></circle>
-<circle cx="553.0" cy="260.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2011: +98.32%, yield -9.5% (impact season)</title></circle>
-<circle cx="572.6" cy="224.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2012: +99.25%, yield +7.2%</title></circle>
-<circle cx="511.8" cy="233.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2013: +96.35%, yield +3.1% (impact season)</title></circle>
-<circle cx="542.3" cy="225.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2014: +97.81%, yield +6.6%</title></circle>
-<circle cx="481.9" cy="241.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2015: +94.91%, yield -0.5%</title></circle>
-<circle cx="555.2" cy="249.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2016: +98.42%, yield -4.5%</title></circle>
-<circle cx="566.7" cy="278.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2017: +98.98%, yield -17.7% (impact season)</title></circle>
-<circle cx="538.0" cy="235.1" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2018: +97.60%, yield +2.3%</title></circle>
-<circle cx="561.1" cy="239.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2019: +98.71%, yield +0.2% (impact season)</title></circle>
-<circle cx="545.9" cy="223.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2020: +97.98%, yield +7.8%</title></circle>
-<circle cx="544.5" cy="261.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2021: +97.91%, yield -9.7% (impact season)</title></circle>
-<circle cx="559.3" cy="229.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2022: +98.62%, yield +4.7%</title></circle>
-<circle cx="526.7" cy="234.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2023: +97.06%, yield +2.6%</title></circle>
-<circle cx="513.4" cy="237.3" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2024: +96.42%, yield +1.3%</title></circle>
+<circle cx="547.5" cy="251.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2001: 98.1%, yield -5.4%</title></circle>
+<circle cx="490.4" cy="258.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2002: 95.3%, yield -8.4%</title></circle>
+<circle cx="556.4" cy="238.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2003: 98.5%, yield +0.6%</title></circle>
+<circle cx="541.5" cy="244.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2004: 97.8%, yield -2.0%</title></circle>
+<circle cx="543.1" cy="215.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2005: 97.8%, yield +11.3%</title></circle>
+<circle cx="535.8" cy="204.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2006: 97.5%, yield +16.4%</title></circle>
+<circle cx="480.2" cy="244.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2007: 94.8%, yield -2.3%</title></circle>
+<circle cx="479.4" cy="242.1" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2008: 94.8%, yield -1.0%</title></circle>
+<circle cx="511.6" cy="252.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2009: 96.3%, yield -5.8%</title></circle>
+<circle cx="562.0" cy="233.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2010: 98.7%, yield +2.9%</title></circle>
+<circle cx="553.0" cy="260.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2011: 98.3%, yield -9.5% (impact season)</title></circle>
+<circle cx="572.6" cy="224.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2012: 99.3%, yield +7.2%</title></circle>
+<circle cx="511.8" cy="233.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2013: 96.3%, yield +3.1% (impact season)</title></circle>
+<circle cx="542.3" cy="225.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2014: 97.8%, yield +6.6%</title></circle>
+<circle cx="481.9" cy="241.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2015: 94.9%, yield -0.5%</title></circle>
+<circle cx="555.2" cy="249.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2016: 98.4%, yield -4.5%</title></circle>
+<circle cx="566.7" cy="278.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2017: 99.0%, yield -17.7% (impact season)</title></circle>
+<circle cx="538.0" cy="235.1" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2018: 97.6%, yield +2.3%</title></circle>
+<circle cx="561.1" cy="239.6" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2019: 98.7%, yield +0.2% (impact season)</title></circle>
+<circle cx="545.9" cy="223.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2020: 98.0%, yield +7.8%</title></circle>
+<circle cx="544.5" cy="261.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6"><title>2021: 97.9%, yield -9.7% (impact season)</title></circle>
+<circle cx="559.3" cy="229.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2022: 98.6%, yield +4.7%</title></circle>
+<circle cx="526.7" cy="234.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2023: 97.1%, yield +2.6%</title></circle>
+<circle cx="513.4" cy="237.3" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6"><title>2024: 96.4%, yield +1.3%</title></circle>
 <text x="575" y="203" text-anchor="end" font-size="15" font-weight="700" stroke="#fff" stroke-width="3" paint-order="stroke" fill="#5e6a6b">0%</text>
 <rect x="472" y="322" width="108" height="104" fill="#fff" stroke="#e2e8e8"/>
 <line x1="476" y1="353.2" x2="576" y2="353.2" stroke="#e2e8e8"/>
-<line x1="547.4" y1="342.2" x2="547.4" y2="364.2" stroke="#9d372b" stroke-width="2"><title>Impact seasons average: +98.05%</title></line>
+<line x1="547.4" y1="342.2" x2="547.4" y2="364.2" stroke="#9d372b" stroke-width="2"><title>Impact seasons average: 98.1%</title></line>
 <line x1="476" y1="396.9" x2="576" y2="396.9" stroke="#e2e8e8"/>
-<line x1="530.7" y1="385.9" x2="530.7" y2="407.9" stroke="#5e6a6b" stroke-width="2"><title>Other seasons average: +97.25%</title></line>
-<circle cx="547.5" cy="398.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2001: +98.05%</title></circle>
-<circle cx="490.4" cy="401.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2002: +95.32%</title></circle>
-<circle cx="556.4" cy="400.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2003: +98.48%</title></circle>
-<circle cx="541.5" cy="393.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2004: +97.77%</title></circle>
-<circle cx="543.1" cy="394.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2005: +97.84%</title></circle>
-<circle cx="535.8" cy="401.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2006: +97.49%</title></circle>
-<circle cx="480.2" cy="390.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2007: +94.83%</title></circle>
-<circle cx="479.4" cy="400.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2008: +94.79%</title></circle>
-<circle cx="511.6" cy="400.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2009: +96.34%</title></circle>
-<circle cx="562.0" cy="396.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2010: +98.75%</title></circle>
-<circle cx="553.0" cy="350.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2011: +98.32% (impact season)</title></circle>
-<circle cx="572.6" cy="394.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2012: +99.25%</title></circle>
-<circle cx="511.8" cy="350.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2013: +96.35% (impact season)</title></circle>
-<circle cx="542.3" cy="396.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2014: +97.81%</title></circle>
-<circle cx="481.9" cy="396.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2015: +94.91%</title></circle>
-<circle cx="555.2" cy="397.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2016: +98.42%</title></circle>
-<circle cx="566.7" cy="359.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2017: +98.98% (impact season)</title></circle>
-<circle cx="538.0" cy="400.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2018: +97.60%</title></circle>
-<circle cx="561.1" cy="354.7" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2019: +98.71% (impact season)</title></circle>
-<circle cx="545.9" cy="402.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2020: +97.98%</title></circle>
-<circle cx="544.5" cy="349.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2021: +97.91% (impact season)</title></circle>
-<circle cx="559.3" cy="392.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2022: +98.62%</title></circle>
-<circle cx="526.7" cy="398.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2023: +97.06%</title></circle>
-<circle cx="513.4" cy="391.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2024: +96.42%</title></circle>
+<line x1="530.7" y1="385.9" x2="530.7" y2="407.9" stroke="#5e6a6b" stroke-width="2"><title>Other seasons average: 97.2%</title></line>
+<circle cx="547.5" cy="398.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2001: 98.1%</title></circle>
+<circle cx="490.4" cy="401.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2002: 95.3%</title></circle>
+<circle cx="556.4" cy="400.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2003: 98.5%</title></circle>
+<circle cx="541.5" cy="393.6" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2004: 97.8%</title></circle>
+<circle cx="543.1" cy="394.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2005: 97.8%</title></circle>
+<circle cx="535.8" cy="401.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2006: 97.5%</title></circle>
+<circle cx="480.2" cy="390.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2007: 94.8%</title></circle>
+<circle cx="479.4" cy="400.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2008: 94.8%</title></circle>
+<circle cx="511.6" cy="400.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2009: 96.3%</title></circle>
+<circle cx="562.0" cy="396.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2010: 98.7%</title></circle>
+<circle cx="553.0" cy="350.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2011: 98.3% (impact season)</title></circle>
+<circle cx="572.6" cy="394.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2012: 99.3%</title></circle>
+<circle cx="511.8" cy="350.3" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2013: 96.3% (impact season)</title></circle>
+<circle cx="542.3" cy="396.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2014: 97.8%</title></circle>
+<circle cx="481.9" cy="396.9" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2015: 94.9%</title></circle>
+<circle cx="555.2" cy="397.5" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2016: 98.4%</title></circle>
+<circle cx="566.7" cy="359.1" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2017: 99.0% (impact season)</title></circle>
+<circle cx="538.0" cy="400.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2018: 97.6%</title></circle>
+<circle cx="561.1" cy="354.7" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2019: 98.7% (impact season)</title></circle>
+<circle cx="545.9" cy="402.7" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2020: 98.0%</title></circle>
+<circle cx="544.5" cy="349.8" r="3.6" fill="#9d372b" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2021: 97.9% (impact season)</title></circle>
+<circle cx="559.3" cy="392.8" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2022: 98.6%</title></circle>
+<circle cx="526.7" cy="398.2" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2023: 97.1%</title></circle>
+<circle cx="513.4" cy="391.4" r="3" fill="#9aa8a9" stroke="#fff" stroke-width="0.6" opacity="0.9"><title>2024: 96.4%</title></circle>
 <text x="575" y="337" text-anchor="end" font-size="15" font-weight="700" stroke="#fff" stroke-width="3" paint-order="stroke" fill="#5e6a6b">31%</text>
 <line x1="504.6" y1="426" x2="504.6" y2="429" stroke="#7e8e8f"/><text x="504.6" y="439" text-anchor="middle" font-size="9.5" fill="#7e8e8f">96</text>
 <line x1="546.4" y1="426" x2="546.4" y2="429" stroke="#7e8e8f"/><text x="546.4" y="439" text-anchor="middle" font-size="9.5" fill="#7e8e8f">98</text>
@@ -1059,22 +1058,30 @@
     <figcaption>Production and yield: national millet and sorghum (FAOSTAT), percentage above or below the
       2001–2024 trend; yield is production per area harvested. Impact seasons: EM-DAT drought events and
       CERF drought allocations, dated to the growing season (section 1). Indicators are averaged over the
-      selected provinces: temperature July–September, detrended; biomass (cumulative FPAR anomaly) over the
-      Trigger 2 window, dekads 21–26, detrended; rainfall July–September; water balance and SPI-3 over the
-      Trigger 2 window. In the impact row, the vertical marks are the averages of impact seasons and of the
+      selected provinces: temperature July–September, detrended; biomass (cumulative FPAR anomaly, mean of cropland and rangeland) over the Trigger 2 window, dekads
+      21–26, detrended; rainfall July–September, not detrended; water balance and SPI-3 over the Trigger 2
+      window, not detrended. In the impact row, the vertical marks are the averages of impact seasons and of the
       other seasons. ASAP data downloaded on 4 November 2026. Hover a dot for the season and its
       values.</figcaption>
   </figure>
 
-  <p><strong>What the grid shows.</strong> Biomass and water balance, the indicators behind ASAP's
-     biomass warnings, track neither harvests nor impact: they explain 0 to 6 percent of the variation in
-     production and yield, and rank impact seasons at 31 to 62 percent. Temperature is the strongest
-     indicator for production, in the framework provinces (27 percent) and nationally (33 percent), and the
-     best at ranking impact seasons in the framework provinces (75 percent). Rainfall comes second and is
-     close: it explains slightly more of the variation in yield in the framework provinces (17 against
-     15 percent) and ranks impact seasons slightly better nationally (77 against 74 percent). With 24
-     seasons and five impact seasons, differences of a few points between temperature and rainfall are
-     not meaningful; the gap between either of them and biomass is.</p>
+  <p><strong>What the grid shows.</strong> Biomass and water balance, two of the indicators ASAP's
+     warnings are built on, track neither harvests nor impact: they explain 0 to 6 percent of the variation
+     in production and yield, and rank impact seasons at 31 to 62 percent. Temperature explains the most of
+     the variation in production, in the framework provinces (27 percent) and nationally (33 percent), and
+     ranks impact seasons at 75 and 74 percent. Rainfall comes second on production and is level with
+     temperature on the other rows: it explains slightly more of the variation in yield in the framework
+     provinces (17 against 15 percent) and ranks impact seasons slightly better nationally (77 against 74
+     percent).</p>
+  <p><strong>Two caveats.</strong> First, rainfall and SPI-3 are not detrended here, and rainfall in the
+     provinces has risen since 1989 (by about 0.2 to 0.3 mm per dekad each year). Detrended in the same way as
+     temperature, rainfall ranks impact seasons at 77 percent in the framework provinces and 81 percent
+     nationally, a little above temperature, while temperature still explains more of the variation in
+     production (27 and 33 percent, against 14 and 28). Second, the impact row uses the impact seasons dated
+     to the growing season; with the framework's own dating (section 3), biomass in the framework provinces
+     ranks impact seasons at 77 percent and temperature at 67. With 24 seasons and five impact seasons,
+     differences of a few points are not meaningful. What holds in every version is the production row:
+     temperature explains far more of it than biomass does.</p>
 
   <script>
     document.querySelector(".seg").addEventListener("click", function (e) {
@@ -1353,12 +1360,12 @@
 
   <div class="tblwrap"><table>
     <tr><th>Predictors of production anomaly</th><th class="num">R², framework provinces</th><th class="num">Leave-one-out R²</th><th class="num">R², all provinces</th><th class="num">Leave-one-out R²</th></tr>
-    <tr><td class="best">Temperature (detrended)</td><td class="num best">0.27</td><td class="num best">+0.17</td><td class="num best">0.33</td><td class="num best">+0.24</td></tr>
+    <tr><td class="best">Temperature (detrended)</td><td class="num best">0.27</td><td class="num best">+0.18</td><td class="num best">0.33</td><td class="num best">+0.24</td></tr>
     <tr><td>Biomass, detrended</td><td class="num">0.02</td><td class="num">−0.13</td><td class="num">0.01</td><td class="num">−0.18</td></tr>
     <tr><td>Biomass, as published</td><td class="num">0.02</td><td class="num">−0.15</td><td class="num">0.01</td><td class="num">−0.18</td></tr>
     <tr><td>Water balance</td><td class="num">0.06</td><td class="num">−0.09</td><td class="num">0.00</td><td class="num">−0.25</td></tr>
     <tr><td>SPI-3</td><td class="num">0.13</td><td class="num">+0.03</td><td class="num">0.18</td><td class="num">+0.06</td></tr>
-    <tr><td>Rainfall</td><td class="num">0.12</td><td class="num">−0.04</td><td class="num">0.24</td><td class="num">+0.09</td></tr>
+    <tr><td>Rainfall</td><td class="num">0.12</td><td class="num">−0.04</td><td class="num">0.25</td><td class="num">+0.09</td></tr>
     <tr><td>Biomass + temperature</td><td class="num">0.27</td><td class="num">+0.10</td><td class="num">0.33</td><td class="num">+0.14</td></tr>
     <tr><td>Biomass + water balance + temperature</td><td class="num">0.29</td><td class="num">−0.01</td><td class="num">0.33</td><td class="num">0.00</td></tr>
     <tr><td>Biomass × temperature interaction</td><td class="num">0.27</td><td class="num">+0.04</td><td class="num">0.34</td><td class="num">+0.12</td></tr>
@@ -1366,30 +1373,33 @@
 
   <div class="callout warn">
     <p><strong>Updated 4 November 2026.</strong> This table and the grid above use ASAP data downloaded
-       on 4 November 2026. ASAP revised its rainfall series between September and October 2026: July to
-       September rainfall in the four framework provinces changed by up to 12 mm per dekad, and SPI-3,
-       which is computed from it, changed with it. The framework-province temperature anomalies moved by
-       at most 0.06 °C. Rainfall and SPI-3 now explain about twice as much as in the first version of this
-       table (rainfall 0.07 → 0.12 in the framework provinces and 0.19 → 0.24 nationally); temperature,
-       biomass and water balance are unchanged to within 0.01. Figures 1 to 3 and the table in section 3
-       still use the September download; their values differ from the revised data by at most 0.04 in AUC
-       and 0.06 °C, and none of their conclusions change.</p>
+       on 4 November 2026. ASAP revised its rainfall series between September and October 2026, and to a
+       lesser extent its biomass series: July to September rainfall in the four framework provinces changed by
+       up to 12 mm per dekad (SPI-3, computed from it, changed with it), framework-province biomass by up to
+       0.2 z, and the framework-province temperature anomalies by at most 0.06 °C. Rainfall now explains about
+       twice as much as in the first version of this table (0.07 → 0.12 in the framework provinces, 0.19 →
+       0.25 nationally) and SPI-3 somewhat more (0.07 → 0.13 and 0.14 → 0.18); temperature, biomass and water
+       balance are unchanged to within 0.01. Figures 1 to 3, the table in section 3 and the +0.3 °C example in
+       section 4 still use the September download. Their values differ from the revised data by about 0.04 in
+       AUC, 0.06 °C and 0.2 z in biomass; in Figure 3 two national seasons change cell and the national cell
+       means move by up to 3 points, and with the revised data 2014 falls just below +0.3 °C (+0.28 °C). The
+       framework-province cells of Figure 3 and the conclusions do not change.</p>
   </div>
 
   <ul>
-    <li><strong>Temperature has the most out-of-sample skill.</strong> Its leave-one-out R² is +0.17 in
+    <li><strong>Temperature has the most out-of-sample skill.</strong> Its leave-one-out R² is +0.18 in
         the framework provinces and +0.24 nationally. With the revised rainfall, rainfall and SPI-3 have
-        some out-of-sample skill nationally (+0.09 and +0.06) and SPI-3 very little in the framework
-        provinces (+0.03); biomass and water balance have a negative leave-one-out R², meaning they
-        predict production worse than the mean does. The temperature coefficient is −5.4 to −6.0
+        some out-of-sample skill nationally (+0.09 and +0.06); in the framework provinces SPI-3 has very
+        little (+0.03) and rainfall none (−0.04). Biomass and water balance have a negative leave-one-out
+        R², meaning they predict production worse than the mean does. The temperature coefficient is −5.4 to −6.0
         percent of trend per standard deviation, which is −16 percent per degree in the framework
         provinces and −27 percent per degree nationally (the national anomaly has a smaller
         spread).</li>
     <li><strong>Adding biomass to temperature adds nothing</strong>, and the interaction term is
         zero (p 0.92 for the framework provinces). The hypothesis that heat makes a biomass
         deficit worse cannot be seen because the biomass deficit itself carries no signal for
-        production. Adding water balance and biomass together to temperature raises the
-        in-sample R² by two points and lowers the out-of-sample one to about zero.</li>
+        production. In the framework provinces, adding water balance and biomass together to
+        temperature raises the in-sample R² by two points and lowers the out-of-sample one to about zero.</li>
     <li><strong>This is not an artefact of the window.</strong> Biomass over the end of season
         (dekads 27 to 30) does a little better (r 0.28 to 0.33, not significant), the full
         season no better than the window. Temperature over August to September, the grain-filling
@@ -1584,8 +1594,7 @@
     <li><strong>Water balance ranks below chance</strong> throughout: the impact seasons had
         slightly better water balance than the others. This matches the earlier finding that
         ASAP's water-balance index is rainfall-total-driven and misses what matters.</li>
-    <li><strong>The combined score does not beat temperature alone.</strong> Adding biomass to
-        temperature lowers the AUC in five of seven variants.</li>
+    <li><strong>The combined score does not beat temperature alone.</strong> Adding biomass to temperature lowers the AUC in six of seven variants.</li>
     <li><strong>The chronic underfunded allocations are not droughts.</strong> Adding 2005 to
         2008 pushes every score toward 0.5, which is the expected result if those seasons were
         not meteorologically unusual, and the CERF supplement's note on 2008 says as much.</li>

@@ -45,6 +45,11 @@ COLS = [  # key suffix, title lines, unit for ticks, tooltip unit, drought-like 
     ("wsi", ["Water balance", "(WSI, %)"], "%", "%", -1),
     ("spi", ["Rainfall index", "(SPI-3)"], "", "", -1),
 ]
+SIGNED = {"t_dt", "z_dt", "spi"}  # anomalies get a sign in tooltips; rainfall and WSI are absolute values
+
+
+def fmtval(key, v, tunit):
+    return (f"{v:+.2f}" if key in SIGNED else f"{v:.1f}") + tunit
 ROWS = [
     ("prod_anom", ["Production", "vs trend (%)"], "explained"),
     ("yield_anom", ["Yield", "vs trend (%)"], "explained"),
@@ -59,7 +64,7 @@ def auc(score, lab):
 
 def ticks(lo, hi):
     span = hi - lo
-    step = next(s for s in [0.1, 0.2, 0.25, 0.5, 1, 2, 2.5, 5, 10, 20, 25, 50] if span / s <= 4)
+    step = next(s for s in [0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50] if span / s <= 4)
     first = np.ceil(lo / step) * step
     return [round(v, 6) for v in np.arange(first, hi + 1e-9, step)]
 
@@ -116,7 +121,7 @@ def grid(scope, title):
                          f'y2="{Y(ic + sl * xs.max()):.1f}" stroke="{INK}" stroke-width="1.2" opacity="0.55"/>')
                 for yr in D.index:
                     isimp = D.at[yr, "impact_main"] == 1
-                    tip = f"{yr}: {xs[yr]:+.2f}{tunit}, {rl[0].lower()} {ys[yr]:+.1f}%" + (" (impact season)" if isimp else "")
+                    tip = f"{yr}: {fmtval(key, xs[yr], tunit)}, {rl[0].lower()} {ys[yr]:+.1f}%" + (" (impact season)" if isimp else "")
                     o.append(f'<circle cx="{X(xs[yr]):.1f}" cy="{Y(ys[yr]):.1f}" r="{3.6 if isimp else 3}" fill="{RED if isimp else GREY}" '
                              f'stroke="#fff" stroke-width="0.6"><title>{esc(tip)}</title></circle>')
                 val = r * r
@@ -130,12 +135,12 @@ def grid(scope, title):
                     o.append(f'<line x1="{x0 + 4}" y1="{lanes[lab]:.1f}" x2="{x0 + pw - 4}" y2="{lanes[lab]:.1f}" stroke="{GRID}"/>')
                     m = xs[D["impact_main"] == lab].mean()
                     o.append(f'<line x1="{X(m):.1f}" y1="{lanes[lab] - 11:.1f}" x2="{X(m):.1f}" y2="{lanes[lab] + 11:.1f}" '
-                             f'stroke="{RED if lab else MUTED}" stroke-width="2"><title>{esc(("Impact seasons" if lab else "Other seasons") + f" average: {m:+.2f}{tunit}")}</title></line>')
+                             f'stroke="{RED if lab else MUTED}" stroke-width="2"><title>{esc(("Impact seasons" if lab else "Other seasons") + " average: " + fmtval(key, m, tunit))}</title></line>')
                 rng = np.random.default_rng(7)
                 for yr in D.index:
                     lab = int(D.at[yr, "impact_main"])
                     jit = rng.uniform(-6, 6)
-                    tip = f"{yr}: {xs[yr]:+.2f}{tunit}" + (" (impact season)" if lab else "")
+                    tip = f"{yr}: {fmtval(key, xs[yr], tunit)}" + (" (impact season)" if lab else "")
                     o.append(f'<circle cx="{X(xs[yr]):.1f}" cy="{lanes[lab] + jit:.1f}" r="{3.6 if lab else 3}" fill="{RED if lab else GREY}" '
                              f'stroke="#fff" stroke-width="0.6" opacity="0.9"><title>{esc(tip)}</title></circle>')
                 val = auc(sign * xs.values, imp)
