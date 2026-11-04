@@ -9,7 +9,9 @@ four framework provinces (AOI) and to the unweighted national mean of all provin
 import json, sys
 import numpy as np, pandas as pd
 from scipy import stats
-S=sys.argv[1]; AOI={3820,3824,3825,3827}
+# ASAP region ids of Loroum, Oudalan, Séno, Yagha in the indicator export (country_id=17). Before ASAP
+# renumbered its units in October 2026 these were 3820, 3824, 3825, 3827 (country_id=219).
+S=sys.argv[1]; AOI={1557,1561,1997,1999}
 JAS=range(19,28); WIN=range(21,27)
 def load(name):
     d=pd.read_csv(f"{S}/asap_bfa/{name}.csv",dtype={"date":str}); d["date"]=pd.to_datetime(d["date"],format="%Y%m%d")
