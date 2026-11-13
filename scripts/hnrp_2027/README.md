@@ -28,6 +28,19 @@ back here (gitignored) to rebuild.
   pasture/water coding) recomputed by `level_of_concern.py` with 2026-only vegetation. It counts
   concurring hazard signals and keeps FEWS NET out, so it does not contradict the no-blended-index
   rule above. Their coding sits in `work/ocha_bfa_2026-10-20.csv` (blob only).
+- **Rain gauges 2026 (v1.2, 13 Nov 2026)**: a table of end-of-season gauge readings from ANAM (seasonal totals
+  against last year and the 1991–2020 normal, season start and end dates, longest dry spell), received as a
+  Word document that is not public. Everything v1.2 added to the page carries a dated label, and a notice
+  under the page title lists where the additions are; when a later version adds something, change `UPD_FR` /
+  `UPD_EN` in `gen_page.py` and the notice in the template. `stations_2026.py` reads the table and the cell shading that carries the
+  source's own classes, checks the printed ratios and classes against the totals, and places each gauge at the
+  seat of the commune it is named after (COD-AB v03), or at the GeoNames place of that name for gauges in a
+  village or a research station. The page shows one dot per gauge under the 2026 season section,
+  a comparison with the level of concern, a station table, a `Postes_pluvio` workbook sheet and a CSV. Gauges
+  are never aggregated to provinces (coverage is uneven) and the level of concern does not use them. The
+  document, the description of its layout (`work/stations_2026_format.json`), the station-name crosswalk
+  (`work/stations_2026_alias.csv`) and the parsed table (`work/stations_2026.csv`) stay in the work directory
+  (blob only).
 - **Floods are not ranked.** Satellite/modelled exposure layers (FloodScan, IMERG, JRC flood zones)
   were validated against EM-DAT province lists and did not discriminate; recorded impacts (CONASUR,
   EM-DAT) are shown instead, exposure layers stay in the files flagged "non validé".
@@ -46,9 +59,14 @@ python build_flood.py $W                       # FloodScan Aug-Oct 5-day peak pe
 python build_context.py $W                     # HNRP 2026, CH Mar 2024, EM-DAT, population
 python consolidate.py $W                       # scores, categories, per-province + per-region tables
 python level_of_concern.py $W                  # level of concern 2026 (needs work/ocha_bfa_2026-10-20.csv)
+python stations_2026.py <table.docx> $W        # rain gauges 2026 (needs work/stations_2026_format.json + _alias.csv)
 python gen_page.py $W build                    # plaintext page + CSV/XLSX (local only!)
 PAGE_PASSWORD=... python encrypt_page.py build/index.html ../../pages/hnrp-2027/page.enc
 ```
+
+To add or refresh one input without moving the others (as for v1.2), rerun only its own step and
+`gen_page.py`: `prepare_inputs.py` downloads ASAP again, ASAP revises recent dekads, and the level of
+concern then shifts.
 
 `gen_page.py` also reads `research/documents_fr.json` (curated document list, FR/EN notes) and
 `research/conasur_flood_impacts.csv` (flood impacts read from CONASUR/OCHA/IFRC documents) from the
