@@ -28,9 +28,11 @@ back here (gitignored) to rebuild.
   pasture/water coding) recomputed by `level_of_concern.py` with 2026-only vegetation. It counts
   concurring hazard signals and keeps FEWS NET out, so it does not contradict the no-blended-index
   rule above. Their coding sits in `work/ocha_bfa_2026-10-20.csv` (blob only).
-- **Rain gauges 2026 (v1.2, 11 Nov 2026)**: a table of end-of-season gauge readings (seasonal totals against
-  last year and the 1991–2020 normal, season start and end dates, longest dry spell), received as a Word
-  document that is not public. `stations_2026.py` reads the table and the cell shading that carries the
+- **Rain gauges 2026 (v1.2, 13 Nov 2026)**: a table of end-of-season gauge readings from ANAM (seasonal totals
+  against last year and the 1991–2020 normal, season start and end dates, longest dry spell), received as a
+  Word document that is not public. Everything v1.2 added to the page carries a dated label, and a notice
+  under the page title lists where the additions are; when a later version adds something, change `UPD_FR` /
+  `UPD_EN` in `gen_page.py` and the notice in the template. `stations_2026.py` reads the table and the cell shading that carries the
   source's own classes, checks the printed ratios and classes against the totals, and places each gauge at the
   seat of the commune it is named after (COD-AB v03), or at the GeoNames place of that name for gauges in a
   village or a research station. The page shows one dot per gauge under the 2026 season section,
