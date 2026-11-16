@@ -44,6 +44,9 @@ back here (gitignored) to rebuild.
 - **Shorter page (v1.3, 16 Nov 2026)**: same data and downloads as v1.2. Text cut to short captions, the
   method moved into collapsed blocks that the page's links open, counts added to legends, and charts added
   for gauges by level of concern and provinces by FEWS NET phase per period.
+- **Side menu (v1.4, 16 Nov 2026)**: same data and downloads as v1.3. A menu on the left at 1200 px and
+  wider (a "Contents" button below that) lists the sections and the Method blocks and highlights the
+  current one; the download buttons now follow the language switch.
 - **Floods are not ranked.** Satellite/modelled exposure layers (FloodScan, IMERG, JRC flood zones)
   were validated against EM-DAT province lists and did not discriminate; recorded impacts (CONASUR,
   EM-DAT) are shown instead, exposure layers stay in the files flagged "non validé".
