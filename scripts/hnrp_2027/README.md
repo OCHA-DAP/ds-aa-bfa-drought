@@ -41,6 +41,9 @@ back here (gitignored) to rebuild.
   document, the description of its layout (`work/stations_2026_format.json`), the station-name crosswalk
   (`work/stations_2026_alias.csv`) and the parsed table (`work/stations_2026.csv`) stay in the work directory
   (blob only).
+- **Shorter page (v1.3, 16 Nov 2026)**: same data and downloads as v1.2. Text cut to short captions, the
+  method moved into collapsed blocks that the page's links open, counts added to legends, and charts added
+  for gauges by level of concern and provinces by FEWS NET phase per period.
 - **Floods are not ranked.** Satellite/modelled exposure layers (FloodScan, IMERG, JRC flood zones)
   were validated against EM-DAT province lists and did not discriminate; recorded impacts (CONASUR,
   EM-DAT) are shown instead, exposure layers stay in the files flagged "non validé".
