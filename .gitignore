@@ -4,3 +4,10 @@ scripts/hnrp_2027/build/
 scripts/hnrp_2027/research/
 scripts/hnrp_2027/gen_page.py
 scripts/hnrp_2027/page_template.html
+
+# IRI review: partner-derived settings and the restricted page source stay out of git
+scripts/iri_review/config.local.json
+scripts/iri_review/page/
+scripts/iri_review/__pycache__/
+scripts/obs_review/__pycache__/
+build/
