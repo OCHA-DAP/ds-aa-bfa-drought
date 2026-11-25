@@ -27,6 +27,7 @@
   button:disabled { opacity: .5; cursor: wait; }
   .err { color: var(--e6); font-size: 14px; min-height: 1.3em; margin: 0; }
   .lock { font-size: 13px; }
+  h1 .fr { font-size: 18px; color: var(--n7); }
   [hidden] { display: none !important; }
 </style>
 </head>
@@ -34,14 +35,14 @@
 <a class="home-link" href="../">← Burkina Faso drought AA</a>
 <div class="gate" id="gate">
   <p class="kicker">Burkina Faso · OCHA Centre for Humanitarian Data</p>
-  <h1>Drought trigger options for 2027</h1>
-  <p>Restricted access: a working draft for the technical working group. Enter the password to open the page.</p>
+  <h1>Drought trigger options for 2027<br><span class="fr" lang="fr">Options de déclencheurs sécheresse pour 2027</span></h1>
+  <p>Restricted access: a working draft for the technical working group. Enter the password to open the page. The page is in English and French.<br><span lang="fr">Accès restreint&nbsp;: version de travail pour le groupe de travail technique. Saisissez le mot de passe pour ouvrir la page. La page est en anglais et en français.</span></p>
   <form id="f" autocomplete="off">
-    <input id="pw" type="password" placeholder="Password" aria-label="Password" required>
-    <button id="go" type="submit">Open</button>
+    <input id="pw" type="password" placeholder="Password / mot de passe" aria-label="Password / mot de passe" required>
+    <button id="go" type="submit">Open / Ouvrir</button>
   </form>
   <p class="err" id="err" role="alert"></p>
-  <p class="lock">The content is encrypted in the page and decrypted in your browser; nothing is sent to a server.</p>
+  <p class="lock">The content is encrypted in the page and decrypted in your browser; nothing is sent to a server.<br><span lang="fr">Le contenu est chiffré dans la page et déchiffré dans votre navigateur&nbsp;; rien n’est envoyé à un serveur.</span></p>
 </div>
 <script>
 var ITER=300000, KEY='bfatrig27';
@@ -63,7 +64,7 @@ async function attempt(pw,fromStore){
   }catch(e){
     try{ sessionStorage.removeItem(KEY); }catch(_){}
     document.getElementById('gate').hidden=false;
-    if(!fromStore){ err.textContent='Wrong password.'; document.getElementById('pw').select(); }
+    if(!fromStore){ err.textContent='Wrong password. / Mot de passe incorrect.'; document.getElementById('pw').select(); }
     btn.disabled=false;
   }
 }
