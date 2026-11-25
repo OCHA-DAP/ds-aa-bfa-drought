@@ -20,7 +20,7 @@ manual dispatch.
 | `/asap-explorer/` | `pages/asap-explorer/index.html` + `explorer.js` + `data.json` (built by `scripts/asap_explorer/`) |
 | `/temperature-explorer/` | `pages/temperature-explorer/index.html` + `explorer.js` + `data.json` (built by `scripts/temperature_explorer/`) |
 | `/hnrp-2027/` | `pages/hnrp-2027/index.html` (password gate) + `page.enc` (encrypted page); built by `scripts/hnrp_2027/` |
-| `/trigger-review-2027/` | `pages/trigger-review-2027/index.html` (password gate) + `page.enc`; analysis in `scripts/iri_review/` and `scripts/obs_review/`, page generator gitignored (see `scripts/iri_review/README.md`) |
+| `/trigger-review-2027/` | `pages/trigger-review-2027/index.html` (password gate) + `page.enc` (English and French, language switch); analysis in `scripts/iri_review/` and `scripts/obs_review/`, page generator gitignored (see `scripts/iri_review/README.md`) |
 
 ## Adding a page
 

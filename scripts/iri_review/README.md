@@ -4,7 +4,7 @@ Backtest of IRI's NextGen July–September rainfall forecast (FbF Maproom, `burk
 trigger for the former Boucle du Mouhoun, Nord, Centre-Nord and Sahel regions, with thresholds
 set from earlier seasons only; comparison with ECMWF SEAS5; overall return period with the
 observational options in `../obs_review/`. Results are on the restricted page
-`/trigger-review-2027/`.
+`/trigger-review-2027/`, in English and French (one encrypted page with a language switch).
 
 IRI shared its candidate table with us; it is not public. The settings taken from it live in
 `config.local.json`, and the page generator in `page/`; both are gitignored. Copies are kept on
